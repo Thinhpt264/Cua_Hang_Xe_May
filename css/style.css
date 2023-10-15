@@ -332,3 +332,7 @@ h6,
     position: fixed;
     z-index: 100;
 }
+.img--form{
+    height: 500px;
+    background-repeat: none;
+}
