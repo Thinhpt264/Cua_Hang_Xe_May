@@ -5,7 +5,9 @@
     --light: #F4F5F8;
     --dark: #1C1E32;
 }
-
+.navbar-brand{
+    display: flex;
+}
 h1,
 h2,
 .font-weight-bold {
@@ -24,6 +26,13 @@ h6,
     font-weight: 500 !important;
 }
 
+#logo{
+    height: 100px;
+
+}
+#logo:hover{
+    margin-left:15px ;
+}
 .btn-square {
     width: 36px;
     height: 36px;

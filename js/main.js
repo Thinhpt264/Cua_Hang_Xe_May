@@ -17,8 +17,6 @@
         toggleNavbarMethod();
         $(window).resize(toggleNavbarMethod);
     });
-
-
     // Date and time picker
     $('.date').datetimepicker({
         format: 'L'
@@ -99,7 +97,7 @@
 
     // Vendor carousel
     $('.vendor-carousel').owlCarousel({
-        loop: true,
+
         margin: 30,
         dots: true,
         loop: true,
