@@ -1,5 +1,9 @@
 /********** Template CSS **********/
-:root {
+
+html {
+    scroll-behavior: smooth;
+  }
+  :root {
     --primary: #F77D0A;
     --secondary: #2B2E4A;
     --light: #F4F5F8;
@@ -81,7 +85,7 @@ h6,
     height: 50%;
     bottom: 0;
     left: 0;
-    background: #ffffff;
+    background: rgb (255, 0, 0);
 }
 
 .navbar-dark .navbar-nav .nav-link {
@@ -141,7 +145,8 @@ h6,
     .page-header {
         height: 300px;
     }
-}
+}   
+
 
 .service-item {
     height: 320px;
@@ -344,4 +349,12 @@ h6,
 .img--form{
     height: 500px;
     background-repeat: none;
+}
+header {
+    width: 100%;
+    position: fixed;
+    z-index: 9;
+}
+.sticky2 {
+    display: none;
 }
