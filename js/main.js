@@ -125,3 +125,18 @@
     
 })(jQuery);
 
+
+window.onscroll = function() {myFunction()};
+var header = document.getElementById("myHeader");
+var topheader = document.getElementsByClassName("top-header-1");
+var sticky = header.offsetTop;
+var sticky2 = topheader.offsetTop;
+function myFunction() {
+  if (window.pageYOffset > sticky) {
+    header.classList.add("sticky");
+    topheader.classList.add("sticky2");
+  } else {
+    header.classList.remove("sticky");
+    topheader.classList.remove("sticky2");
+  }
+}
