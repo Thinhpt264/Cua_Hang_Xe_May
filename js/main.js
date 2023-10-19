@@ -124,7 +124,11 @@
     });
     
 })(jQuery);
-
+// loader
+let loader = document.getElementById("preloader");
+        window.addEventListener("load", function(){
+            loader.style.display = "none";
+})
 
 window.onscroll = function() {myFunction()};
 var header = document.getElementById("myHeader");
@@ -134,9 +138,8 @@ var sticky2 = topheader.offsetTop;
 function myFunction() {
   if (window.pageYOffset > sticky) {
     header.classList.add("sticky");
-    topheader.classList.add("sticky2");
   } else {
     header.classList.remove("sticky");
-    topheader.classList.remove("sticky2");
+   
   }
 }
