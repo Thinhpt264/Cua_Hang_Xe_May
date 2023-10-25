@@ -358,3 +358,30 @@ header {
 .sticky2 {
     display: none;
 }
+.listPage{
+    padding:10px;
+    text-align: center;
+    list-style: none;
+    transition: width 2s;
+}
+.listPage li{
+    background-color: #ffffffBD;
+    padding:20px;
+    display: inline-block;
+    margin:0 10px;
+    cursor: pointer;
+}
+.listPage .active{
+    background-color: #F77D0A;
+    animation: test 0.5s;
+    
+}
+@keyframes test {
+    0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    
+}
