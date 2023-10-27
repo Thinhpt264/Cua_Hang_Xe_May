@@ -1,6 +1,6 @@
 (function ($) {
     "use strict";
-    
+
     // Dropdown on mouse hover
     $(document).ready(function () {
         function toggleNavbarMethod() {
@@ -202,19 +202,7 @@ function changePage(i) {
 
 //valid register
         //show and hidde password
-        let eyebtn = document.getElementById("eye-btn");
-        // let eyeSlashbtn = document.getElementById("eye-slash-btn");
-        let password = document.getElementById("inputPassword");
-        
-        eyebtn.onclick = function() {
-            if(password.type == "password") {
-                password.type = "text";
-                eyebtn.classList.replace("fa-eye", "fa-eye-slash");
-            }else {
-                password.type = "password";
-                eyebtn.classList.replace("fa-eye-slash", "fa-eye");
-            }
-        }
+       
         //validate form
         // function checkName() {
             // var inputName = document.getElementById('inputName').value;
