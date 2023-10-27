@@ -237,7 +237,18 @@
     <!-- Template Javascript -->
     <script src="../js/main.js"></script>
     <script>
-
+         let eyebtn = document.getElementById("eye-btn");
+        // let eyeSlashbtn = document.getElementById("eye-slash-btn");
+        let password = document.getElementById("inputPassword");
+        eyebtn.onclick = function() {
+            if(password.type == "password") {
+                password.type = "text";
+                eyebtn.classList.replace("fa-eye", "fa-eye-slash");
+            }else {
+                password.type = "password";
+                eyebtn.classList.replace("fa-eye-slash", "fa-eye");
+            }
+        }
     </script>
 </body>
 </html>
