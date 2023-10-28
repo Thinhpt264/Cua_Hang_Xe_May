@@ -19,10 +19,10 @@
     });
     // Date and time picker
     $('.date').datetimepicker({
-        format: 'L'
+        formatDate: 'dd-mm-yyyy'
     });
     $('.time').datetimepicker({
-        format: 'LT'
+        format: ''
     });
     
     
