@@ -116,10 +116,10 @@
                                     <input type="text" class="form-control p-4 rounded" placeholder="Email hoặc số điện thoại" required="required">
                                 </div>
                                 <div class="col-10 form-group">
-                                    <input  id="inputPass" type="password" class="form-control p-4 rounded " placeholder="Mật khẩu" required="required">
+                                    <input  id="input" type="password" class="form-control p-4 rounded " placeholder="Mật khẩu" required="required">
                                     <span id="showOrHide" onclick="showPass()">
-                                        <i class="fa-solid fa-eye-slash" id="eye-btn-close"></i>
-                                        <i class="fa-solid fa-eye" id="eye-btn"></i>
+                                         <i class ="fa-solid fa-eye" id="show"></i>
+                                       <i class ="fa-solid fa-eye-slash" id="hide" style="display: none"></i>
                                     </span>
                                 </div>
                                 <div class="register ml-3">
@@ -213,6 +213,24 @@
     <script src="../lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
 
     <!-- Template Javascript -->
+    <script>
+    function showPass() {
+        var input = document.getElementById("input");
+        var hide = document.getElementById("hide");
+        var show = document.getElementById("show");
+        if(input.type === "password"){
+            input.type = "text";
+            hide.style.display = "inline";
+            show.style.display = "none";
+        }else{
+            input.type = "password";
+            hide.style.display = "none";
+            show.style.display = "inline";
+        }
+    }
+
+    </script>
+
     <script src="../js/main.js"></script>
 </body>
 </html>
