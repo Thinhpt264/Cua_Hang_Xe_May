@@ -13,7 +13,9 @@
  
      <!-- Font Awesome -->
      <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" rel="stylesheet">
- 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
      <!-- Libraries Stylesheet -->
      <link href="../lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
      <link href="../lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
@@ -92,7 +94,6 @@
             </div>
         </div>
         <!-- Navbar End -->
-    
     </header>
     <div class="container-fluid" style="width: 100%;
     height: 155px;">
@@ -111,15 +112,20 @@
                         <form>
                             <div class="row">
                                 <div class="col-10 form-group">
-                                   
                                     <input type="text" class="form-control p-4 rounded" placeholder="Email hoặc số điện thoại" required="required">
                                 </div>
                                 <div class="col-10 form-group">
-                                    
-                                    <input type="password" class="form-control p-4 rounded " placeholder="Mật khẩu" required="required">
+                                    <input  id="input" type="password" class="form-control p-4 rounded " placeholder="Mật khẩu" required="required">
+                                    <span id="showOrHide" onclick="showPass()">
+                                          <i class ="fa-solid fa-eye-slash" id="hide" style="display: none"></i>
+                                         <i class ="fa-solid fa-eye" id="show"></i>
+                                    </span>
+                                </div>
+                                <div class="register ml-3">
+                                    Bạn chưa có tài khoản? <a href="../assets/register.html">Đăng kí ngay</a>
                                 </div>
                             </div>
-                            <div class="button-register">
+                            <div class="button-register ">
                                 <button class="btn btn-primary py-3 my-5" type="submit">Đăng Nhập</button>
                             </div>
                         </form>
@@ -206,6 +212,24 @@
     <script src="../lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
 
     <!-- Template Javascript -->
+    <script>
+    function showPass() {
+        var input = document.getElementById("input");
+        var hide = document.getElementById("hide");
+        var show = document.getElementById("show");
+        if(input.type === "password"){
+            input.type = "text";
+            hide.style.display = "inline";
+            show.style.display = "none";
+        }else{
+            input.type = "password";
+            hide.style.display = "none";
+            show.style.display = "inline";
+        }
+    }
+
+    </script>
+
     <script src="../js/main.js"></script>
 </body>
 </html>
