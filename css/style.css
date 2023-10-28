@@ -144,7 +144,6 @@ h6,
 
 .page-header {
     height: 400px;
-    margin-bottom: 90px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -509,4 +508,6 @@ header {
     color: rgba(0, 0, 0, 0.3);
     cursor: pointer;
   }
-  
+  .form-group{
+    margin-top: 20px;
+  }
