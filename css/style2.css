@@ -30592,4 +30592,26 @@ div.tagsinput span.tag a {
   }
 }
 
+.listPage{
+  padding:10px;
+  text-align: center;
+  list-style: none;
+  transition: width 2s;
+}
+.listPage li{
+  background-color: #ffffffBD;
+  padding:20px;
+  display: inline-block;
+  margin:0 10px;
+  cursor: pointer;
+}
+.listPage .active{
+  background-color: #F77D0A;
+  animation: test 0.5s;
+  
+}
+a:hover {
+  text-decoration: none;
+}
+
 /*# sourceMappingURL=../maps/vertical-layout-light/style.css.map */
