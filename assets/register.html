@@ -138,14 +138,21 @@
                                     <label>Password <span style="color: red;">(*)</span></label> 
                                     <span style="color: red; background-color: #fce8ec; padding: 2px;" id="error-password"></span>
                                     <input type="password" class="form-control p-4" id="inputPassword" placeholder="Nhập mật khẩu của bạn">
-                                    <i class="fa-solid fa-eye" id="eye-btn"></i>                       
+                                    <span id="eye-btn" onclick="inputpass()">
+                                        <i class="fa-solid fa-eye" id="eye-btn_show"></i>  
+                                        <i class ="fa-solid fa-eye-slash" id="eye-btn_hide" style="display: none"></i>
+                                    </span>
+                                                         
                                     <!-- <i class="fa-solid fa-eye-slash" id="eye-slash-btn"></i>  -->
                                 </div>
                                 <div class="col-12 form-group">
                                       <label for="passw">Nhập lại mật khẩu <span style="color: red;">(*)</span></label>
                                       <span style="color: red; background-color: #fce8ec; padding: 2px;" id="error-ConPass"></span>
                                       <input type="password" name="con_passw" class="form-control p-4" id="inputConPass" placeholder="Nhập lại Mật Khẩu của bạn">
-                                     
+                                      <span id="showPaswword" onclick="showPass()">
+                                        <i class ="fa-solid fa-eye-slash" id="hide" style="display: none"></i>
+                                        <i class ="fa-solid fa-eye" id="show"></i>
+                                      </span>
                                 </div>
                             </div>  
                             <div class="button-register">
@@ -187,22 +194,22 @@
                 <h4 class="text-uppercase text-light mb-4">Sưu tầm xe</h4>
                 <div class="row mx-n1">
                     <div class="col-4 px-1 mb-2">
-                        <a href=""><img class="w-100" src="../img/gallery-1.jpg" alt=""></a>
+                        <a href=""><img class="w-100 h-100" src="../Image/Honda/winer.jpg" alt=""></a>
                     </div>
                     <div class="col-4 px-1 mb-2">
-                        <a href=""><img class="w-100" src="../img/gallery-2.jpg" alt=""></a>
+                        <a href=""><img class="w-100 " src="../Image/Honda/xeGa.PNG" alt=""></a>
                     </div>
                     <div class="col-4 px-1 mb-2">
-                        <a href=""><img class="w-100" src="../img/gallery-3.jpg" alt=""></a>
+                        <a href=""><img class="w-100" src="../Image/Honda/red-motorcycle-driving-road.jpg" alt=""></a>
                     </div>
                     <div class="col-4 px-1 mb-2">
-                        <a href=""><img class="w-100" src="../img/gallery-4.jpg" alt=""></a>
+                        <a href=""><img class="w-100 " src="../Image/Honda/footer.jpg" alt=""></a>
                     </div>
                     <div class="col-4 px-1 mb-2">
-                        <a href=""><img class="w-100" src="../img/gallery-5.jpg" alt=""></a>
+                        <a href=""><img class="w-100" src="../Image/Honda/xeDuongDai.jpg" alt=""></a>
                     </div>
                     <div class="col-4 px-1 mb-2">
-                        <a href=""><img class="w-100" src="../img/gallery-6.jpg" alt=""></a>
+                        <a href=""><img class="w-100" src="../Image/Honda/180588.jpg" alt=""></a>
                     </div>
                 </div>
             </div>
@@ -237,16 +244,37 @@
     <!-- Template Javascript -->
     <script src="../js/main.js"></script>
     <script>
-         let eyebtn = document.getElementById("eye-btn");
-        // let eyeSlashbtn = document.getElementById("eye-slash-btn");
-        let password = document.getElementById("inputPassword");
-        eyebtn.onclick = function() {
-            if(password.type == "password") {
-                password.type = "text";
-                eyebtn.classList.replace("fa-eye", "fa-eye-slash");
-            }else {
-                password.type = "password";
-                eyebtn.classList.replace("fa-eye-slash", "fa-eye");
+        function inputpass(){
+            var input = document.getElementById("inputPassword");
+            var show = document.getElementById("eye-btn_show");
+            var hide = document.getElementById("eye-btn_hide");
+            if(input.type === "password"){
+                input.type = "text";
+                show.style.display = "none";
+                hide.style.display = "inline";
+            }else{
+                input.type = "password";
+                show.style.display = "inline";
+                hide.style.display = "none";
+            }
+
+        }
+    </script>
+    <script>
+        function showPass(){
+            var input = document.getElementById("inputConPass");
+            var show = document.getElementById("show");
+            var hide = document.getElementById("hide");
+            if(input.type === "password"){
+                input.type = "text";
+                show.style.display = "none";
+                hide.style.display = "inline";
+                
+            }else{
+                input.type = "password";
+                show.style.display = "inline";
+                hide.style.display = "none";
+               
             }
         }
     </script>
