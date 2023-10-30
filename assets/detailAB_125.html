@@ -18,7 +18,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Rubik&display=swap" rel="stylesheet"> 
 
     <!-- Font Awesome -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!-- Libraries Stylesheet -->
     <link href="../lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
@@ -136,7 +136,7 @@
                             </a>
                             <a class="carousel-control-next" href="#header-carousel" data-slide="next">
                                 <div class="btn btn-dark" style="width: 45px; height: 45px;">
-                                    <span class="carousel-control-next-icon mb-n2"></span>
+                                    <span class="carousel-control-next-icon mb-n2 "></span>
                                 </div>
                             </a>
                         </div>
@@ -184,8 +184,14 @@
     </div>
     <div class="container-fluid mb-5">
         <div class="container">
-            <h1>AIRBLADE 125</h1>
+            <h1>AIRBLADE 125 </h1>
             <span style="font-size: 20px;">Giá từ 42.000.000 VND</span>
+        <h1>
+            <span onclick="favoriteProduct()">
+                <i class="fa-regular fa-heart" id="heart"></i>
+                <i class="fa-solid fa-heart" id="heart-nofill" style="display: none"></i>
+            </span>
+        </h1>
         </div>
     </div>
     <div class="container-fluid mb-5">
