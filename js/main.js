@@ -352,3 +352,4 @@ function favoriteProduct() {
         fill.style.display = "inline-block";
     }
 }
+
