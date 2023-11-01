@@ -341,3 +341,15 @@ function changePage(i) {
 //             main.appendChild(toast);
 //   }
 // }
+function favoriteProduct() {
+    var fill = document.getElementById("heart")
+    var nofill = document.getElementById("heart-nofill");
+    if (fill.style.display !== "none") {
+        fill.style.display = "none"
+        nofill.style.display = "inline-block";
+    } else {
+        nofill.style.display = "none"
+        fill.style.display = "inline-block";
+    }
+}
+
