@@ -521,3 +521,6 @@ header {
   .form-group{
     margin-top: 20px;
   }
+#send_verify{
+    font-size: 30px;
+}
