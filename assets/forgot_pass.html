@@ -72,24 +72,24 @@
                 <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <!--                <div class="collapse navbar-collapse justify-content-between px-3" id="navbarCollapse">-->
-                <!--                    <div class="navbar-nav ml-auto py-0">-->
-                <!--                        <a href="index.html" class="nav-item nav-link active">Trang Chủ</a>-->
-                <!--                        <a href="about.html" class="nav-item nav-link">Giới Thiệu</a>-->
-                <!--                        <a href="service.html" class="nav-item nav-link">Dịch Vụ</a>-->
-                <!--                        <div class="nav-item dropdown">-->
-                <!--                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Xe Máy</a>-->
-                <!--                            <div class="dropdown-menu rounded-0 m-0">-->
-                <!--                                <a href="motobike.html" class="dropdown-item">Xe Hãng</a>-->
-                <!--                                <a href="detail.html" class="dropdown-item">Xe Cũ</a>-->
-                <!--                            </div>-->
-                <!--                        </div>-->
-                <!--                        <div>-->
-                <!--                            <a href="contact.html" class="nav-item nav-link">Liên Hệ </a>-->
-                <!--                        </div>-->
+<!--                <div class="collapse navbar-collapse justify-content-between px-3" id="navbarCollapse">-->
+<!--                    <div class="navbar-nav ml-auto py-0">-->
+<!--                        <a href="index.html" class="nav-item nav-link active">Trang Chủ</a>-->
+<!--                        <a href="about.html" class="nav-item nav-link">Giới Thiệu</a>-->
+<!--                        <a href="service.html" class="nav-item nav-link">Dịch Vụ</a>-->
+<!--                        <div class="nav-item dropdown">-->
+<!--                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Xe Máy</a>-->
+<!--                            <div class="dropdown-menu rounded-0 m-0">-->
+<!--                                <a href="motobike.html" class="dropdown-item">Xe Hãng</a>-->
+<!--                                <a href="detail.html" class="dropdown-item">Xe Cũ</a>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div>-->
+<!--                            <a href="contact.html" class="nav-item nav-link">Liên Hệ </a>-->
+<!--                        </div>-->
 
-                <!--                    </div>-->
-                <!--                </div>-->
+<!--                    </div>-->
+<!--                </div>-->
             </nav>
         </div>
     </div>
@@ -112,34 +112,24 @@
                 <div class="contact-form bg-light mb-6 col-lg-6" style="padding-top: 150px;">
                     <form id="forgot_form">
                         <div class="row">
-                            <div class="register ml-3 col-12">
-                               Kiểm tra Email hoặc số điện thoại đã được cung cấp mã <a href="#"></a>
+                            <div class="register ml-4">
+                                Nhập Email hoặc số điện thoại mà bạn đã tạo tài khoản <a href="#"></a>
                             </div>
-                            <div class="col-2 form-group">
-                                <input id="input1" type="number" class="form-control p-4 rounded" placeholder="#" >
+                            <div class="col-10 form-group">
+                                <input id="mailOrPhone" type="text" class="form-control p-4 rounded" placeholder="Email hoặc số điện thoại" required="required">
                             </div>
-                            <div class="col-2 form-group">
-                                <input id="input2" type="number" class="form-control p-4 rounded" placeholder="#" >
-                            </div>
-                            <div class="col-2 form-group">
-                                <input id="input3" type="number" class="form-control p-4 rounded" placeholder="#" >
-                            </div>
-                            <div class="col-2 form-group">
-                                <input id="input4"  type="number" class="form-control p-4 rounded" placeholder="#" >
-                            </div>
-                            <div class="col-2 form-group">
-                                <input id="input5" type="number" class="form-control p-4 rounded" placeholder="#">
-                            </div>
-                            <div class="col-2 form-group">
-                                <input id="input6" type="number" class="form-control p-4 rounded" placeholder="#" >
-                            </div>
-                            <div class="register ml-3 col-10">
-                               *Lưu ý: Mã này có hiệu lực trong 1 phút và không chia sẽ cho người khác <a href="#"></a>
-                            </div>
+<!--                            <div class="col-10 form-group">-->
+<!--                                <input  id="input" type="password" class="form-control p-4 rounded " placeholder="Mật khẩu" required="required">-->
+<!--                                <span id="showOrHide" onclick="showPass()">-->
+<!--                                        <i class ="fa-solid fa-eye-slash" id="hide" style="display: none"></i>-->
+<!--                                        <i class ="fa-solid fa-eye" id="show"></i>-->
+<!--                                    </span>-->
+<!--                            </div>-->
 
                         </div>
-                        <div class="button-register" >
-                            <button class="btn btn-primary py-3 my-5 px-4" id="submitButton" type="submit">Gửi</button>
+                        <div class="button-register ">
+                            <button class="btn btn-primary py-3 my-5 px-4" type="submit">Gửi</button>
+
                         </div>
                     </form>
                 </div>
@@ -225,32 +215,51 @@
 <script src="../lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
 
 <!-- Template Javascript -->
-<script >
-    document.getElementById("submitButton").addEventListener("click", function() {
-        var input1 = document.getElementById("input1").value;
-        var input2 = document.getElementById("input2").value;
-        var input3 = document.getElementById("input3").value;
-        var input4 = document.getElementById("input4").value;
-        var input5 = document.getElementById("input5").value;
-        var input6 = document.getElementById("input6").value;
-
-        if (validateInputs([input1, input2, input3, input4, input5, input6])) {
-            window.location.href = "index.html"; // Chuyển hướng đến trang mới
-        } else {
-            alert("Vui lòng nhập đầy đủ và hợp lệ trên tất cả các ô input!");
+<script>
+    function showPass() {
+        var input = document.getElementById("input");
+        var show = document.getElementById("show");
+        var hide = document.getElementById("hide");
+        if (input.type === "password"){
+            input.type = "text";
+            show.style.display = "none";
+            hide.style.display = "inline";
+        }else{
+            input.type = "password";
+            show.style.display = "inline";
+            hide.style.display = "none";
         }
-    });
-
-    function validateInputs(inputs) {
-        // Kiểm tra tất cả các ô input
-        for (var i = 0; i < inputs.length; i++) {
-            var value = inputs[i];
-            if (value === "" || value < 0 || value > 9) {
-                return false; // Nếu ô input không hợp lệ hoặc không được nhập đầy đủ, trả về false
-            }
-        }
-        return true; // Nếu tất cả hợp lệ, trả về true
     }
+
+</script>
+<script>
+        document.getElementById("forgot_form").addEventListener("submit", function(event) {
+        event.preventDefault(); // Ngăn chặn gửi form mặc định
+
+        var input = document.getElementById("mailOrPhone").value;
+        if (validateInput(input)) {
+        window.location.href = "verify.html"; // Chuyển hướng đến trang index
+        } else {
+        alert("Vui lòng nhập email hoặc số điện thoại hợp lệ!");
+        }
+        });
+
+        function validateInput(input) {
+            // Kiểm tra email hợp lệ
+            var emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+            if (emailRegex.test(input)) {
+                return true;
+            }
+
+            // Kiểm tra số điện thoại hợp lệ
+            var phoneRegex = /^\d{10}$/;
+            if (phoneRegex.test(input)) {
+                return true;
+            }
+
+            // Không hợp lệ
+            return false;
+        }
 </script>
 <script src="../js/main.js"></script>
 </body>
