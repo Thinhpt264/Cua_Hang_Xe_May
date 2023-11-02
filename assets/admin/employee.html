@@ -8,7 +8,7 @@
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- Tempusdominus Bootstrap 4 -->
-    <link rel="stylesheet" href="../../plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
     <!-- iCheck -->
     <link rel="stylesheet" href="../../plugins/icheck-bootstrap/icheck-bootstrap.min.css">
     <!-- JQVMap -->
@@ -22,7 +22,7 @@
     <!-- summernote -->
     <link rel="stylesheet" href="../../plugins/summernote/summernote-bs4.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-      <!-- DataTables -->
+    <!-- DataTables -->
   <link rel="stylesheet" href="../../plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
   <link rel="stylesheet" href="../../plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
   <link rel="stylesheet" href="../../plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
@@ -213,8 +213,8 @@
           <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
             <!-- Add icons to the links using the .nav-icon class
                  with font-awesome or any other icon font library -->
-            <li class="nav-item menu-is-opening menu-open">
-              <a href="#" class="nav-link">
+            <li class="nav-item ">
+              <a href="admin3.html" class="nav-link">
                 <i class="nav-icon fas fa-tachometer-alt"></i>
                 <p>
                   Dashboard
@@ -222,8 +222,8 @@
               </a>
             </li>
             <li class="nav-header">Quản Lí Người Dùng</li>
-            <li class="nav-item active">
-              <a href="#" class="nav-link ">
+            <li class="nav-item menu-is-opening menu-open">
+              <a href="#" class="nav-link active">
                 <i class="nav-icon far fa-envelope"></i>
                 <p>
                   Quản lí tài khoản
@@ -231,8 +231,8 @@
                 </p>
               </a>
               <ul class="nav nav-treeview">
-                <li class="nav-item active">
-                  <a href="employee.html" class="nav-link">
+                <li class="nav-item">
+                  <a href="employee.html" class="nav-link active">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Danh Sách Nhân Viên</p>
                   </a>
@@ -314,27 +314,35 @@
           <!-- Small boxes (Stat box) -->
             <div class="row">
                 <div class="col-12">
-                    <div class="card">
-                       
-                        <!-- /.card-header -->
-                        <div class="card-body">
-                          <div id="example2_wrapper" class="dataTables_wrapper dt-bootstrap4">
-                            </div><div class="row">
-                                <div class="col-sm-12">
-                                <table id="example2" class="table table-bordered table-hover dataTable dtr-inline" aria-describedby="example2_info">
-                            <thead>
+                  <div class="card">
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                    </div>
+                    <div class="row">
+                      <div class="col-sm-12">
+                        <table id="example2" class="table table-bordered table-hover dataTable dtr-inline"
+                          aria-describedby="example2_info">
+                          <thead>
                             <tr>
-                                <th class="sorting sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Id: activate to sort column descending">Id</th>
-                                <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Anh: activate to sort column ascending">Ảnh</th>
-                                <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Ten_Nhan_Vien: activate to sort column ascending">Tên Nhân Viên</th>
-                                <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Muc_Luong: activate to sort column ascending">Mức Lương(VNĐ)</th>
-                                <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Bat_Dau_lam grade: activate to sort column ascending">Ngày Bắt Đầu Làm</th>
-                                <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Lam_Viec_Tai grade: activate to sort column ascending">Làm Việc Tại</th>
-                                <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Sua grade: activate to sort column ascending">Sửa</th>
-                                <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Xoa grade: activate to sort column ascending">Xóa</th>
+                              <th class="sorting sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1"
+                                aria-sort="ascending" aria-label="Id: activate to sort column descending">Id</th>
+                              <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1"
+                                aria-label="Anh: activate to sort column ascending">Ảnh</th>
+                              <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1"
+                                aria-label="Ten_Nhan_Vien: activate to sort column ascending">Tên Nhân Viên</th>
+                              <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1"
+                                aria-label="Muc_Luong: activate to sort column ascending">Mức Lương(VNĐ)</th>
+                              <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1"
+                                aria-label="Bat_Dau_lam grade: activate to sort column ascending">Ngày Bắt Đầu Làm</th>
+                              <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1"
+                                aria-label="Lam_Viec_Tai grade: activate to sort column ascending">Làm Việc Tại</th>
+                              <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1"
+                                aria-label="Sua grade: activate to sort column ascending">Sửa</th>
+                              <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1"
+                                aria-label="Xoa grade: activate to sort column ascending">Xóa</th>
                             </tr>
-                            </thead>
-                            <tbody>
+                          </thead>
+                          <tbody>
                             <tr class="odd">
                               <td class="dtr-control sorting_1" tabindex="0">01</td>
                               <td><img src="../../dist/img/avatar3.png" alt="" style="width: 50px;"></td>
@@ -342,118 +350,134 @@
                               <td>8.000.000</td>
                               <td>1/9/2020</td>
                               <td>Chi Nhánh Quận 3</td>
-                              <td class="text-center"><a href=""><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a></td>
+                              <td class="text-center"><a href=""><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a>
+                              </td>
                               <td class="text-center"><a href=""><i class="fa-solid fa-x" style="color: #000000;"></i></a></td>
                             </tr>
                             <tr class="even">
-                                <td class="dtr-control sorting_1" tabindex="0">02</td>
-                                <td><img src="../../dist/img/avatar2.png" alt="" style="width: 50px;"></td>
-                                <td>Nguyễn Trần Phúc Thành</td>
-                                <td>9.000.000</td>
-                                <td>1/10/2021</td>
-                                <td>Chi Nhánh Quận 9</td>
-                                <td class="text-center"><a href=""><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a></td>
-                                <td class="text-center"><a href=""><i class="fa-solid fa-x" style="color: #000000;"></i></a></td>
+                              <td class="dtr-control sorting_1" tabindex="0">02</td>
+                              <td><img src="../../dist/img/avatar2.png" alt="" style="width: 50px;"></td>
+                              <td>Nguyễn Trần Phúc Thành</td>
+                              <td>9.000.000</td>
+                              <td>1/10/2021</td>
+                              <td>Chi Nhánh Quận 9</td>
+                              <td class="text-center"><a href=""><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a>
+                              </td>
+                              <td class="text-center"><a href=""><i class="fa-solid fa-x" style="color: #000000;"></i></a></td>
                             </tr>
                             <tr class="even">
-                                <td class="dtr-control sorting_1" tabindex="0">03</td>
-                                <td><img src="../../dist/img/avatar.png" alt="" style="width: 50px;"></td>
-                                <td>Phan Thế Thịnh</td>
-                                <td>9.000.000</td>
-                                <td>1/10/2021</td>
-                                <td>Chi Nhánh Quận Gò Vấp</td>
-                                <td class="text-center"><a href=""><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a></td>
-                                <td class="text-center"><a href=""><i class="fa-solid fa-x" style="color: #000000;"></i></a></td>
+                              <td class="dtr-control sorting_1" tabindex="0">03</td>
+                              <td><img src="../../dist/img/avatar.png" alt="" style="width: 50px;"></td>
+                              <td>Phan Thế Thịnh</td>
+                              <td>9.000.000</td>
+                              <td>1/10/2021</td>
+                              <td>Chi Nhánh Quận Gò Vấp</td>
+                              <td class="text-center"><a href=""><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a>
+                              </td>
+                              <td class="text-center"><a href=""><i class="fa-solid fa-x" style="color: #000000;"></i></a></td>
                             </tr>
                             <tr class="odd">
-                                <td class="dtr-control sorting_1" tabindex="0">04</td>
-                                <td><img src="../../dist/img/avatar4.png" alt="" style="width: 50px;"></td>
-                                <td>Phan Thế Thịnh</td>
-                                <td>10.000.000</td>
-                                <td>1/11/2021</td>
-                                <td>Chi Nhánh Quận Gò Vấp</td>
-                                <td class="text-center"><a href=""><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a></td>
-                                <td class="text-center"><a href=""><i class="fa-solid fa-x" style="color: #000000;"></i></a></td>
+                              <td class="dtr-control sorting_1" tabindex="0">04</td>
+                              <td><img src="../../dist/img/avatar4.png" alt="" style="width: 50px;"></td>
+                              <td>Phan Thế Thịnh</td>
+                              <td>10.000.000</td>
+                              <td>1/11/2021</td>
+                              <td>Chi Nhánh Quận Gò Vấp</td>
+                              <td class="text-center"><a href=""><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a>
+                              </td>
+                              <td class="text-center"><a href=""><i class="fa-solid fa-x" style="color: #000000;"></i></a></td>
                             </tr>
                             <tr class="even">
-                                <td class="dtr-control sorting_1" tabindex="0">05</td>
-                                <td><img src="../../dist/img/avatar5.png" alt="" style="width: 50px;"></td>
-                                <td>Nguyễn Văn A</td>
-                                <td>7.500.000</td>
-                                <td>11/10/2023</td>
-                                <td>Chi Nhánh Quận Thủ Đức</td>
-                                <td class="text-center"><a href=""><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a></td>
-                                <td class="text-center"><a href=""><i class="fa-solid fa-x" style="color: #000000;"></i></a></td>
-                            </tr><tr class="odd">
-                                <td class="dtr-control sorting_1" tabindex="0">06</td>
-                                <td><img src="../../dist/img/avatar3.png" alt="" style="width: 50px;"></td>
-                                <td>Nguyễn Văn B</td>
-                                <td>5.500.000</td>
-                                <td>11/12/2022</td>
-                                <td>Chi Nhánh Quận 12</td>
-                                <td class="text-center"><a href=""><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a></td>
-                                <td class="text-center"><a href=""><i class="fa-solid fa-x" style="color: #000000;"></i></a></td>
-                            </tr><tr class="even">
-                                <td class="dtr-control sorting_1" tabindex="0">07</td>
-                                <td><img src="../../dist/img/avatar2.png" alt="" style="width: 50px;"></td>
-                                <td>Nguyễn Văn C</td>
-                                <td>9.500.000</td>
-                                <td>11/1/2021</td>
-                                <td>Chi Nhánh Quận Thủ Đức</td>
-                                <td class="text-center"><a href=""><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a></td>
-                                <td class="text-center"><a href=""><i class="fa-solid fa-x" style="color: #000000;"></i></a></td>
-                            </tr><tr class="odd">
-                                <td class="dtr-control sorting_1" tabindex="0">08</td>
-                                <td><img src="../../dist/img/avatar5.png" alt="" style="width: 50px;"></td>
-                                <td>Nguyễn Văn A</td>
-                                <td>7.500.000</td>
-                                <td>11/10/2021</td>
-                                <td>Chi Nhánh Quận Thủ Đức</td>
-                                <td class="text-center"><a href=""><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a></td>
-                                <td class="text-center"><a href=""><i class="fa-solid fa-x" style="color: #000000;"></i></a></td>
+                              <td class="dtr-control sorting_1" tabindex="0">05</td>
+                              <td><img src="../../dist/img/avatar5.png" alt="" style="width: 50px;"></td>
+                              <td>Nguyễn Văn A</td>
+                              <td>7.500.000</td>
+                              <td>11/10/2023</td>
+                              <td>Chi Nhánh Quận Thủ Đức</td>
+                              <td class="text-center"><a href=""><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a>
+                              </td>
+                              <td class="text-center"><a href=""><i class="fa-solid fa-x" style="color: #000000;"></i></a></td>
+                            </tr>
+                            <tr class="odd">
+                              <td class="dtr-control sorting_1" tabindex="0">06</td>
+                              <td><img src="../../dist/img/avatar3.png" alt="" style="width: 50px;"></td>
+                              <td>Nguyễn Văn B</td>
+                              <td>5.500.000</td>
+                              <td>11/12/2022</td>
+                              <td>Chi Nhánh Quận 12</td>
+                              <td class="text-center"><a href=""><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a>
+                              </td>
+                              <td class="text-center"><a href=""><i class="fa-solid fa-x" style="color: #000000;"></i></a></td>
                             </tr>
                             <tr class="even">
-                                <td class="dtr-control sorting_1" tabindex="0">09</td>
-                                <td><img src="../../dist/img/avatar5.png" alt="" style="width: 50px;"></td>
-                                <td>Nguyễn Văn A</td>
-                                <td>7.500.000</td>
-                                <td>11/10/2021</td>
-                                <td>Chi Nhánh Quận Thủ Đức</td>
-                                <td class="text-center"><a href=""><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a></td>
-                                <td class="text-center"><a href=""><i class="fa-solid fa-x" style="color: #000000;"></i></a></td>
+                              <td class="dtr-control sorting_1" tabindex="0">07</td>
+                              <td><img src="../../dist/img/avatar2.png" alt="" style="width: 50px;"></td>
+                              <td>Nguyễn Văn C</td>
+                              <td>9.500.000</td>
+                              <td>11/1/2021</td>
+                              <td>Chi Nhánh Quận Thủ Đức</td>
+                              <td class="text-center"><a href=""><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a>
+                              </td>
+                              <td class="text-center"><a href=""><i class="fa-solid fa-x" style="color: #000000;"></i></a></td>
+                            </tr>
+                            <tr class="odd">
+                              <td class="dtr-control sorting_1" tabindex="0">08</td>
+                              <td><img src="../../dist/img/avatar5.png" alt="" style="width: 50px;"></td>
+                              <td>Nguyễn Văn A</td>
+                              <td>7.500.000</td>
+                              <td>11/10/2021</td>
+                              <td>Chi Nhánh Quận Thủ Đức</td>
+                              <td class="text-center"><a href=""><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a>
+                              </td>
+                              <td class="text-center"><a href=""><i class="fa-solid fa-x" style="color: #000000;"></i></a></td>
                             </tr>
                             <tr class="even">
-                                <td class="dtr-control sorting_1" tabindex="0">10</td>
-                                <td><img src="../../dist/img/avatar5.png" alt="" style="width: 50px;"></td>
-                                <td>Nguyễn Văn A</td>
-                                <td>7.500.000</td>
-                                <td>11/10/2022</td>
-                                <td>Chi Nhánh Quận Thủ Đức</td>
-                                <td class="text-center"><a href=""><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a></td>
-                                <td class="text-center"><a href=""><i class="fa-solid fa-x" style="color: #000000;"></i></a></td>
+                              <td class="dtr-control sorting_1" tabindex="0">09</td>
+                              <td><img src="../../dist/img/avatar5.png" alt="" style="width: 50px;"></td>
+                              <td>Nguyễn Văn A</td>
+                              <td>7.500.000</td>
+                              <td>11/10/2021</td>
+                              <td>Chi Nhánh Quận Thủ Đức</td>
+                              <td class="text-center"><a href=""><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a>
+                              </td>
+                              <td class="text-center"><a href=""><i class="fa-solid fa-x" style="color: #000000;"></i></a></td>
                             </tr>
                             <tr class="even">
-                                <td class="dtr-control sorting_1" tabindex="0">11</td>
-                                <td><img src="../../dist/img/avatar5.png" alt="" style="width: 50px;"></td>
-                                <td>Nguyễn Văn B</td>
-                                <td>7.500.000</td>
-                                <td>11/10/2022</td>
-                                <td>Chi Nhánh Quận Thủ Đức</td>
-                                <td class="text-center"><a href=""><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a></td>
-                                <td class="text-center"><a href=""><i class="fa-solid fa-x" style="color: #000000;"></i></a></td>
+                              <td class="dtr-control sorting_1" tabindex="0">10</td>
+                              <td><img src="../../dist/img/avatar5.png" alt="" style="width: 50px;"></td>
+                              <td>Nguyễn Văn A</td>
+                              <td>7.500.000</td>
+                              <td>11/10/2022</td>
+                              <td>Chi Nhánh Quận Thủ Đức</td>
+                              <td class="text-center"><a href=""><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a>
+                              </td>
+                              <td class="text-center"><a href=""><i class="fa-solid fa-x" style="color: #000000;"></i></a></td>
                             </tr>
-                        </tbody>
-                            
-                          </table>
-                        </div>
-                        <!-- /.card-body -->
+                            <tr class="even">
+                              <td class="dtr-control sorting_1" tabindex="0">11</td>
+                              <td><img src="../../dist/img/avatar5.png" alt="" style="width: 50px;"></td>
+                              <td>Nguyễn Văn B</td>
+                              <td>7.500.000</td>
+                              <td>11/10/2022</td>
+                              <td>Chi Nhánh Quận Thủ Đức</td>
+                              <td class="text-center"><a href=""><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a>
+                              </td>
+                              <td class="text-center"><a href=""><i class="fa-solid fa-x" style="color: #000000;"></i></a></td>
+                            </tr>
+                          </tbody>
+                
+                        </table>
                       </div>
+                      <!-- /.card-body -->
+                    </div>
+                  </div>
                 </div>
-            </div>
                 <!-- /.card-body -->
           <!-- /.row (main row) -->
-          </div>
-        </section>
+            </div>
+            </div>
+        </div>
+          </section>
         </div>
       <!-- /.content -->
     <footer class="main-footer">
@@ -488,16 +512,15 @@
   <script src="../../plugins/daterangepicker/daterangepicker.js"></script>
   <!-- Tempusdominus Bootstrap 4 -->
   <script src="../../plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+  
   <!-- Summernote -->
   <script src="../../plugins/summernote/summernote-bs4.min.js"></script>
   <!-- overlayScrollbars -->
   <script src="../../plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
   <!-- AdminLTE App -->
   <script src="../../dist/js/adminlte.js"></script>
-  <!-- AdminLTE for demo purposes -->
-  <!-- <script src="../../dist/js/demo.js"></script> -->
   <!-- DataTables  & Plugins -->
-<script src="../../plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="../../plugins/datatables/jquery.dataTables.js"></script>
 <script src="../../plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
 <script src="../../plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
 <script src="../../plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
@@ -509,8 +532,6 @@
 <script src="../../plugins/datatables-buttons/js/buttons.html5.min.js"></script>
 <script src="../../plugins/datatables-buttons/js/buttons.print.min.js"></script>
 <script src="../../plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
-<!-- AdminLTE App -->
-<script src="../../dist/js/adminlte.min.js"></script>
 \
 <!-- Page specific script -->
 <script>
@@ -533,8 +554,6 @@
   
   <div class="daterangepicker ltr show-ranges opensright">
     <div class="ranges"><ul><li data-range-key="Today">Today</li><li data-range-key="Yesterday">Yesterday</li><li data-range-key="Last 7 Days">Last 7 Days</li><li data-range-key="Last 30 Days">Last 30 Days</li><li data-range-key="This Month">This Month</li><li data-range-key="Last Month">Last Month</li><li data-range-key="Custom Range">Custom Range</li></ul></div><div class="drp-calendar left"><div class="calendar-table"></div><div class="calendar-time" style="display: none;"></div></div><div class="drp-calendar right"><div class="calendar-table"></div><div class="calendar-time" style="display: none;"></div></div><div class="drp-buttons"><span class="drp-selected"></span><button class="cancelBtn btn btn-sm btn-default" type="button">Cancel</button><button class="applyBtn btn btn-sm btn-primary" disabled="disabled" type="button">Apply</button> </div></div><div class="jqvmap-label" style="display: none;"></div>
-    <script>
-        
-    </script>
+    
   </body>
 </html>

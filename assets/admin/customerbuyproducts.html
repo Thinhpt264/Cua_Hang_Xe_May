@@ -49,10 +49,7 @@
           <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-          <a href="" class="nav-link">Home</a>
-        </li>
-        <li class="nav-item d-none d-sm-inline-block">
-          <a href="#" class="nav-link">Contact</a>
+          <a href="" class="nav-link">Trang Chủ</a>
         </li>
       </ul>
   
@@ -216,7 +213,7 @@
           <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
             <!-- Add icons to the links using the .nav-icon class
                  with font-awesome or any other icon font library -->
-            <li class="nav-item">
+            <li class="nav-item ">
               <a href="admin3.html" class="nav-link">
                 <i class="nav-icon fas fa-tachometer-alt"></i>
                 <p>
@@ -225,8 +222,8 @@
               </a>
             </li>
             <li class="nav-header">Quản Lí Người Dùng</li>
-            <li class="nav-item">
-              <a href="#" class="nav-link">
+            <li class="nav-item menu-is-opening menu-open">
+              <a href="#" class="nav-link active">
                 <i class="nav-icon far fa-envelope"></i>
                 <p>
                   Quản lí tài khoản
@@ -235,7 +232,7 @@
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="employee.html" class="nav-link active">
+                  <a href="employee.html" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Danh Sách Nhân Viên</p>
                   </a>
@@ -247,7 +244,7 @@
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="pages/mailbox/read-mail.html" class="nav-link">
+                  <a href="pages/mailbox/read-mail.html" class="nav-link active">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Danh Sách Người Dùng mua xe</p>
                   </a>
@@ -299,12 +296,13 @@
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1 class="m-0">Thông Tin Cá Nhân</h1>
+              <h1 class="m-0">Danh Sách Người Dùng Mua Xe</h1>
             </div><!-- /.col -->
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
-                <li class="breadcrumb-item"><a href="#">Home</a></li>
-                <li class="breadcrumb-item active">Trang Cá Nhân</li>
+                <li class="breadcrumb-item"><a href="admin3.html">Trang Chủ</a></li>
+                <li class="breadcrumb-item"><a href="admin3.html">Quản Lí tài khoản</a></li>
+                <li class="breadcrumb-item active">Danh Sách Khách Hàng Mua Xe</li>
               </ol>
             </div><!-- /.col -->
           </div><!-- /.row -->
@@ -316,63 +314,184 @@
         <div class="container-fluid">
           <!-- Small boxes (Stat box) -->
             <div class="row">
-                
-                <div class="col-md-12">
-                <div class="card card-primary">
+                <div class="col-12">
+                  <div class="card">
                     <!-- /.card-header -->
-                    <!-- form start -->
-                    <form>
-                      <div class="card-body">
-                        <div class="form-group">
-                            <label for="exampleInputName1">Họ Và Tên</label>
-                            <input type="text" class="form-control" id="exampleInputName1" placeholder="Họ và Tên" value="Phan Thế Thịnh">
-                        </div>
-                        <div class="form-group">
-                          <label for="exampleInputEmail1">Địa Chỉ Email</label>
-                          <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Nhập email" value="21130548@st.hcmuaf.edu.vn">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="exampleInputPhoneNumber1">Số Điện Thoại</label>
-                            <input type="number" class="form-control" id="exampleInputPhoneNumber1" placeholder="Nhập email" value="0123456678">
-                          </div>
-                        <div class="form-group">
-                          <label for="exampleInputPassword1">Nhập Mật Khẩu</label>
-                          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Nhập Password">
-                        </div>
-                        <div class="form-group">
-                          <label for="exampleInputFile">Avatar</label>
-                          <div class="input-group">
-                            <div class="custom-file">
-                              <input type="file" class="custom-file-input" id="exampleInputFile" onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])">
-                              <label class="custom-file-label" for="exampleInputFile">Chọn Ảnh</label>
-                            </div>
-                            <div class="input-group-append">
-                              <span class="input-group-text">Tải Lên</span>
-                            </div>
-                          </div>
-                          <div class="upload__img-wrap">
-                            <img id="blah" src="../../dist/img/user2-160x160.jpg" alt="" width="100" height="100" />
-                        </div>
-                        </div>
-                        <div class="form-check">
-                          <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                          <label class="form-check-label" for="exampleCheck1">Xác Nhận Sửa</label>
-                        </div>
+                    <div class="card-body">
+                    </div>
+                    <div class="row">
+                      <div class="col-sm-12">
+                        <table id="example2" class="table table-bordered table-hover dataTable dtr-inline"
+                          aria-describedby="example2_info">
+                          <thead>
+                            <tr>
+                              <th class="sorting sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-sort="ascending"
+                                aria-label="Id: activate to sort column descending">Id</th>
+                              <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1"
+                                aria-label="Ten_Khach_Hang: activate to sort column ascending">Tên Khách Hàng</th>
+                              <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1"
+                                aria-label="Anh: activate to sort column ascending">Tên Xe</th>
+                              <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1"
+                                aria-label="So_dien_thoai: activate to sort column ascending">Số điện thoại</th>
+                              <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1"
+                                aria-label="Dia_Chi: activate to sort column ascending">Địa Chỉ</th>
+                              <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1"
+                                aria-label="Ngay_Mua_Xe grade: activate to sort column ascending">Ngày mua xe</th>
+                              <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1"
+                                aria-label="Mua_Tai grade: activate to sort column ascending">Mua Tại</th>
+                              <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1"
+                                aria-label="Sua grade: activate to sort column ascending">Sửa</th>
+                              <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1"
+                                aria-label="Xoa grade: activate to sort column ascending">Xóa</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr class="odd">
+                              <td class="dtr-control sorting_1" tabindex="0">01</td>
+                              <td>Trấn Thành</td>
+                              <td><a href="../detailAB_160.html"> Air blade 2020</a></td>
+                              <td>0123456789</td>
+                              <td>Phường 16 quận gò vấp</td>
+                              <td>21/11/2023</td>
+                              <td>Chi Nhánh Quận 3</td>
+                              <td class="text-center"><a href=""><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a>
+                              </td>
+                              <td class="text-center"><a href="" class="icon-delete"><i class="fa-solid fa-x" style="color: #000000;"></i></a></td>
+                            </tr>
+                            <tr class="even">
+                              <td class="dtr-control sorting_1" tabindex="0">02</td>
+                              <td>Nguyễn Trần Phúc Thành</td>
+                              <td><a href="../detailAB_160.html"> Air blade 2020</a></td>
+                              <td>0123456789</td>
+                              <td>Phường 16 quận gò vấp</td>
+                              <td>21/11/2023</td>
+                              <td>Chi Nhánh Quận 9</td>
+                              <td class="text-center"><a href=""><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a>
+                              </td>
+                              <td class="text-center"><a href=""><i class="fa-solid fa-x" style="color: #000000;"></i></a></td>
+                            </tr>
+                            <tr class="even">
+                              <td class="dtr-control sorting_1" tabindex="0">03</td>
+                              <td>Phan Thế Thịnh</td>
+                              <td><a href="../detailAB_160.html"> Air blade 2020</a></td>
+                              <td>0123456789</td>
+                              <td>Phường 16 quận gò vấp</td>
+                              <td>21/11/2023</td>
+                              <td>Chi Nhánh Quận Gò Vấp</td>
+                              <td class="text-center"><a href=""><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a>
+                              </td>
+                              <td class="text-center"><a href=""><i class="fa-solid fa-x" style="color: #000000;"></i></a></td>
+                            </tr>
+                            <tr class="odd">
+                              <td class="dtr-control sorting_1" tabindex="0">04</td>
+                              <td>Phan Thế Thịnh</td>
+                              <td><a href="../detailAB_160.html"> Air blade 2020</a></td>
+                              <td>0123456789</td>
+                              <td>Phường 16 quận gò vấp</td>
+                              <td>21/11/2023</td>
+                              <td>Chi Nhánh Quận Gò Vấp</td>
+                              <td class="text-center"><a href=""><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a>
+                              </td>
+                              <td class="text-center"><a href=""><i class="fa-solid fa-x" style="color: #000000;"></i></a></td>
+                            </tr>
+                            <tr class="even">
+                              <td class="dtr-control sorting_1" tabindex="0">05</td>
+                              <td>Nguyễn Văn A</td>
+                              <td><a href="../detailAB_160.html"> Air blade 2020</a></td>
+                              <td>0123456789</td>
+                              <td>Phường 16 quận gò vấp</td>
+                              <td>21/11/2023</td>
+                              <td>Chi Nhánh Quận Thủ Đức</td>
+                              <td class="text-center"><a href=""><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a>
+                              </td>
+                              <td class="text-center"><a href=""><i class="fa-solid fa-x" style="color: #000000;"></i></a></td>
+                            </tr>
+                            <tr class="odd">
+                              <td class="dtr-control sorting_1" tabindex="0">06</td>
+                              <td>Nguyễn Văn B</td>
+                              <td><a href="../detailAB_160.html"> Air blade 2020</a></td>
+                              <td>0123456789</td>
+                              <td>Phường 16 quận gò vấp</td>
+                              <td>21/11/2023</td>
+                              <td>Chi Nhánh Quận 12</td>
+                              <td class="text-center"><a href=""><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a>
+                              </td>
+                              <td class="text-center"><a href=""><i class="fa-solid fa-x" style="color: #000000;"></i></a></td>
+                            </tr>
+                            <tr class="even">
+                              <td class="dtr-control sorting_1" tabindex="0">07</td>
+                              <td>Nguyễn Văn C</td>
+                              <td><a href="../detailAB_160.html"> Air blade 2020</a></td>
+                              <td>0123456789</td>
+                              <td>Phường 16 quận gò vấp</td>
+                              <td>21/11/2023</td>
+                              <td>Chi Nhánh Quận Thủ Đức</td>
+                              <td class="text-center"><a href=""><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a>
+                              </td>
+                              <td class="text-center"><a href=""><i class="fa-solid fa-x" style="color: #000000;"></i></a></td>
+                            </tr>
+                            <tr class="odd">
+                              <td class="dtr-control sorting_1" tabindex="0">08</td>
+                              <td>Nguyễn Văn A</td>
+                              <td><a href="../detailAB_160.html"> Air blade 2020</a></td>
+                              <td>0123456789</td>
+                              <td>Phường 16 quận gò vấp</td>
+                              <td>21/11/2023</td>
+                              <td>Chi Nhánh Quận Thủ Đức</td>
+                              <td class="text-center"><a href=""><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a>
+                              </td>
+                              <td class="text-center"><a href=""><i class="fa-solid fa-x" style="color: #000000;"></i></a></td>
+                            </tr>
+                            <tr class="even">
+                              <td class="dtr-control sorting_1" tabindex="0">09</td>
+                              <td>Nguyễn Văn A</td>
+                              <td><a href="../detailAB_160.html"> Air blade 2020</a></td>
+                              <td>0123456789</td>
+                              <td>Phường 16 quận gò vấp</td>
+                              <td>21/11/2023</td>
+                              <td>Chi Nhánh Quận Thủ Đức</td>
+                              <td class="text-center"><a href=""><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a>
+                              </td>
+                              <td class="text-center"><a href=""><i class="fa-solid fa-x" style="color: #000000;"></i></a></td>
+                            </tr>
+                            <tr class="even">
+                              <td class="dtr-control sorting_1" tabindex="0">10</td>
+                              <td>Nguyễn Văn A</td>
+                              <td><a href="../detailAB_160.html"> Air blade 2020</a></td>
+                              <td>0123456789</td>
+                              <td>Phường 16 quận gò vấp</td>
+                              <td>21/11/2023</td>
+                              <td>Chi Nhánh Quận Thủ Đức</td>
+                              <td class="text-center"><a href=""><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a>
+                              </td>
+                              <td class="text-center"><a href=""><i class="fa-solid fa-x" style="color: #000000;"></i></a></td>
+                            </tr>
+                            <tr class="even">
+                              <td class="dtr-control sorting_1" tabindex="0">11</td>
+                              <td>Nguyễn Văn B</td>
+                              <td><a href="../detailAB_160.html"> Air blade 2020</a></td>
+                              <td>0123456789</td>
+                              <td>Phường 16 quận gò vấp</td>
+                              <td>21/11/2023</td>
+                              <td>Chi Nhánh Quận Thủ Đức</td>
+                              <td class="text-center"><a href=""><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a>
+                              </td>
+                              <td class="text-center"><a href=""><i class="fa-solid fa-x" style="color: #000000;"></i></a></td>
+                            </tr>
+                          </tbody>
+                
+                        </table>
                       </div>
                       <!-- /.card-body -->
-      
-                      <div class="card-footer">
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                      </div>
-                    </form>
+                    </div>
                   </div>
-                  </div>
-            </div>
+                </div>
                 <!-- /.card-body -->
           <!-- /.row (main row) -->
-          </div>
-        </section>
+            </div>
+            </div>
+        </div>
+          </section>
         </div>
       <!-- /.content -->
     <footer class="main-footer">
@@ -415,7 +534,7 @@
   <!-- AdminLTE App -->
   <script src="../../dist/js/adminlte.js"></script>
   <!-- DataTables  & Plugins -->
-<script src="../../plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="../../plugins/datatables/jquery.dataTables.js"></script>
 <script src="../../plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
 <script src="../../plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
 <script src="../../plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
@@ -427,6 +546,7 @@
 <script src="../../plugins/datatables-buttons/js/buttons.html5.min.js"></script>
 <script src="../../plugins/datatables-buttons/js/buttons.print.min.js"></script>
 <script src="../../plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+\
 <!-- Page specific script -->
 <script>
   $(function () {
@@ -449,7 +569,7 @@
   <div class="daterangepicker ltr show-ranges opensright">
     <div class="ranges"><ul><li data-range-key="Today">Today</li><li data-range-key="Yesterday">Yesterday</li><li data-range-key="Last 7 Days">Last 7 Days</li><li data-range-key="Last 30 Days">Last 30 Days</li><li data-range-key="This Month">This Month</li><li data-range-key="Last Month">Last Month</li><li data-range-key="Custom Range">Custom Range</li></ul></div><div class="drp-calendar left"><div class="calendar-table"></div><div class="calendar-time" style="display: none;"></div></div><div class="drp-calendar right"><div class="calendar-table"></div><div class="calendar-time" style="display: none;"></div></div><div class="drp-buttons"><span class="drp-selected"></span><button class="cancelBtn btn btn-sm btn-default" type="button">Cancel</button><button class="applyBtn btn btn-sm btn-primary" disabled="disabled" type="button">Apply</button> </div></div><div class="jqvmap-label" style="display: none;"></div>
     <script>
-        
+      
     </script>
   </body>
 </html>
