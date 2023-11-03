@@ -110,7 +110,7 @@
                     <img src="../Image/forgot-password.avif" alt="">
                 </div>
                 <div class="contact-form bg-light mb-6 col-lg-6" style="padding-top: 150px;">
-                    <form id="forgot_form">
+                    <form id="forgot_form" action="index.html">
                         <div class="row">
                             <div class="register ml-4">
                                 Nhập Email hoặc số điện thoại mà bạn đã tạo tài khoản <a href="#"></a>
@@ -256,7 +256,6 @@
             if (phoneRegex.test(input)) {
                 return true;
             }
-
             // Không hợp lệ
             return false;
         }
