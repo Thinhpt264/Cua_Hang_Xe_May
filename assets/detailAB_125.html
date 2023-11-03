@@ -117,7 +117,7 @@
             <div class="row">
                 <div class="col-lg-6 ">
                     <div class="container-fluid p-0">
-                        <div id="header-carousel" class="carousel slide" data-ride="carousel">
+                        <!-- <div id="header-carousel" class="carousel slide" data-ride="carousel">
                             <div class="carousel-inner">
                                 <div class="carousel-item active ">
                                     <img class="w-100 h-100" src="../Image/Honda/tayga/AB_125_den.png" alt="Image" id="image1">
@@ -139,6 +139,15 @@
                                     <span class="carousel-control-next-icon mb-n2 "></span>
                                 </div>
                             </a>
+                        </div> -->
+                        <div class="Moto-container">
+                            <img  id="motoImage" src="../Image/Honda/tayga/AB_125_den.png" alt="Image">
+                           
+                            <div class="color-button">
+                                <button onclick="changeImageMoto('../Image/Honda/tayga/AB_125_doden.png')">DoDen</button>
+                                <button onclick="changeImageMoto('../Image/Honda/tayga/AB_125_den.png')">Den</button>
+                                <button onclick="changeImageMoto('../Image/Honda/tayga/AB_125_xanhden.png')">XanhDen</button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -182,20 +191,18 @@
             </div>
         </div>
     </div>
-    <div class="container-fluid mb-5">
+    <div class="container-fluid mb-5 ">
         <div class="container">
-
-            <h1>AIRBLADE 125</h1>
-            <span style="font-size: 25px;">Giá từ 42.000.000 VND</span>
             <h1>AIRBLADE 125 </h1>
             <span style="font-size: 20px;">Giá từ 42.000.000 VND</span>
-        <h1>
-            <span onclick="favoriteProduct()">
-                <i class="fa-regular fa-heart" id="heart"></i>
-                <i class="fa-solid fa-heart" id="heart-nofill" style="display: none"></i>
-            </span>
-        </h1>
-
+        </div>
+        <div class="favoriteProduct" >
+            <h1>
+                <span onclick="favoriteProduct()">
+                    <i class="fa-regular fa-heart" id="heart" style="margin-bottom: 50px;"></i>
+                    <i class="fa-solid fa-heart" id="heart-nofill" style="display: none"></i>
+                </span>
+            </h1>
         </div>
     </div>
     <div class="container-fluid mb-5">
@@ -479,6 +486,13 @@
 
     <!-- Template Javascript -->
     <script src="../js/main.js"></script>
+    <script>
+        function changeImageMoto(ImageSrc){
+            var motoImage = document.getElementById('motoImage');
+            motoImage.src = ImageSrc ;
+
+        }
+    </script>
    
 </body>
 
