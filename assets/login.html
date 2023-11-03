@@ -120,6 +120,8 @@
                                         <i class ="fa-solid fa-eye-slash" id="hide" style="display: none"></i>
                                         <i class ="fa-solid fa-eye" id="show"></i>
                                     </span>
+                                    <span><i class ="fa-solid fa-eye-slash" id="hide" style="display: none"></i>
+                                        <i class ="fa-solid fa-eye" id="show"></i></span>
                                 </div>
                                 <div class="register col-4">
                                       <a href="forgot_pass.html">Quên mật khẩu </a>
@@ -230,7 +232,7 @@
        var show = document.getElementById("show");
        var hide = document.getElementById("hide");
        if (input.type === "password"){
-           input.type = "text";
+           input.type = "text"; 
            show.style.display = "none";
            hide.style.display = "inline";
         }else{
