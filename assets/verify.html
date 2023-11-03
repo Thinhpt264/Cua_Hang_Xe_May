@@ -110,7 +110,7 @@
                     <img src="../Image/forgot-password.avif" alt="">
                 </div>
                 <div class="contact-form bg-light mb-6 col-lg-6" style="padding-top: 150px;">
-                    <form id="forgot_form">
+                    <form id="forgot_form" action="" onsubmit="return check_verify()">
                         <div class="row">
                             <div class="register ml-3 col-12">
                                Kiểm tra Email hoặc số điện thoại đã được cung cấp mã <a href="#"></a>
@@ -226,30 +226,52 @@
 
 <!-- Template Javascript -->
 <script >
-    document.getElementById("submitButton").addEventListener("click", function() {
+    function check_verify() {
         var input1 = document.getElementById("input1").value;
         var input2 = document.getElementById("input2").value;
         var input3 = document.getElementById("input3").value;
         var input4 = document.getElementById("input4").value;
         var input5 = document.getElementById("input5").value;
         var input6 = document.getElementById("input6").value;
-
-        if (validateInputs([input1, input2, input3, input4, input5, input6])) {
+            // if(input1 == '' || input1 < 0 || input1 >9 ) {
+            //     alert("Không Hợp Lệ Vui Lòng Nhập Lại Code");
+            //     return false;
+            // }
+            // if(input2 == '' || input2 < 0 || input2 >9 ) {
+            //     alert("Không Hợp Lệ Vui Lòng Nhập Lại Code");
+            //     return false;
+            // }
+            // if(input3 == '' || input3 < 0 || input3 >9 ) {
+            //     alert("Không Hợp Lệ Vui Lòng Nhập Lại Code");
+            //     return false;
+            // }
+            // if(input4 == '' || input4 < 0 || input4 >9 ) {
+            //     alert("Không Hợp Lệ Vui Lòng Nhập Lại Code");
+            //     return false;
+            // }
+            // if(input5 == '' || input5 < 0 || input5 >9 ) {
+            //     alert("Không Hợp Lệ Vui Lòng Nhập Lại Code");
+            //     return false;
+            // }
+            // if(input6 == '' || input6 < 0 || input6 > 9 ) {
+            //     alert("Không Hợp Lệ Vui Lòng Nhập Lại Code");
+            //     return false;
+            // }
+            var inputs = [input1,input2,input3,input4,input5,input6];
+            for (var i = 0; i < inputs.length; i++) {
+                var value = inputs[i];
+                if(value == '' || value < 0 || value >9) {
+                    alert("Không Hợp Lệ Vui Lòng Nhập Lại Code");
+                return false;
+                }
+            }
+            if (inputs) {
+            alert("Please enter");
             window.location.href = "index.html"; // Chuyển hướng đến trang mới
         } else {
             alert("Vui lòng nhập đầy đủ và hợp lệ trên tất cả các ô input!");
         }
-    });
-
-    function validateInputs(inputs) {
-        // Kiểm tra tất cả các ô input
-        for (var i = 0; i < inputs.length; i++) {
-            var value = inputs[i];
-            if (value === "" || value < 0 || value > 9) {
-                return false; // Nếu ô input không hợp lệ hoặc không được nhập đầy đủ, trả về false
-            }
-        }
-        return true; // Nếu tất cả hợp lệ, trả về true
+        return false;
     }
 </script>
 <script src="../js/main.js"></script>
