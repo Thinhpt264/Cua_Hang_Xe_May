@@ -1,14 +1,14 @@
 <html lang="en" style="height: auto;"><head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>AdminLTE 3 | Dashboard</title>
+    <title> Dashboard</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&amp;display=fallback">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.css">
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- Tempusdominus Bootstrap 4 -->
-    <link rel="stylesheet" href="../../plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
     <!-- iCheck -->
     <link rel="stylesheet" href="../../plugins/icheck-bootstrap/icheck-bootstrap.min.css">
     <!-- JQVMap -->
@@ -22,7 +22,7 @@
     <!-- summernote -->
     <link rel="stylesheet" href="../../plugins/summernote/summernote-bs4.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-      <!-- DataTables -->
+    <!-- DataTables -->
   <link rel="stylesheet" href="../../plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
   <link rel="stylesheet" href="../../plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
   <link rel="stylesheet" href="../../plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
@@ -220,14 +220,14 @@
               <a href="#" class="nav-link active">
                 <i class="nav-icon fas fa-tachometer-alt"></i>
                 <p>
-                  Dashboard
+                  Trang Chủ
                 </p>
               </a>
             </li>
             <li class="nav-header">Quản Lí Người Dùng</li>
             <li class="nav-item">
               <a href="#" class="nav-link">
-                <i class="nav-icon far fa-envelope"></i>
+                <i class="fa-regular fa-user" style="color: #f0f0f0;"></i>
                 <p>
                   Quản lí tài khoản
                   <i class="fas fa-angle-left right"></i>
@@ -247,19 +247,19 @@
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="pages/mailbox/read-mail.html" class="nav-link">
+                  <a href="customerbuyproducts.html" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>Danh Sách Người Dùng mua xe</p>
+                    <p>Danh Sách Khách Hàng Mua Xe</p>
                   </a>
                 </li>
               </ul>
             </li>
-            <li class="nav-header">Danh Sách Sản Phẩm</li>
+            <li class="nav-header">Quản Lí Sản Phẩm</li>
             <li class="nav-item">
               <a href="#" class="nav-link">
-                <i class="nav-icon far fa-envelope"></i>
+                <i class="fa-solid fa-motorcycle" style="color: #e1e2e5;"></i>
                 <p>
-                  Danh Sách Xe 
+                  Quản Lí Xe 
                   <i class="fas fa-angle-left right"></i>
                 </p>
               </a>
@@ -267,7 +267,7 @@
                 <li class="nav-item">
                   <a href="pages/mailbox/mailbox.html" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>Danh Sách Nhân Viên</p>
+                    <p>Danh Sách Xe </p>
                   </a>
                 </li>
                 <li class="nav-item">
@@ -376,7 +376,7 @@
             </div>
           </div>
           <div class="row">
-            <section class="col-md-6 connectedSortable">  
+            <section class="col-md-6 connectedSortable ">  
               <!-- TO DO List -->
               <div class="card">
                 <div class="card-header">
@@ -595,7 +595,7 @@
                       <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Ten_Nhan_Vien: activate to sort column ascending">Tên Nhân Viên</th>
                       <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Ten_Nguoi_Mua: activate to sort column ascending">Tên Người Mua</th>
                       <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Ngay_Ban: activate to sort column ascending">Ngày Bán</th>
-                      <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Ngay_Ban: activate to sort column ascending">Giá Tiền</th>
+                      <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Gia_Tien: activate to sort column ascending">Giá Tiền</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -1026,17 +1026,15 @@
   <script src="../../plugins/daterangepicker/daterangepicker.js"></script>
   <!-- Tempusdominus Bootstrap 4 -->
   <script src="../../plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+  
   <!-- Summernote -->
   <script src="../../plugins/summernote/summernote-bs4.min.js"></script>
   <!-- overlayScrollbars -->
   <script src="../../plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
   <!-- AdminLTE App -->
   <script src="../../dist/js/adminlte.js"></script>
-  <!-- AdminLTE for demo purposes -->
-  <script src="../../"></script>
-  <!-- <script src="../../dist/js/demo.js"></script> -->
   <!-- DataTables  & Plugins -->
-<script src="../../plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="../../plugins/datatables/jquery.dataTables.js"></script>
 <script src="../../plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
 <script src="../../plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
 <script src="../../plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
@@ -1049,9 +1047,6 @@
 <script src="../../plugins/datatables-buttons/js/buttons.print.min.js"></script>
 <script src="../../plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
 <!-- AdminLTE App -->
-<script src="../../dist/js/adminlte.min.js"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="../../dist/js/demo.js"></script>
 <!-- Page specific script -->
 <script>
   $(function () {
