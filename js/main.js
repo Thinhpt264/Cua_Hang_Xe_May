@@ -147,7 +147,7 @@ function myFunction() {
 //load item
 
 let thisPage = 1;
-let limit = 8;
+let limit = 12;
 let list = document.querySelectorAll('.list .item');
 
 function loadItem() {
