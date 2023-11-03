@@ -32,7 +32,12 @@
               <input type="text" placeholder="Tên đăng nhập " required>
             </div>
             <div class="field">
-              <input type="password" placeholder="Mật khẩu"  required>
+              <input id="input" type="password" placeholder="Mật khẩu"  required >
+              <span id="showOrHide" style="position: absolute; bottom: 420px; right: 530px;" onclick="showPass()">
+                <i class ="fa-solid fa-eye-slash" id="hide" style="display: none"></i>
+                <i class ="fa-solid fa-eye" id="show"></i>
+            </span>
+
             </div>
             <div class="pass-link"><a href="../verify.html">Quên mật khẩu?</a></div>
             <div class="field btn">
