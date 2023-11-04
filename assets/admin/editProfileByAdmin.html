@@ -163,7 +163,7 @@
               <span class="float-right text-muted text-sm">2 days</span>
             </a>
             <div class="dropdown-divider"></div>
-            <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
+            <a href="#" class="dropdown-item dropdown-footer">Xem tất cả thông báo </a>
           </div>
         </li>
         <li class="nav-item">
@@ -183,7 +183,7 @@
     <!-- Main Sidebar Container -->
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
       <!-- Brand Logo -->
-      <a href="index3.html" class="brand-link">
+      <a href="admin3.html" class="brand-link">
         <img src="../../dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
         <span class="brand-text font-weight-light">AdminLTE 3</span>
       </a>
@@ -196,7 +196,7 @@
             <img src="../../dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
           </div>
           <div class="info">
-            <a href="myProfile.html" class="d-block active">Alexander Pierce</a>
+            <a href="myProfile.html" class="d-block active">Phan Thế Thịnh</a>
           </div>
         </div>
   
@@ -319,19 +319,37 @@
             <div class="row">
                 <div class="col-md-12">
                 <div class="card card-primary">
-                    <div class="col-md-12 d-flex justify-content-center">
+                    <div class="col-md-8 d-flex justify-content-center">
                         <h2 class="m-3 pl-lg-3 w-0">Nhập Thông Tin Nhân Viên</h2>
                     </div>
                     <!-- /.card-header -->
                     <!-- form start -->
                     <form class="">
                       <div class="card-body p-4" >
+                        <div class="row m-0">
+                          <div class="col-md-3 ml-5">
+                            <div class="form-group">
+                              <img src="../../dist/img/avatar4.png" class="w-30" alt="" style="width: 150px;">
+                            </div>
+                          </div>
+                          <div class="col-md-5 ml-5">
+                            <div class="form-group">
+                              <label for="exampleIdNV">Mã Nhân Viên</label>
+                              <input type="text" class="form-control" id="exampleIdNV" value="NV01" readonly>
+                          </div>
+                          <div class="form-group">
+                            <label for="exampleInputName1">Họ Và Tên</label>
+                            <input type="text" class="form-control" id="exampleInputName1" placeholder="Họ và Tên" value="Phan Thế Thịnh" readonly>
+                        </div>
+                          </div>
+                        </div>
+                        
                         <div class="row">
-                            <div class="col-md-5 ml-5">
-                                <div class="form-group ">
-                                    <label for="exampleIdNV">Mã Nhân Viên</label>
-                                    <input type="text" class="form-control" id="exampleIdNV" value="NV01" readonly>
-                                </div>
+                            <div class="col-md-3 ml-5">
+                              <div class="form-group">
+                                <label for="exampleInputEmail1">Địa Chỉ Email</label>
+                                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Nhập email" value="21130548@st.hcmuaf.edu.vn" readonly>
+                              </div>
                             </div>
                            <div class="col-md-5 ml-5">
                             <div class="form-group">
@@ -341,67 +359,59 @@
                            </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-5 ml-5">
-                                <div class="form-group">
-                                    <label for="exampleInputName1">Họ Và Tên</label>
-                                    <input type="text" class="form-control" id="exampleInputName1" placeholder="Họ và Tên" value="Phan Thế Thịnh" readonly>
-                                </div>
+                            <div class="col-md-3 ml-5">
+                              <div class="form-group">
+                                <label for="exampleInputPassword1">Giới Tính</label>
+                                <select class="form-control" disabled="">
+                                  <option>Nam</option>
+                                  <option>Nữ</option>
+                                  </select>
+                              </div>
                             </div>
                            <div class="col-md-5 ml-5">
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Địa Chỉ Email</label>
-                                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Nhập email" value="21130548@st.hcmuaf.edu.vn" readonly>
-                              </div>
-                           </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-5 ml-5">
-                                <div class="form-group">
-                                    <label for="exampleInputPassword1">Giới Tính</label>
-                                    <select class="form-control" disabled="">
-                                      <option>Nam</option>
-                                      <option>Nữ</option>
-                                      </select>
-                                  </div>
+                              <label for="exampleInputCCCD">Số CCCD</label>
+                              <input type="text" class="form-control" id="exampleInputCCCD" value="215597097" readonly>
                             </div>
-                           <div class="col-md-5 ml-5">
-                            <div class="form-group">
-                                <label for="exampleInputCCCD">Số CCCD</label>
-                                <input type="text" class="form-control" id="exampleInputCCCD" value="215597097" readonly>
-                              </div>
-                           </div>
+                         </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-5 ml-5">
-                                <div class="form-group">
-                                    <label for="exampleInputdob">Ngày Sinh</label>
-                                    <br>
-                                    <input type="date" id="customDate" value="2003-04-26" class="w-50 h-50"> 
-                                  </div>
-                            </div>
-                           <div class="col-md-5 ml-5">
-                            <div class="form-group">
-                                <label for="exampleInputdob">Ngày Vào Làm</label>
-                                <br>
-                                <input type="date" id="customDate" value="2020-04-26" class="w-50 h-50"> 
-                              </div>
-                           </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-5 ml-5">
-                                <div class="form-group">
+                            <div class="col-md-3 ml-5">
+                                 <div class="form-group">
                                     <label for="exampleAdress">Địa Chỉ</label>
                                     <input type="text" class="form-control" id="exampleAdress" value="Bình Định" readonly>
                                   </div>
                                </div>
                            <div class="col-md-5 ml-5">
-                                <div class="form-group">
-                                        <label for="exampleInputPassword1">Password</label>
-                                        <input type="text" class="form-control" id="exampleInputPassword1" value="12345" readonly>
-                                    </div>
-                           </div>
+                            <div class="form-group">
+                              <label for="exampleInputPassword1">Password</label>
+                              <input type="text" class="form-control" id="exampleInputPassword1" value="12345" readonly>
+                            </div>
                         </div>
-                        <div class="form-check  ml-5">
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3 ml-5">
+                                <div class="form-group">
+                                    <label for="exampleInputdob">Ngày Sinh</label>
+                                    <br>
+                                    <input type="date" id="customDate" value="2003-04-26" class="w-100 h-50"> 
+                                  </div>
+                            </div>
+                           <div class="col-3 ml-5">
+                            <div class="form-group">
+                                <label for="exampleInputdob">Ngày Vào Làm</label>
+                                <br>
+                                <input type="date" id="customDate" value="2021-11-01" class="w-100 h-50"> 
+                              </div>
+                           </div>
+                           <div class="col-3">
+                            <div class="form-group">
+                                <label for="exampleInputsalary">Mức Lương (VNĐ)</label>
+                                <input type="number" id="exampleInputsalary" class="h-50 pl-lg-3" value="9000000"> 
+                              </div>
+                        </div>
+                        </div>
+                        <div class="form-check ml-5">
                           <input type="checkbox" class="form-check-input" id="exampleCheck1">
                           <label class="form-check-label" for="exampleCheck1">Xác Nhận Sửa</label>
                         </div>
