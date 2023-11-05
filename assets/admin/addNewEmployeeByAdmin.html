@@ -30,6 +30,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 
+
   <style type="text/css">/* Chart.js */
   @keyframes chartjs-render-animation{from{opacity:.99}to{opacity:1}}.chartjs-render-monitor{animation:chartjs-render-animation 1ms}.chartjs-size-monitor,.chartjs-size-monitor-expand,.chartjs-size-monitor-shrink{position:absolute;direction:ltr;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1}.chartjs-size-monitor-expand>div{position:absolute;width:1000000px;height:1000000px;left:0;top:0}.chartjs-size-monitor-shrink>div{position:absolute;width:200%;height:200%;left:0;top:0}
   </style>
@@ -49,10 +50,10 @@
           <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-          <a href="" class="nav-link">Home</a>
+          <a href="" class="nav-link">Trang Chủ</a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-          <a href="#" class="nav-link">Contact</a>
+          <a href="#" class="nav-link">Liên Hệ</a>
         </li>
       </ul>
   
@@ -162,7 +163,7 @@
               <span class="float-right text-muted text-sm">2 days</span>
             </a>
             <div class="dropdown-divider"></div>
-            <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
+            <a href="#" class="dropdown-item dropdown-footer">Xem tất cả thông báo </a>
           </div>
         </li>
         <li class="nav-item">
@@ -182,7 +183,7 @@
     <!-- Main Sidebar Container -->
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
       <!-- Brand Logo -->
-      <a href="index3.html" class="brand-link">
+      <a href="admin3.html" class="brand-link">
         <img src="../../dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
         <span class="brand-text font-weight-light">AdminLTE 3</span>
       </a>
@@ -195,7 +196,7 @@
             <img src="../../dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
           </div>
           <div class="info">
-            <a href="myProfile.html" class="d-block active">Alexander Pierce</a>
+            <a href="myProfile.html" class="d-block active">Phan Thế Thịnh</a>
           </div>
         </div>
   
@@ -227,7 +228,7 @@
             <li class="nav-header">Quản Lí Người Dùng</li>
             <li class="nav-item">
               <a href="#" class="nav-link">
-                <i class="nav-icon far fa-envelope"></i>
+                <i class="fa-regular fa-user" style="color: #f0f0f0;"></i>
                 <p>
                   Quản lí tài khoản
                   <i class="fas fa-angle-left right"></i>
@@ -235,7 +236,7 @@
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="employee.html" class="nav-link active">
+                  <a href="employee.html" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Danh Sách Nhân Viên</p>
                   </a>
@@ -257,7 +258,7 @@
             <li class="nav-header">Danh Sách Sản Phẩm</li>
             <li class="nav-item">
               <a href="#" class="nav-link">
-                <i class="nav-icon far fa-envelope"></i>
+                <i class="fa-solid fa-motorcycle" style="color: #e1e2e5;"></i>
                 <p>
                   Danh Sách Xe 
                   <i class="fas fa-angle-left right"></i>
@@ -299,12 +300,12 @@
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1 class="m-0">Thông Tin Cá Nhân</h1>
+              <h1 class="ml-2">Thêm Nhân Viên</h1>
             </div><!-- /.col -->
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
                 <li class="breadcrumb-item"><a href="#">Trang Chủ</a></li>
-                <li class="breadcrumb-item active">Trang Cá Nhân</li>
+                <li class="breadcrumb-item active">Thêm Nhân Viên</li>
               </ol>
             </div><!-- /.col -->
           </div><!-- /.row -->
@@ -316,54 +317,110 @@
         <div class="container-fluid">
           <!-- Small boxes (Stat box) -->
             <div class="row">
-                
                 <div class="col-md-12">
                 <div class="card card-primary">
+                    <div class="col-md-8 d-flex justify-content-center">
+                        <h2 class="m-3 pl-lg-3 w-0">Nhập Thông Tin Nhân Viên</h2>
+                    </div>
                     <!-- /.card-header -->
                     <!-- form start -->
-                    <form>
-                      <div class="card-body">
-                        <div class="form-group">
+                    <form class="">
+                      <div class="card-body p-4" >
+                        <div class="row m-0">
+                          <div class="col-md-3 ml-5">
+                            <div class="form-group">
+                              <img src="../../dist/img/avatar4.png" class="w-30" alt="" style="width: 150px;" id="blah">
+                              <input type="file" onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])">
+                            </div>
+                          </div>
+                          <div class="col-md-5 ml-5">
+                            <div class="form-group">
+                              <label for="exampleIdNV">Mã Nhân Viên</label>
+                              <input type="text" class="form-control" id="exampleIdNV">
+                          </div>
+                          <div class="form-group">
                             <label for="exampleInputName1">Họ Và Tên</label>
-                            <input type="text" class="form-control" id="exampleInputName1" placeholder="Họ và Tên" value="Phan Thế Thịnh">
+                            <input type="text" class="form-control" id="exampleInputName1" placeholder="Họ và Tên">
                         </div>
-                        <div class="form-group">
-                          <label for="exampleInputEmail1">Địa Chỉ Email</label>
-                          <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Nhập email" value="21130548@st.hcmuaf.edu.vn">
+                          </div>
                         </div>
                         
-                        <div class="form-group">
-                            <label for="exampleInputPhoneNumber1">Số Điện Thoại</label>
-                            <input type="number" class="form-control" id="exampleInputPhoneNumber1" placeholder="Nhập email" value="0123456678">
-                          </div>
-                        <div class="form-group">
-                          <label for="exampleInputPassword1">Nhập Mật Khẩu</label>
-                          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Nhập Password">
-                        </div>
-                        <div class="form-group">
-                          <label for="exampleInputFile">Avatar</label>
-                          <div class="input-group">
-                            <div class="custom-file">
-                              <input type="file" class="custom-file-input" id="exampleInputFile" onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])">
-                              <label class="custom-file-label" for="exampleInputFile">Chọn Ảnh</label>
+                        <div class="row">
+                            <div class="col-md-3 ml-5">
+                              <div class="form-group">
+                                <label for="exampleInputEmail1">Địa Chỉ Email</label>
+                                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Nhập email" >
+                              </div>
                             </div>
-                            <div class="input-group-append">
-                              <span class="input-group-text">Tải Lên</span>
+                           <div class="col-md-5 ml-5">
+                            <div class="form-group">
+                                <label for="exampleInputPhoneNumber1">Số Điện Thoại</label>
+                                <input type="number" class="form-control" id="exampleInputPhoneNumber1">
+                              </div>
+                           </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3 ml-5">
+                              <div class="form-group">
+                                <label for="exampleInputPassword1">Giới Tính</label>
+                                <select class="form-control">
+                                  <option>Nam</option>
+                                  <option>Nữ</option>
+                                  </select>
+                              </div>
                             </div>
-                          </div>
-                          <div class="upload__img-wrap">
-                            <img id="blah" src="../../dist/img/user2-160x160.jpg" alt="" width="100" height="100" />
+                           <div class="col-md-5 ml-5">
+                            <div class="form-group">
+                              <label for="exampleInputCCCD">Số CCCD</label>
+                              <input type="text" class="form-control" id="exampleInputCCCD" >
+                            </div>
+                         </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3 ml-5">
+                                 <div class="form-group">
+                                    <label for="exampleAdress">Địa Chỉ</label>
+                                    <input type="text" class="form-control" id="exampleAdress" >
+                                  </div>
+                               </div>
+                           <div class="col-md-5 ml-5">
+                            <div class="form-group">
+                              <label for="exampleInputPassword1">Password</label>
+                              <input type="text" class="form-control" id="exampleInputPassword1">
+                            </div>
                         </div>
                         </div>
-                        <div class="form-check">
+                        <div class="row">
+                            <div class="col-md-3 ml-5">
+                                <div class="form-group">
+                                    <label for="exampleInputdob">Ngày Sinh</label>
+                                    <br>
+                                    <input type="date" id="customDate"class="w-100 h-50"> 
+                                  </div>
+                            </div>
+                           <div class="col-3 ml-5">
+                            <div class="form-group">
+                                <label for="exampleInputdob">Ngày Vào Làm</label>
+                                <br>
+                                <input type="date" id="customDate" class="w-100 h-50"> 
+                              </div>
+                           </div>
+                           <div class="col-3">
+                            <div class="form-group">
+                                <label for="exampleInputsalary">Mức Lương (VNĐ)</label>
+                                <input type="number" id="exampleInputsalary" class="h-50 pl-lg-3"> 
+                              </div>
+                        </div>
+                        </div>
+                        <div class="form-check ml-5">
                           <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                          <label class="form-check-label" for="exampleCheck1">Xác Nhận Sửa</label>
+                          <label class="form-check-label" for="exampleCheck1">Xác Nhận Thêm</label>
                         </div>
                       </div>
                       <!-- /.card-body -->
       
-                      <div class="card-footer">
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                      <div class="card-footer  ml-5">
+                        <button type="submit" class="btn btn-primary">Thêm </button>
                       </div>
                     </form>
                   </div>
@@ -380,7 +437,7 @@
     </footer>
     <aside class="control-sidebar control-sidebar-dark" style="display: none;">
       <!-- Control sidebar content goes here -->
-    <div class="p-3 control-sidebar-content" style=""><h5>Customize AdminLTE</h5><hr class="mb-2"><div class="mb-4"><input type="checkbox" value="1" class="mr-1"><span>Dark Mode</span></div><h6>Header Options</h6><div class="mb-1"><input type="checkbox" value="1" class="mr-1"><span>Fixed</span></div><div class="mb-1"><input type="checkbox" value="1" class="mr-1"><span>Dropdown Legacy Offset</span></div><div class="mb-4"><input type="checkbox" value="1" class="mr-1"><span>No border</span></div><h6>Sidebar Options</h6><div class="mb-1"><input type="checkbox" value="1" class="mr-1"><span>Collapsed</span></div><div class="mb-1"><input type="checkbox" value="1" class="mr-1"><span>Fixed</span></div><div class="mb-1"><input type="checkbox" value="1" checked="checked" class="mr-1"><span>Sidebar Mini</span></div><div class="mb-1"><input type="checkbox" value="1" class="mr-1"><span>Sidebar Mini MD</span></div><div class="mb-1"><input type="checkbox" value="1" class="mr-1"><span>Sidebar Mini XS</span></div><div class="mb-1"><input type="checkbox" value="1" class="mr-1"><span>Nav Flat Style</span></div><div class="mb-1"><input type="checkbox" value="1" class="mr-1"><span>Nav Legacy Style</span></div><div class="mb-1"><input type="checkbox" value="1" class="mr-1"><span>Nav Compact</span></div><div class="mb-1"><input type="checkbox" value="1" class="mr-1"><span>Nav Child Indent</span></div><div class="mb-1"><input type="checkbox" value="1" class="mr-1"><span>Nav Child Hide on Collapse</span></div><div class="mb-4"><input type="checkbox" value="1" class="mr-1"><span>Disable Hover/Focus Auto-Expand</span></div><h6>Footer Options</h6><div class="mb-4"><input type="checkbox" value="1" class="mr-1"><span>Fixed</span></div><h6>Small Text Options</h6><div class="mb-1"><input type="checkbox" value="1" class="mr-1"><span>Body</span></div><div class="mb-1"><input type="checkbox" value="1" class="mr-1"><span>Navbar</span></div><div class="mb-1"><input type="checkbox" value="1" class="mr-1"><span>Brand</span></div><div class="mb-1"><input type="checkbox" value="1" class="mr-1"><span>Sidebar Nav</span></div><div class="mb-4"><input type="checkbox" value="1" class="mr-1"><span>Footer</span></div><h6>Navbar Variants</h6><div class="d-flex"><select class="custom-select mb-3 text-light border-0 bg-white"><option class="bg-primary">Primary</option><option class="bg-secondary">Secondary</option><option class="bg-info">Info</option><option class="bg-success">Success</option><option class="bg-danger">Danger</option><option class="bg-indigo">Indigo</option><option class="bg-purple">Purple</option><option class="bg-pink">Pink</option><option class="bg-navy">Navy</option><option class="bg-lightblue">Lightblue</option><option class="bg-teal">Teal</option><option class="bg-cyan">Cyan</option><option class="bg-dark">Dark</option><option class="bg-gray-dark">Gray dark</option><option class="bg-gray">Gray</option><option class="bg-light">Light</option><option class="bg-warning">Warning</option><option class="bg-white">White</option><option class="bg-orange">Orange</option></select></div><h6>Accent Color Variants</h6><div class="d-flex"></div><select class="custom-select mb-3 border-0"><option>None Selected</option><option class="bg-primary">Primary</option><option class="bg-warning">Warning</option><option class="bg-info">Info</option><option class="bg-danger">Danger</option><option class="bg-success">Success</option><option class="bg-indigo">Indigo</option><option class="bg-lightblue">Lightblue</option><option class="bg-navy">Navy</option><option class="bg-purple">Purple</option><option class="bg-fuchsia">Fuchsia</option><option class="bg-pink">Pink</option><option class="bg-maroon">Maroon</option><option class="bg-orange">Orange</option><option class="bg-lime">Lime</option><option class="bg-teal">Teal</option><option class="bg-olive">Olive</option></select><h6>Dark Sidebar Variants</h6><div class="d-flex"></div><select class="custom-select mb-3 text-light border-0 bg-primary"><option>None Selected</option><option class="bg-primary">Primary</option><option class="bg-warning">Warning</option><option class="bg-info">Info</option><option class="bg-danger">Danger</option><option class="bg-success">Success</option><option class="bg-indigo">Indigo</option><option class="bg-lightblue">Lightblue</option><option class="bg-navy">Navy</option><option class="bg-purple">Purple</option><option class="bg-fuchsia">Fuchsia</option><option class="bg-pink">Pink</option><option class="bg-maroon">Maroon</option><option class="bg-orange">Orange</option><option class="bg-lime">Lime</option><option class="bg-teal">Teal</option><option class="bg-olive">Olive</option></select><h6>Light Sidebar Variants</h6><div class="d-flex"></div><select class="custom-select mb-3 border-0"><option>None Selected</option><option class="bg-primary">Primary</option><option class="bg-warning">Warning</option><option class="bg-info">Info</option><option class="bg-danger">Danger</option><option class="bg-success">Success</option><option class="bg-indigo">Indigo</option><option class="bg-lightblue">Lightblue</option><option class="bg-navy">Navy</option><option class="bg-purple">Purple</option><option class="bg-fuchsia">Fuchsia</option><option class="bg-pink">Pink</option><option class="bg-maroon">Maroon</option><option class="bg-orange">Orange</option><option class="bg-lime">Lime</option><option class="bg-teal">Teal</option><option class="bg-olive">Olive</option></select><h6>Brand Logo Variants</h6><div class="d-flex"></div><select class="custom-select mb-3 border-0"><option>None Selected</option><option class="bg-primary">Primary</option><option class="bg-secondary">Secondary</option><option class="bg-info">Info</option><option class="bg-success">Success</option><option class="bg-danger">Danger</option><option class="bg-indigo">Indigo</option><option class="bg-purple">Purple</option><option class="bg-pink">Pink</option><option class="bg-navy">Navy</option><option class="bg-lightblue">Lightblue</option><option class="bg-teal">Teal</option><option class="bg-cyan">Cyan</option><option class="bg-dark">Dark</option><option class="bg-gray-dark">Gray dark</option><option class="bg-gray">Gray</option><option class="bg-light">Light</option><option class="bg-warning">Warning</option><option class="bg-white">White</option><option class="bg-orange">Orange</option><a href="#">clear</a></select></div></aside>
+    <div class="p-3 control-sidebar-content"><h5>Customize AdminLTE</h5><hr class="mb-2"><div class="mb-4"><input type="checkbox" value="1" class="mr-1"><span>Dark Mode</span></div><h6>Header Options</h6><div class="mb-1"><input type="checkbox" value="1" class="mr-1"><span>Fixed</span></div><div class="mb-1"><input type="checkbox" value="1" class="mr-1"><span>Dropdown Legacy Offset</span></div><div class="mb-4"><input type="checkbox" value="1" class="mr-1"><span>No border</span></div><h6>Sidebar Options</h6><div class="mb-1"><input type="checkbox" value="1" class="mr-1"><span>Collapsed</span></div><div class="mb-1"><input type="checkbox" value="1" class="mr-1"><span>Fixed</span></div><div class="mb-1"><input type="checkbox" value="1" checked="checked" class="mr-1"><span>Sidebar Mini</span></div><div class="mb-1"><input type="checkbox" value="1" class="mr-1"><span>Sidebar Mini MD</span></div><div class="mb-1"><input type="checkbox" value="1" class="mr-1"><span>Sidebar Mini XS</span></div><div class="mb-1"><input type="checkbox" value="1" class="mr-1"><span>Nav Flat Style</span></div><div class="mb-1"><input type="checkbox" value="1" class="mr-1"><span>Nav Legacy Style</span></div><div class="mb-1"><input type="checkbox" value="1" class="mr-1"><span>Nav Compact</span></div><div class="mb-1"><input type="checkbox" value="1" class="mr-1"><span>Nav Child Indent</span></div><div class="mb-1"><input type="checkbox" value="1" class="mr-1"><span>Nav Child Hide on Collapse</span></div><div class="mb-4"><input type="checkbox" value="1" class="mr-1"><span>Disable Hover/Focus Auto-Expand</span></div><h6>Footer Options</h6><div class="mb-4"><input type="checkbox" value="1" class="mr-1"><span>Fixed</span></div><h6>Small Text Options</h6><div class="mb-1"><input type="checkbox" value="1" class="mr-1"><span>Body</span></div><div class="mb-1"><input type="checkbox" value="1" class="mr-1"><span>Navbar</span></div><div class="mb-1"><input type="checkbox" value="1" class="mr-1"><span>Brand</span></div><div class="mb-1"><input type="checkbox" value="1" class="mr-1"><span>Sidebar Nav</span></div><div class="mb-4"><input type="checkbox" value="1" class="mr-1"><span>Footer</span></div><h6>Navbar Variants</h6><div class="d-flex"><select class="custom-select mb-3 text-light border-0 bg-white"><option class="bg-primary">Primary</option><option class="bg-secondary">Secondary</option><option class="bg-info">Info</option><option class="bg-success">Success</option><option class="bg-danger">Danger</option><option class="bg-indigo">Indigo</option><option class="bg-purple">Purple</option><option class="bg-pink">Pink</option><option class="bg-navy">Navy</option><option class="bg-lightblue">Lightblue</option><option class="bg-teal">Teal</option><option class="bg-cyan">Cyan</option><option class="bg-dark">Dark</option><option class="bg-gray-dark">Gray dark</option><option class="bg-gray">Gray</option><option class="bg-light">Light</option><option class="bg-warning">Warning</option><option class="bg-white">White</option><option class="bg-orange">Orange</option></select></div><h6>Accent Color Variants</h6><div class="d-flex"></div><select class="custom-select mb-3 border-0"><option>None Selected</option><option class="bg-primary">Primary</option><option class="bg-warning">Warning</option><option class="bg-info">Info</option><option class="bg-danger">Danger</option><option class="bg-success">Success</option><option class="bg-indigo">Indigo</option><option class="bg-lightblue">Lightblue</option><option class="bg-navy">Navy</option><option class="bg-purple">Purple</option><option class="bg-fuchsia">Fuchsia</option><option class="bg-pink">Pink</option><option class="bg-maroon">Maroon</option><option class="bg-orange">Orange</option><option class="bg-lime">Lime</option><option class="bg-teal">Teal</option><option class="bg-olive">Olive</option></select><h6>Dark Sidebar Variants</h6><div class="d-flex"></div><select class="custom-select mb-3 text-light border-0 bg-primary"><option>None Selected</option><option class="bg-primary">Primary</option><option class="bg-warning">Warning</option><option class="bg-info">Info</option><option class="bg-danger">Danger</option><option class="bg-success">Success</option><option class="bg-indigo">Indigo</option><option class="bg-lightblue">Lightblue</option><option class="bg-navy">Navy</option><option class="bg-purple">Purple</option><option class="bg-fuchsia">Fuchsia</option><option class="bg-pink">Pink</option><option class="bg-maroon">Maroon</option><option class="bg-orange">Orange</option><option class="bg-lime">Lime</option><option class="bg-teal">Teal</option><option class="bg-olive">Olive</option></select><h6>Light Sidebar Variants</h6><div class="d-flex"></div><select class="custom-select mb-3 border-0"><option>None Selected</option><option class="bg-primary">Primary</option><option class="bg-warning">Warning</option><option class="bg-info">Info</option><option class="bg-danger">Danger</option><option class="bg-success">Success</option><option class="bg-indigo">Indigo</option><option class="bg-lightblue">Lightblue</option><option class="bg-navy">Navy</option><option class="bg-purple">Purple</option><option class="bg-fuchsia">Fuchsia</option><option class="bg-pink">Pink</option><option class="bg-maroon">Maroon</option><option class="bg-orange">Orange</option><option class="bg-lime">Lime</option><option class="bg-teal">Teal</option><option class="bg-olive">Olive</option></select><h6>Brand Logo Variants</h6><div class="d-flex"></div><select class="custom-select mb-3 border-0"><option>None Selected</option><option class="bg-primary">Primary</option><option class="bg-secondary">Secondary</option><option class="bg-info">Info</option><option class="bg-success">Success</option><option class="bg-danger">Danger</option><option class="bg-indigo">Indigo</option><option class="bg-purple">Purple</option><option class="bg-pink">Pink</option><option class="bg-navy">Navy</option><option class="bg-lightblue">Lightblue</option><option class="bg-teal">Teal</option><option class="bg-cyan">Cyan</option><option class="bg-dark">Dark</option><option class="bg-gray-dark">Gray dark</option><option class="bg-gray">Gray</option><option class="bg-light">Light</option><option class="bg-warning">Warning</option><option class="bg-white">White</option><option class="bg-orange">Orange</option><a href="#">clear</a></select></div></aside>
     <!-- /.content-wrapper -->
   <div id="sidebar-overlay"></div>
   </div>
@@ -445,9 +502,7 @@
     });
   });
 </script>
-  
-  <div class="daterangepicker ltr show-ranges opensright">
-    <div class="ranges"><ul><li data-range-key="Today">Today</li><li data-range-key="Yesterday">Yesterday</li><li data-range-key="Last 7 Days">Last 7 Days</li><li data-range-key="Last 30 Days">Last 30 Days</li><li data-range-key="This Month">This Month</li><li data-range-key="Last Month">Last Month</li><li data-range-key="Custom Range">Custom Range</li></ul></div><div class="drp-calendar left"><div class="calendar-table"></div><div class="calendar-time" style="display: none;"></div></div><div class="drp-calendar right"><div class="calendar-table"></div><div class="calendar-time" style="display: none;"></div></div><div class="drp-buttons"><span class="drp-selected"></span><button class="cancelBtn btn btn-sm btn-default" type="button">Cancel</button><button class="applyBtn btn btn-sm btn-primary" disabled="disabled" type="button">Apply</button> </div></div><div class="jqvmap-label" style="display: none;"></div>
-    
+
+    </script>
   </body>
 </html>
