@@ -97,7 +97,7 @@ h6,
     height: 30%;
     bottom: 0;
     left: 0;
-);
+;
 }
 
 .nav-bar::after {
@@ -523,4 +523,7 @@ header {
   }
 #send_verify{
     font-size: 30px;
+}
+.dropdown-menu {
+   left: -50px;
 }
