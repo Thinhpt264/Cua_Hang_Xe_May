@@ -7,8 +7,8 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
     <!-- Favicon -->
-    <link href="../img/favicon.ico" rel="icon">
     <link rel="shortcut icon" href="../Image/logo.jpg">
+    <link href="../img/favicon.ico" rel="icon">
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Rubik&display=swap"
@@ -62,13 +62,14 @@
         </div>
         <!-- Topbar End -->
 
+
         <!-- Navbar Start -->
-        <div class="container-fluid position-sticky nav-bar p-0" style="z-index: 9;">
-            <div class="position-sticky px-lg-5" style="z-index: 9;">
-                <nav class="navbar navbar-expand-lg bg-secondary navbar-dark py-lg-0 pl-3 pl-lg-5 header-1">
+        <div class="container-fluid position-relative nav-bar p-0">
+            <div class="position-relative px-lg-5" style="z-index: 9;">
+                <nav class="navbar navbar-expand-lg bg-secondary navbar-dark py-3 py-lg-0 pl-3 pl-lg-5 " style="height: 70px" >
                     <a href="" class="navbar-brand">
-                        <img src="../Image/logo1.jpg" alt="" id="logo">
-                        <h1 class="text-uppercase text-primary mb-1" style="margin-top: 25px">T-Motoshop</h1>
+                        <img src="../Image/logo1.jpg" alt="" id="logo" style="height: 70px">
+                        <h2 class="text-uppercase text-primary mb-1" style="margin-top: 15px">T-Motoshop</h2>
                     </a>
                     <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                         <span class="navbar-toggler-icon"></span>
@@ -78,35 +79,88 @@
                             <a href="index.html" class="nav-item nav-link active">Trang Chủ</a>
                             <a href="about.html" class="nav-item nav-link">Giới Thiệu</a>
                             <a href="service.html" class="nav-item nav-link">Dịch Vụ</a>
+                            <a href="contact.html" class="nav-item nav-link">Liên Hệ</a>
+                            <a href="motobike.html" class="nav-link nav-link">Xe Máy</a>
                             <div class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Xe Máy</a>
+                                <a href="login/index.html"  class="nav-link dropdown-toggle" data-toggle="dropdown"><i class="fa-solid fa-user"></i></a>
                                 <div class="dropdown-menu rounded-0 m-0">
-                                    <a href="motobike.html" class="dropdown-item">Xe Hãng</a>
-                                    <a href="detail.html" class="dropdown-item">Xe Cũ</a>
+                                    <a href="motobike.html" class="dropdown-item">Tài Khoản </a>
+                                    <a href="favorite.html" class="dropdown-item"> Xe Yêu Thích</a>
+                                    <a href="login/index.html" class="dropdown-item"> Đăng Xuất <i class="fa-solid fa-arrow-right-from-bracket" style="margin-left: 5px"></i></a>
                                 </div>
                             </div>
-                            <div>
-                                <a href="contact.html" class="nav-item nav-link">Liên Hệ</a>
-                            </div>
-                            <a href="login/index.html" class="nav-item nav-link"><i class="fa-solid fa-user"></i></a>
                         </div>
                     </div>
                 </nav>
             </div>
         </div>
-    </header>
+        <!-- Navbar End -->
+</header>
     <!-- Navbar End -->
     <div class="container-fluid" style="width: 100%;
-    height: 135px;">
+    height: 115px;">
     </div>
+
+
+    <!-- Search Start -->
+<!--    <div class="container-fluid bg-white pt-3 px-lg-5 search-start">-->
+<!--        <div class="row mx-n2">-->
+<!--            <div class="col-xl-2 col-lg-4 col-md-6 px-2">-->
+<!--                <select class="custom-select px-4 mb-3" style="height: 50px;">-->
+<!--                    <option selected>Nhãn Hiệu</option>-->
+<!--                    <option value="1">BMW</option>-->
+<!--                    <option value="2">Ducati</option>-->
+<!--                    <option value="3">Electric Bike</option>-->
+<!--                    <option value="4">Piaggio</option>-->
+<!--                    <option value="5">Suzuki</option>-->
+<!--                    <option value="6">Vinfast</option>-->
+<!--                    <option value="7">Yamaha</option>-->
+<!--                </select>-->
+<!--            </div>-->
+<!--            <div class="col-xl-2 col-lg-4 col-md-6 px-2">-->
+<!--                <select class="custom-select px-4 mb-3" style="height: 50px;">-->
+<!--                    <option selected>Loại xe</option>-->
+<!--                    <option value="">Xe tay ga</option>-->
+<!--                    <option value="">Xe số</option>-->
+<!--                    <option value="">Xe thể thao</option>-->
+<!--                    <option value="">Phân Khối Lớn</option>-->
+<!--                </select>-->
+<!--            </div>-->
+<!--            <div class="col-xl-2 col-lg-4 col-md-6 px-2">-->
+<!--                <div class="date mb-3" id="date" data-target-input="nearest">-->
+<!--                    <input type="text" class="form-control p-4 datetimepicker-input" placeholder="Ngày lựa chọn"-->
+<!--                        data-target="#date" data-toggle="datetimepicker" />-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="col-xl-2 col-lg-4 col-md-6 px-2">-->
+<!--                <div class="time mb-3" id="time" data-target-input="nearest">-->
+<!--                    <input type="text" class="form-control p-4 datetimepicker-input" placeholder="Thời gian lựa chọn"-->
+<!--                        data-target="#time" data-toggle="datetimepicker" />-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="col-xl-2 col-lg-4 col-md-6 px-2">-->
+<!--                <select class="custom-select px-4 mb-3" style="height: 50px;">-->
+<!--                    <option selected>Năm Sản Xuất</option>-->
+<!--                    <option value="1">2016-2018</option>-->
+<!--                    <option value="2">2019-2021</option>-->
+<!--                    <option value="3">2022-Nay</option>-->
+<!--                </select>-->
+<!--            </div>-->
+<!--            <div class="col-xl-2 col-lg-4 col-md-6 px-2">-->
+<!--                <button class="btn btn-primary btn-block mb-3" type="submit" style="height: 50px;">Tìm kiếm</button>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+    <!-- Search End -->
 
     <!-- Search Start -->
     
     <!-- Search End -->
 
 
+
     <!-- Carousel Start -->
-    <div class="container-fluid p-0 mt-3">
+    <div class="container-fluid p-0">
         <div id="header-carousel" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
@@ -407,7 +461,7 @@
                 </div>
                 <div class="col-lg-4 col-md-6 mb-2">
                     <div class="rent-item mb-4">
-                        <img class="img-fluid mb-4" src="../Image/Yamaha/ex_vva_xam.png" alt="">
+                        <img class="img-fluid mb-4" src="../Image/Yamaha/xeso/ex_vva_trang.png" alt="">
                         <h4 class="text-uppercase mb-4">Exciter 155 VVA Giới Hạn</h4>
                         <div class="d-flex justify-content-center mb-4">
                             <div class="px-2">
@@ -428,7 +482,7 @@
                 </div>
                 <div class="col-lg-4 col-md-6 mb-2">
                     <div class="rent-item mb-4">
-                        <img class="img-fluid mb-4" src="../Image/Yamaha/ex_vva_xanh.png" alt="">
+                        <img class="img-fluid mb-4" src="../Image/Yamaha/xeso/ex_vva_xanh.png" alt="">
                         <h4 class="text-uppercase mb-4">Exciter 155 VVA Cao Cấp</h4>
                         <div class="d-flex justify-content-center mb-4">
                             <div class="px-2">
@@ -449,7 +503,7 @@
                 </div>
                 <div class="col-lg-4 col-md-6 mb-2">
                     <div class="rent-item mb-4">
-                        <img class="img-fluid mb-4" src="../Image/Yamaha/ex_tc_den.png" alt="">
+                        <img class="img-fluid mb-4" src="../Image/Yamaha/xeso/ex_tc_den.png" alt="">
                         <h4 class="text-uppercase mb-4">Exciter 155 VVA Tiêu Chuẩn</h4>
                         <div class="d-flex justify-content-center mb-4">
                             <div class="px-2">
