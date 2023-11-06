@@ -47,8 +47,8 @@ h6,
     height: 100px;
 
 }
-#logo:hover{
-    margin-left:15px ;
+.navbar-brand:hover{
+    margin-left: 10px;
 }
 .btn-square {
     width: 36px;
