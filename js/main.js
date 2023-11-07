@@ -143,62 +143,104 @@ function myFunction() {
    
   }
 }
+// Returns an array of maxLength (or less) page numbers
+// where a 0 in the returned array denotes a gap in the series.
+// Parameters:
+//   totalPages:     total number of pages
+//   page:           current page
+//   maxLength:      maximum size of returned array
+function getPageList(totalPages, page, maxLength) {
+  if (maxLength < 5) throw "maxLength must be at least 5";
 
-//load item
+  function range(start, end) {
+      return Array.from(Array(end - start + 1), (_, i) => i + start); 
+  }
 
-let thisPage = 1;
-let limit = 12;
-let list = document.querySelectorAll('.list .item');
-
-function loadItem() {
-    let beginGet = limit * (thisPage - 1);
-    let endGet = limit * thisPage -1;
-    list.forEach((item, key)=> {
-         //kiem tra key co nam dung vi tri khong
-         if(key >= beginGet && key <= endGet) {
-            item.style.display = 'block';
-         }else {
-            item.style.display = 'none';
-         }
-    })
-    listPage();
+  var sideWidth = maxLength < 9 ? 1 : 2;
+  var leftWidth = (maxLength - sideWidth*2 - 3) >> 1;
+  var rightWidth = (maxLength - sideWidth*2 - 2) >> 1;
+  if (totalPages <= maxLength) {
+      // no breaks in list
+      return range(1, totalPages);
+  }
+  if (page <= maxLength - sideWidth - 1 - rightWidth) {
+      // no break on left of page
+      return range(1, maxLength - sideWidth - 1)
+          .concat(0, range(totalPages - sideWidth + 1, totalPages));
+  }
+  if (page >= totalPages - sideWidth - 1 - rightWidth) {
+      // no break on right of page
+      return range(1, sideWidth)
+          .concat(0, range(totalPages - sideWidth - 1 - rightWidth - leftWidth, totalPages));
+  }
+  // Breaks on both sides
+  return range(1, sideWidth)
+      .concat(0, range(page - leftWidth, page + rightWidth),
+              0, range(totalPages - sideWidth + 1, totalPages));
 }
-loadItem();
 
-function listPage() {
-      
-    //lấy số lượng  tất cả các trang 
-    let count = Math.ceil(list.length / limit);
-    document.querySelector('.listPage').innerHTML = '';
-    
-    if(thisPage != 1) {
-        let prev = document.createElement('li');
-        prev.innerText = 'PREV';
-        prev.setAttribute('onclick',"changePage(" + (thisPage - 1 )+ ")");
-        document.querySelector('.listPage').appendChild(prev);
-    }
+// Below is an example use of the above function.
+$(function () {
+  // Number of items and limits the number of items per page
+  var numberOfItems = $(".list .item").length;
+  var limitPerPage = 12;
+  // Total pages rounded upwards
+  var totalPages = Math.ceil(numberOfItems / limitPerPage);
+  // Number of buttons at the top, not counting prev/next,
+  // but including the dotted buttons.
+  // Must be at least 5:
+  var paginationSize = 7; 
+  var currentPage;
 
-    for(i = 1; i<= count ; i++) {
-        let newPage = document.createElement('li');
-        newPage.innerText = i;
-        if(i == thisPage) {
-            newPage.classList.add('active');  
-        }
-        newPage.setAttribute('onclick',"changePage(" + i+ ")");
-        document.querySelector('.listPage').appendChild(newPage);
-    }
-       
-    if(thisPage != count) {
-        let next = document.createElement('li');
-        next.innerText = 'NEXT';
-        next.setAttribute('onclick',"changePage(" + (thisPage + 1 )+ ")");
-        document.querySelector('.listPage').appendChild(next);
-    }
-}
-function changePage(i) {
-    thisPage = i;
-    loadItem();  
-}
+  function showPage(whichPage) {
+      if (whichPage < 1 || whichPage > totalPages) return false;
+      currentPage = whichPage;
+      $(".list .item").hide()
+          .slice((currentPage-1) * limitPerPage, 
+                  currentPage * limitPerPage).show();
+      // Replace the navigation items (not prev/next):            
+      $(".listPage li").slice(1, -1).remove();
+      getPageList(totalPages, currentPage, paginationSize).forEach( item => {
+          $("<li>").addClass("page-item")
+                   .addClass(item ? "current-page" : "disabled")
+                   .toggleClass("active", item === currentPage).append(
+              $("<a>").addClass("page-link").attr({
+                  href: "javascript:void(0)"}).text(item || "...")
+          ).insertBefore("#next-page");
+      });
+      // Disable prev/next when at first/last page:
+      $("#previous-page").toggleClass("disabled", currentPage === 1);
+      $("#next-page").toggleClass("disabled", currentPage === totalPages);
+      return true;
+  }
+
+  // Include the prev/next buttons:
+  $(".listPage").append(
+      $("<li>").addClass("page-item").attr({ id: "previous-page" }).append(
+          $("<a>").addClass("page-link").attr({
+              href: "javascript:void(0)"}).text("Prev")
+      ),
+      $("<li>").addClass("page-item").attr({ id: "next-page" }).append(
+          $("<a>").addClass("page-link").attr({
+              href: "javascript:void(0)"}).text("Next")
+      )
+  );
+  // Show the page links
+  $(".list").show();
+  showPage(1);
+
+  // Use event delegation, as these items are recreated later    
+  $(document).on("click", ".listPage li.current-page:not(.active)", function () {
+      return showPage(+$(this).text());
+  });
+  $("#next-page").on("click", function () {
+      return showPage(currentPage+1);
+  });
+
+  $("#previous-page").on("click", function () {
+      return showPage(currentPage-1);
+  });
+});
 
 //valid register
         //show and hidde password
@@ -285,62 +327,7 @@ function changePage(i) {
                 // toast();
 			}
 			return false;
-        }
-         //toast test
-        // function showSuccessToast() {
-        //     toast({
-        //     title: "Thành công!",
-        //     message: "Bạn đã đăng ký thành công tài khoản tại F8.",
-        //     type: "success",
-        //     duration: 5000
-        //     });
-        // }
-//         // Toast function
-//         function toast({ title = "", message = "", type = "info", duration = 3000 }) {
-//         const main = document.getElementById("toast");
-//         if (main) {
-//             const toast = document.createElement("div");
-
-//             // Auto remove toast
-//             const autoRemoveId = setTimeout(function () {
-//             main.removeChild(toast);
-//             }, duration + 1000);
-
-//             // Remove toast when clicked
-//             toast.onclick = function (e) {
-//             if (e.target.closest(".toast__close")) {
-//                 main.removeChild(toast);
-//                 clearTimeout(autoRemoveId);
-//             }
-//             };
-
-//             const icons = {
-//             success: "fas fa-check-circle",
-//             info: "fas fa-info-circle",
-//             warning: "fas fa-exclamation-circle",
-//             error: "fas fa-exclamation-circle"
-//             };
-//             const icon = icons[type];
-//             const delay = (duration / 1000).toFixed(2);
-
-//             toast.classList.add("toast", `toast--${type}`);
-//             toast.style.animation = `slideInLeft ease .3s, fadeOut linear 1s ${delay}s forwards`;
-
-//             toast.innerHTML = `
-//                             <div class="toast__icon">
-//                                 <i class="${icon}"></i>
-//                             </div>
-//                             <div class="toast__body">
-//                                 <h3 class="toast__title">${title}</h3>
-//                                 <p class="toast__msg">${message}</p>
-//                             </div>
-//                             <div class="toast__close">
-//                                 <i class="fas fa-times"></i>
-//                             </div>
-//                         `;
-//             main.appendChild(toast);
-//   }
-// }
+        }    
 function favoriteProduct() {
     var fill = document.getElementById("heart")
     var nofill = document.getElementById("heart-nofill");
@@ -352,4 +339,3 @@ function favoriteProduct() {
         fill.style.display = "inline-block";
     }
 }
-
