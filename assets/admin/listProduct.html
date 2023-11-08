@@ -49,7 +49,7 @@
           <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-          <a href="admin3.html" class="nav-link">Trang Chủ</a>
+          <a href="" class="nav-link">Trang Chủ</a>
         </li>
       </ul>
 
@@ -126,13 +126,13 @@
                     <span class="float-right text-sm text-warning"><i class="fas fa-star"></i></span>
                   </h3>
                   <p class="text-sm">The subject goes here</p>
-                  <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 giờ trước</p>
+                  <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
                 </div>
               </div>
               <!-- Message End -->
             </a>
             <div class="dropdown-divider"></div>
-            <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
+            <a href="#" class="dropdown-item dropdown-footer">Xem Tất Cả Tin Nhắn</a>
           </div>
         </li>
         <!-- Notifications Dropdown Menu -->
@@ -223,7 +223,7 @@
             </li>
             <li class="nav-header">Quản Lí Người Dùng</li>
             <li class="nav-item menu-is-opening menu-open">
-              <a href="#" class="nav-link active">
+              <a href="#" class="nav-link ">
                 <i class="nav-icon far fa-envelope"></i>
                 <p>
                   Quản lí tài khoản
@@ -232,51 +232,45 @@
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="employee.html" class="nav-link active">
+                  <a href="employee.html" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Danh Sách Nhân Viên</p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="accountList.html" class="nav-link">
+                  <a href="accountList.html" class="nav-link ">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>Danh Sách Khách Hàng Trên Hệ Thống</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="customerbuyproducts.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Danh Sách Người Dùng mua xe</p>
-                  </a>
-                </li>
-              </ul>
-            </li>
-            <li class="nav-header">Danh Sách Sản Phẩm</li>
-            <li class="nav-item">
-              <a href="#" class="nav-link">
-                <i class="nav-icon far fa-envelope"></i>
-                <p>
-                  Danh Sách Xe
-                  <i class="fas fa-angle-left right"></i>
-                </p>
-              </a>
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="pages/mailbox/mailbox.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Danh Sách Nhân Viên</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="pages/mailbox/compose.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Danh Sách Người Dùng Online</p>
+                    <p>Danh Sách Tài Khoản Trên Website</p>
                   </a>
                 </li>
                 <li class="nav-item">
                   <a href="pages/mailbox/read-mail.html" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Danh Sách Người Dùng mua xe</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-header">Quản Lí Sản Phẩm</li>
+            <li class="nav-item">
+              <a href="#" class="nav-link active">
+                <i class="fa-solid fa-motorcycle" style="color: #e1e2e5;"></i>
+                <p>
+                  Quản Lí Xe 
+                  <i class="fas fa-angle-left right"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="listProduct.html" class="nav-link active">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Danh Sách Xe </p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="listBrand.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Danh Sách Chi Nhánh</p>
                   </a>
                 </li>
               </ul>
@@ -296,12 +290,12 @@
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1 class="m-0">Danh Sách Nhân Viên</h1>
+              <h1 class="m-0">Danh Sách Xe</h1>
             </div><!-- /.col -->
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
                 <li class="breadcrumb-item"><a href="#">Trang Chủ</a></li>
-                <li class="breadcrumb-item active">Nhân Viên</li>
+                <li class="breadcrumb-item active">Danh Sách Xe</li>
               </ol>
             </div><!-- /.col -->
           </div><!-- /.row -->
@@ -320,10 +314,6 @@
                     </div>
                     <div class="row">
                       <div class="col-sm-12">
-                        <div class="col-3 p-3">
-                         
-                          <a class="btn btn-block bg-gradient-success" href="addNewEmployeeByAdmin.html"> <i class="fa-solid fa-plus"></i> Thêm Nhân Viên</a>
-                        </div>
                         <table id="example2" class="table table-bordered table-hover dataTable dtr-inline"
                           aria-describedby="example2_info">
                           <thead>
@@ -333,13 +323,17 @@
                               <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1"
                                 aria-label="Anh: activate to sort column ascending">Ảnh</th>
                               <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1"
-                                aria-label="Ten_Nhan_Vien: activate to sort column ascending">Tên Nhân Viên</th>
+                                aria-label="Ten_Nguoi_Dung: activate to sort column ascending">Tên Xe</th>
                               <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1"
-                                aria-label="Muc_Luong: activate to sort column ascending">Mức Lương(VNĐ)</th>
+                                aria-label="Chuc_Vu: activate to sort column ascending">Giá Tiền</th>
                               <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1"
-                                aria-label="Bat_Dau_lam grade: activate to sort column ascending">Ngày Bắt Đầu Làm</th>
+                                aria-label="Bat_Dau_lam grade: activate to sort column ascending">Hãng Xe</th>
                               <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1"
-                                aria-label="Lam_Viec_Tai grade: activate to sort column ascending">Làm Việc Tại</th>
+                                aria-label="Lam_Viec_Tai grade: activate to sort column ascending">Dòng Xe</th>
+                                <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1"
+                                aria-label="Lam_Viec_Tai grade: activate to sort column ascending">Chi Tiết</th>
+                              <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1"
+                                aria-label="Sua grade: activate to sort column ascending">Ngày nhập</th>
                               <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1"
                                 aria-label="Sua grade: activate to sort column ascending">Sửa</th>
                               <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1"
@@ -348,125 +342,169 @@
                           </thead>
                           <tbody>
                             <tr class="odd">
-                              <td class="dtr-control sorting_1" tabindex="0">01</td>
-                              <td><img src="../../dist/img/avatar3.png" alt="" style="width: 50px;"></td>
-                              <td>Trần Quốc Trung</td>
-                              <td>8.000.000</td>
-                              <td>1/9/2020</td>
-                              <td>Chi Nhánh Quận 3</td>
-                              <td class="text-center"><a href=""><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a>
-                              </td>
-                              <td class="text-center"><a href=""><i class="fa-solid fa-x" style="color: #000000;"></i></a></td>
+                                <td class="dtr-control sorting_1" tabindex="0">01</td>
+                                 <td><img src="../../Image/Honda/tayga/AB_125_den.png" alt="" style="width: 50px;"></td>
+                                  <td>AIRBLADE 125</td>
+                                  <td>50.000.000</td>
+                                  <td>HONDA</td>
+                                  <td>Xe tay ga</td>
+                                  <td class="text-center">
+                                    <a href="../detailAB_125.html"><i class="fa-solid fa-plus"></i></a>
+                                 </td>
+                                 <td>06/11/2023</td>
+                                 <td class="text-center"><a href="" class="btn btn-info"><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a>
+                                 </td>
+                                 <td class="text-center"><a href="" class="btn btn-danger"><i class="fas fa-trash" style="color: #000000;"></i></a></td>
                             </tr>
                             <tr class="even">
                               <td class="dtr-control sorting_1" tabindex="0">02</td>
-                              <td><img src="../../dist/img/avatar2.png" alt="" style="width: 50px;"></td>
-                              <td>Nguyễn Trần Phúc Thành</td>
-                              <td>9.000.000</td>
-                              <td>1/10/2021</td>
-                              <td>Chi Nhánh Quận 9</td>
-                              <td class="text-center"><a href=""><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a>
-                              </td>
-                              <td class="text-center"><a href=""><i class="fa-solid fa-x" style="color: #000000;"></i></a></td>
+                              <td><img src="../../Image/Ducati/ducati-db.png" alt="" style="width: 50px;"></td>
+                                  <td>DUCATI</td>
+                                  <td>70.000.000</td>
+                                  <td>Yamaha</td>
+                                  <td>Xe tay ga</td>
+                                  <td class="text-center">
+                                    <a href="../detailAB_125.html"><i class="fa-solid fa-plus"></i></a>
+                                 </td>
+                                 <td>09/11/2023</td>
+                                 <td class="text-center"><a href="" class="btn btn-info"><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a>
+                                 </td>
+                                 <td class="text-center"><a href="" class="btn btn-danger"><i class="fas fa-trash" style="color: #000000;"></i></a></td>
                             </tr>
                             <tr class="even">
                               <td class="dtr-control sorting_1" tabindex="0">03</td>
-                              <td><img src="../../dist/img/avatar.png" alt="" style="width: 50px;"></td>
-                              <td>Phan Thế Thịnh</td>
-                              <td>9.000.000</td>
-                              <td>1/10/2021</td>
-                              <td>Chi Nhánh Quận Gò Vấp</td>
-                              <td class="text-center"><a href="editProfileByAdmin.html"><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a>
-                              </td>
-                              <td class="text-center"><a href=""><i class="fa-solid fa-x" style="color: #000000;"></i></a></td>
+                              <td><img src="../../Image/BMW/bmw Red.png" alt="" style="width: 50px;"></td>
+                                  <td>BMW</td>
+                                  <td>90.000.000</td>
+                                  <td>Yamaha</td>
+                                  <td>Xe tay ga</td>
+                                  <td class="text-center">
+                                    <a href="../detailAB_125.html"><i class="fa-solid fa-plus"></i></a>
+                                 </td>
+                                 <td>02/11/2023</td>
+                                 <td class="text-center"><a href="" class="btn btn-info"><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a>
+                                 </td>
+                                 <td class="text-center"><a href="" class="btn btn-danger"><i class="fas fa-trash" style="color: #000000;"></i></a></td>
                             </tr>
                             <tr class="odd">
                               <td class="dtr-control sorting_1" tabindex="0">04</td>
-                              <td><img src="../../dist/img/avatar4.png" alt="" style="width: 50px;"></td>
-                              <td>Phan Thế Thịnh</td>
-                              <td>10.000.000</td>
-                              <td>1/11/2021</td>
-                              <td>Chi Nhánh Quận Gò Vấp</td>
-                              <td class="text-center"><a href=""><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a>
-                              </td>
-                              <td class="text-center"><a href=""><i class="fa-solid fa-x" style="color: #000000;"></i></a></td>
+                              <td><img src="../../Image/Piaggio(Vespa)/automotosport-xam.png" alt="" style="width: 50px;"></td>
+                                  <td>VESPA </td>
+                                  <td>50.000.000</td>
+                                  <td>Yamaha</td>
+                                  <td>Xe tay ga</td>
+                                  <td class="text-center">
+                                    <a href="../detailAB_125.html"><i class="fa-solid fa-plus"></i></a>
+                                 </td>
+                                 <td>06/10/2023</td>
+                                 <td class="text-center"><a href="" class="btn btn-info"><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a>
+                                 </td>
+                                 <td class="text-center"><a href="" class="btn btn-danger"><i class="fas fa-trash" style="color: #000000;"></i></a></td>
                             </tr>
                             <tr class="even">
-                              <td class="dtr-control sorting_1" tabindex="0">05</td>
-                              <td><img src="../../dist/img/avatar5.png" alt="" style="width: 50px;"></td>
-                              <td>Nguyễn Văn A</td>
-                              <td>7.500.000</td>
-                              <td>11/10/2023</td>
-                              <td>Chi Nhánh Quận Thủ Đức</td>
-                              <td class="text-center"><a href=""><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a>
-                              </td>
-                              <td class="text-center"><a href=""><i class="fa-solid fa-x" style="color: #000000;"></i></a></td>
+                                <td class="dtr-control sorting_1" tabindex="0">05</td>
+                                <td><img src="../../Image/BMW/BMW S1000RR den.png" alt="" style="width: 50px;"></td>
+                                  <td>BMW </td>
+                                  <td>80.000.000</td>
+                                  <td>Yamaha</td>
+                                  <td>Xe tay ga</td>
+                                  <td class="text-center">
+                                    <a href="../detailAB_125.html"><i class="fa-solid fa-plus"></i></a>
+                                 </td>
+                                 <td>05/09/2023</td>
+                                 <td class="text-center"><a href="" class="btn btn-info"><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a>
+                                 </td>
+                                 <td class="text-center"><a href="" class="btn btn-danger"><i class="fas fa-trash" style="color: #000000;"></i></a></td>
                             </tr>
                             <tr class="odd">
                               <td class="dtr-control sorting_1" tabindex="0">06</td>
-                              <td><img src="../../dist/img/avatar3.png" alt="" style="width: 50px;"></td>
-                              <td>Nguyễn Văn B</td>
-                              <td>5.500.000</td>
-                              <td>11/12/2022</td>
-                              <td>Chi Nhánh Quận 12</td>
-                              <td class="text-center"><a href=""><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a>
-                              </td>
-                              <td class="text-center"><a href=""><i class="fa-solid fa-x" style="color: #000000;"></i></a></td>
+                              <td><img src="../../Image/Ducati/ducati-do800.png" alt="" style="width: 50px;"></td>
+                                  <td>DUCATI 800</td>
+                                  <td>70.000.000</td>
+                                  <td>Yamaha</td>
+                                  <td>Xe tay ga</td>
+                                  <td class="text-center">
+                                    <a href="../detailAB_125.html"><i class="fa-solid fa-plus"></i></a>
+                                 </td>
+                                 <td>21/11/2023</td>
+                                 <td class="text-center"><a href="" class="btn btn-info"><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a>
+                                 </td>
+                                 <td class="text-center"><a href="" class="btn btn-danger"><i class="fas fa-trash" style="color: #000000;"></i></a></td>
                             </tr>
                             <tr class="even">
                               <td class="dtr-control sorting_1" tabindex="0">07</td>
-                              <td><img src="../../dist/img/avatar2.png" alt="" style="width: 50px;"></td>
-                              <td>Nguyễn Văn C</td>
-                              <td>9.500.000</td>
-                              <td>11/1/2021</td>
-                              <td>Chi Nhánh Quận Thủ Đức</td>
-                              <td class="text-center"><a href=""><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a>
-                              </td>
-                              <td class="text-center"><a href=""><i class="fa-solid fa-x" style="color: #000000;"></i></a></td>
+                              <td><img src="../../Image/Honda/tayga/AB_160_do.png" alt="" style="width: 50px;"></td>
+                                  <td>AIRBLADE 160</td>
+                                  <td>30.000.000</td>
+                                  <td>HONDA</td>
+                                  <td>Xe tay ga</td>
+                                  <td class="text-center">
+                                    <a href="../detailAB_125.html"><i class="fa-solid fa-plus"></i></a>
+                                 </td>
+                                 <td>20/10/2023</td>
+                                 <td class="text-center"><a href="" class="btn btn-info"><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a>
+                                 </td>
+                                 <td class="text-center"><a href="" class="btn btn-danger"><i class="fas fa-trash" style="color: #000000;"></i></a></td>
                             </tr>
                             <tr class="odd">
                               <td class="dtr-control sorting_1" tabindex="0">08</td>
-                              <td><img src="../../dist/img/avatar5.png" alt="" style="width: 50px;"></td>
-                              <td>Nguyễn Văn A</td>
-                              <td>7.500.000</td>
-                              <td>11/10/2021</td>
-                              <td>Chi Nhánh Quận Thủ Đức</td>
-                              <td class="text-center"><a href=""><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a>
-                              </td>
-                              <td class="text-center"><a href=""><i class="fa-solid fa-x" style="color: #000000;"></i></a></td>
+                              <td><img src="../../Image/Honda/xeSo/CBR_1000.png" alt="" style="width: 50px;"></td>
+                                  <td>CBR_1000</td>
+                                  <td>20.000.000</td>
+                                  <td>HONDA</td>
+                                  <td>Xe số</td>
+                                  <td class="text-center">
+                                    <a href="../detailAB_125.html"><i class="fa-solid fa-plus"></i></a>
+                                 </td>
+                                 <td>05/11/2023</td>
+                                 <td class="text-center"><a href="" class="btn btn-info"><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a>
+                                 </td>
+                                 <td class="text-center"><a href="" class="btn btn-danger"><i class="fas fa-trash" style="color: #000000;"></i></a></td>
                             </tr>
                             <tr class="even">
                               <td class="dtr-control sorting_1" tabindex="0">09</td>
-                              <td><img src="../../dist/img/avatar5.png" alt="" style="width: 50px;"></td>
-                              <td>Nguyễn Văn A</td>
-                              <td>7.500.000</td>
-                              <td>11/10/2021</td>
-                              <td>Chi Nhánh Quận Thủ Đức</td>
-                              <td class="text-center"><a href=""><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a>
-                              </td>
-                              <td class="text-center"><a href=""><i class="fa-solid fa-x" style="color: #000000;"></i></a></td>
+                              <td><img src="../../Image/Suzuki/suzuki2019-vangden.png" alt="" style="width: 50px;"></td>
+                                  <td>SUZUKI</td>
+                                  <td>80.000.000</td>
+                                  <td>Yamaha</td>
+                                  <td>Xe tay ga</td>
+                                  <td class="text-center">
+                                    <a href="../detailAB_125.html"><i class="fa-solid fa-plus"></i></a>
+                                 </td>
+                                 <td>06/11/2023</td>
+                                 <td class="text-center"><a href="" class="btn btn-info"><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a>
+                                 </td>
+                                 <td class="text-center"><a href="" class="btn btn-danger"><i class="fas fa-trash" style="color: #000000;"></i></a></td>
                             </tr>
                             <tr class="even">
                               <td class="dtr-control sorting_1" tabindex="0">10</td>
-                              <td><img src="../../dist/img/avatar5.png" alt="" style="width: 50px;"></td>
-                              <td>Nguyễn Văn A</td>
-                              <td>7.500.000</td>
-                              <td>11/10/2022</td>
-                              <td>Chi Nhánh Quận Thủ Đức</td>
-                              <td class="text-center"><a href=""><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a>
-                              </td>
-                              <td class="text-center"><a href=""><i class="fa-solid fa-x" style="color: #000000;"></i></a></td>
+                              <td><img src="../../Image/Piaggio(Vespa)/vespatrang.png" alt="" style="width: 50px;"></td>
+                                  <td>VESPA</td>
+                                  <td>90.000.000</td>
+                                  <td>Yamaha</td>
+                                  <td>Xe tay ga</td>
+                                  <td class="text-center">
+                                    <a href="../detailAB_125.html"><i class="fa-solid fa-plus"></i></a>
+                                 </td>
+                                 <td>15/11/2023</td>
+                                 <td class="text-center"><a href="" class="btn btn-info"><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a>
+                                 </td>
+                                 <td class="text-center"><a href="" class="btn btn-danger"><i class="fas fa-trash" style="color: #000000;"></i></a></td>
                             </tr>
                             <tr class="even">
                               <td class="dtr-control sorting_1" tabindex="0">11</td>
-                              <td><img src="../../dist/img/avatar5.png" alt="" style="width: 50px;"></td>
-                              <td>Nguyễn Văn B</td>
-                              <td>7.500.000</td>
-                              <td>11/10/2022</td>
-                              <td>Chi Nhánh Quận Thủ Đức</td>
-                              <td class="text-center"><a href=""><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a>
-                              </td>
-                              <td class="text-center"><a href=""><i class="fa-solid fa-x" style="color: #000000;"></i></a></td>
+                              <td><img src="../../Image/Honda/xeSo/Blade_red.png" alt="" style="width: 50px;"></td>
+                              <td>BLADE</td>
+                              <td>10.000.000</td>
+                              <td>HONDA</td>
+                              <td>Xe số</td>
+                              <td class="text-center">
+                                <a href="../detailAB_125.html"><i class="fa-solid fa-plus"></i></a>
+                             </td>
+                             <td>06/11/2023</td>
+                             <td class="text-center"><a href="" class="btn btn-info"><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a>
+                             </td>
+                             <td class="text-center"><a href="" class="btn btn-danger"><i class="fas fa-trash" style="color: #000000;"></i></a></td>
                             </tr>
                           </tbody>
                 

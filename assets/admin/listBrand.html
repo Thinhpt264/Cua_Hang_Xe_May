@@ -49,7 +49,7 @@
           <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-          <a href="admin3.html" class="nav-link">Trang Chủ</a>
+          <a href="" class="nav-link">Trang Chủ</a>
         </li>
       </ul>
 
@@ -126,13 +126,13 @@
                     <span class="float-right text-sm text-warning"><i class="fas fa-star"></i></span>
                   </h3>
                   <p class="text-sm">The subject goes here</p>
-                  <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 giờ trước</p>
+                  <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
                 </div>
               </div>
               <!-- Message End -->
             </a>
             <div class="dropdown-divider"></div>
-            <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
+            <a href="#" class="dropdown-item dropdown-footer">Xem Tất Cả Tin Nhắn</a>
           </div>
         </li>
         <!-- Notifications Dropdown Menu -->
@@ -223,7 +223,7 @@
             </li>
             <li class="nav-header">Quản Lí Người Dùng</li>
             <li class="nav-item menu-is-opening menu-open">
-              <a href="#" class="nav-link active">
+              <a href="#" class="nav-link ">
                 <i class="nav-icon far fa-envelope"></i>
                 <p>
                   Quản lí tài khoản
@@ -232,51 +232,45 @@
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="employee.html" class="nav-link active">
+                  <a href="employee.html" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Danh Sách Nhân Viên</p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="accountList.html" class="nav-link">
+                  <a href="accountList.html" class="nav-link ">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>Danh Sách Khách Hàng Trên Hệ Thống</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="customerbuyproducts.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Danh Sách Người Dùng mua xe</p>
-                  </a>
-                </li>
-              </ul>
-            </li>
-            <li class="nav-header">Danh Sách Sản Phẩm</li>
-            <li class="nav-item">
-              <a href="#" class="nav-link">
-                <i class="nav-icon far fa-envelope"></i>
-                <p>
-                  Danh Sách Xe
-                  <i class="fas fa-angle-left right"></i>
-                </p>
-              </a>
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="pages/mailbox/mailbox.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Danh Sách Nhân Viên</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="pages/mailbox/compose.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Danh Sách Người Dùng Online</p>
+                    <p>Danh Sách Tài Khoản Trên Website</p>
                   </a>
                 </li>
                 <li class="nav-item">
                   <a href="pages/mailbox/read-mail.html" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Danh Sách Người Dùng mua xe</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-header">Quản Lí Sản Phẩm</li>
+            <li class="nav-item">
+              <a href="#" class="nav-link active">
+                <i class="fa-solid fa-motorcycle" style="color: #e1e2e5;"></i>
+                <p>
+                  Quản Lí Xe 
+                  <i class="fas fa-angle-left right"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="listProduct.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Danh Sách Xe </p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="listBrand.html" class="nav-link active">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Danh Sách Chi Nhánh</p>
                   </a>
                 </li>
               </ul>
@@ -296,12 +290,12 @@
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1 class="m-0">Danh Sách Nhân Viên</h1>
+              <h1 class="m-0">Danh Sách Tài Khoản Trên Hệ Thống</h1>
             </div><!-- /.col -->
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
                 <li class="breadcrumb-item"><a href="#">Trang Chủ</a></li>
-                <li class="breadcrumb-item active">Nhân Viên</li>
+                <li class="breadcrumb-item active">Danh Sách Tài Khoản</li>
               </ol>
             </div><!-- /.col -->
           </div><!-- /.row -->
@@ -314,167 +308,72 @@
           <!-- Small boxes (Stat box) -->
             <div class="row">
                 <div class="col-12">
-                  <div class="card">
-                    <!-- /.card-header -->
-                    <div class="card-body">
-                    </div>
-                    <div class="row">
-                      <div class="col-sm-12">
-                        <div class="col-3 p-3">
-                         
-                          <a class="btn btn-block bg-gradient-success" href="addNewEmployeeByAdmin.html"> <i class="fa-solid fa-plus"></i> Thêm Nhân Viên</a>
+                    <div class="card">
+                        <div class="card-header">
+                        <h3 class="card-title">Bordered Table</h3>
                         </div>
-                        <table id="example2" class="table table-bordered table-hover dataTable dtr-inline"
-                          aria-describedby="example2_info">
-                          <thead>
-                            <tr>
-                              <th class="sorting sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1"
-                                aria-sort="ascending" aria-label="Id: activate to sort column descending">Id</th>
-                              <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1"
-                                aria-label="Anh: activate to sort column ascending">Ảnh</th>
-                              <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1"
-                                aria-label="Ten_Nhan_Vien: activate to sort column ascending">Tên Nhân Viên</th>
-                              <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1"
-                                aria-label="Muc_Luong: activate to sort column ascending">Mức Lương(VNĐ)</th>
-                              <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1"
-                                aria-label="Bat_Dau_lam grade: activate to sort column ascending">Ngày Bắt Đầu Làm</th>
-                              <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1"
-                                aria-label="Lam_Viec_Tai grade: activate to sort column ascending">Làm Việc Tại</th>
-                              <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1"
-                                aria-label="Sua grade: activate to sort column ascending">Sửa</th>
-                              <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1"
-                                aria-label="Xoa grade: activate to sort column ascending">Xóa</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            <tr class="odd">
-                              <td class="dtr-control sorting_1" tabindex="0">01</td>
-                              <td><img src="../../dist/img/avatar3.png" alt="" style="width: 50px;"></td>
-                              <td>Trần Quốc Trung</td>
-                              <td>8.000.000</td>
-                              <td>1/9/2020</td>
-                              <td>Chi Nhánh Quận 3</td>
-                              <td class="text-center"><a href=""><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a>
-                              </td>
-                              <td class="text-center"><a href=""><i class="fa-solid fa-x" style="color: #000000;"></i></a></td>
-                            </tr>
-                            <tr class="even">
-                              <td class="dtr-control sorting_1" tabindex="0">02</td>
-                              <td><img src="../../dist/img/avatar2.png" alt="" style="width: 50px;"></td>
-                              <td>Nguyễn Trần Phúc Thành</td>
-                              <td>9.000.000</td>
-                              <td>1/10/2021</td>
-                              <td>Chi Nhánh Quận 9</td>
-                              <td class="text-center"><a href=""><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a>
-                              </td>
-                              <td class="text-center"><a href=""><i class="fa-solid fa-x" style="color: #000000;"></i></a></td>
-                            </tr>
-                            <tr class="even">
-                              <td class="dtr-control sorting_1" tabindex="0">03</td>
-                              <td><img src="../../dist/img/avatar.png" alt="" style="width: 50px;"></td>
-                              <td>Phan Thế Thịnh</td>
-                              <td>9.000.000</td>
-                              <td>1/10/2021</td>
-                              <td>Chi Nhánh Quận Gò Vấp</td>
-                              <td class="text-center"><a href="editProfileByAdmin.html"><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a>
-                              </td>
-                              <td class="text-center"><a href=""><i class="fa-solid fa-x" style="color: #000000;"></i></a></td>
-                            </tr>
-                            <tr class="odd">
-                              <td class="dtr-control sorting_1" tabindex="0">04</td>
-                              <td><img src="../../dist/img/avatar4.png" alt="" style="width: 50px;"></td>
-                              <td>Phan Thế Thịnh</td>
-                              <td>10.000.000</td>
-                              <td>1/11/2021</td>
-                              <td>Chi Nhánh Quận Gò Vấp</td>
-                              <td class="text-center"><a href=""><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a>
-                              </td>
-                              <td class="text-center"><a href=""><i class="fa-solid fa-x" style="color: #000000;"></i></a></td>
-                            </tr>
-                            <tr class="even">
-                              <td class="dtr-control sorting_1" tabindex="0">05</td>
-                              <td><img src="../../dist/img/avatar5.png" alt="" style="width: 50px;"></td>
-                              <td>Nguyễn Văn A</td>
-                              <td>7.500.000</td>
-                              <td>11/10/2023</td>
-                              <td>Chi Nhánh Quận Thủ Đức</td>
-                              <td class="text-center"><a href=""><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a>
-                              </td>
-                              <td class="text-center"><a href=""><i class="fa-solid fa-x" style="color: #000000;"></i></a></td>
-                            </tr>
-                            <tr class="odd">
-                              <td class="dtr-control sorting_1" tabindex="0">06</td>
-                              <td><img src="../../dist/img/avatar3.png" alt="" style="width: 50px;"></td>
-                              <td>Nguyễn Văn B</td>
-                              <td>5.500.000</td>
-                              <td>11/12/2022</td>
-                              <td>Chi Nhánh Quận 12</td>
-                              <td class="text-center"><a href=""><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a>
-                              </td>
-                              <td class="text-center"><a href=""><i class="fa-solid fa-x" style="color: #000000;"></i></a></td>
-                            </tr>
-                            <tr class="even">
-                              <td class="dtr-control sorting_1" tabindex="0">07</td>
-                              <td><img src="../../dist/img/avatar2.png" alt="" style="width: 50px;"></td>
-                              <td>Nguyễn Văn C</td>
-                              <td>9.500.000</td>
-                              <td>11/1/2021</td>
-                              <td>Chi Nhánh Quận Thủ Đức</td>
-                              <td class="text-center"><a href=""><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a>
-                              </td>
-                              <td class="text-center"><a href=""><i class="fa-solid fa-x" style="color: #000000;"></i></a></td>
-                            </tr>
-                            <tr class="odd">
-                              <td class="dtr-control sorting_1" tabindex="0">08</td>
-                              <td><img src="../../dist/img/avatar5.png" alt="" style="width: 50px;"></td>
-                              <td>Nguyễn Văn A</td>
-                              <td>7.500.000</td>
-                              <td>11/10/2021</td>
-                              <td>Chi Nhánh Quận Thủ Đức</td>
-                              <td class="text-center"><a href=""><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a>
-                              </td>
-                              <td class="text-center"><a href=""><i class="fa-solid fa-x" style="color: #000000;"></i></a></td>
-                            </tr>
-                            <tr class="even">
-                              <td class="dtr-control sorting_1" tabindex="0">09</td>
-                              <td><img src="../../dist/img/avatar5.png" alt="" style="width: 50px;"></td>
-                              <td>Nguyễn Văn A</td>
-                              <td>7.500.000</td>
-                              <td>11/10/2021</td>
-                              <td>Chi Nhánh Quận Thủ Đức</td>
-                              <td class="text-center"><a href=""><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a>
-                              </td>
-                              <td class="text-center"><a href=""><i class="fa-solid fa-x" style="color: #000000;"></i></a></td>
-                            </tr>
-                            <tr class="even">
-                              <td class="dtr-control sorting_1" tabindex="0">10</td>
-                              <td><img src="../../dist/img/avatar5.png" alt="" style="width: 50px;"></td>
-                              <td>Nguyễn Văn A</td>
-                              <td>7.500.000</td>
-                              <td>11/10/2022</td>
-                              <td>Chi Nhánh Quận Thủ Đức</td>
-                              <td class="text-center"><a href=""><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a>
-                              </td>
-                              <td class="text-center"><a href=""><i class="fa-solid fa-x" style="color: #000000;"></i></a></td>
-                            </tr>
-                            <tr class="even">
-                              <td class="dtr-control sorting_1" tabindex="0">11</td>
-                              <td><img src="../../dist/img/avatar5.png" alt="" style="width: 50px;"></td>
-                              <td>Nguyễn Văn B</td>
-                              <td>7.500.000</td>
-                              <td>11/10/2022</td>
-                              <td>Chi Nhánh Quận Thủ Đức</td>
-                              <td class="text-center"><a href=""><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a>
-                              </td>
-                              <td class="text-center"><a href=""><i class="fa-solid fa-x" style="color: #000000;"></i></a></td>
-                            </tr>
-                          </tbody>
-                
+                        
+                        <div class="card-body">
+                        <table class="table table-bordered">
+                        <thead>
+                        <tr>
+                        <th>#</th>
+                        <th>Tên Hãng</th>
+                        <th class='text-center'>Ảnh</th>
+                        <th style="justify-content: center;display: flex;">Sửa</th>
+                        <th class="text-center">Xóa</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                        <td>1.</td>
+                        <td>Yamaha</td>
+                        <td class="text-center"><img src="../../Image/Ducati/ducati-db.png" alt="" style="width: 50px"></td>
+                        <td class="text-center"><a href="" class="btn btn-info"><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a>
+                        </td>
+                        <td class="text-center"><a href="" class="btn btn-danger"><i class="fas fa-trash" style="color: #000000;"></i></a></td>
+                        </tr>
+                        <tr>
+                        <td>2.</td>
+                        <td>Honda</td>
+                        <td class="text-center"><img src="../../Image/Honda/tayga/AB_160_xanh.png" alt="" style="width: 50px"></td>
+                        <td class="text-center"><a href="" class="btn btn-info"><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a>
+                        </td>
+                        <td class="text-center"><a href="" class="btn btn-danger"><i class="fas fa-trash" style="color: #000000;"></i></a></td>
+                        </tr>
+                        <tr>
+                        <td>3.</td>
+                        <td>Suzuki</td>
+                        <td class="text-center"><img src="../../Image/Suzuki/suzuki-vang.png" alt="" style="width: 50px"></td>
+                        <td class="text-center"><a href="" class="btn btn-info"><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a>
+                        </td>
+                        <td class="text-center"><a href="" class="btn btn-danger"><i class="fas fa-trash" style="color: #000000;"></i></a></td>
+                        
+                        </tr>
+                        <tr>
+                        <td>4.</td>
+                        <td>BMW</td>
+                        <td class="text-center"><img src="../../Image/BMW/BMW S1000RR den.png" alt="" style="width: 50px"></td>
+                        <td class="text-center"><a href="" class="btn btn-info"><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a>
+                        </td>
+                        <td class="text-center"><a href="" class="btn btn-danger"><i class="fas fa-trash" style="color: #000000;"></i></a></td>
+                        
+                        </tr>
+                        </tbody>
                         </table>
-                      </div>
-                      <!-- /.card-body -->
-                    </div>
-                  </div>
+                        </div>
+                        
+                        <div class="card-footer clearfix">
+                        <ul class="pagination pagination-sm m-0 float-right">
+                        <!-- <li class="page-item"><a class="page-link" href="#">«</a></li>
+                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item"><a class="page-link" href="#">»</a></li> -->
+                        </ul>
+                        </div>
+                        </div>
+                  
                 </div>
                 <!-- /.card-body -->
           <!-- /.row (main row) -->
@@ -489,7 +388,7 @@
     </footer>
     <aside class="control-sidebar control-sidebar-dark" style="display: none;">
       <!-- Control sidebar content goes here -->
-    <div class="p-3 control-sidebar-content" style=""><h5>Customize AdminLTE</h5><hr class="mb-2"><div class="mb-4"><input type="checkbox" value="1" class="mr-1"><span>Dark Mode</span></div><h6>Header Options</h6><div class="mb-1"><input type="checkbox" value="1" class="mr-1"><span>Fixed</span></div><div class="mb-1"><input type="checkbox" value="1" class="mr-1"><span>Dropdown Legacy Offset</span></div><div class="mb-4"><input type="checkbox" value="1" class="mr-1"><span>No border</span></div><h6>Sidebar Options</h6><div class="mb-1"><input type="checkbox" value="1" class="mr-1"><span>Collapsed</span></div><div class="mb-1"><input type="checkbox" value="1" class="mr-1"><span>Fixed</span></div><div class="mb-1"><input type="checkbox" value="1" checked="checked" class="mr-1"><span>Sidebar Mini</span></div><div class="mb-1"><input type="checkbox" value="1" class="mr-1"><span>Sidebar Mini MD</span></div><div class="mb-1"><input type="checkbox" value="1" class="mr-1"><span>Sidebar Mini XS</span></div><div class="mb-1"><input type="checkbox" value="1" class="mr-1"><span>Nav Flat Style</span></div><div class="mb-1"><input type="checkbox" value="1" class="mr-1"><span>Nav Legacy Style</span></div><div class="mb-1"><input type="checkbox" value="1" class="mr-1"><span>Nav Compact</span></div><div class="mb-1"><input type="checkbox" value="1" class="mr-1"><span>Nav Child Indent</span></div><div class="mb-1"><input type="checkbox" value="1" class="mr-1"><span>Nav Child Hide on Collapse</span></div><div class="mb-4"><input type="checkbox" value="1" class="mr-1"><span>Disable Hover/Focus Auto-Expand</span></div><h6>Footer Options</h6><div class="mb-4"><input type="checkbox" value="1" class="mr-1"><span>Fixed</span></div><h6>Small Text Options</h6><div class="mb-1"><input type="checkbox" value="1" class="mr-1"><span>Body</span></div><div class="mb-1"><input type="checkbox" value="1" class="mr-1"><span>Navbar</span></div><div class="mb-1"><input type="checkbox" value="1" class="mr-1"><span>Brand</span></div><div class="mb-1"><input type="checkbox" value="1" class="mr-1"><span>Sidebar Nav</span></div><div class="mb-4"><input type="checkbox" value="1" class="mr-1"><span>Footer</span></div><h6>Navbar Variants</h6><div class="d-flex"><select class="custom-select mb-3 text-light border-0 bg-white"><option class="bg-primary">Primary</option><option class="bg-secondary">Secondary</option><option class="bg-info">Info</option><option class="bg-success">Success</option><option class="bg-danger">Danger</option><option class="bg-indigo">Indigo</option><option class="bg-purple">Purple</option><option class="bg-pink">Pink</option><option class="bg-navy">Navy</option><option class="bg-lightblue">Lightblue</option><option class="bg-teal">Teal</option><option class="bg-cyan">Cyan</option><option class="bg-dark">Dark</option><option class="bg-gray-dark">Gray dark</option><option class="bg-gray">Gray</option><option class="bg-light">Light</option><option class="bg-warning">Warning</option><option class="bg-white">White</option><option class="bg-orange">Orange</option></select></div><h6>Accent Color Variants</h6><div class="d-flex"></div><select class="custom-select mb-3 border-0"><option>None Selected</option><option class="bg-primary">Primary</option><option class="bg-warning">Warning</option><option class="bg-info">Info</option><option class="bg-danger">Danger</option><option class="bg-success">Success</option><option class="bg-indigo">Indigo</option><option class="bg-lightblue">Lightblue</option><option class="bg-navy">Navy</option><option class="bg-purple">Purple</option><option class="bg-fuchsia">Fuchsia</option><option class="bg-pink">Pink</option><option class="bg-maroon">Maroon</option><option class="bg-orange">Orange</option><option class="bg-lime">Lime</option><option class="bg-teal">Teal</option><option class="bg-olive">Olive</option></select><h6>Dark Sidebar Variants</h6><div class="d-flex"></div><select class="custom-select mb-3 text-light border-0 bg-primary"><option>None Selected</option><option class="bg-primary">Primary</option><option class="bg-warning">Warning</option><option class="bg-info">Info</option><option class="bg-danger">Danger</option><option class="bg-success">Success</option><option class="bg-indigo">Indigo</option><option class="bg-lightblue">Lightblue</option><option class="bg-navy">Navy</option><option class="bg-purple">Purple</option><option class="bg-fuchsia">Fuchsia</option><option class="bg-pink">Pink</option><option class="bg-maroon">Maroon</option><option class="bg-orange">Orange</option><option class="bg-lime">Lime</option><option class="bg-teal">Teal</option><option class="bg-olive">Olive</option></select><h6>Light Sidebar Variants</h6><div class="d-flex"></div><select class="custom-select mb-3 border-0"><option>None Selected</option><option class="bg-primary">Primary</option><option class="bg-warning">Warning</option><option class="bg-info">Info</option><option class="bg-danger">Danger</option><option class="bg-success">Success</option><option class="bg-indigo">Indigo</option><option class="bg-lightblue">Lightblue</option><option class="bg-navy">Navy</option><option class="bg-purple">Purple</option><option class="bg-fuchsia">Fuchsia</option><option class="bg-pink">Pink</option><option class="bg-maroon">Maroon</option><option class="bg-orange">Orange</option><option class="bg-lime">Lime</option><option class="bg-teal">Teal</option><option class="bg-olive">Olive</option></select><h6>Brand Logo Variants</h6><div class="d-flex"></div><select class="custom-select mb-3 border-0"><option>None Selected</option><option class="bg-primary">Primary</option><option class="bg-secondary">Secondary</option><option class="bg-info">Info</option><option class="bg-success">Success</option><option class="bg-danger">Danger</option><option class="bg-indigo">Indigo</option><option class="bg-purple">Purple</option><option class="bg-pink">Pink</option><option class="bg-navy">Navy</option><option class="bg-lightblue">Lightblue</option><option class="bg-teal">Teal</option><option class="bg-cyan">Cyan</option><option class="bg-dark">Dark</option><option class="bg-gray-dark">Gray dark</option><option class="bg-gray">Gray</option><option class="bg-light">Light</option><option class="bg-warning">Warning</option><option class="bg-white">White</option><option class="bg-orange">Orange</option><a href="#">clear</a></select></div></aside>
+    <div class="p-3 control-sidebar-content" ><h5>Customize AdminLTE</h5><hr class="mb-2"><div class="mb-4"><input type="checkbox" value="1" class="mr-1"><span>Dark Mode</span></div><h6>Header Options</h6><div class="mb-1"><input type="checkbox" value="1" class="mr-1"><span>Fixed</span></div><div class="mb-1"><input type="checkbox" value="1" class="mr-1"><span>Dropdown Legacy Offset</span></div><div class="mb-4"><input type="checkbox" value="1" class="mr-1"><span>No border</span></div><h6>Sidebar Options</h6><div class="mb-1"><input type="checkbox" value="1" class="mr-1"><span>Collapsed</span></div><div class="mb-1"><input type="checkbox" value="1" class="mr-1"><span>Fixed</span></div><div class="mb-1"><input type="checkbox" value="1" checked="checked" class="mr-1"><span>Sidebar Mini</span></div><div class="mb-1"><input type="checkbox" value="1" class="mr-1"><span>Sidebar Mini MD</span></div><div class="mb-1"><input type="checkbox" value="1" class="mr-1"><span>Sidebar Mini XS</span></div><div class="mb-1"><input type="checkbox" value="1" class="mr-1"><span>Nav Flat Style</span></div><div class="mb-1"><input type="checkbox" value="1" class="mr-1"><span>Nav Legacy Style</span></div><div class="mb-1"><input type="checkbox" value="1" class="mr-1"><span>Nav Compact</span></div><div class="mb-1"><input type="checkbox" value="1" class="mr-1"><span>Nav Child Indent</span></div><div class="mb-1"><input type="checkbox" value="1" class="mr-1"><span>Nav Child Hide on Collapse</span></div><div class="mb-4"><input type="checkbox" value="1" class="mr-1"><span>Disable Hover/Focus Auto-Expand</span></div><h6>Footer Options</h6><div class="mb-4"><input type="checkbox" value="1" class="mr-1"><span>Fixed</span></div><h6>Small Text Options</h6><div class="mb-1"><input type="checkbox" value="1" class="mr-1"><span>Body</span></div><div class="mb-1"><input type="checkbox" value="1" class="mr-1"><span>Navbar</span></div><div class="mb-1"><input type="checkbox" value="1" class="mr-1"><span>Brand</span></div><div class="mb-1"><input type="checkbox" value="1" class="mr-1"><span>Sidebar Nav</span></div><div class="mb-4"><input type="checkbox" value="1" class="mr-1"><span>Footer</span></div><h6>Navbar Variants</h6><div class="d-flex"><select class="custom-select mb-3 text-light border-0 bg-white"><option class="bg-primary">Primary</option><option class="bg-secondary">Secondary</option><option class="bg-info">Info</option><option class="bg-success">Success</option><option class="bg-danger">Danger</option><option class="bg-indigo">Indigo</option><option class="bg-purple">Purple</option><option class="bg-pink">Pink</option><option class="bg-navy">Navy</option><option class="bg-lightblue">Lightblue</option><option class="bg-teal">Teal</option><option class="bg-cyan">Cyan</option><option class="bg-dark">Dark</option><option class="bg-gray-dark">Gray dark</option><option class="bg-gray">Gray</option><option class="bg-light">Light</option><option class="bg-warning">Warning</option><option class="bg-white">White</option><option class="bg-orange">Orange</option></select></div><h6>Accent Color Variants</h6><div class="d-flex"></div><select class="custom-select mb-3 border-0"><option>None Selected</option><option class="bg-primary">Primary</option><option class="bg-warning">Warning</option><option class="bg-info">Info</option><option class="bg-danger">Danger</option><option class="bg-success">Success</option><option class="bg-indigo">Indigo</option><option class="bg-lightblue">Lightblue</option><option class="bg-navy">Navy</option><option class="bg-purple">Purple</option><option class="bg-fuchsia">Fuchsia</option><option class="bg-pink">Pink</option><option class="bg-maroon">Maroon</option><option class="bg-orange">Orange</option><option class="bg-lime">Lime</option><option class="bg-teal">Teal</option><option class="bg-olive">Olive</option></select><h6>Dark Sidebar Variants</h6><div class="d-flex"></div><select class="custom-select mb-3 text-light border-0 bg-primary"><option>None Selected</option><option class="bg-primary">Primary</option><option class="bg-warning">Warning</option><option class="bg-info">Info</option><option class="bg-danger">Danger</option><option class="bg-success">Success</option><option class="bg-indigo">Indigo</option><option class="bg-lightblue">Lightblue</option><option class="bg-navy">Navy</option><option class="bg-purple">Purple</option><option class="bg-fuchsia">Fuchsia</option><option class="bg-pink">Pink</option><option class="bg-maroon">Maroon</option><option class="bg-orange">Orange</option><option class="bg-lime">Lime</option><option class="bg-teal">Teal</option><option class="bg-olive">Olive</option></select><h6>Light Sidebar Variants</h6><div class="d-flex"></div><select class="custom-select mb-3 border-0"><option>None Selected</option><option class="bg-primary">Primary</option><option class="bg-warning">Warning</option><option class="bg-info">Info</option><option class="bg-danger">Danger</option><option class="bg-success">Success</option><option class="bg-indigo">Indigo</option><option class="bg-lightblue">Lightblue</option><option class="bg-navy">Navy</option><option class="bg-purple">Purple</option><option class="bg-fuchsia">Fuchsia</option><option class="bg-pink">Pink</option><option class="bg-maroon">Maroon</option><option class="bg-orange">Orange</option><option class="bg-lime">Lime</option><option class="bg-teal">Teal</option><option class="bg-olive">Olive</option></select><h6>Brand Logo Variants</h6><div class="d-flex"></div><select class="custom-select mb-3 border-0"><option>None Selected</option><option class="bg-primary">Primary</option><option class="bg-secondary">Secondary</option><option class="bg-info">Info</option><option class="bg-success">Success</option><option class="bg-danger">Danger</option><option class="bg-indigo">Indigo</option><option class="bg-purple">Purple</option><option class="bg-pink">Pink</option><option class="bg-navy">Navy</option><option class="bg-lightblue">Lightblue</option><option class="bg-teal">Teal</option><option class="bg-cyan">Cyan</option><option class="bg-dark">Dark</option><option class="bg-gray-dark">Gray dark</option><option class="bg-gray">Gray</option><option class="bg-light">Light</option><option class="bg-warning">Warning</option><option class="bg-white">White</option><option class="bg-orange">Orange</option><a href="#">clear</a></select></div></aside>
     <!-- /.content-wrapper -->
   <div id="sidebar-overlay"></div>
   </div>
