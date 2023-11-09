@@ -32,27 +32,11 @@
   <link rel="stylesheet" href="../../plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
   <link rel="stylesheet" href="../../plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
   <link rel="stylesheet" href="../../plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
-  <link rel="stylesheet" href="/resources/demos/style.css">
-  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
-  <script
-  src="https://code.jquery.com/jquery-3.7.1.min.js"
-  integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
-  crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
-  <link rel="stylesheet" href="/resources/demos/style.css">
-  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 
-<!-- datepeaker -->
-<script>
-  $(function(){
-    $('#datepicker').datepicker();
-  });
-</script>
 
-<!-- end -->
   <style type="text/css">/* Chart.js */
   @keyframes chartjs-render-animation{from{opacity:.99}to{opacity:1}}.chartjs-render-monitor{animation:chartjs-render-animation 1ms}.chartjs-size-monitor,.chartjs-size-monitor-expand,.chartjs-size-monitor-shrink{position:absolute;direction:ltr;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1}.chartjs-size-monitor-expand>div{position:absolute;width:1000000px;height:1000000px;left:0;top:0}.chartjs-size-monitor-shrink>div{position:absolute;width:200%;height:200%;left:0;top:0}
   </style>
@@ -336,109 +320,17 @@
       <!-- /.content-header -->
       <!-- Main content -->
       <section class="content">
-        <div class="container-fluid">
-          <!-- Small boxes (Stat box) -->
-            <div class="row">
-                <div class="col-md-12">
-                <div class="card card-primary">
-                    <div class="col-md-8 d-flex justify-content-center">
-                        <h2 class="m-3 pl-lg-3 w-0">Nhập Dữ Liệu Của Xe</h2>
-                    </div>
-                    <!-- /.card-header -->
-                    <!-- form start -->
-                    <form class="">
-                      <div class="card-body p-4" >
-                        <div class="row">
-                          <div class="col-md-4 ml-5">
-                            <div class="form-group">
-                                <label for="exampleNamePrd">Tên Xe</label>
-                                <input type="text" class="form-control" id="exampleNamePrd" placeholder="vd: Ab2020">
-                            </div>
-                          </div>
-                          <div class="col-md-4 ml-4">
-                            <div class="form-group">
-                                <label for="examplePrice">Giá Tiền(VNĐ)</label>
-                                <input type="number" class="form-control" id="examplePrice" placeholder="3.000.000">
-                            </div>
-                          </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-4 ml-5" data-select2-id="129">
-                                    <div class="form-group" data-select2-id="128">
-                                    <label>Hãng Xe</label>
-                                    <select class="form-control select2 select2-danger select2-hidden-accessible" data-dropdown-css-class="select2-danger" style="width: 100%;" data-select2-id="12" tabindex="-1" aria-hidden="true">
-                                    <option selected="selected" data-select2-id="14">Chọn Hãng Xe</option>
-                                    <option data-select2-id="131">Suzuki</option>
-                                    <option data-select2-id="132">Vinfast</option>
-                                    <option data-select2-id="133">Ducati</option>
-                                    <option data-select2-id="134">BMW</option>
-                                    <option data-select2-id="135">Texas</option>
-                                    <option data-select2-id="136">Yamaha</option>
-                                    </select>
-                                    </div>
-                            </div>
-                           <div class="col-sm-5 ml-5 ">
-                                <label>Dòng Xe</label>
-                                <div class="form-group d-flex">
-                                    <div class="custom-control custom-radio">
-                                        <input class="custom-control-input custom-control-input-danger custom-control-input-outline" type="radio" id="customRadio4" name="customRadio2" checked="">
-                                        <label for="customRadio4" class="custom-control-label">Xe số</label>
-                                    </div>
-                                    <div class="custom-control custom-radio ml-5">
-                                        <input class="custom-control-input custom-control-input-danger custom-control-input-outline" type="radio" id="customRadio5" name="customRadio2">
-                                        <label for="customRadio5" class="custom-control-label">Xe Ga</label>
-                                    </div>
-                                </div>
-                        </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-4 ml-5">
-                                 <div class="form-group">
-                                    <label for="exampleAdress">Chi Tiết Xe</label>
-                                    <input type="text" class="form-control" id="exampleAdress" >
-                                  </div>
-                               </div>
-                           <div class="col-md-4 ml-5">
-                                <div class="form-group">
-                                    <label>Ngày Nhập</label>
-                                    <div class="input-group">
-                                    <div class="input-group-prepend">
-                                    <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
-                                    </div>
-                                    <input id="date" class="form-control" data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" data-mask="" inputmode="numeric">
-                                    </div>
-                                </div>
-                            </div>
-                            
-                      </div>
-                      <div class="row">
-                        <div class="col-md-6 ml-5">
-                            <div class="form-group">
-                                <label for="inputDescription">Project Description</label>
-                                <textarea id="inputDescription" class="form-control" rows="4" style="height: 122px;"></textarea>
-                                </div>
-                        </div>
-                      </div>
-                      <div class="row">
-                        <div class="col-md-8 ml-5">
-                           <label for="">Nhập ảnh xe</label> <br>
-                           <input type="file" name="" id="input" multiple>
-                           <div id="div"></div>
-                        </div>
-                      <!-- /.card-body -->
-      
-                      <div class="card-footer  ml-5">
-                        <button type="submit" class="btn btn-primary">Thêm </button>
-                      </div>
-                      </div>
-                    </form>
-                  </div>
-                  </div>
-            </div>
-                <!-- /.card-body -->
-          <!-- /.row (main row) -->
-          </div>
-        </section>
+        <iframe src="https://drive.google.com/file/d/1BeXIzhRFa6JjD8hYw1QRFntFGC6qgp_P/preview" id="iframew" width="90%" height="480" allow="autoplay"></iframe>
+        <button id="print">print</button>    
+        <script>
+            $('#print').click(function() {
+                let iframe = document.getElementById('iframew').contentWindow;
+                iframe.print();
+            
+            });
+        </script>
+    </section>
+         
         </div>
       <!-- /.content -->
     <footer class="main-footer">
@@ -479,8 +371,6 @@
 <script src="../../plugins/dropzone/min/dropzone.min.js"></script>
 
 <script src="../../dist/js/adminlte.min.js?v=3.2.0"></script>
-
-<script src="../../dist/js/demo.js"></script>
 
 <script>
   $(function () {
