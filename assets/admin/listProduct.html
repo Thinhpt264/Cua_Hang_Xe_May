@@ -223,7 +223,7 @@
             </li>
             <li class="nav-header">Quản Lí Người Dùng</li>
             <li class="nav-item menu-is-opening menu-open">
-              <a href="#" class="nav-link active">
+              <a href="#" class="nav-link ">
                 <i class="nav-icon far fa-envelope"></i>
                 <p>
                   Quản lí tài khoản
@@ -238,7 +238,7 @@
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="accountList.html" class="nav-link active">
+                  <a href="accountList.html" class="nav-link ">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Danh Sách Tài Khoản Trên Website</p>
                   </a>
@@ -251,32 +251,32 @@
                 </li>
               </ul>
             </li>
-            <li class="nav-header">Danh Sách Sản Phẩm</li>
+            <li class="nav-header">Quản Lí Sản Phẩm</li>
             <li class="nav-item">
-              <a href="#" class="nav-link">
-                <i class="nav-icon far fa-envelope"></i>
+              <a href="#" class="nav-link active">
+                <i class="fa-solid fa-motorcycle" style="color: #e1e2e5;"></i>
                 <p>
-                  Danh Sách Xe
+                  Quản Lí Xe 
                   <i class="fas fa-angle-left right"></i>
                 </p>
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="pages/mailbox/mailbox.html" class="nav-link">
+                  <a href="listProduct.html" class="nav-link active">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>Danh Sách Nhân Viên</p>
+                    <p>Danh Sách Xe </p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="pages/mailbox/compose.html" class="nav-link">
+                  <a href="listBrand.html" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>Danh Sách Người Dùng Online</p>
+                    <p>Danh Sách Hãng Xe</p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="pages/mailbox/read-mail.html" class="nav-link">
+                  <a href="branchList.html" class="nav-link ">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>Danh Sách Người Dùng mua xe</p>
+                    <p>Danh Sách Chi Nhánh</p>
                   </a>
                 </li>
               </ul>
@@ -296,12 +296,12 @@
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1 class="m-0">Danh Sách Tài Khoản Trên Hệ Thống</h1>
+              <h1 class="m-0">Danh Sách Xe</h1>
             </div><!-- /.col -->
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
                 <li class="breadcrumb-item"><a href="#">Trang Chủ</a></li>
-                <li class="breadcrumb-item active">Danh Sách Tài Khoản</li>
+                <li class="breadcrumb-item active">Danh Sách Xe</li>
               </ol>
             </div><!-- /.col -->
           </div><!-- /.row -->
@@ -313,7 +313,7 @@
         <div class="container-fluid">
           <!-- Small boxes (Stat box) -->
             <div class="row">
-             <div class="col-12">
+                <div class="col-12">
                   <div class="card">
                     <!-- /.card-header -->
                     <div class="card-body">
@@ -329,15 +329,17 @@
                               <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1"
                                 aria-label="Anh: activate to sort column ascending">Ảnh</th>
                               <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1"
-                                aria-label="Ten_Nguoi_Dung: activate to sort column ascending">Tên Người Dùng</th>
+                                aria-label="Ten_Nguoi_Dung: activate to sort column ascending">Tên Xe</th>
                               <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1"
-                                aria-label="Chuc_Vu: activate to sort column ascending">Chức Vụ</th>
+                                aria-label="Chuc_Vu: activate to sort column ascending">Giá Tiền</th>
                               <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1"
-                                aria-label="Bat_Dau_lam grade: activate to sort column ascending">email</th>
+                                aria-label="Bat_Dau_lam grade: activate to sort column ascending">Hãng Xe</th>
                               <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1"
-                                aria-label="Lam_Viec_Tai grade: activate to sort column ascending">Số điện thoại</th>
+                                aria-label="Lam_Viec_Tai grade: activate to sort column ascending">Dòng Xe</th>
                                 <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1"
-                                aria-label="Lam_Viec_Tai grade: activate to sort column ascending">Đã Xác Minh</th>
+                                aria-label="Lam_Viec_Tai grade: activate to sort column ascending">Chi Tiết</th>
+                              <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1"
+                                aria-label="Sua grade: activate to sort column ascending">Ngày nhập</th>
                               <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1"
                                 aria-label="Sua grade: activate to sort column ascending">Sửa</th>
                               <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1"
@@ -347,189 +349,168 @@
                           <tbody>
                             <tr class="odd">
                                 <td class="dtr-control sorting_1" tabindex="0">01</td>
-                                 <td><img src="../../dist/img/avatar3.png" alt="" style="width: 50px;"></td>
-                                  <td>Trần Quốc Trung</td>
-                                  <td>Admin</td>
-                                  <td>test1@gmail.com</td>
-                                  <td>012345678</td>
+                                 <td><img src="../../Image/Honda/tayga/AB_125_den.png" alt="" style="width: 50px;"></td>
+                                  <td>AIRBLADE 125</td>
+                                  <td>42.000.000</td>
+                                  <td>HONDA</td>
+                                  <td>Xe tay ga</td>
                                   <td class="text-center">
-                                    <div class="icheck-success d-inline">
-                                        <input type="checkbox" checked="" id="checkboxSuccess1">
-                                        <label for="checkboxSuccess1"></label>
-                                    </div>
+                                    <a href="../detailAB_125.html"><i class="fa-solid fa-plus"></i></a>
                                  </td>
+                                 <td>06/11/2023</td>
                                  <td class="text-center"><a href="" class="btn btn-info"><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a>
                                  </td>
                                  <td class="text-center"><a href="" class="btn btn-danger"><i class="fas fa-trash" style="color: #000000;"></i></a></td>
                             </tr>
                             <tr class="even">
                               <td class="dtr-control sorting_1" tabindex="0">02</td>
-                              <td><img src="../../dist/img/avatar2.png" alt="" style="width: 50px;"></td>
-                              <td>Nguyễn Trần Phúc Thành</td>
-                              <td>Người Dùng</td>
-                                  <td>test1@gmail.com</td>
-                                  <td>012345678</td>
+                              <td><img src="../../Image/Honda/tayga/AB_160_den.png" alt="" style="width: 50px;"></td>
+                                  <td>AIRBLADE 160</td>
+                                  <td>56.000.000</td>
+                                  <td>Honda</td>
+                                  <td>Xe tay ga</td>
                                   <td class="text-center">
-                                    <div class="icheck-success d-inline">
-                                        <input type="checkbox" checked="" id="checkboxSuccess2">
-                                        <label for="checkboxSuccess2"></label>
-                                    </div>
+                                    <a href="../detailAB_160.html"><i class="fa-solid fa-plus"></i></a>
                                  </td>
+                                 <td>09/11/2023</td>
                                  <td class="text-center"><a href="" class="btn btn-info"><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a>
                                  </td>
                                  <td class="text-center"><a href="" class="btn btn-danger"><i class="fas fa-trash" style="color: #000000;"></i></a></td>
                             </tr>
                             <tr class="even">
                               <td class="dtr-control sorting_1" tabindex="0">03</td>
-                              <td><img src="../../dist/img/avatar.png" alt="" style="width: 50px;"></td>
-                              <td>Phan Thế Thịnh</td>
-                              <td>Nhân Viên</td>
-                                  <td>test1@gmail.com</td>
-                                  <td>012345678</td>
+                              <td><img src="../../Image/BMW/bmw Red.png" alt="" style="width: 50px;"></td>
+                                  <td>BMW</td>
+                                  <td>90.000.000</td>
+                                  <td>Yamaha</td>
+                                  <td>Xe tay ga</td>
                                   <td class="text-center">
-                                    <div class="icheck-success d-inline">
-                                        <input type="checkbox" id="checkboxSuccess3">
-                                        <label for="checkboxSuccess3"></label>
-                                    </div>
+                                    <a href="../detailAB_125.html"><i class="fa-solid fa-plus"></i></a>
                                  </td>
+                                 <td>02/11/2023</td>
                                  <td class="text-center"><a href="" class="btn btn-info"><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a>
                                  </td>
                                  <td class="text-center"><a href="" class="btn btn-danger"><i class="fas fa-trash" style="color: #000000;"></i></a></td>
                             </tr>
                             <tr class="odd">
                               <td class="dtr-control sorting_1" tabindex="0">04</td>
-                              <td><img src="../../dist/img/avatar4.png" alt="" style="width: 50px;"></td>
-                              <td>Phan Thế Thịnh</td>
-                              <td>Nhân Viên</td>
-                                  <td>test1@gmail.com</td>
-                                  <td>012345678</td>
+                              <td><img src="../../Image/Piaggio(Vespa)/automotosport-xam.png" alt="" style="width: 50px;"></td>
+                                  <td>VESPA </td>
+                                  <td>50.000.000</td>
+                                  <td>Yamaha</td>
+                                  <td>Xe tay ga</td>
                                   <td class="text-center">
-                                    <div class="icheck-success d-inline">
-                                        <input type="checkbox" checked="" id="checkboxSuccess4">
-                                        <label for="checkboxSuccess4"></label>
-                                    </div>
+                                    <a href="../detailAB_125.html"><i class="fa-solid fa-plus"></i></a>
                                  </td>
+                                 <td>06/10/2023</td>
                                  <td class="text-center"><a href="" class="btn btn-info"><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a>
                                  </td>
                                  <td class="text-center"><a href="" class="btn btn-danger"><i class="fas fa-trash" style="color: #000000;"></i></a></td>
-                            </tr><tr class="even">
+                            </tr>
+                            <tr class="even">
                                 <td class="dtr-control sorting_1" tabindex="0">05</td>
-                                <td><img src="../../dist/img/avatar2.png" alt="" style="width: 50px;"></td>
-                                <td>Nguyễn Văn C</td>
-                                 <td>Người Dùng</td>
-                                  <td>test1@gmail.com</td>
-                                  <td>012345678</td>
+                                <td><img src="../../Image/BMW/BMW S1000RR den.png" alt="" style="width: 50px;"></td>
+                                  <td>BMW </td>
+                                  <td>80.000.000</td>
+                                  <td>Yamaha</td>
+                                  <td>Xe tay ga</td>
                                   <td class="text-center">
-                                    <div class="icheck-success d-inline">
-                                        <input type="checkbox" id="checkboxSuccess5">
-                                        <label for="checkboxSuccess5"></label>
-                                    </div>
+                                    <a href="../detailAB_125.html"><i class="fa-solid fa-plus"></i></a>
                                  </td>
+                                 <td>05/09/2023</td>
                                  <td class="text-center"><a href="" class="btn btn-info"><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a>
                                  </td>
                                  <td class="text-center"><a href="" class="btn btn-danger"><i class="fas fa-trash" style="color: #000000;"></i></a></td>
                             </tr>
                             <tr class="odd">
                               <td class="dtr-control sorting_1" tabindex="0">06</td>
-                              <td><img src="../../dist/img/avatar3.png" alt="" style="width: 50px;"></td>
-                              <td>Nguyễn Văn B</td>
-                              <td>Người Dùng</td>
-                                  <td>test1@gmail.com</td>
-                                  <td>012345678</td>
+                              <td><img src="../../Image/Ducati/ducati-do800.png" alt="" style="width: 50px;"></td>
+                                  <td>DUCATI 800</td>
+                                  <td>70.000.000</td>
+                                  <td>Yamaha</td>
+                                  <td>Xe tay ga</td>
                                   <td class="text-center">
-                                    <div class="icheck-success d-inline">
-                                        <input type="checkbox" id="checkboxSuccess6">
-                                        <label for="checkboxSuccess6"></label>
-                                    </div>
+                                    <a href="../detailAB_125.html"><i class="fa-solid fa-plus"></i></a>
                                  </td>
+                                 <td>21/11/2023</td>
                                  <td class="text-center"><a href="" class="btn btn-info"><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a>
                                  </td>
                                  <td class="text-center"><a href="" class="btn btn-danger"><i class="fas fa-trash" style="color: #000000;"></i></a></td>
                             </tr>
                             <tr class="even">
                               <td class="dtr-control sorting_1" tabindex="0">07</td>
-                              <td><img src="../../dist/img/avatar2.png" alt="" style="width: 50px;"></td>
-                              <td>Nguyễn Văn C</td>
-                              <td>Người Dùng</td>
-                                  <td>test1@gmail.com</td>
-                                  <td>012345678</td>
+                              <td><img src="../../Image/Honda/tayga/AB_160_do.png" alt="" style="width: 50px;"></td>
+                                  <td>AIRBLADE 160</td>
+                                  <td>30.000.000</td>
+                                  <td>HONDA</td>
+                                  <td>Xe tay ga</td>
                                   <td class="text-center">
-                                    <div class="icheck-success d-inline">
-                                        <input type="checkbox" checked="" id="checkboxSuccess7">
-                                        <label for="checkboxSuccess7"></label>
-                                    </div>
+                                    <a href="../detailAB_125.html"><i class="fa-solid fa-plus"></i></a>
                                  </td>
+                                 <td>20/10/2023</td>
                                  <td class="text-center"><a href="" class="btn btn-info"><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a>
                                  </td>
                                  <td class="text-center"><a href="" class="btn btn-danger"><i class="fas fa-trash" style="color: #000000;"></i></a></td>
                             </tr>
                             <tr class="odd">
                               <td class="dtr-control sorting_1" tabindex="0">08</td>
-                              <td><img src="../../dist/img/avatar5.png" alt="" style="width: 50px;"></td>
-                              <td>Nguyễn Văn A</td>
-                              <td>Nhân Viên</td>
-                                  <td>test1@gmail.com</td>
-                                  <td>012345678</td>
+                              <td><img src="../../Image/Honda/xeSo/CBR_1000.png" alt="" style="width: 50px;"></td>
+                                  <td>CBR_1000</td>
+                                  <td>20.000.000</td>
+                                  <td>HONDA</td>
+                                  <td>Xe số</td>
                                   <td class="text-center">
-                                    <div class="icheck-success d-inline">
-                                        <input type="checkbox" checked="" id="checkboxSuccess8">
-                                        <label for="checkboxSuccess8"></label>
-                                    </div>
+                                    <a href="../detailAB_125.html"><i class="fa-solid fa-plus"></i></a>
                                  </td>
+                                 <td>05/11/2023</td>
                                  <td class="text-center"><a href="" class="btn btn-info"><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a>
                                  </td>
                                  <td class="text-center"><a href="" class="btn btn-danger"><i class="fas fa-trash" style="color: #000000;"></i></a></td>
                             </tr>
                             <tr class="even">
                               <td class="dtr-control sorting_1" tabindex="0">09</td>
-                              <td><img src="../../dist/img/avatar5.png" alt="" style="width: 50px;"></td>
-                              <td>Nguyễn Văn A</td>
-                              <td>Người Dùng</td>
-                                  <td>test1@gmail.com</td>
-                                  <td>012345678</td>
+                              <td><img src="../../Image/Suzuki/suzuki2019-vangden.png" alt="" style="width: 50px;"></td>
+                                  <td>SUZUKI</td>
+                                  <td>80.000.000</td>
+                                  <td>Yamaha</td>
+                                  <td>Xe tay ga</td>
                                   <td class="text-center">
-                                    <div class="icheck-success d-inline">
-                                        <input type="checkbox" checked="" id="checkboxSuccess9">
-                                        <label for="checkboxSuccess9"></label>
-                                    </div>
+                                    <a href="../detailAB_125.html"><i class="fa-solid fa-plus"></i></a>
                                  </td>
+                                 <td>06/11/2023</td>
                                  <td class="text-center"><a href="" class="btn btn-info"><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a>
                                  </td>
                                  <td class="text-center"><a href="" class="btn btn-danger"><i class="fas fa-trash" style="color: #000000;"></i></a></td>
                             </tr>
                             <tr class="even">
                               <td class="dtr-control sorting_1" tabindex="0">10</td>
-                              <td><img src="../../dist/img/avatar5.png" alt="" style="width: 50px;"></td>
-                              <td>Nguyễn Văn A</td>
-                              <td>Người Dùng</td>
-                                  <td>test1@gmail.com</td>
-                                  <td>012345678</td>
+                              <td><img src="../../Image/Piaggio(Vespa)/vespatrang.png" alt="" style="width: 50px;"></td>
+                                  <td>VESPA</td>
+                                  <td>90.000.000</td>
+                                  <td>Yamaha</td>
+                                  <td>Xe tay ga</td>
                                   <td class="text-center">
-                                    <div class="icheck-success d-inline">
-                                        <input type="checkbox" checked="" id="checkboxSuccess10">
-                                        <label for="checkboxSuccess10"></label>
-                                    </div>
+                                    <a href="../detailAB_125.html"><i class="fa-solid fa-plus"></i></a>
                                  </td>
+                                 <td>15/11/2023</td>
                                  <td class="text-center"><a href="" class="btn btn-info"><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a>
                                  </td>
                                  <td class="text-center"><a href="" class="btn btn-danger"><i class="fas fa-trash" style="color: #000000;"></i></a></td>
                             </tr>
                             <tr class="even">
                               <td class="dtr-control sorting_1" tabindex="0">11</td>
-                              <td><img src="../../dist/img/avatar5.png" alt="" style="width: 50px;"></td>
-                              <td>Nguyễn Văn B</td>
-                              <td>Người Dùng</td>
-                                  <td>test1@gmail.com</td>
-                                  <td>012345678</td>
-                                  <td class="text-center">
-                                    <div class="icheck-success d-inline">
-                                        <input type="checkbox" checked="" id="checkboxSuccess11">
-                                        <label for="checkboxSuccess11"></label>
-                                    </div>
-                                 </td>
-                                 <td class="text-center"><a href="" class="btn btn-info"><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a>
-                                 </td>
-                                 <td class="text-center"><a href="" class="btn btn-danger"><i class="fas fa-trash" style="color: #000000;"></i></a></td>
+                              <td><img src="../../Image/Honda/xeSo/Blade_red.png" alt="" style="width: 50px;"></td>
+                              <td>BLADE</td>
+                              <td>10.000.000</td>
+                              <td>HONDA</td>
+                              <td>Xe số</td>
+                              <td class="text-center">
+                                <a href="../detailAB_125.html"><i class="fa-solid fa-plus"></i></a>
+                             </td>
+                             <td>06/11/2023</td>
+                             <td class="text-center"><a href="" class="btn btn-info"><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a>
+                             </td>
+                             <td class="text-center"><a href="" class="btn btn-danger"><i class="fas fa-trash" style="color: #000000;"></i></a></td>
                             </tr>
                           </tbody>
                 
