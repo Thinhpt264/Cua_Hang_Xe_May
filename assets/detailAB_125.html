@@ -29,7 +29,27 @@
 
     <!-- Template Stylesheet -->
     <link href="../css/style.css" rel="stylesheet">
+    <!-- jquery -->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 </head>
+<script>
+    $( function() {
+      $( "#datepicker" ).datepicker({
+          dateFormat: "dd/mm/yy"
+      });
+      $("#date").datepicker({
+          dateFormat: "dd/mm/yy"
+      })
+    } );
+    </script>
+  <style>
+      label{
+          font-weight: bold;
+      }
+  </style>
 
 <body>
     <div id="preloader"></div>
@@ -86,7 +106,7 @@
                             <div class="nav-item dropdown">
                                 <a href="login/index.html"  class="nav-link dropdown-toggle" data-toggle="dropdown"><i class="fa-solid fa-user"></i></a>
                                 <div class="dropdown-menu rounded-0 m-0">
-                                    <a href="motobike.html" class="dropdown-item">Tài Khoản </a>
+                                    <a href="login/index.html" class="dropdown-item">Đăng nhập</a>
                                     <a href="favorite.html" class="dropdown-item"> Xe Yêu Thích</a>
                                     <a href="login/index.html" class="dropdown-item"> Đăng Xuất <i class="fa-solid fa-arrow-right-from-bracket" style="margin-left: 5px"></i></a>
                                 </div>
@@ -145,7 +165,7 @@
 
                 <div class="col-lg-6 ">
                     <!-- <img src="../Image/Honda/Capture.PNG" class="w-auto h-75" alt="Image"> -->
-                    <div class="bg-white p-3 ml-5">
+                    <div class="bg-white p-3 ml-5 " style="display: none;">
                         <h3 class="text-primary mb-4">Thông số cơ bản</h3>
                         <div class="form-group" style="font-size: 20px;">
                             <img src="../Image/Honda/icon-hang-xe (1).svg" alt="">
@@ -177,6 +197,160 @@
                             <span>Tình trạng xe</span>
                             <span style="margin-left: 60px;"><b>Mới (0 km)</b></span>
                         </div>
+                    </div>
+                    <div class="container mt-4">
+                        <form class="needs-validation" onsubmit="return validateForm()">
+                            <input type="hidden" name="kh_tendangnhap" value="">
+                            <div class="py-1 text-center">
+                                <i class="fa-solid fa-credit-card" style="font-size: 50px;"></i>
+                                <h2>Thanh toán</h2>
+                                <p>Vui lòng kiểm tra thông tin trước khi Đặt hàng.</p>
+                            </div>
+            
+                            <div class="row" style="margin-left: 200px;">
+                                <div class="col-md-8 order-md-1">
+                                    <h4 class="mb-3">Thông tin khách hàng</h4>
+            
+                                    <div class="row">
+                                        <div class="col-md-12 mb-3">
+                                            <label for="kh_ten">Họ tên</label><br>
+                                            <input type="text" class="form-control" id="hovaten" onblur="validateForm()">
+                                             <span id="hotenError" style="color: red;display: none;">*Không được bỏ trống </span>   
+                                        </div>
+                                        <div class="col-md-12 mb-3">
+                                            <label for="kh_gioitinh">Giới tính</label><br>
+                                            <input type="radio" name="gioitinh"> <span style="font-size: 15px;">Nam</span> 
+                                            <input type="radio" name="gioitinh" style="margin-left: 70px;"><span style="font-size: 15px;">Nữ</span>  
+                                        </div>
+                                        <div class="col-md-12 mb-3">
+                                            <label for="kh_diachi">Địa chỉ</label><br>
+                                            <input type="text" class="form-control" id="dc" onblur="validateForm()" >
+                                            <span id="dcError" style="color: red;display: none;">*Không được bỏ trống </span>     
+                                        </div>
+                                        <div class="col-md-12 mb-3">
+                                            <label for="kh_dienthoai">Điện thoại</label><br>
+                                            <input type="text" class="form-control" id="dt" onblur="validateForm()">
+                                            <span id="dtError" style="color: red;display: none;">*Không được bỏ trống </span>    
+                                        </div>
+                                        <div class="col-md-12 mb-3">
+                                            <label for="kh_email">Email</label><br>
+                                            <input type="email" class="form-control" id="email" onblur="validateForm()">
+                                            <span id="emailError" style="color: red;display: none;">*Không được bỏ trống </span> 
+                                        </div>
+                                        <div class="col-md-12 mb-3">
+                                            <label for="kh_ngaysinh">Ngày sinh</label><br>
+                                            <input type="text" class="form-control" id= "datepicker" onblur="validateForm()" >
+                                            <span id="dobError" style="color: red;display: none;">*Không được bỏ trống </span>    
+                                        </div>
+                                        <div class="col-md-12 mb-3">
+                                            <label for="kh_cmnd">CMND</label><br>
+                                            <input type="text" class="form-control"  id="cmnd" onblur="validateForm()">
+                                            <span id="cmndError" style="color: red;display: none;">*Không được bỏ trống </span>    
+                                        </div>
+                                    </div>
+            
+                                    <h4 class="mb-3 mt-3">Hình thức thanh toán</h4>
+            
+                                    <div class="d-block my-3 d-flex justify-content-center ">
+                                        <div class="custom-control custom-radio" >
+                                            <input id="httt-1" name="httt_ma" type="radio" class="custom-control-input" required="" onclick="showForm()" value="1">  
+                                            <label class="custom-control-label " for="httt-1" style="font-weight: lighter;font-size: 22px;">Tiền mặt</label>
+                                        </div>
+                                        <div class="custom-control custom-radio mx-3" id="show">
+                                            <input id="httt-2" name="httt_ma" type="radio" class="custom-control-input" required=""value="2" onclick="showForm()">            
+                                            <label class="custom-control-label" for="httt-2" style="font-weight: lighter;font-size: 22px;">Chuyển khoản</label>
+                                        </div>
+                                        <div class="custom-control custom-radio" id="show">
+                                            <input id="httt-3" name="httt_ma" type="radio" class="custom-control-input" required=""value="3" onclick="showForm()">                                    
+                                            <label class="custom-control-label" for="httt-3" style="font-weight: lighter;font-size: 22px;">Thanh toán bằng thẻ</label>
+                                        </div>
+                                    </div>
+                                    <div id="container1">
+                                        <div id="visaForm" style="display: none ;">
+                                            <div style="width: 100%" class="container d-flex mt-5 mb-5 mr-5">
+                                        <div class="row ">
+                                            <div class="col">
+                                                <div class="card">
+                                                   <div class="accordion" id="accordionExample">
+                                                      <div class="card">
+                                                        <div class="card-header p-0" id="headingTwo">
+                                                            <h2 class="mb-0">
+                                                            <button
+                                                            class="btn btn-light btn-block text-left collapsed p-3 rounded-0 border-bottom-custom"
+                                                                type="button" data-toggle="collapse"
+                                                                data-target="#collapseTwo" aria-expanded="false"
+                                                                aria-controls="collapseTwo">
+                                                                    <div class="d-flex align-items-center justify-content-between">
+                                                                        <span>Visa</span>
+                                                                        <span style="margin-left: 500px;"><i class="fa-brands fa-cc-visa" style="font-size: 30px;"></i></span>
+                                                                        
+                                                                    </div>    
+                                                            </button>                                
+                                                            </h2>
+                                                        </div>        
+                                                                        
+                                                        <div id="collapseTwo" class="collapse">
+                                                            <div class="card-body">
+                                                                <input type="text" class="form-control" placeholder="Paypal email">
+                                                            </div>                                            
+                                                        </div>
+                                                        </div>
+                                                        <div class="card">
+                                                            <div id="collapseOne" class="collapse show">
+                                                             
+                                                                <div class="card-body payment-card-body">
+                                                                    <span class="font-weight-normal card-text">Số thẻ</span>   
+                                                                        <div class="input">
+                                                                            <i class="fa fa-credit-card"></i>
+                                                                            <input type="text" class="form-control" placeholder="0000 0000 0000 0000">                                                                   
+                                                                        </div>
+                                                                         <div class="row mt-3 mb-3">
+                                                                            <div class="col-md-6">
+                                                                                <span class="font-weight-normal card-text">Ngày hết hạn</span>                                                                                                                                              
+                                                                                <div class="input">
+                                                                                    <i class="fa fa-calendar"></i>
+                                                                                    <input type="text" class="form-control" placeholder="MM/YY" id="date">                                                                        
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-md-6">
+                                                                                <span class="font-weight-normal card-text">CVC/CVV</span>                                                                    
+                                                                                <div class="input">
+                                                                                    <i class="fa fa-lock"></i>
+                                                                                    <input type="text" class="form-control" placeholder="000">
+                                                                                </div>
+                                                                            </div>             
+                                                                        </div>
+                                                                                   
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                    
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                            </div>
+                                        </div>
+                                        <div id="theForm" style="display: none;" class="row">
+                                            <div class="col-md-6">
+                                                <h1>
+                                                    <img src="../Image/qr.png" alt="">
+                                                </h1>
+                                            </div>
+                                            <div class="col-md-6" >
+                                                    <h5>Chủ tài khoản : Phan Thế Thịnh <br><br>
+                                                        Số tài khoản  : 31410008149773 <br><br>
+                                                        Ngân hàng thụ hưởng : BIDV
+                                                    </h5>
+                                                </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <button class="btn btn-primary btn-lg btn-block mb-5" type="submit" name="btnDatHang">Đặt hàng</button>
+                                        
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -536,9 +710,69 @@
     <script src="../lib/tempusdominus/js/moment.min.js"></script>
     <script src="../lib/tempusdominus/js/moment-timezone.min.js"></script>
     <script src="../lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    
 
     <!-- Template Javascript -->
     <script src="../js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" ></script>
+    <script>
+        function validateForm(){
+            var hovaten = document.getElementById("hovaten").value;
+            var dc = document.getElementById("dc").value;
+            var dt= document.getElementById("dt").value;
+            var email = document.getElementById("email").value;
+            var cmnd = document.getElementById("cmnd").value;
+            if(hovaten.trim() === ""){
+                document.getElementById("hotenError").style.display = "block"; 
+            } else{
+                document.getElementById("hotenError").style.display = "none";
+            }
+            if(dc.trim() === ""){
+                document.getElementById("dcError").style.display = "block"; 
+            }  
+            else{
+                document.getElementById("dcError").style.display = "none";
+            }
+             if(dt.trim() === ""){
+                document.getElementById("dtError").style.display = "block"; 
+             }  
+             else{
+                document.getElementById("dtError").style.display = "none";
+             }
+            if(email.trim() === ""){
+                document.getElementById("emailError").style.display = "block"; 
+            }  
+            else{
+                document.getElementById("emailError").style.display = "none";
+            }
+            if(cmnd.trim() === ""){
+                document.getElementById("cmndError").style.display = "block"; 
+            }  
+            else{
+                document.getElementById("cmndError").style.display = "none";
+            }
+            return false;
+        }
+        function showForm(){
+            var form = document.getElementById("container1");
+            var opt =document.getElementById("httt-1");
+            var opt1 = document.getElementById("httt-2");
+            var opt2 = document.getElementById("httt-3");
+            if(opt1.checked){
+              document.getElementById("theForm").style.display = "block";
+              document.getElementById("visaForm").style.display="none";
+            }else if(opt2.checked){
+                document.getElementById("theForm").style.display = "none";
+                document.getElementById("visaForm").style.display="block";
+
+            }else{
+                document.getElementById("theForm").style.display = "none";
+              document.getElementById("visaForm").style.display="none";
+            }
+
+        }
+    </script>
     <script>
         function changeImageMoto(ImageSrc){
             var motoImage = document.getElementById('motoImage');
