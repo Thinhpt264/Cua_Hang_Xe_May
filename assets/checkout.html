@@ -142,7 +142,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-6 ">
+                    <div class="col-6">
                         <div class="container-fluid p-0">
                             <div id="header-carousel" class="carousel slide" data-ride="carousel">
                                 <div class="carousel-inner">
@@ -179,9 +179,8 @@
                                 <form action="" class="needs-validation" onsubmit="return validateForm()">
                                     <div class="row">
                                         <div class="col-md-12 mb-3">
-            
                                             <label for="hovaten">Họ và tên</label><br>
-                                            <input type="text" class="form-control" id="hovaten" onblur="hotenvalid()">
+                                            <input type="text" class="form-control" id="hovaten"onblur="hotenvalid()">
                                              <span id="hotenError" style="color: red;display: none;">*Không được bỏ trống </span>   
                                         </div>
                                         <div class="col-md-12 mb-3">
@@ -191,7 +190,7 @@
                                         </div>
                                         <div class="col-md-12 mb-3">
                                             <label for="kh_diachi">Địa chỉ</label><br>
-                                            <input type="text" class="form-control" id="dc"  >
+                                            <input type="text" class="form-control" id="dc" onblur="dcvalid()"  >
                                             <span id="dcError" style="color: red;display: none;">*Không được bỏ trống </span>     
                                         </div>
                                         <div class="col-md-12 mb-3">
@@ -201,17 +200,17 @@
                                         </div>
                                         <div class="col-md-12 mb-3">
                                             <label for="kh_email">Email</label><br>
-                                            <input type="email" class="form-control" id="email" >
+                                            <input type="email" class="form-control" id="email"  onblur="emailvalid()">
                                             <span id="emailError" style="color: red;display: none;">*Không được bỏ trống </span> 
                                         </div>
                                         <div class="col-md-12 mb-3">
                                             <label for="kh_ngaysinh">Ngày sinh</label><br>
-                                            <input type="text" class="form-control" id= "datepicker"  >
+                                            <input type="text" class="form-control" id= "datepicker" >
                                             <span id="dobError" style="color: red;display: none;">*Không được bỏ trống </span>    
                                         </div>
                                         <div class="col-md-12 mb-3">
                                             <label for="kh_cmnd">CMND</label><br>
-                                            <input type="text" class="form-control"  id="cmnd" >
+                                            <input type="text" class="form-control"  id="cmnd"  onblur="cmndvalid()">
                                             <span id="cmndError" style="color: red;display: none;">*Không được bỏ trống </span>    
                                         </div>
                                     </div>
@@ -221,19 +220,19 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-6">
+                    <div class="col-6 ">
                         <div class="container mt-2">
                             <form class="needs-validation" onsubmit="return validateForm()">
                                 <input type="hidden" name="kh_tendangnhap" value="">
                                 <div class="row">
                                         <h4 class="mb-3 mt-3">Hình thức thanh toán</h4>
                 
-                                        <div class="d-block my-3 d-flex justify-content-center ">
+                                        <div class="d-block my-3 d-flex ">
                                             <div class="custom-control custom-radio" >
                                                 <input id="httt-1" name="httt_ma" type="radio" class="custom-control-input" required="" onclick="showForm()" value="1">  
                                                 <label class="custom-control-label " for="httt-1" style="font-weight: lighter;font-size: 22px;">Tiền mặt</label>
                                             </div>
-                                            <div class="custom-control custom-radio mx-3" id="show1">
+                                            <div class="custom-control custom-radio mx-2" id="show1">
                                                 <input id="httt-2" name="httt_ma" type="radio" class="custom-control-input" required=""value="2" onclick="showForm()">            
                                                 <label class="custom-control-label" for="httt-2" style="font-weight: lighter;font-size: 22px;">Chuyển khoản</label>
                                             </div>
@@ -457,6 +456,42 @@
                     document.getElementById("hotenError").style.display = "none";
                 }
             }
+            function dcvalid() {
+                var dc = document.getElementById("dc").value;
+                if(dc.trim() === ""){
+                    document.getElementById("dcError").style.display = "block"; 
+                }  
+                else{
+                    document.getElementById("dcError").style.display = "none";
+                }
+            }
+            function dtvalid() {
+                var dt = document.getElementById("dt").value;
+                if(dt.trim() === ""){
+                    document.getElementById("dtError").style.display = "block"; 
+                 }  
+                 else{
+                    document.getElementById("dtError").style.display = "none";
+                 }
+                }
+            function emailvalid() {
+                var email = document.getElementById("email").value;
+                if(email.trim() === ""){
+                    document.getElementById("emailError").style.display = "block"; 
+                }  
+                else{
+                    document.getElementById("emailError").style.display = "none";
+                }
+            }
+            function cmndvalid() {
+                var cmnd = document.getElementById("cmnd").value;
+                if(cmnd.trim() === ""){
+                    document.getElementById("cmndError").style.display = "block"; 
+                }  
+                else{
+                    document.getElementById("cmndError").style.display = "none";
+                }
+            }
             
             function validateForm(){
                 var hovaten = document.getElementById("hovaten").value;
@@ -464,6 +499,7 @@
                 var dt= document.getElementById("dt").value;
                 var email = document.getElementById("email").value;
                 var cmnd = document.getElementById("cmnd").value;
+                var dob = document.getElementById("datepicker").value;
                 if(hovaten.trim() === ""){
                     document.getElementById("hotenError").style.display = "block"; 
                 } else{
@@ -492,9 +528,6 @@
                 }  
                 else{
                     document.getElementById("cmndError").style.display = "none";
-                }
-                if(hovaten && dc) {
-                    window.location.href="https://www.facebook.com/"
                 }
                 return false;
             }
