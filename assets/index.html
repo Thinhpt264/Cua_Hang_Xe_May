@@ -738,7 +738,44 @@
         </div>
     </div>
     <!-- Vendor End -->
-
+    <div class="containers">
+        <div class="menu-toggle">
+            <img src="../Image/mess.png">
+        </div>
+        
+        <div class="menu-line">
+            <div class="btn-app">
+                <a href="https://bit.ly/3lGliU5">
+                    <img src="../Image/zalo-sharecs.png" class="iconf">
+                    <span class="tooltip">Lên hệ Zalo</span>
+                </a>
+            </div>
+            <div class="btn-app">
+                <a href="https://www.facebook.com/phanthethinh.official26/">
+                    <img src="../Image/fanpage-facebook-sharecs.png" class="iconf">
+                    <span class="tooltip">Lên hệ Facebook</span>
+                </a>
+            </div>
+            <div class="btn-app">
+                <a href="https://maps.app.goo.gl/grxTQXjVAMgBRy2w9">
+                    <img src="../Image/icon-map-sharecs.png" class="iconf">
+                    <span class="tooltip">Xem địa chỉ văn phòng</span>
+                </a>
+            </div>
+            <div class="btn-app">
+                <a href="mailto:21130548@st.hcmuaf.edu.vn">
+                    <img src="../Image/icon-mail-sharecs.png" class="iconf">
+                    <span class="tooltip">Email hỗ trợ</span>
+                </a>
+            </div>
+            <div class="btn-app">
+                <a href="tel:0326767031">
+                    <img src="../Image/icon-phone-sharecs.png" class="iconf">
+                    <span class="tooltip">Hotline</span>
+                </a>
+            </div>
+        </div>
+    </div>
 
     <!-- Footer Start -->
     <div class="container-fluid bg-secondary py-5 px-sm-3 px-md-5" style="margin-top: 90px;">
@@ -831,7 +868,13 @@
 
     <!-- Template Javascript -->
     <script src="../js/main.js"></script>
-
+    <script>
+        $ (".menu-toggle").click(function () {
+    $(".menu-toggle").toggleClass("open");
+    $(".menu-line").toggleClass("open");
+    $(".menu-round").toggleClass("open"); 
+    });
+    </script>
 </body>
 
 </html>
