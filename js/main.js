@@ -339,3 +339,10 @@ function favoriteProduct() {
         fill.style.display = "inline-block";
     }
 }
+function showImage(imageSrc) {
+    var largeDiv = document.getElementById('largeDiv');
+    var largeImage = document.getElementById('largeImage');
+
+    largeImage.src = imageSrc;
+    largeDiv.style.display = 'block';
+}

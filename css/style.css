@@ -530,3 +530,10 @@ header {
     visibility: visible;
     opacity: 1;
   }
+  .small{
+      border: #0F192A solid 1px;
+      border-radius: 4px;
+      margin: 10px;
+      background-color: #EEEEEE;
+
+  }
