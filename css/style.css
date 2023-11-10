@@ -112,7 +112,7 @@ h6,
 }
 
 .navbar-dark .navbar-nav .nav-link {
-    padding: 30px 15px;
+    padding: 20px 15px;
     font-size: 16px;
     font-weight: 500;
     letter-spacing: 1px;
@@ -127,6 +127,7 @@ h6,
 }
 
 @media (max-width: 991.98px) {
+
     .navbar-dark .navbar-nav .nav-link  {
         padding: 10px 15px;
     }
