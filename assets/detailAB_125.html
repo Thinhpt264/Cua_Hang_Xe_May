@@ -165,7 +165,7 @@
 
                 <div class="col-lg-6 ">
                     <!-- <img src="../Image/Honda/Capture.PNG" class="w-auto h-75" alt="Image"> -->
-                    <div class="bg-white p-3 ml-5 " style="display: none;">
+                    <div class="bg-white p-3 ml-5 ">
                         <h3 class="text-primary mb-4">Thông số cơ bản</h3>
                         <div class="form-group" style="font-size: 20px;">
                             <img src="../Image/Honda/icon-hang-xe (1).svg" alt="">
@@ -198,160 +198,6 @@
                             <span style="margin-left: 60px;"><b>Mới (0 km)</b></span>
                         </div>
                     </div>
-                    <div class="container mt-4">
-                        <form class="needs-validation" onsubmit="return validateForm()">
-                            <input type="hidden" name="kh_tendangnhap" value="">
-                            <div class="py-1 text-center">
-                                <i class="fa-solid fa-credit-card" style="font-size: 50px;"></i>
-                                <h2>Thanh toán</h2>
-                                <p>Vui lòng kiểm tra thông tin trước khi Đặt hàng.</p>
-                            </div>
-            
-                            <div class="row" style="margin-left: 200px;">
-                                <div class="col-md-8 order-md-1">
-                                    <h4 class="mb-3">Thông tin khách hàng</h4>
-            
-                                    <div class="row">
-                                        <div class="col-md-12 mb-3">
-                                            <label for="kh_ten">Họ tên</label><br>
-                                            <input type="text" class="form-control" id="hovaten" onblur="validateForm()">
-                                             <span id="hotenError" style="color: red;display: none;">*Không được bỏ trống </span>   
-                                        </div>
-                                        <div class="col-md-12 mb-3">
-                                            <label for="kh_gioitinh">Giới tính</label><br>
-                                            <input type="radio" name="gioitinh"> <span style="font-size: 15px;">Nam</span> 
-                                            <input type="radio" name="gioitinh" style="margin-left: 70px;"><span style="font-size: 15px;">Nữ</span>  
-                                        </div>
-                                        <div class="col-md-12 mb-3">
-                                            <label for="kh_diachi">Địa chỉ</label><br>
-                                            <input type="text" class="form-control" id="dc" onblur="validateForm()" >
-                                            <span id="dcError" style="color: red;display: none;">*Không được bỏ trống </span>     
-                                        </div>
-                                        <div class="col-md-12 mb-3">
-                                            <label for="kh_dienthoai">Điện thoại</label><br>
-                                            <input type="text" class="form-control" id="dt" onblur="validateForm()">
-                                            <span id="dtError" style="color: red;display: none;">*Không được bỏ trống </span>    
-                                        </div>
-                                        <div class="col-md-12 mb-3">
-                                            <label for="kh_email">Email</label><br>
-                                            <input type="email" class="form-control" id="email" onblur="validateForm()">
-                                            <span id="emailError" style="color: red;display: none;">*Không được bỏ trống </span> 
-                                        </div>
-                                        <div class="col-md-12 mb-3">
-                                            <label for="kh_ngaysinh">Ngày sinh</label><br>
-                                            <input type="text" class="form-control" id= "datepicker" onblur="validateForm()" >
-                                            <span id="dobError" style="color: red;display: none;">*Không được bỏ trống </span>    
-                                        </div>
-                                        <div class="col-md-12 mb-3">
-                                            <label for="kh_cmnd">CMND</label><br>
-                                            <input type="text" class="form-control"  id="cmnd" onblur="validateForm()">
-                                            <span id="cmndError" style="color: red;display: none;">*Không được bỏ trống </span>    
-                                        </div>
-                                    </div>
-            
-                                    <h4 class="mb-3 mt-3">Hình thức thanh toán</h4>
-            
-                                    <div class="d-block my-3 d-flex justify-content-center ">
-                                        <div class="custom-control custom-radio" >
-                                            <input id="httt-1" name="httt_ma" type="radio" class="custom-control-input" required="" onclick="showForm()" value="1">  
-                                            <label class="custom-control-label " for="httt-1" style="font-weight: lighter;font-size: 22px;">Tiền mặt</label>
-                                        </div>
-                                        <div class="custom-control custom-radio mx-3" id="show">
-                                            <input id="httt-2" name="httt_ma" type="radio" class="custom-control-input" required=""value="2" onclick="showForm()">            
-                                            <label class="custom-control-label" for="httt-2" style="font-weight: lighter;font-size: 22px;">Chuyển khoản</label>
-                                        </div>
-                                        <div class="custom-control custom-radio" id="show">
-                                            <input id="httt-3" name="httt_ma" type="radio" class="custom-control-input" required=""value="3" onclick="showForm()">                                    
-                                            <label class="custom-control-label" for="httt-3" style="font-weight: lighter;font-size: 22px;">Thanh toán bằng thẻ</label>
-                                        </div>
-                                    </div>
-                                    <div id="container1">
-                                        <div id="visaForm" style="display: none ;">
-                                            <div style="width: 100%" class="container d-flex mt-5 mb-5 mr-5">
-                                        <div class="row ">
-                                            <div class="col">
-                                                <div class="card">
-                                                   <div class="accordion" id="accordionExample">
-                                                      <div class="card">
-                                                        <div class="card-header p-0" id="headingTwo">
-                                                            <h2 class="mb-0">
-                                                            <button
-                                                            class="btn btn-light btn-block text-left collapsed p-3 rounded-0 border-bottom-custom"
-                                                                type="button" data-toggle="collapse"
-                                                                data-target="#collapseTwo" aria-expanded="false"
-                                                                aria-controls="collapseTwo">
-                                                                    <div class="d-flex align-items-center justify-content-between">
-                                                                        <span>Visa</span>
-                                                                        <span style="margin-left: 500px;"><i class="fa-brands fa-cc-visa" style="font-size: 30px;"></i></span>
-                                                                        
-                                                                    </div>    
-                                                            </button>                                
-                                                            </h2>
-                                                        </div>        
-                                                                        
-                                                        <div id="collapseTwo" class="collapse">
-                                                            <div class="card-body">
-                                                                <input type="text" class="form-control" placeholder="Paypal email">
-                                                            </div>                                            
-                                                        </div>
-                                                        </div>
-                                                        <div class="card">
-                                                            <div id="collapseOne" class="collapse show">
-                                                             
-                                                                <div class="card-body payment-card-body">
-                                                                    <span class="font-weight-normal card-text">Số thẻ</span>   
-                                                                        <div class="input">
-                                                                            <i class="fa fa-credit-card"></i>
-                                                                            <input type="text" class="form-control" placeholder="0000 0000 0000 0000">                                                                   
-                                                                        </div>
-                                                                         <div class="row mt-3 mb-3">
-                                                                            <div class="col-md-6">
-                                                                                <span class="font-weight-normal card-text">Ngày hết hạn</span>                                                                                                                                              
-                                                                                <div class="input">
-                                                                                    <i class="fa fa-calendar"></i>
-                                                                                    <input type="text" class="form-control" placeholder="MM/YY" id="date">                                                                        
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class="col-md-6">
-                                                                                <span class="font-weight-normal card-text">CVC/CVV</span>                                                                    
-                                                                                <div class="input">
-                                                                                    <i class="fa fa-lock"></i>
-                                                                                    <input type="text" class="form-control" placeholder="000">
-                                                                                </div>
-                                                                            </div>             
-                                                                        </div>
-                                                                                   
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                    
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                            </div>
-                                        </div>
-                                        <div id="theForm" style="display: none;" class="row">
-                                            <div class="col-md-6">
-                                                <h1>
-                                                    <img src="../Image/qr.png" alt="">
-                                                </h1>
-                                            </div>
-                                            <div class="col-md-6" >
-                                                    <h5>Chủ tài khoản : Phan Thế Thịnh <br><br>
-                                                        Số tài khoản  : 31410008149773 <br><br>
-                                                        Ngân hàng thụ hưởng : BIDV
-                                                    </h5>
-                                                </div>
-                                        </div>
-                                    </div>
-                                    
-                                    <button class="btn btn-primary btn-lg btn-block mb-5" type="submit" name="btnDatHang">Đặt hàng</button>
-                                        
-                                </div>
-                            </div>
-                        </form>
-                    </div>
                 </div>
             </div>
         </div>
@@ -373,15 +219,9 @@
             </div>
         </div>    
     </div>
-<<<<<<< HEAD
-    <div class="container-fluid mb-5 " style=";margin-top: 10px;">
-        <div class="header mr-5 ">
-           <a href="checkout.html" style="text-decoration: none;"><button class="btn btn-primary btn-lg btn-block " name="btnDatHang" style="width: 150px;height: 50px;">Đặt hàng</button></a>
-=======
     <div class="container-fluid mb-2 ">
         <div class="container">
            <a href="checkout.html" style="text-decoration: none;"><button class="btn btn-primary btn-lg btn-block" name="btnDatHang" style="width: 150px;height: 50px;">Đặt hàng</button></a> 
->>>>>>> 0f4e74847acaa2826d346a48ae7af1dfbe9a67c2
         </div>
     </div> 
     <div class="container-fluid mb-5">
