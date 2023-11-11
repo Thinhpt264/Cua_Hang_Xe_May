@@ -185,14 +185,14 @@
         </a>
 
         <!-- Sidebar -->
-        <div class="sidebar os-host os-theme-light os-host-overflow os-host-overflow-y os-host-resize-disabled os-host-scrollbar-horizontal-hidden os-host-transition" style=""><div class="os-resize-observer-host observed"><div class="os-resize-observer" style="left: 0px; right: auto;"></div></div><div class="os-size-auto-observer observed" style="height: calc(100% + 1px); float: left;"><div class="os-resize-observer"></div></div><div class="os-content-glue" style="margin: 0px -8px; width: 249px; height: 319px;"></div><div class="os-padding"><div class="os-viewport os-viewport-native-scrollbars-invisible" style="overflow-y: scroll;"><div class="os-content" style="padding: 0px 8px; height: 100%; width: 100%;">
+        <div class="sidebar os-host os-theme-light os-host-overflow os-host-overflow-y os-host-resize-disabled os-host-scrollbar-horizontal-hidden os-host-transition" ><div class="os-resize-observer-host observed"><div class="os-resize-observer" style="left: 0px; right: auto;"></div></div><div class="os-size-auto-observer observed" style="height: calc(100% + 1px); float: left;"><div class="os-resize-observer"></div></div><div class="os-content-glue" style="margin: 0px -8px; width: 249px; height: 319px;"></div><div class="os-padding"><div class="os-viewport os-viewport-native-scrollbars-invisible" style="overflow-y: scroll;"><div class="os-content" style="padding: 0px 8px; height: 100%; width: 100%;">
             <!-- Sidebar user panel (optional) -->
             <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                 <div class="image">
                     <img src="../../dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
                 </div>
                 <div class="info">
-                    <a href="myProfile.html" class="d-block active">Alexander Pierce</a>
+                    <a href="myProfile.html" class="d-block active">Phan Thế Thịnh</a>
                 </div>
             </div>
 
@@ -211,78 +211,84 @@
             <!--         Sidebar Menu-->
             <nav class="mt-2">
                 <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                    <!-- Add icons to the links using the .nav-icon class
-                         with font-awesome or any other icon font library -->
-                    <li class="nav-item ">
-                        <a href="admin3.html" class="nav-link">
-                            <i class="nav-icon fas fa-tachometer-alt"></i>
-                            <p>
-                                Trang Chủ
-                            </p>
+                  <!-- Add icons to the links using the .nav-icon class
+                       with font-awesome or any other icon font library -->
+                  <li class="nav-item menu-is-opening menu-open">
+                    <a href="#" class="nav-link">
+                      <i class="nav-icon fas fa-tachometer-alt"></i>
+                      <p>
+                        Trang Chủ
+                      </p>
+                    </a>
+                  </li>
+                  <li class="nav-header">Quản Lí Người Dùng</li>
+                  <li class="nav-item">
+                    <a href="#" class="nav-link">
+                      <i class="fa-regular fa-user" style="color: #f0f0f0;"></i>
+                      <p>
+                        Quản lí tài khoản
+                        <i class="fas fa-angle-left right"></i>
+                      </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                      <li class="nav-item">
+                        <a href="employee.html" class="nav-link">
+                          <i class="far fa-circle nav-icon"></i>
+                          <p>Danh Sách Nhân Viên</p>
                         </a>
-                    </li>
-                    <li class="nav-header">Quản Lí Người Dùng</li>
-                    <li class="nav-item menu-is-opening menu-open">
-                        <a href="#" class="nav-link ">
-                            <i class="nav-icon far fa-envelope"></i>
-                            <p>
-                                Quản lí tài khoản
-                                <i class="fas fa-angle-left right"></i>
-                            </p>
+                      </li>
+                      <li class="nav-item">
+                        <a href="accountList.html" class="nav-link">
+                          <i class="far fa-circle nav-icon"></i>
+                          <p>Danh Sách Người Dùng Trên Website</p>
                         </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="employee.html" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Danh Sách Nhân Viên</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="accountList.html" class="nav-link ">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Danh Sách Tài Khoản Trên Website</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="pages/mailbox/read-mail.html" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Danh Sách Người Dùng mua xe</p>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="nav-header">Quản Lí Sản Phẩm</li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link active">
-                            <i class="fa-solid fa-motorcycle" style="color: #e1e2e5;"></i>
-                            <p>
-                                Quản Lí Xe
-                                <i class="fas fa-angle-left right"></i>
-                            </p>
+                      </li>
+                      <li class="nav-item">
+                        <a href="customerbuyproducts.html" class="nav-link">
+                          <i class="far fa-circle nav-icon"></i>
+                          <p>Danh Sách Khách Hàng Mua Xe</p>
                         </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="listProduct.html" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Danh Sách Xe </p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="listBrand.html" class="nav-link ">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Danh Sách Hãng Xe</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="branchList.html" class="nav-link active ">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Danh Sách Chi Nhánh</p>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="nav-header">Quản Lí Sản Phẩm</li>
+                  <li class="nav-item">
+                    <a href="#" class="nav-link">
+                      <i class="fa-solid fa-motorcycle" style="color: #e1e2e5;"></i>
+                      <p>
+                        Quản Lí Xe 
+                        <i class="fas fa-angle-left right"></i>
+                      </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                      <li class="nav-item">
+                  
+                        <a href="listProduct.html" class="nav-link">
+                          <i class="far fa-circle nav-icon"></i>
+                          <p>Danh Sách Xe </p>  
+                        </a>
+                      </li>
+                      <li class="nav-item">
+                        <a href="listBrand.html" class="nav-link">
+                          <i class="far fa-circle nav-icon"></i>
+                          <p>Danh Sách Chi Nhánh</p>
+                        </a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="nav-header">Dịch Vụ Khách Hàng</li>
+                  <li class="nav-item">
+                    <a href="listPdf.html" class="nav-link">
+                    <i class="fa-solid fa-file-pdf" style="color: #e1e2e5;"></i>
+                    <p>
+                      Nội dung các phiếu mua hàng và sách
+                      <!-- <i class="fas fa-angle-left right"></i> -->
+                    </p>
+                  </a>
+                </li>
+      
                 </ul>
-            </nav>
+              </nav>
             <!-- /.sidebar-menu -->
         </div></div></div><div class="os-scrollbar os-scrollbar-horizontal os-scrollbar-unusable os-scrollbar-auto-hidden"><div class="os-scrollbar-track"><div class="os-scrollbar-handle" style="width: 100%; transform: translate(0px, 0px);"></div></div></div><div class="os-scrollbar os-scrollbar-vertical os-scrollbar-auto-hidden"><div class="os-scrollbar-track"><div class="os-scrollbar-handle" style="height: 23.5467%; transform: translate(0px, 0px);"></div></div></div><div class="os-scrollbar-corner"></div></div>
         <!-- /.sidebar -->
