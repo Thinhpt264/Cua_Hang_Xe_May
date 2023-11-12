@@ -188,7 +188,7 @@
     <!-- Add icons to the links using the .nav-icon class
          with font-awesome or any other icon font library -->
     <li class="nav-item menu-is-opening menu-open">
-      <a href="#" class="nav-link">
+      <a href="admin3.html" class="nav-link">
         <i class="nav-icon fas fa-tachometer-alt"></i>
         <p>
           Trang Chủ
@@ -296,22 +296,23 @@
              <div class="col-12">
                   <div class="card">
                     <!-- /.card-header -->
-                    <div class="card-body">
-                    </div>
                     <div class="row">
                       <div class="col-sm-12">
+                        <div class="col-3 p-3">
+                          <a class="btn btn-block bg-gradient-success" href="newAccount.html"> <i class="fa-solid fa-plus"></i> Thêm Tài Khoản</a>
+                        </div>
                         <table id="example2" class="table table-bordered table-hover dataTable dtr-inline"
                           aria-describedby="example2_info">
                           <thead>
                             <tr>
                               <th class="sorting sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1"
-                                aria-sort="ascending" aria-label="Id: activate to sort column descending">Id</th>
+                                aria-sort="ascending" aria-label="#: activate to sort column descending">#</th>
                               <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1"
                                 aria-label="Anh: activate to sort column ascending">Ảnh</th>
                               <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1"
                                 aria-label="Ten_Nguoi_Dung: activate to sort column ascending">Tên Người Dùng</th>
                               <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1"
-                                aria-label="Chuc_Vu: activate to sort column ascending">Chức Vụ</th>
+                                aria-label="Loai_Tai_Khoan: activate to sort column ascending">Loại Tài Khoản</th>
                               <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1"
                                 aria-label="Bat_Dau_lam grade: activate to sort column ascending">email</th>
                               <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1"
@@ -325,7 +326,7 @@
                             </tr>
                           </thead>
                           <tbody>
-                            <tr class="odd">
+                            <tr id="test" class="odd">
                                 <td class="dtr-control sorting_1" tabindex="0">01</td>
                                  <td><img src="../../dist/img/avatar3.png" alt="" style="width: 50px;"></td>
                                   <td>Trần Quốc Trung</td>
@@ -340,8 +341,20 @@
                                  </td>
                                  <td class="text-center"><a href="" class="btn btn-info"><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a>
                                  </td>
-                                 <td class="text-center"><a href="" class="btn btn-danger"><i class="fas fa-trash" style="color: #000000;"></i></a></td>
+                                 <td class="text-center"><button class="btn btn-danger" onclick="deleteFt()"><i class="fas fa-trash" style="color: #000000;"></i></button></td>
                             </tr>
+                            <script>
+                               function deleteFt() {
+                                // var test = document.getElementById('test');
+                                // test.remove();
+                                $(this).parent().parent().remove();
+
+                               }
+                               ("table tbody tr td button.btn").click(function() {
+                                $(this).parent().parent().remove();
+                                return false
+                               });
+                            </script>
                             <tr class="even">
                               <td class="dtr-control sorting_1" tabindex="0">02</td>
                               <td><img src="../../dist/img/avatar2.png" alt="" style="width: 50px;"></td>
