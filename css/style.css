@@ -143,6 +143,10 @@ h6,
 }
 
 @media (max-width: 576px) {
+    
+    .navbar-dark .navbar-nav .nav-link  {
+        padding: 5px 10px;
+    }
     .carousel-caption h4 {
         font-size: 18px;
         font-weight: 500 !important;
@@ -165,6 +169,7 @@ h6,
 }
 
 @media (max-width: 991.98px) {
+
     .page-header {
         height: 300px;
     }
