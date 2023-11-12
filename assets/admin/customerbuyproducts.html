@@ -1,7 +1,7 @@
 <html lang="en" style="height: auto;"><head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>AdminLTE 3 | Dashboard</title>
+    <title>Danh Sách Khách Hàng Mua Hàng</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&amp;display=fallback">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.css">
@@ -49,8 +49,9 @@
           <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-          <a href="" class="nav-link">Trang Chủ</a>
+          <a href="admin3.html" class="nav-link">Trang Chủ</a>
         </li>
+       
       </ul>
   
       <!-- Right navbar links -->
@@ -90,11 +91,11 @@
                 <img src="../../dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
                 <div class="media-body">
                   <h3 class="dropdown-item-title">
-                    Brad Diesel
+                    Thịnh Thế
                     <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
                   </h3>
-                  <p class="text-sm">Call me whenever you can...</p>
-                  <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+                  <p class="text-sm">Cảm Nhận phiên bản trước đẹp hơn</p>
+                  <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 giờ trước</p>
                 </div>
               </div>
               <!-- Message End -->
@@ -106,11 +107,11 @@
                 <img src="../../dist/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
                 <div class="media-body">
                   <h3 class="dropdown-item-title">
-                    John Pierce
+                    Phúc Thành
                     <span class="float-right text-sm text-muted"><i class="fas fa-star"></i></span>
                   </h3>
-                  <p class="text-sm">I got your message bro</p>
-                  <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+                  <p class="text-sm">Tôi đã lái thử và thấy tuyệt lắm</p>
+                  <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 giờ trước</p>
                 </div>
               </div>
               <!-- Message End -->
@@ -122,11 +123,11 @@
                 <img src="../../dist/img/user3-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
                 <div class="media-body">
                   <h3 class="dropdown-item-title">
-                    Nora Silvester
+                    Trần Trung
                     <span class="float-right text-sm text-warning"><i class="fas fa-star"></i></span>
                   </h3>
-                  <p class="text-sm">The subject goes here</p>
-                  <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+                  <p class="text-sm">Xe ab này tuyệt quá</p>
+                  <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Giờ Trước</p>
                 </div>
               </div>
               <!-- Message End -->
@@ -134,34 +135,7 @@
             <div class="dropdown-divider"></div>
             <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
           </div>
-        </li>
-        <!-- Notifications Dropdown Menu -->
-        <li class="nav-item dropdown">
-          <a class="nav-link" data-toggle="dropdown" href="#">
-            <i class="far fa-bell"></i>
-            <span class="badge badge-warning navbar-badge">15</span>
-          </a>
-          <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-            <span class="dropdown-item dropdown-header">15 Notifications</span>
-            <div class="dropdown-divider"></div>
-            <a href="#" class="dropdown-item">
-              <i class="fas fa-envelope mr-2"></i> 4 new messages
-              <span class="float-right text-muted text-sm">3 mins</span>
-            </a>
-            <div class="dropdown-divider"></div>
-            <a href="#" class="dropdown-item">
-              <i class="fas fa-users mr-2"></i> 8 friend requests
-              <span class="float-right text-muted text-sm">12 hours</span>
-            </a>
-            <div class="dropdown-divider"></div>
-            <a href="#" class="dropdown-item">
-              <i class="fas fa-file mr-2"></i> 3 new reports
-              <span class="float-right text-muted text-sm">2 days</span>
-            </a>
-            <div class="dropdown-divider"></div>
-            <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
-          </div>
-        </li>
+        </li>        
         <li class="nav-item">
           <a class="nav-link" data-widget="fullscreen" href="#" role="button">
             <i class="fas fa-expand-arrows-alt"></i>
@@ -213,18 +187,18 @@
           <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
             <!-- Add icons to the links using the .nav-icon class
                  with font-awesome or any other icon font library -->
-            <li class="nav-item ">
-              <a href="admin3.html" class="nav-link">
+            <li class="nav-item menu-is-opening menu-open">
+              <a href="#" class="nav-link">
                 <i class="nav-icon fas fa-tachometer-alt"></i>
                 <p>
-                  Dashboard
+                  Trang Chủ
                 </p>
               </a>
             </li>
             <li class="nav-header">Quản Lí Người Dùng</li>
-            <li class="nav-item menu-is-opening menu-open">
+            <li class="nav-item">
               <a href="#" class="nav-link active">
-                <i class="nav-icon far fa-envelope"></i>
+                <i class="fa-regular fa-user" style="color: #f0f0f0;"></i>
                 <p>
                   Quản lí tài khoản
                   <i class="fas fa-angle-left right"></i>
@@ -240,47 +214,53 @@
                 <li class="nav-item">
                   <a href="accountList.html" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>Danh Sách Khách Hàng Trên Website</p>
+                    <p>Danh Sách Người Dùng Trên Website</p>
                   </a>
                 </li>
                 <li class="nav-item">
                   <a href="customerbuyproducts.html" class="nav-link active">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>Danh Sách Người Dùng mua xe</p>
+                    <p>Danh Sách Khách Hàng Mua Xe</p>
                   </a>
                 </li>
               </ul>
             </li>
-            <li class="nav-header">Danh Sách Sản Phẩm</li>
+            <li class="nav-header">Quản Lí Sản Phẩm</li>
             <li class="nav-item">
-              <a href="listProduct.html" class="nav-link">
-                <i class="nav-icon far fa-envelope"></i>
+              <a href="#" class="nav-link">
+                <i class="fa-solid fa-motorcycle" style="color: #e1e2e5;"></i>
                 <p>
-                  Danh Sách Xe 
+                  Quản Lí Xe 
                   <i class="fas fa-angle-left right"></i>
                 </p>
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="pages/mailbox/mailbox.html" class="nav-link">
+            
+                  <a href="listProduct.html" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>Danh Sách Nhân Viên</p>
+                    <p>Danh Sách Xe </p>  
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="pages/mailbox/compose.html" class="nav-link">
+                  <a href="listBrand.html" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>Danh Sách Người Dùng Online</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="pages/mailbox/read-mail.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Danh Sách Người Dùng mua xe</p>
+                    <p>Danh Sách Chi Nhánh</p>
                   </a>
                 </li>
               </ul>
             </li>
+            <li class="nav-header">Dịch Vụ Khách Hàng</li>
+            <li class="nav-item">
+              <a href="listPdf.html" class="nav-link">
+              <i class="fa-solid fa-file-pdf" style="color: #e1e2e5;"></i>
+              <p>
+                Nội dung các phiếu mua hàng và sách
+                <!-- <i class="fas fa-angle-left right"></i> -->
+              </p>
+            </a>
+          </li>
+
           </ul>
         </nav>
         <!-- /.sidebar-menu -->
@@ -296,12 +276,11 @@
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1 class="m-0">Danh Sách Người Dùng Mua Xe</h1>
+              <h1 class="m-0">Danh Sách Khách Hàng Mua Xe</h1>
             </div><!-- /.col -->
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
                 <li class="breadcrumb-item"><a href="admin3.html">Trang Chủ</a></li>
-                <li class="breadcrumb-item"><a href="admin3.html">Quản Lí tài khoản</a></li>
                 <li class="breadcrumb-item active">Danh Sách Khách Hàng Mua Xe</li>
               </ol>
             </div><!-- /.col -->
@@ -317,10 +296,11 @@
                 <div class="col-12">
                   <div class="card">
                     <!-- /.card-header -->
-                    <div class="card-body">
-                    </div>
                     <div class="row">
                       <div class="col-sm-12">
+                        <div class="col-3 p-3">
+                          <a class="btn btn-block bg-gradient-success" href="addNewEmployeeByAdmin.html"> <i class="fa-solid fa-plus"></i> Thêm Khách Hàng Mua Xe</a>
+                        </div>
                         <table id="example2" class="table table-bordered table-hover dataTable dtr-inline"
                           aria-describedby="example2_info">
                           <thead>
@@ -336,8 +316,6 @@
                               <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1"
                                 aria-label="Dia_Chi: activate to sort column ascending">Địa Chỉ</th>
                               <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1"
-                                aria-label="Ngay_Mua_Xe grade: activate to sort column ascending">Ngày mua xe</th>
-                              <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1"
                                 aria-label="Mua_Tai grade: activate to sort column ascending">Mua Tại</th>
                               <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1"
                                 aria-label="Sua grade: activate to sort column ascending">Sửa</th>
@@ -348,99 +326,91 @@
                           <tbody>
                             <tr class="odd">
                               <td class="dtr-control sorting_1" tabindex="0">01</td>
-                              <td>Trấn Thành</td>
-                              <td><a href="../detailAB_160.html"> Air blade 2020</a></td>
-                              <td>0123456789</td>
-                              <td>Phường 16 quận gò vấp</td>
-                              <td>21/11/2023</td>
-                              <td>Chi Nhánh Quận 3</td>
-                              <td class="text-center"><a href=""><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a>
-                              </td>
-                              <td class="text-center"><a href="" class="icon-delete"><i class="fa-solid fa-x" style="color: #000000;"></i></a></td>
-                            </tr>
-                            <tr class="even">
-                              <td class="dtr-control sorting_1" tabindex="0">02</td>
-                              <td>Nguyễn Trần Phúc Thành</td>
-                              <td><a href="../detailAB_160.html"> Air blade 2020</a></td>
-                              <td>0123456789</td>
-                              <td>Phường 16 quận gò vấp</td>
-                              <td>21/11/2023</td>
-                              <td>Chi Nhánh Quận 9</td>
-                              <td class="text-center"><a href=""><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a>
-                              </td>
-                              <td class="text-center"><a href=""><i class="fa-solid fa-x" style="color: #000000;"></i></a></td>
-                            </tr>
-                            <tr class="even">
-                              <td class="dtr-control sorting_1" tabindex="0">03</td>
-                              <td>Phan Thế Thịnh</td>
-                              <td><a href="../detailAB_160.html"> Sh blade 2020</a></td>
-                              <td>0123456789</td>
-                              <td>Phường 16 quận gò vấp</td>
-                              <td>21/11/2023</td>
-                              <td>Chi Nhánh Quận Gò Vấp</td>
-                              <td class="text-center"><a href=""><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a>
-                              </td>
-                              <td class="text-center"><a href=""><i class="fa-solid fa-x" style="color: #000000;"></i></a></td>
-                            </tr>
-                            <tr class="odd">
-                              <td class="dtr-control sorting_1" tabindex="0">04</td>
-                              <td>Phan Thế Thịnh</td>
-                              <td><a href="../detailAB_160.html"> Air blade 2020</a></td>
-                              <td>0123456789</td>
-                              <td>Phường 16 quận gò vấp</td>
-                              <td>21/11/2023</td>
-                              <td>Chi Nhánh Quận Gò Vấp</td>
-                              <td class="text-center"><a href=""><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a>
-                              </td>
-                              <td class="text-center"><a href=""><i class="fa-solid fa-x" style="color: #000000;"></i></a></td>
-                            </tr>
-                            <tr class="even">
-                              <td class="dtr-control sorting_1" tabindex="0">05</td>
                               <td>Nguyễn Văn A</td>
                               <td><a href="../detailAB_160.html"> Air blade 2020</a></td>
                               <td>0123456789</td>
                               <td>Phường 16 quận gò vấp</td>
-                              <td>21/11/2023</td>
-                              <td>Chi Nhánh Quận Thủ Đức</td>
-                              <td class="text-center"><a href=""><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a>
+                              <td>Chi Nhánh Quận 3</td>
+                              <td class="text-center"><a href="" class="btn btn-info"><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a>
                               </td>
-                              <td class="text-center"><a href=""><i class="fa-solid fa-x" style="color: #000000;"></i></a></td>
+                              <td class="text-center"><a href="" class="btn btn-danger"><i class="fas fa-trash" style="color: #000000;"></i></a></td>
                             </tr>
-                            <tr class="odd">
-                              <td class="dtr-control sorting_1" tabindex="0">06</td>
+                            <tr class="even">
+                              <td class="dtr-control sorting_1" tabindex="0">02</td>
                               <td>Nguyễn Văn B</td>
                               <td><a href="../detailAB_160.html"> Air blade 2020</a></td>
                               <td>0123456789</td>
-                              <td>Phường 16 quận gò vấp</td>
-                              <td>21/11/2023</td>
-                              <td>Chi Nhánh Quận 12</td>
-                              <td class="text-center"><a href=""><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a>
+                              <td>Phường 17 quận gò vấp</td>
+                              <td>Chi Nhánh Quận 9</td>
+                              <td class="text-center"><a href="" class="btn btn-info"><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a>
                               </td>
-                              <td class="text-center"><a href=""><i class="fa-solid fa-x" style="color: #000000;"></i></a></td>
+                              <td class="text-center"><a href="" class="btn btn-danger"><i class="fas fa-trash" style="color: #000000;"></i></a></td>
+                            </tr>
+                            <tr class="even">
+                              <td class="dtr-control sorting_1" tabindex="0">03</td>
+                              <td>Nguyễn Văn C</td>
+                              <td><a href="../detailAB_160.html"> Sh blade 2020</a></td>
+                              <td>0123456789</td>
+                              <td>Thủ Đức </td>
+                              <td>Chi Nhánh Quận Gò Vấp</td>
+                              <td class="text-center"><a href="" class="btn btn-info"><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a>
+                              </td>
+                              <td class="text-center"><a href="" class="btn btn-danger"><i class="fas fa-trash" style="color: #000000;"></i></a></td>
+                            </tr>
+                            <tr class="odd">
+                              <td class="dtr-control sorting_1" tabindex="0">04</td>
+                              <td>Nguyễn Văn D</td>
+                              <td><a href="../detailAB_160.html"> Air blade 2020</a></td>
+                              <td>0123456789</td>
+                              <td>Quận Bình Thạnh</td>
+                              <td>Chi Nhánh Quận Gò Vấp</td>
+                              <td class="text-center"><a href="" class="btn btn-info"><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a>
+                              </td>
+                              <td class="text-center"><a href="" class="btn btn-danger"><i class="fas fa-trash" style="color: #000000;"></i></a></td>
+                            </tr>
+                            <tr class="even">
+                              <td class="dtr-control sorting_1" tabindex="0">05</td>
+                              <td>Nguyễn Văn E</td>
+                              <td><a href="../detailAB_160.html"> Air blade 2020</a></td>
+                              <td>0123456789</td>
+                              <td>Thủ Đức</td>
+                              <td>Chi Nhánh Quận Thủ Đức</td>
+                              <td class="text-center"><a href="" class="btn btn-info"><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a>
+                              </td>
+                              <td class="text-center"><a href="" class="btn btn-danger"><i class="fas fa-trash" style="color: #000000;"></i></a></td>
+                            </tr>
+                            <tr class="odd">
+                              <td class="dtr-control sorting_1" tabindex="0">06</td>
+                              <td>Nguyễn Văn F</td>
+                              <td><a href="../detailAB_160.html"> Air blade 2020</a></td>
+                              <td>0123456789</td>
+                              <td>Quận 12</td>
+                              <td>Chi Nhánh Quận 12</td>
+                              <td class="text-center"><a href="" class="btn btn-info"><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a>
+                              </td>
+                              <td class="text-center"><a href="" class="btn btn-danger"><i class="fas fa-trash" style="color: #000000;"></i></a></td>
                             </tr>
                             <tr class="even">
                               <td class="dtr-control sorting_1" tabindex="0">07</td>
                               <td>Nguyễn Văn C</td>
                               <td><a href="../detailAB_160.html"> Air blade 2020</a></td>
                               <td>0123456789</td>
-                              <td>Phường 16 quận gò vấp</td>
-                              <td>21/11/2023</td>
+                              <td>Quận 10</td>
                               <td>Chi Nhánh Quận Thủ Đức</td>
-                              <td class="text-center"><a href=""><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a>
+                              <td class="text-center"><a href="" class="btn btn-info"><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a>
                               </td>
-                              <td class="text-center"><a href=""><i class="fa-solid fa-x" style="color: #000000;"></i></a></td>
+                              <td class="text-center"><a href="" class="btn btn-danger"><i class="fas fa-trash" style="color: #000000;"></i></a></td>
                             </tr>
                             <tr class="odd">
                               <td class="dtr-control sorting_1" tabindex="0">08</td>
-                              <td>Nguyễn Văn A</td>
+                              <td>Nguyễn Văn B</td>
                               <td><a href="../detailAB_160.html"> Air blade 2020</a></td>
                               <td>0123456789</td>
-                              <td>Phường 16 quận gò vấp</td>
-                              <td>21/11/2023</td>
+                              <td>Quận Tân Phú</td>
                               <td>Chi Nhánh Quận Thủ Đức</td>
-                              <td class="text-center"><a href=""><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a>
+                              <td class="text-center"><a href="" class="btn btn-info"><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a>
                               </td>
-                              <td class="text-center"><a href=""><i class="fa-solid fa-x" style="color: #000000;"></i></a></td>
+                              <td class="text-center"><a href="" class="btn btn-danger"><i class="fas fa-trash" style="color: #000000;"></i></a></td>
                             </tr>
                             <tr class="even">
                               <td class="dtr-control sorting_1" tabindex="0">09</td>
@@ -448,11 +418,10 @@
                               <td><a href="../detailAB_160.html"> Air blade 2020</a></td>
                               <td>0123456789</td>
                               <td>Phường 16 quận gò vấp</td>
-                              <td>21/11/2023</td>
                               <td>Chi Nhánh Quận Thủ Đức</td>
-                              <td class="text-center"><a href=""><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a>
+                              <td class="text-center"><a href="" class="btn btn-info"><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a>
                               </td>
-                              <td class="text-center"><a href=""><i class="fa-solid fa-x" style="color: #000000;"></i></a></td>
+                              <td class="text-center"><a href="" class="btn btn-danger"><i class="fas fa-trash" style="color: #000000;"></i></a></td>
                             </tr>
                             <tr class="even">
                               <td class="dtr-control sorting_1" tabindex="0">10</td>
@@ -460,11 +429,10 @@
                               <td><a href="../detailAB_160.html"> Air blade 2020</a></td>
                               <td>0123456789</td>
                               <td>Phường 16 quận gò vấp</td>
-                              <td>21/11/2023</td>
                               <td>Chi Nhánh Quận Thủ Đức</td>
-                              <td class="text-center"><a href=""><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a>
+                              <td class="text-center"><a href="" class="btn btn-info"><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a>
                               </td>
-                              <td class="text-center"><a href=""><i class="fa-solid fa-x" style="color: #000000;"></i></a></td>
+                              <td class="text-center"><a href="" class="btn btn-danger"><i class="fas fa-trash" style="color: #000000;"></i></a></td>
                             </tr>
                             <tr class="even">
                               <td class="dtr-control sorting_1" tabindex="0">11</td>
@@ -472,11 +440,10 @@
                               <td><a href="../detailAB_160.html"> Air blade 2020</a></td>
                               <td>0123456789</td>
                               <td>Phường 16 quận gò vấp</td>
-                              <td>21/11/2023</td>
                               <td>Chi Nhánh Quận Thủ Đức</td>
-                              <td class="text-center"><a href=""><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a>
+                              <td class="text-center"><a href="" class="btn btn-info"><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a>
                               </td>
-                              <td class="text-center"><a href=""><i class="fa-solid fa-x" style="color: #000000;"></i></a></td>
+                              <td class="text-center"><a href="" class="btn btn-danger"><i class="fas fa-trash" style="color: #000000;"></i></a></td>
                             </tr>
                           </tbody>
                 
