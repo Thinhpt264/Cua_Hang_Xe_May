@@ -400,7 +400,7 @@
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="#">Trang Chủ</a></li>
+                            <li class="breadcrumb-item"><a href="admin3.html">Trang Chủ</a></li>
                             <li class="breadcrumb-item active">Thêm Sản Phẩm</li>
                         </ol>
                     </div><!-- /.col -->
@@ -476,31 +476,35 @@
                                     <div class="row">
                                         <div class="col-md-4 ml-5">
                                             <div class="form-group">
-                                                <label for="exampleAdress">Chi Tiết Xe</label>
-                                                <input type="text" class="form-control" id="exampleAdress">
+                                                <label for="exampleAdress">Thông Số Cơ Bản Xe</label>
+                                                <textarea id="inputDescription" class="form-control" rows="4"
+                                                style="height: 122px;">
+                                              </textarea>
                                             </div>
                                         </div>
                                         <div class="col-md-4 ml-5">
-                                            <div class="form-group">
-                                                <label>Ngày Nhập</label>
-                                                <div class="input-group">
-                                                    <div class="input-group-prepend">
-                                                        <span class="input-group-text"><i
-                                                                class="far fa-calendar-alt"></i></span>
-                                                    </div>
-                                                    <input id="date" class="form-control"
-                                                           data-inputmask-alias="datetime"
-                                                           data-inputmask-inputformat="dd/mm/yyyy" data-mask=""
-                                                           inputmode="numeric">
-                                                </div>
+                                          <div class="form-group">
+                                            <label for="exampleInputFile">Thêm Ảnh Đại Diện Của Sản Phẩm</label>
+                                            <div class="input-group">
+                                              <div class="custom-file">
+                                                <input type="file" class="custom-file-input" id="exampleInputFile" onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])">
+                                                <label class="custom-file-label" for="exampleInputFile">Chọn Ảnh</label>
+                                              </div>
+                                              <div class="input-group-append">
+                                                <span class="input-group-text">Tải Lên</span>
+                                              </div>
                                             </div>
+                                            <div class="upload__img-wrap">
+                                              <img id="blah" src="../../dist/img/photo1.png" alt="" width="100" height="100" />
+                                          </div>
+                                          </div>
                                         </div>
 
                                     </div>
                                     <div class="row">
                                         <div class="col-md-6 ml-5">
                                             <div class="form-group">
-                                                <label for="inputDescription">Thông Tin Chi Tiết Xe</label>
+                                                <label for="inputDescription">Thông số kĩ thuật Xe</label>
                                                 <textarea id="inputDescription" class="form-control" rows="4"
                                                           style="height: 122px;"></textarea>
                                             </div>
@@ -508,15 +512,17 @@
                                     </div>
                                     <div class="row">
                                         <div class="col-md-8 ml-5">
-                                            <label for="input">Nhập ảnh xe</label> <br>
+                                            <label for="input">Nhập nhiều ảnh xe</label> <br>
                                             <input type="file" name="" id="input" multiple>
+                                            <div id="div"></div>
                                         </div>
+                                      </div>
                                         <!-- /.card-body -->
 
                                         <div class="card-footer ml-5">
                                             <button type="submit" class="btn btn-primary">Thêm</button>
                                         </div>
-                                    </div>
+                                   
                                 </div>
                             </form>
                         </div>
