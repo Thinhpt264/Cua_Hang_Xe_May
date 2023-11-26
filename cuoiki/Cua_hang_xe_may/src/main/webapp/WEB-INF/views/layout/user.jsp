@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" isELIgnored="false"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -41,7 +42,7 @@
                     <div class="d-inline-flex align-items-center">
                         <a class="text-body pr-3" href=""><i class="fa fa-phone-alt mr-2"></i>+012 345 6789</a>
                         <span class="text-body">|</span>
-                        <a class="text-body px-3" href=""><i class="fa fa-envelope mr-2"></i>t-motoshop@gmail.com</a>
+                        <a class="text-body px-3" href=""><i class="fa fa-envelope mr-2"></i>Hello ${sessionScope.account.username }</a>
                     </div>
                 </div>
                 <div class="col-md-6 text-center text-lg-right">
@@ -77,19 +78,33 @@
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse justify-content-between px-3" id="navbarCollapse">
+                    			
                         <div class="navbar-nav ml-auto py-0 bg-secondary">
-                            <a href="${pageContext.request.contextPath }/home" class="nav-item nav-link active ">Trang Chủ</a>
+                        <a href="${pageContext.request.contextPath }/home" class="nav-item nav-link active ">Trang Chủ</a>
+                        	
+                          
                             <a href="${pageContext.request.contextPath }/about" class="nav-item nav-link">Giới Thiệu</a>
                             <a href="${pageContext.request.contextPath }/service" class="nav-item nav-link">Dịch Vụ</a>
                             <a href="${pageContext.request.contextPath }/contact" class="nav-item nav-link">Liên Hệ</a>
                             <a href="motobike.html" class="nav-link nav-link">Xe Máy</a>
                             <div class="nav-item dropdown">
+                       
                                 <a href="login/index.html"  class="nav-link dropdown-toggle" data-toggle="dropdown"><i class="fa-solid fa-user"></i></a>
                                 <div class="dropdown-menu rounded-0 m-0">
-                                    <a href="${pageContext.request.contextPath }/login" class="dropdown-item">Đăng nhập</a>
+                                <c:if test="${sessionScope.account == null }">
+                        	        <a href="${pageContext.request.contextPath }/login" class="dropdown-item">Đăng nhập</a>
+                        	    </c:if>
+                        	    <c:if test="${sessionScope.account != null }">
+                        	        <a href="#" class="nav-item nav-link active ">Xin chao ${sessionScope.account.username }</a>
+                        	    </c:if>
+                                    
                                     <a href="favorite.html" class="dropdown-item"> Xe Yêu Thích</a>
                                     <a href="detailCheckout.html" class="dropdown-item">Đơn Hàng Của Bạn</a>
-                                    <a href="login/index.html" class="dropdown-item"> Đăng Xuất <i class="fa-solid fa-arrow-right-from-bracket" style="margin-left: 5px"></i></a>
+                                    
+                        	    <c:if test="${sessionScope.account != null }">
+                        	        <a href="${pageContext.request.contextPath }/login?action=logout" class="dropdown-item"> Đăng Xuất <i class="fa-solid fa-arrow-right-from-bracket" style="margin-left: 5px"></i></a>
+                        	    </c:if>
+                                   
                                 </div>
                             </div>
                         </div>
