@@ -50,18 +50,22 @@
             </div>
             <div class="signup-link">Chưa có tài khoản <a href="">Đăng kí ngay!</a></div>
           </form>
+
+          <form action="${pageContext.request.contextPath}/login?action=register" method="post" class="signup" >
+
           <form action="${pageContext.request.contextPath}/login?action=register" method="post" class="signup">
+
             <div class="field">
-              <input type="text" placeholder="Tên đăng nhập" required>
+              <input type="text" placeholder="Tên đăng nhập" name="username" required>
             </div>
             <div class="field">
-              <input type="text" placeholder="Email" pattern="[^@\s]+@[^@\s]+\.[^@\s]+" required>
+              <input type="text" placeholder="Email" name="email" pattern="[^@\s]+@[^@\s]+\.[^@\s]+" required>
             </div>
             <div class="field">
-              <input type="text" placeholder="Số điện thoại" pattern="[0-9]{10,}" title="Vui lòng nhập số điện thoại trên 10 số" required>
+              <input type="text" placeholder="Số điện thoại" name="phone" pattern="[0-9]{10,}" title="Vui lòng nhập số điện thoại trên 10 số" required>
             </div>
             <div class="field">
-              <input type="password" placeholder="Mật khẩu" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Mật khẩu gồm 8 kí tự 1 chữ in hoa và 1 kí tự đặc biệt" required >
+              <input type="password" placeholder="Mật khẩu" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Mật khẩu gồm 8 kí tự 1 chữ in hoa và 1 kí tự đặc biệt" required >
             </div>
             <div class="field">
               <input type="password" placeholder="Xác nhận mật khẩu" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Mật khẩu gồm 8 kí tự 1 chữ in hoa và 1 kí tự đặc biệt" required>

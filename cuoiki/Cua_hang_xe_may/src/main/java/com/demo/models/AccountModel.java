@@ -53,7 +53,7 @@ public class AccountModel {
 				account.setEmail(resultSet.getString("email"));
 				account.setRole(resultSet.getString("role"));
 				account.setStatus(resultSet.getBoolean("status"));
-				
+				account.setSecurityCode(resultSet.getString("securityCode"));
 				
 			}
 		} catch (Exception e) {
@@ -75,10 +75,70 @@ public class AccountModel {
 		}
 		return false;
 	}
+	public boolean create(Account account) {
+		boolean result = true;
+		
+		try {
+			PreparedStatement preparedStatement = ConnectDB.connection()
+					.prepareStatement("insert into accounts(username, password, phone, email, role, status, securityCode) "
+							+ "values(?, ?, ?, ?, ?, ?, ?)");
+			preparedStatement.setString(1, account.getUsername());
+			preparedStatement.setString(2, account.getPassword());
+			preparedStatement.setString(3, account.getPhone());
+			preparedStatement.setString(4, account.getEmail());
+			preparedStatement.setString(5, account.getRole());
+			preparedStatement.setBoolean(6, account.isStatus());
+			preparedStatement.setString(7, account.getSecurityCode());
+			result = preparedStatement.executeUpdate() > 0;
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			result = false;
+		} finally {
+			ConnectDB.disconnect();
+		}
+		return result;
+	}
+	public boolean update(Account account){
+		boolean result = true;
+	
+	try {
+		PreparedStatement preparedStatement = ConnectDB.connection()
+				.prepareStatement("update accounts set username = ?, password = ?, "
+						+ "phone = ?, email = ?, role = ?, status = ?, securityCode = ? where id = ?");
+		preparedStatement.setString(1, account.getUsername());
+		preparedStatement.setString(2, account.getPassword());
+		preparedStatement.setString(3, account.getPhone());
+		preparedStatement.setString(4, account.getEmail());
+		preparedStatement.setString(5, account.getRole());
+		preparedStatement.setBoolean(6, account.isStatus());
+		preparedStatement.setString(7, account.getSecurityCode());
+		preparedStatement.setInt(8, account.getId());
+			result = preparedStatement.executeUpdate() > 0 ;
+			
+		
+	} catch (Exception e) {
+		// TODO: handle exception
+		e.printStackTrace();
+		result = false;
+		
+	} finally {
+		ConnectDB.disconnect();
+	}
+	return result;
+}
+	public static void main(String[] args) {
+		AccountModel accountModel = new AccountModel();
+		Account account = accountModel.findAccountByUsername("trantrung");
+		account.setUsername("thanhvu");
+
+		System.out.println(accountModel.update(account));
+
 	public static void main(String[] args) {
 		AccountModel accountModel = new AccountModel();
 		System.out.println(BCrypt.hashpw("456", BCrypt.gensalt()));
 		System.out.println(BCrypt.checkpw("123", "$2a$10$KKHtsIeB.C0kO8TLBgMb9uLb7o80xa9pN/mgjwyjdz/Uhhjgsx0o."));
+
 		
 	}
 }

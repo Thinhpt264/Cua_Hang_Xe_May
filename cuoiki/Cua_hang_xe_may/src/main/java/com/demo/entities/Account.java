@@ -7,6 +7,7 @@ public class Account {
 	private String phone;
 	private String email;
 	private String role;
+	private String securityCode;
 	private boolean status;
 	public int getId() {
 		return id;
@@ -50,6 +51,15 @@ public class Account {
 	public void setStatus(boolean status) {
 		this.status = status;
 	}
+
+	public String getSecurityCode() {
+		return securityCode;
+	}
+	public void setSecurityCode(String securityCode) {
+		this.securityCode = securityCode;
+	}
+	public Account(int id, String username, String password, String phone, String email, String role,
+			String securityCode, boolean status) {
 	@Override
 	public String toString() {
 		return "Account [id=" + id + ", username=" + username + ", password=" + password + ", phone=" + phone
@@ -63,10 +73,17 @@ public class Account {
 		this.phone = phone;
 		this.email = email;
 		this.role = role;
+		this.securityCode = securityCode;
 		this.status = status;
 	}
 	public Account() {
 		super();
 	}
+	@Override
+	public String toString() {
+		return "Account [id=" + id + ", username=" + username + ", password=" + password + ", phone=" + phone
+				+ ", email=" + email + ", role=" + role + ", securityCode=" + securityCode + ", status=" + status + "]";
+	}
+	
 	
 }

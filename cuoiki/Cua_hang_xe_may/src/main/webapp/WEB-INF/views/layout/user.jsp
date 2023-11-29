@@ -80,9 +80,11 @@
                     <div class="collapse navbar-collapse justify-content-between px-3" id="navbarCollapse">
                     			
                         <div class="navbar-nav ml-auto py-0 bg-secondary">
+
+                        <a href="${pageContext.request.contextPath }/home" class="nav-item nav-link ">Trang Chủ</a>
+
                         <a href="${pageContext.request.contextPath }/home" class="nav-item nav-link active ">Trang Chủ</a>
-                        	
-                          
+
                             <a href="${pageContext.request.contextPath }/about" class="nav-item nav-link">Giới Thiệu</a>
                             <a href="${pageContext.request.contextPath }/service" class="nav-item nav-link">Dịch Vụ</a>
                             <a href="${pageContext.request.contextPath }/contact" class="nav-item nav-link">Liên Hệ</a>
@@ -221,6 +223,27 @@
     $(".menu-line").toggleClass("open");
     $(".menu-round").toggleClass("open"); 
     });
+    </script>
+    <script>
+        $ (".menu-toggle").click(function () {
+    $(".menu-toggle").toggleClass("open");
+    $(".menu-line").toggleClass("open");
+    $(".menu-round").toggleClass("open"); 
+    });
+    </script>
+    <script>
+	    const current = window.location.href;
+	   	if(current === "http://localhost:8081/Cua_hang_xe_may/" ||current === "http://localhost:8081/Cua_hang_xe_may/home" ) {
+	   		document.querySelector("#nav-first").classList.add("active");
+	   	} else {
+	   	 document.querySelectorAll(".navbar-nav a.nav-item").forEach(function(elem){ 
+	   	        if(elem.href.includes(current)){
+	   		   	document.querySelector("#nav-first").classList.remove("active");
+	   	          elem.classList.add("active");
+	   	        }
+	   	    });
+	   	}
+   	   
     </script>
 </body>
 
