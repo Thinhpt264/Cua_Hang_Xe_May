@@ -27,14 +27,21 @@
           <div class="slider-tab"></div>
         </div>
         <div class="form-inner">
-          <form action="../index.html" class="login">
+        	<%
+        		HttpSession session2 = request.getSession();
+        		String msg = (String)session2.getAttribute("msg");
+        		String msg1 = msg;
+        		session2.removeAttribute("msg");
+        	%>
+          <form action="${pageContext.request.contextPath}/login?action=login" method="post" class="login">
+          <span style="color: red;"><%= msg1==null ? "" : msg1 %></span>
             <pre>
             </pre>
             <div class="field">
-              <input type="text" placeholder="Tên đăng nhập " required>
+              <input type="text" name="username" placeholder="Tên đăng nhập " required>
             </div>
             <div class="field">
-              <input type="password" placeholder="Mật khẩu"  required>
+              <input type="password" name="password" placeholder="Mật khẩu"  required>
             </div>
             <div class="pass-link"><a href="../forgot_pass.html">Quên mật khẩu?</a></div>
             <div class="field btn">
@@ -43,18 +50,18 @@
             </div>
             <div class="signup-link">Chưa có tài khoản <a href="">Đăng kí ngay!</a></div>
           </form>
-          <form action="#" class="signup">
+          <form action="${pageContext.request.contextPath}/login?action=register" method="post" class="signup" >
             <div class="field">
-              <input type="text" placeholder="Tên đăng nhập" required>
+              <input type="text" placeholder="Tên đăng nhập" name="username" required>
             </div>
             <div class="field">
-              <input type="text" placeholder="Email" pattern="[^@\s]+@[^@\s]+\.[^@\s]+" required>
+              <input type="text" placeholder="Email" name="email" pattern="[^@\s]+@[^@\s]+\.[^@\s]+" required>
             </div>
             <div class="field">
-              <input type="text" placeholder="Số điện thoại" pattern="[0-9]{10,}" title="Vui lòng nhập số điện thoại trên 10 số" required>
+              <input type="text" placeholder="Số điện thoại" name="phone" pattern="[0-9]{10,}" title="Vui lòng nhập số điện thoại trên 10 số" required>
             </div>
             <div class="field">
-              <input type="password" placeholder="Mật khẩu" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Mật khẩu gồm 8 kí tự 1 chữ in hoa và 1 kí tự đặc biệt" required >
+              <input type="password" placeholder="Mật khẩu" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Mật khẩu gồm 8 kí tự 1 chữ in hoa và 1 kí tự đặc biệt" required >
             </div>
             <div class="field">
               <input type="password" placeholder="Xác nhận mật khẩu" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Mật khẩu gồm 8 kí tự 1 chữ in hoa và 1 kí tự đặc biệt" required>
