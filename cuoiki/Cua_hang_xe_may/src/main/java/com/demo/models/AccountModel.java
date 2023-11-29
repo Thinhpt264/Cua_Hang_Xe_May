@@ -133,6 +133,12 @@ public class AccountModel {
 		account.setUsername("thanhvu");
 
 		System.out.println(accountModel.update(account));
+
+	public static void main(String[] args) {
+		AccountModel accountModel = new AccountModel();
+		System.out.println(BCrypt.hashpw("456", BCrypt.gensalt()));
+		System.out.println(BCrypt.checkpw("123", "$2a$10$KKHtsIeB.C0kO8TLBgMb9uLb7o80xa9pN/mgjwyjdz/Uhhjgsx0o."));
+
 		
 	}
 }

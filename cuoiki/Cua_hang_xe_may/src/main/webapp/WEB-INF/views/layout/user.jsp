@@ -80,9 +80,11 @@
                     <div class="collapse navbar-collapse justify-content-between px-3" id="navbarCollapse">
                     			
                         <div class="navbar-nav ml-auto py-0 bg-secondary">
+
                         <a href="${pageContext.request.contextPath }/home" class="nav-item nav-link ">Trang Chủ</a>
-                        	
-                          
+
+                        <a href="${pageContext.request.contextPath }/home" class="nav-item nav-link active ">Trang Chủ</a>
+
                             <a href="${pageContext.request.contextPath }/about" class="nav-item nav-link">Giới Thiệu</a>
                             <a href="${pageContext.request.contextPath }/service" class="nav-item nav-link">Dịch Vụ</a>
                             <a href="${pageContext.request.contextPath }/contact" class="nav-item nav-link">Liên Hệ</a>

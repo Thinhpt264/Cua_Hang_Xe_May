@@ -50,7 +50,11 @@
             </div>
             <div class="signup-link">Chưa có tài khoản <a href="">Đăng kí ngay!</a></div>
           </form>
+
           <form action="${pageContext.request.contextPath}/login?action=register" method="post" class="signup" >
+
+          <form action="${pageContext.request.contextPath}/login?action=register" method="post" class="signup">
+
             <div class="field">
               <input type="text" placeholder="Tên đăng nhập" name="username" required>
             </div>
