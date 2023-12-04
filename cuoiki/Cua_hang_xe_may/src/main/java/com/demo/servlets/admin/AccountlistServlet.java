@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.demo.entities.Account;
 import com.demo.models.AccountModel;
-@WebServlet("/admin/accountlist")
+@WebServlet("/admin/accountList")
 /**
  * Servlet implementation class accountlistServlet
  */
