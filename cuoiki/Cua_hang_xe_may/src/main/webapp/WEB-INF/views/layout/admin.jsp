@@ -215,7 +215,7 @@
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="${pageContext.request.contextPath }/admin/accountlist" class="nav-link">
+                  <a href="${pageContext.request.contextPath }/admin/accountList" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Danh Sách Người Dùng Trên Website</p>
                   </a>
