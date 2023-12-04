@@ -8,15 +8,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
 import org.mindrot.jbcrypt.BCrypt;
 
 import com.demo.entities.Account;
 import com.demo.helpers.MailHelper;
 import com.demo.helpers.RandomStringHelper;
-
-import com.demo.entities.Account;
-
 import com.demo.models.AccountModel;
 @WebServlet("/login")
 /**
@@ -42,7 +38,6 @@ public class LoginServlet extends HttpServlet {
 			doGet_Login(request, response);
 		} else if(action.equalsIgnoreCase("logout")){
 			doGet_Logout(request, response);
-
 		} else if(action.equalsIgnoreCase("message")){
 			doGet_Message(request, response);
 		} else if(action.equalsIgnoreCase("verify")){
@@ -52,7 +47,6 @@ public class LoginServlet extends HttpServlet {
 	protected void doGet_Login(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.getRequestDispatcher("/WEB-INF/views/login/login.jsp").forward(request, response);
 	}
-
 	protected void doGet_Verify(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String username = request.getParameter("username");
 		String securityCode = request.getParameter("securityCode");
@@ -73,7 +67,6 @@ public class LoginServlet extends HttpServlet {
 	protected void doGet_Message(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.getRequestDispatcher("/WEB-INF/views/login/message.jsp").forward(request, response);
 	}
-
 	protected void doGet_Logout(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.getSession().removeAttribute("account");
 		response.sendRedirect("login");
@@ -110,7 +103,6 @@ public class LoginServlet extends HttpServlet {
 	}
 	protected void doPost_Register(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("day la do post register");
-
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
 		String email = request.getParameter("email");

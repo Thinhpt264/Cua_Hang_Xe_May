@@ -80,15 +80,11 @@
                     <div class="collapse navbar-collapse justify-content-between px-3" id="navbarCollapse">
                     			
                         <div class="navbar-nav ml-auto py-0 bg-secondary">
-
-                        <a href="${pageContext.request.contextPath }/home" class="nav-item nav-link ">Trang Chủ</a>
-
-                        <a href="${pageContext.request.contextPath }/home" class="nav-item nav-link active ">Trang Chủ</a>
-
+                        <a href="${pageContext.request.contextPath }/home" class="nav-item nav-link " id ="nav-first">Trang Chủ</a>
                             <a href="${pageContext.request.contextPath }/about" class="nav-item nav-link">Giới Thiệu</a>
                             <a href="${pageContext.request.contextPath }/service" class="nav-item nav-link">Dịch Vụ</a>
                             <a href="${pageContext.request.contextPath }/contact" class="nav-item nav-link">Liên Hệ</a>
-                            <a href="motobike.html" class="nav-link nav-link">Xe Máy</a>
+                            <a href="${pageContext.request.contextPath }/motobike" class="nav-link nav-link">Xe Máy</a>
                             <div class="nav-item dropdown">
                        
                                 <a href="login/index.html"  class="nav-link dropdown-toggle" data-toggle="dropdown"><i class="fa-solid fa-user"></i></a>
@@ -97,12 +93,17 @@
                         	        <a href="${pageContext.request.contextPath }/login" class="dropdown-item">Đăng nhập</a>
                         	    </c:if>
                         	    <c:if test="${sessionScope.account != null }">
-                        	        <a href="#" class="nav-item nav-link active ">Xin chao ${sessionScope.account.username }</a>
+                        	        <a href="#" class="dropdown-item ">Xin chao ${sessionScope.account.username }</a>
                         	    </c:if>
-                                    
-                                    <a href="favorite.html" class="dropdown-item"> Xe Yêu Thích</a>
-                                    <a href="detailCheckout.html" class="dropdown-item">Đơn Hàng Của Bạn</a>
-                                    
+              
+                                    <a href="${pageContext.request.contextPath }/login?action=login" class="dropdown-item"> Xe Yêu Thích</a>  
+                                  <a href="${pageContext.request.contextPath }/login?action=login" class="dropdown-item">Đơn Hàng Của Bạn</a>
+                                  <c:if test="${sessionScope.account != null }">
+                                  <a href="${pageContext.request.contextPath }/changePassword" class="dropdown-item">Đổi mật khẩu</a>
+                                  </c:if>
+                                  <c:if test="${sessionScope.account != null }">
+                                  <a href="${pageContext.request.contextPath }/information" class="dropdown-item">Thông tin tài khoàn</a>
+                                  </c:if>
                         	    <c:if test="${sessionScope.account != null }">
                         	        <a href="${pageContext.request.contextPath }/login?action=logout" class="dropdown-item"> Đăng Xuất <i class="fa-solid fa-arrow-right-from-bracket" style="margin-left: 5px"></i></a>
                         	    </c:if>
@@ -233,7 +234,7 @@
     </script>
     <script>
 	    const current = window.location.href;
-	   	if(current === "http://localhost:8081/Cua_hang_xe_may/" ||current === "http://localhost:8081/Cua_hang_xe_may/home" ) {
+	   	if(current === "http://localhost:8080/Cua_hang_xe_may/" ||current === "http://localhost:8080/Cua_hang_xe_may/home" ) {
 	   		document.querySelector("#nav-first").classList.add("active");
 	   	} else {
 	   	 document.querySelectorAll(".navbar-nav a.nav-item").forEach(function(elem){ 
