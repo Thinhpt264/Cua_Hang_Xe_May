@@ -60,12 +60,6 @@ public class Account {
 	}
 	public Account(int id, String username, String password, String phone, String email, String role,
 			String securityCode, boolean status) {
-	@Override
-	public String toString() {
-		return "Account [id=" + id + ", username=" + username + ", password=" + password + ", phone=" + phone
-				+ ", email=" + email + ", role=" + role + ", status=" + status + "]";
-	}
-	public Account(int id, String username, String password, String phone, String email, String role, boolean status) {
 		super();
 		this.id = id;
 		this.username = username;
