@@ -5,8 +5,11 @@
   </component>
   <component name="ChangeListManager">
 <<<<<<< HEAD
+<<<<<<< HEAD
     <list default="true" id="7686e874-eb7a-4d1d-aaca-8cae2551368a" name="Changes" comment="" />
 =======
+=======
+>>>>>>> e66b0f0c2567a110a3e508836def9810c70206d5
     <list default="true" id="d7fbd28f-ca72-44fc-8213-8e5f19de2a8a" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/assets/admin/accountList.html" beforeDir="false" afterPath="$PROJECT_DIR$/assets/admin/accountList.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/admin/addNewBranchs.html" beforeDir="false" afterPath="$PROJECT_DIR$/assets/admin/addNewBranchs.html" afterDir="false" />
@@ -21,7 +24,10 @@
       <change beforePath="$PROJECT_DIR$/assets/admin/listProduct.html" beforeDir="false" afterPath="$PROJECT_DIR$/assets/admin/listProduct.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/admin/myProfile.html" beforeDir="false" afterPath="$PROJECT_DIR$/assets/admin/myProfile.html" afterDir="false" />
     </list>
+<<<<<<< HEAD
 >>>>>>> 133979c5a30d64693765415147d0c7b199fdef03
+=======
+>>>>>>> e66b0f0c2567a110a3e508836def9810c70206d5
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -30,6 +36,7 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+<<<<<<< HEAD
 <<<<<<< HEAD
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 2
@@ -43,6 +50,8 @@
     <option name="showMembers" value="true" />
     <option name="showVisibilityIcons" value="true" />
 =======
+=======
+>>>>>>> e66b0f0c2567a110a3e508836def9810c70206d5
   <component name="ProjectColorInfo"><![CDATA[{
   "associatedIndex": 8
 }]]></component>
@@ -50,7 +59,10 @@
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
+<<<<<<< HEAD
 >>>>>>> 133979c5a30d64693765415147d0c7b199fdef03
+=======
+>>>>>>> e66b0f0c2567a110a3e508836def9810c70206d5
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
@@ -58,12 +70,17 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
 <<<<<<< HEAD
+<<<<<<< HEAD
     "git-widget-placeholder": "phucthanh",
     "last_opened_file_path": "D:/DemoLTW/Cua_Hang_Xe_May/giuaki",
 =======
     "git-widget-placeholder": "TheThinh",
     "last_opened_file_path": "D:/SQL/Thinh/Shop_Motobike/Cua_Hang_Xe_May",
 >>>>>>> 133979c5a30d64693765415147d0c7b199fdef03
+=======
+    "git-widget-placeholder": "TheThinh",
+    "last_opened_file_path": "D:/SQL/Thinh/Shop_Motobike/Cua_Hang_Xe_May",
+>>>>>>> e66b0f0c2567a110a3e508836def9810c70206d5
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -75,6 +92,7 @@
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
 <<<<<<< HEAD
+<<<<<<< HEAD
       <changelist id="7686e874-eb7a-4d1d-aaca-8cae2551368a" name="Changes" comment="" />
       <created>1700898443150</created>
       <option name="number" value="Default" />
@@ -83,13 +101,18 @@
       <workItem from="1700898445160" duration="4661000" />
       <workItem from="1700981618937" duration="35000" />
 =======
+=======
+>>>>>>> e66b0f0c2567a110a3e508836def9810c70206d5
       <changelist id="d7fbd28f-ca72-44fc-8213-8e5f19de2a8a" name="Changes" comment="" />
       <created>1699774291008</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1699774291008</updated>
       <workItem from="1699774292047" duration="735000" />
+<<<<<<< HEAD
 >>>>>>> 133979c5a30d64693765415147d0c7b199fdef03
+=======
+>>>>>>> e66b0f0c2567a110a3e508836def9810c70206d5
     </task>
     <servers />
   </component>
