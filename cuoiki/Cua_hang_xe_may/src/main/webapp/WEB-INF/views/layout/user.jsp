@@ -234,7 +234,7 @@
     </script>
     <script>
 	    const current = window.location.href;
-	   	if(current === "http://localhost:8080/Cua_hang_xe_may/" ||current === "http://localhost:8080/Cua_hang_xe_may/home" ) {
+	   	if(current === "http://localhost:8081/Cua_hang_xe_may/" ||current === "http://localhost:8081/Cua_hang_xe_may/home" ) {
 	   		document.querySelector("#nav-first").classList.add("active");
 	   	} else {
 	   	 document.querySelectorAll(".navbar-nav a.nav-item").forEach(function(elem){ 

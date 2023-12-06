@@ -66,6 +66,35 @@ public class AccountModel {
 		}
 		return account;
 	}
+	public Account findAccountByEmail(String email) {
+		Account account = null;
+		try {
+			PreparedStatement preparedStatement = ConnectDB.connection().prepareStatement("select * from accounts where email = ? ");
+			preparedStatement.setString(1, email);
+			ResultSet resultSet = preparedStatement.executeQuery();
+			while(resultSet.next()) {
+			 account = new Account();
+			 account.setId(resultSet.getInt("id"));
+				account.setUsername(resultSet.getString("username"));
+				account.setPassword(resultSet.getString("password"));
+				account.setPhone(resultSet.getString("phone"));
+				account.setEmail(resultSet.getString("email"));
+				account.setRole(resultSet.getString("role"));
+				account.setStatus(resultSet.getBoolean("status"));
+				account.setSecurityCode(resultSet.getString("securityCode"));
+				
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			account = null;
+			
+		} finally {
+			ConnectDB.disconnect();
+		}
+		return account;
+	}
+	
 	public boolean checkLogin(String username, String password) {
 		Account account = findAccountByUsername(username);
 		if(account != null) {

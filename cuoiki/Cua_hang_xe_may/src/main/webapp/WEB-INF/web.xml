@@ -118,6 +118,18 @@
    	<description></description>
    	<servlet-class>com.demo.servlets.admin.myProfileServlet</servlet-class>
    </servlet>
+   <servlet>
+   	<servlet-name>ForgotPassServlet</servlet-name>
+   	<display-name>ForgotPassServlet</display-name>
+   	<description></description>
+   	<servlet-class>com.demo.servlets.user.ForgotPassServlet</servlet-class>
+   </servlet>
+   <servlet>
+   	<servlet-name>VerifyProcessServlet</servlet-name>
+   	<display-name>VerifyProcessServlet</display-name>
+   	<description></description>
+   	<servlet-class>com.demo.servlets.VerifyProcessServlet</servlet-class>
+   </servlet>
   <servlet-mapping>
   	<servlet-name>HomeServlet</servlet-name>
   	<url-pattern>/HomeServlet</url-pattern>
@@ -193,5 +205,13 @@
   <servlet-mapping>
   	<servlet-name>myProfileServlet</servlet-name>
   	<url-pattern>/myProfileServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ForgotPassServlet</servlet-name>
+  	<url-pattern>/ForgotPassServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>VerifyProcessServlet</servlet-name>
+  	<url-pattern>/VerifyProcessServlet</url-pattern>
   </servlet-mapping>
 </web-app>

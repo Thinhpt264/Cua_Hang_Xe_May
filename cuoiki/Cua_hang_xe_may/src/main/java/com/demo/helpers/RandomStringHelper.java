@@ -20,7 +20,7 @@ public class RandomStringHelper {
 	        for (int i = 0; i < length; i++) {
 	            // Lấy một ký tự ngẫu nhiên từ chuỗi characters
 	            char randomChar = characters.charAt(random.nextInt(characters.length()));
-
+	            
 	            // Thêm ký tự ngẫu nhiên vào chuỗi
 	            randomString.append(randomChar);
 	        }
