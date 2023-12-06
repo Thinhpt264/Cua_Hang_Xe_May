@@ -43,7 +43,7 @@ import com.demo.models.AccountModel;
 			AccountModel accountModel = new AccountModel();
 			List<Account> accounts = accountModel.findAll();
 			request.setAttribute("accounts", accounts);
-			request.setAttribute("admin", "../admin/accountlist.jsp");
+			request.setAttribute("admin", "../admin/listAccount.jsp");
 			request.getRequestDispatcher("/WEB-INF/views/layout/admin.jsp").forward(request, response);
 			
 		}

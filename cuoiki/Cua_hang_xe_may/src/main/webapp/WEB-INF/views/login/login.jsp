@@ -43,7 +43,7 @@
             <div class="field">
               <input type="password" name="password" placeholder="Mật khẩu"  required>
             </div>
-            <div class="pass-link"><a href="../forgot_pass.html">Quên mật khẩu?</a></div>
+            <div class="pass-link"><a href="${pageContext.request.contextPath}/login?action=forgotpassword">Quên mật khẩu?</a></div>
             <div class="field btn">
               <div class="btn-layer"></div>
               <input type="submit" value="Bắt đầu">
