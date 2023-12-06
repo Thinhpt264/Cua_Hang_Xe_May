@@ -90,7 +90,7 @@ public class LoginServlet extends HttpServlet {
 		if(accountModel.checkLogin(username, password)) {
 			if(account.getRole().equalsIgnoreCase("0") || account.getRole().equalsIgnoreCase("1")) {
 				request.getSession().setAttribute("account", accountModel.findAccountByUsername(username));
-				response.sendRedirect("admin");
+				response.sendRedirect("admin/home");
 			} else if(account.getRole().equalsIgnoreCase("2")) {
 				request.getSession().setAttribute("account", accountModel.findAccountByUsername(username));
 				response.sendRedirect("home");
