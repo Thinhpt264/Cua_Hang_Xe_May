@@ -126,6 +126,15 @@
                                Kiểm tra Email đã được cung cấp mã <a href="#"></a>
                             	</div>
                          </c:if>
+                 <%
+        		HttpSession error = request.getSession();
+        		String error1 = (String)error.getAttribute("error2");
+        		String error2 = error1;
+        		error.removeAttribute("error2");
+       			%>
+       			
+       			<%= error2 != null ? error2 : "" %>
+       			
                            
                             <div class="col-2 form-group">
                                 <input id="input1" type="number" name="input1" class="form-control p-4 rounded" placeholder="#" >

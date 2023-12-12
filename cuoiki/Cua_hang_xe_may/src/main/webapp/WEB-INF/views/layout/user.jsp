@@ -18,7 +18,7 @@
         rel="stylesheet">
 
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+	    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
     <!-- Libraries Stylesheet -->
     <link href="${pageContext.request.contextPath}/assets/user/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
@@ -70,7 +70,7 @@
         <div class="container-fluid position-relative nav-bar p-0">
             <div class="position-relative px-lg-5" style="z-index: 9;">
                 <nav class="navbar navbar-expand-lg bg-secondary navbar-dark py-3 py-lg-0 pl-3 pl-lg-5 " style="height: 70px" >
-                    <a href="" class="navbar-brand">
+                    <a href="${pageContext.request.contextPath}/home" class="navbar-brand">
                         <img src="${pageContext.request.contextPath}/assets/user/Image/logo1-removebg-preview.png" alt="" id="logo" style="height: 70px">
                         <h2 class="text-uppercase text-primary mb-1" style="margin-top: 15px">T-Motoshop</h2>
                     </a>
@@ -84,7 +84,7 @@
                             <a href="${pageContext.request.contextPath }/about" class="nav-item nav-link">Giới Thiệu</a>
                             <a href="${pageContext.request.contextPath }/service" class="nav-item nav-link">Dịch Vụ</a>
                             <a href="${pageContext.request.contextPath }/contact" class="nav-item nav-link">Liên Hệ</a>
-                            <a href="${pageContext.request.contextPath }/motobike" class="nav-link nav-link">Xe Máy</a>
+                            <a href="${pageContext.request.contextPath }/motobike" class="nav-item nav-link">Xe Máy</a>
                             <div class="nav-item dropdown">
                        
                                 <a href="login/index.html"  class="nav-link dropdown-toggle" data-toggle="dropdown"><i class="fa-solid fa-user"></i></a>
@@ -94,20 +94,12 @@
                         	    </c:if>
                         	    <c:if test="${sessionScope.account != null }">
                         	        <a href="#" class="dropdown-item ">Xin chao ${sessionScope.account.username }</a>
+                        	        <a href="${pageContext.request.contextPath }/information" class="dropdown-item">Thông tin tài khoàn</a>
+                                    <a href="${pageContext.request.contextPath }/changePassword" class="dropdown-item">Đổi mật khẩu</a>
+                                    <a href="${pageContext.request.contextPath }/cart" class="dropdown-item">Giỏ Hàng</a>  
+                                    <a href="${pageContext.request.contextPath }/login?action=login" class="dropdown-item">Đơn Hàng Của Bạn</a>
+                                  	<a href="${pageContext.request.contextPath }/login?action=logout" class="dropdown-item"> Đăng Xuất <i class="fa-solid fa-arrow-right-from-bracket" style="margin-left: 5px"></i></a>
                         	    </c:if>
-              
-                                    <a href="${pageContext.request.contextPath }/login?action=login" class="dropdown-item"> Xe Yêu Thích</a>  
-                                  <a href="${pageContext.request.contextPath }/login?action=login" class="dropdown-item">Đơn Hàng Của Bạn</a>
-                                  <c:if test="${sessionScope.account != null }">
-                                  <a href="${pageContext.request.contextPath }/changePassword" class="dropdown-item">Đổi mật khẩu</a>
-                                  </c:if>
-                                  <c:if test="${sessionScope.account != null }">
-                                  <a href="${pageContext.request.contextPath }/information" class="dropdown-item">Thông tin tài khoàn</a>
-                                  </c:if>
-                        	    <c:if test="${sessionScope.account != null }">
-                        	        <a href="${pageContext.request.contextPath }/login?action=logout" class="dropdown-item"> Đăng Xuất <i class="fa-solid fa-arrow-right-from-bracket" style="margin-left: 5px"></i></a>
-                        	    </c:if>
-                                   
                                 </div>
                             </div>
                         </div>
@@ -234,7 +226,7 @@
     </script>
     <script>
 	    const current = window.location.href;
-	   	if(current === "http://localhost:8081/Cua_hang_xe_may/" ||current === "http://localhost:8081/Cua_hang_xe_may/home" ) {
+	   	if(current === "http://localhost:8080/Cua_hang_xe_may/" ||current === "http://localhost:8081/Cua_hang_xe_may/home" ) {
 	   		document.querySelector("#nav-first").classList.add("active");
 	   	} else {
 	   	 document.querySelectorAll(".navbar-nav a.nav-item").forEach(function(elem){ 
