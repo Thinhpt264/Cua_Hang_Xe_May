@@ -127,7 +127,7 @@ public class LoginServlet extends HttpServlet {
 		account.setStatus(false);
 		if(accountModel.create(account)) {
 			MailHelper.MailHelper(email, "Xác thực tài khoản của bạn", "Bạn hãy bấm vào "
-	+ "<a href='http://localhost:8081/Cua_hang_xe_may/login?action=verify&username=" + username + ""
+	+ "<a href='http://localhost:8080/Cua_hang_xe_may/login?action=verify&username=" + username + ""
 			+ "&securityCode=" + securityCode +"'>liên kết</a> này để xác thực tài khoản");
 			response.sendRedirect("login?action=message");
 		} else {

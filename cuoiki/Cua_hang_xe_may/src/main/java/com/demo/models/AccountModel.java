@@ -20,9 +20,14 @@ public class AccountModel {
 				Account account = new Account();
 				account.setId(resultSet.getInt("id"));
 				account.setUsername(resultSet.getString("username"));
+				account.setName(resultSet.getString("name"));
 				account.setPassword(resultSet.getString("password"));
 				account.setPhone(resultSet.getString("phone"));
 				account.setEmail(resultSet.getString("email"));
+				account.setAddress(resultSet.getString("address"));
+				account.setCreated(resultSet.getString("created"));
+				account.setAvartar(resultSet.getString("avatar"));
+				account.setDOB(resultSet.getString("DOB"));
 				account.setRole(resultSet.getString("role"));
 				account.setStatus(resultSet.getBoolean("status"));
 				accounts.add(account);
@@ -48,8 +53,13 @@ public class AccountModel {
 			 account = new Account();
 			 account.setId(resultSet.getInt("id"));
 				account.setUsername(resultSet.getString("username"));
+				account.setName(resultSet.getString("name"));
 				account.setPassword(resultSet.getString("password"));
 				account.setPhone(resultSet.getString("phone"));
+				account.setAddress(resultSet.getString("address"));
+				account.setAvartar(resultSet.getString("avatar"));
+				account.setDOB(resultSet.getString("DOB"));
+				account.setCreated(resultSet.getString("created"));
 				account.setEmail(resultSet.getString("email"));
 				account.setRole(resultSet.getString("role"));
 				account.setStatus(resultSet.getBoolean("status"));
@@ -76,8 +86,13 @@ public class AccountModel {
 			 account = new Account();
 			 account.setId(resultSet.getInt("id"));
 				account.setUsername(resultSet.getString("username"));
+				account.setName(resultSet.getString("name"));
 				account.setPassword(resultSet.getString("password"));
 				account.setPhone(resultSet.getString("phone"));
+				account.setAddress(resultSet.getString("address"));
+				account.setAvartar(resultSet.getString("avatar"));
+				account.setDOB(resultSet.getString("DOB"));
+				account.setCreated(resultSet.getString("created"));
 				account.setEmail(resultSet.getString("email"));
 				account.setRole(resultSet.getString("role"));
 				account.setStatus(resultSet.getBoolean("status"));
@@ -109,7 +124,7 @@ public class AccountModel {
 		
 		try {
 			PreparedStatement preparedStatement = ConnectDB.connection()
-					.prepareStatement("insert into accounts(username, password, phone, email, role, status, securityCode) "
+					.prepareStatement("insert into accounts (username, password, phone, email, role, status, securityCode) "
 							+ "values(?, ?, ?, ?, ?, ?, ?)");
 			preparedStatement.setString(1, account.getUsername());
 			preparedStatement.setString(2, account.getPassword());

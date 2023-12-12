@@ -1,30 +1,22 @@
-package com.demo.servlets.user;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+package com.demo.servlets.admin;
 
+import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import com.demo.entities.Brand;
-import com.demo.entities.Product;
-import com.demo.models.BrandModel;
-import com.demo.models.ProductModel;
-import com.google.protobuf.Internal.ListAdapter;
-@WebServlet("/motobike")
+@WebServlet("/admin/addproduct")
 /**
- * Servlet implementation class MotobikeServlet
+ * Servlet implementation class AddProductServlet
  */
-public class MotobikeServlet extends HttpServlet {
+public class AddProductServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public MotobikeServlet() {
+    public AddProductServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -34,14 +26,7 @@ public class MotobikeServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		BrandModel brandModel = new BrandModel();
-		List<Brand> brands = brandModel.findAll();
-		request.setAttribute("brands", brands);
-		ProductModel prodcutModel = new ProductModel();
-		List<Product> products = prodcutModel.findAll();
-		request.setAttribute("products", products);
-		request.setAttribute("p","../user/motobike.jsp");
-		request.getRequestDispatcher("/WEB-INF/views/layout/user.jsp").forward(request, response);
+		request.setAttribute("p", "/");
 	}
 
 	/**

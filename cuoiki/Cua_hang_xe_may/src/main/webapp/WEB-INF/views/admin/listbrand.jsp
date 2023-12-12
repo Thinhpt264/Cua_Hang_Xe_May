@@ -1,5 +1,12 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.demo.entities.Brand"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" isELIgnored = "false"%>
+ <%
+ List<Brand> brands = (List<Brand>) request.getAttribute("brands");
+	 if(brands == null) brands = new ArrayList<>();
+%>
   <!-- Content Header (Page header) -->
       <div class="content-header">
         <div class="container-fluid">
@@ -37,57 +44,30 @@
                         <tr>
                         <th>#</th>
                         <th>Tên Hãng</th>
-                        <th class='text-center'>Ảnh</th>
-                        <th style="justify-content: center;display: flex;">Sửa</th>
+                        <th class="text-center">Ảnh</th>
+                        <th class="text-center">Chi tiết Hãng</th>
+                        <th style="justify-content: center;">Sửa</th>
                         <th class="text-center">Xóa</th>
                         </tr>
                         </thead>
                         <tbody>
+                        <%for(Brand b: brands ) { %> 
                         <tr>
-                        <td>1.</td>
-                        <td>Yamaha</td>
-                        <td class="text-center"><img src="${pageContext.request.contextPath}/assets/user/Image/Ducati/ducati-db.png" alt="" style="width: 50px"></td>
+                        <td><%=b.getId() %>.</td>
+                        <td><%=b.getName() %></td>
+                        <td class="text-center"><img src="${pageContext.request.contextPath}/assets/user/Image/<%=b.getPhoto() %>" style="width: 50px"></td>
+                        <td><%=b.getDescription() %></td>
                         <td class="text-center"><a href="" class="btn btn-info"><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a>
                         </td>
                         <td class="text-center"><a href="" class="btn btn-danger"><i class="fas fa-trash" style="color: #000000;"></i></a></td>
                         </tr>
-                        <tr>
-                        <td>2.</td>
-                        <td>Honda</td>
-                        <td class="text-center"><img src="${pageContext.request.contextPath}/assets/user/Image/Honda/tayga/AB_160_xanh.png" alt="" style="width: 50px"></td>
-                        <td class="text-center"><a href="" class="btn btn-info"><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a>
-                        </td>
-                        <td class="text-center"><a href="" class="btn btn-danger"><i class="fas fa-trash" style="color: #000000;"></i></a></td>
-                        </tr>
-                        <tr>
-                        <td>3.</td>
-                        <td>Suzuki</td>
-                        <td class="text-center"><img src="${pageContext.request.contextPath}/assets/user/Image/Suzuki/suzuki-vang.png" alt="" style="width: 50px"></td>
-                        <td class="text-center"><a href="" class="btn btn-info"><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a>
-                        </td>
-                        <td class="text-center"><a href="" class="btn btn-danger"><i class="fas fa-trash" style="color: #000000;"></i></a></td>
-
-                        </tr>
-                        <tr>
-                        <td>4.</td>
-                        <td>BMW</td>
-                        <td class="text-center"><img src="${pageContext.request.contextPath}/assets/user/Image/BMW/BMW S1000RR den.png" alt="" style="width: 50px"></td>
-                        <td class="text-center"><a href="" class="btn btn-info"><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a>
-                        </td>
-                        <td class="text-center"><a href="" class="btn btn-danger"><i class="fas fa-trash" style="color: #000000;"></i></a></td>
-
-                        </tr>
+                        <% } %>
                         </tbody>
                         </table>
                         </div>
 
                         <div class="card-footer clearfix">
                         <ul class="pagination pagination-sm m-0 float-right">
-                        <!-- <li class="page-item"><a class="page-link" href="#">«</a></li>
-                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li class="page-item"><a class="page-link" href="#">»</a></li> -->
                         </ul>
                         </div>
                         </div>

@@ -69,7 +69,7 @@
     <div class="container-fluid position-relative nav-bar p-0">
         <div class="position-relative px-lg-5" style="z-index: 9;">
             <nav class="navbar navbar-expand-lg bg-secondary navbar-dark py-3 py-lg-0 pl-3 pl-lg-5 " style="height: 70px" >
-                <a href="index.html" class="navbar-brand">
+                <a href="${pageContext.request.contextPath}/home" class="navbar-brand">
                     <img src="${pageContext.request.contextPath}/assets/user/Image/logo1.jpg" alt="" id="logo" style="height: 70px">
                     <h2 class="text-uppercase text-primary mb-1" style="margin-top: 15px">T-Motoshop</h2>
                 </a>
