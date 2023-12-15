@@ -118,6 +118,60 @@
    	<description></description>
    	<servlet-class>com.demo.servlets.admin.myProfileServlet</servlet-class>
    </servlet>
+   <servlet>
+   	<servlet-name>ForgotPassServlet</servlet-name>
+   	<display-name>ForgotPassServlet</display-name>
+   	<description></description>
+   	<servlet-class>com.demo.servlets.user.ForgotPassServlet</servlet-class>
+   </servlet>
+   <servlet>
+   	<servlet-name>VerifyProcessServlet</servlet-name>
+   	<display-name>VerifyProcessServlet</display-name>
+   	<description></description>
+   	<servlet-class>com.demo.servlets.VerifyProcessServlet</servlet-class>
+   </servlet>
+   <servlet>
+   	<servlet-name>DetailServlet</servlet-name>
+   	<display-name>DetailServlet</display-name>
+   	<description></description>
+   	<servlet-class>com.demo.servlets.user.DetailServlet</servlet-class>
+   </servlet>
+   <servlet>
+   	<servlet-name>AddProductServlet</servlet-name>
+   	<display-name>AddProductServlet</display-name>
+   	<description></description>
+   	<servlet-class>com.demo.servlets.admin.AddProductServlet</servlet-class>
+   </servlet>
+   <servlet>
+   	<servlet-name>Comment</servlet-name>
+   	<display-name>Comment</display-name>
+   	<description></description>
+   	<servlet-class>com.demo.servlets.user.Comment</servlet-class>
+   </servlet>
+   <servlet>
+   	<servlet-name>MessageErrorServlet</servlet-name>
+   	<display-name>MessageErrorServlet</display-name>
+   	<description></description>
+   	<servlet-class>com.demo.servlets.admin.MessageErrorServlet</servlet-class>
+   </servlet>
+   <servlet>
+   	<servlet-name>CartServlet</servlet-name>
+   	<display-name>CartServlet</display-name>
+   	<description></description>
+   	<servlet-class>com.demo.servlets.user.CartServlet</servlet-class>
+   </servlet>
+   <servlet>
+   	<servlet-name>ProductColorServlet</servlet-name>
+   	<display-name>ProductColorServlet</display-name>
+   	<description></description>
+   	<servlet-class>com.demo.servlets.admin.ProductColorServlet</servlet-class>
+   </servlet>
+   <servlet>
+   	<servlet-name>ProductVersionServlet</servlet-name>
+   	<display-name>ProductVersionServlet</display-name>
+   	<description></description>
+   	<servlet-class>com.demo.servlets.admin.ProductVersionServlet</servlet-class>
+   </servlet>
   <servlet-mapping>
   	<servlet-name>HomeServlet</servlet-name>
   	<url-pattern>/HomeServlet</url-pattern>
@@ -193,5 +247,41 @@
   <servlet-mapping>
   	<servlet-name>myProfileServlet</servlet-name>
   	<url-pattern>/myProfileServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ForgotPassServlet</servlet-name>
+  	<url-pattern>/ForgotPassServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>VerifyProcessServlet</servlet-name>
+  	<url-pattern>/VerifyProcessServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>DetailServlet</servlet-name>
+  	<url-pattern>/DetailServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>AddProductServlet</servlet-name>
+  	<url-pattern>/AddProductServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>Comment</servlet-name>
+  	<url-pattern>/Comment</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>MessageErrorServlet</servlet-name>
+  	<url-pattern>/MessageErrorServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>CartServlet</servlet-name>
+  	<url-pattern>/CartServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ProductColorServlet</servlet-name>
+  	<url-pattern>/ProductColorServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ProductVersionServlet</servlet-name>
+  	<url-pattern>/ProductVersionServlet</url-pattern>
   </servlet-mapping>
 </web-app>

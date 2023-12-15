@@ -1,6 +1,18 @@
+<%@page import="java.math.BigDecimal"%>
+<%@page import="java.text.DecimalFormat"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.demo.entities.Product"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"  isELIgnored="false"%>
-
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>	
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+	<%
+	List<Product> products = (List<Product>) request.getAttribute("products"); 
+	if(products == null) {
+		products = new ArrayList<>();
+	}
+	%>
     <!-- Carousel Start -->
     <div class="container-fluid p-0">
         <div id="header-carousel" class="carousel slide" data-ride="carousel">
@@ -238,10 +250,13 @@
             <h1 class="display-1 text-primary text-center">03</h1>
             <h1 class="display-4 text-uppercase text-center mb-5">Xe Mới Nhất</h1>
             <div class="row">
+            <% int count = 0; 
+            for(int i=products.size()-1; i>= 0; i--) { %>
                 <div class="col-lg-4 col-md-6 mb-2">
                     <div class="rent-item mb-4">
-                        <img class="img-fluid mb-4" src="${pageContext.request.contextPath}/assets/user/Image/Honda/tayga/AB_125_den.png" alt="">
-                        <h4 class="text-uppercase mb-4">AIRBLADE 125</h4>
+                    	<% Product p = products.get(i); %>
+                        <img class="img-fluid mb-4" src="${pageContext.request.contextPath}/assets/user/Image/<%= p.getAvatar()%>" alt="">
+                        <h4 class="text-uppercase mb-4"><%=p.getName()%></h4>
                         <div class="d-flex justify-content-center mb-4">
                             <div class="px-2">
                                 <i class= "fa-solid fa-motorcycle text-primary mr-1"></i>
@@ -256,114 +271,15 @@
                                 <span>New</span>
                             </div>
                         </div>
-                        <a class="btn btn-primary px-3" href="detailAB_125.html">76.000.000VND</a>
+                     
+                        <a class="btn btn-primary px-3" href="detailAB_125.html"><%= p.getPrice() %></a>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 mb-2">
-                    <div class="rent-item mb-4">
-                        <img class="img-fluid mb-4" src="${pageContext.request.contextPath}/assets/user/Image/Honda/tayga/AB_160_special.png" alt="">
-                        <h4 class="text-uppercase mb-4">AIRBLADE 160 GIỚI HẠN</h4>
-                        <div class="d-flex justify-content-center mb-4">
-                            <div class="px-2">
-                                <i class= "fa-solid fa-motorcycle text-primary mr-1"></i>
-                                <span>2023</span>
-                            </div>
-                            <div class="px-2 border-left border-right">
-                                <i class="fa fa-cogs text-primary mr-1"></i>
-                                <span>125cc</span>
-                            </div>
-                            <div class="px-2">
-                                <i class="fa fa-road text-primary mr-1"></i>
-                                <span>New</span>
-                            </div>
-                        </div>
-                        <a class="btn btn-primary px-3" href="detailAB_160.html">56.000.000VND</a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-2">
-                    <div class="rent-item mb-4">
-                        <img class="img-fluid mb-4" src="${pageContext.request.contextPath}/assets/user/Image/Honda/xeSo/Cub_den.png" alt="">
-                        <h4 class="text-uppercase mb-4">SuperCub 125 Nhập Khẩu</h4>
-                        <div class="d-flex justify-content-center mb-4">
-                            <div class="px-2">
-                                <i class= "fa-solid fa-motorcycle text-primary mr-1"></i>
-                                <span>2023</span>
-                            </div>
-                            <div class="px-2 border-left border-right">
-                                <i class="fa fa-cogs text-primary mr-1"></i>
-                                <span>125cc</span>
-                            </div>
-                            <div class="px-2">
-                                <i class="fa fa-road text-primary mr-1"></i>
-                                <span>New</span>
-                            </div>
-                        </div>
-                        <a class="btn btn-primary px-3" href="">128.000.000 VND</a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-2">
-                    <div class="rent-item mb-4">
-                        <img class="img-fluid mb-4" src="${pageContext.request.contextPath}/assets/user/Image/Yamaha/xeso/ex_vva_trang.png" alt="">
-                        <h4 class="text-uppercase mb-4">Exciter 155 VVA Giới Hạn</h4>
-                        <div class="d-flex justify-content-center mb-4">
-                            <div class="px-2">
-                                <i class= "fa-solid fa-motorcycle text-primary mr-1"></i>
-                                <span>2023</span>
-                            </div>
-                            <div class="px-2 border-left border-right">
-                                <i class="fa fa-cogs text-primary mr-1"></i>
-                                <span>155cc</span>
-                            </div>
-                            <div class="px-2">
-                                <i class="fa fa-road text-primary mr-1"></i>
-                                <span>New</span>
-                            </div>
-                        </div>
-                        <a class="btn btn-primary px-3" href="">48.000.000 VND</a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-2">
-                    <div class="rent-item mb-4">
-                        <img class="img-fluid mb-4" src="${pageContext.request.contextPath}/assets/user/Image/Yamaha/xeso/ex_vva_xanh.png" alt="">
-                        <h4 class="text-uppercase mb-4">Exciter 155 VVA Cao Cấp</h4>
-                        <div class="d-flex justify-content-center mb-4">
-                            <div class="px-2">
-                                <i class= "fa-solid fa-motorcycle text-primary mr-1"></i>
-                                <span>2023</span>
-                            </div>
-                            <div class="px-2 border-left border-right">
-                                <i class="fa fa-cogs text-primary mr-1"></i>
-                                <span>155cc</span>
-                            </div>
-                            <div class="px-2">
-                                <i class="fa fa-road text-primary mr-1"></i>
-                                <span>New</span>
-                            </div>
-                        </div>
-                        <a class="btn btn-primary px-3" href="">50.000.000 VND</a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-2">
-                    <div class="rent-item mb-4">
-                        <img class="img-fluid mb-4" src="${pageContext.request.contextPath}/assets/user/Image/Yamaha/xeso/ex_tc_den.png" alt="">
-                        <h4 class="text-uppercase mb-4">Exciter 155 VVA Tiêu Chuẩn</h4>
-                        <div class="d-flex justify-content-center mb-4">
-                            <div class="px-2">
-                                <i class= "fa-solid fa-motorcycle text-primary mr-1"></i>
-                                <span>2023</span>
-                            </div>
-                            <div class="px-2 border-left border-right">
-                                <i class="fa fa-cogs text-primary mr-1"></i>
-                                <span>155cc</span>
-                            </div>
-                            <div class="px-2">
-                                <i class="fa fa-road text-primary mr-1"></i>
-                                <span>New</span>
-                            </div>
-                        </div>
-                        <a class="btn btn-primary px-3" href="">49.500.000 VND</a>
-                    </div>
-                </div>
+                <% if (++count == 6) {
+                    break;
+                }  
+                %>   
+                <% } %>   
             </div>
         </div>
     </div>

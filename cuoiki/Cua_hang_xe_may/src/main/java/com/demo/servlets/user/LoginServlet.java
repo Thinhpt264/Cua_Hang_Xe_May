@@ -42,8 +42,15 @@ public class LoginServlet extends HttpServlet {
 			doGet_Message(request, response);
 		} else if(action.equalsIgnoreCase("verify")){
 			doGet_Verify(request, response);
+		}else if(action.equalsIgnoreCase("forgotpassword")){
+			doGet_Forgot(request, response);
 		}
 	}
+	private void doGet_Forgot(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.getRequestDispatcher("/WEB-INF/views/login/forgotpassword.jsp").forward(request, response);
+
+	}
+
 	protected void doGet_Login(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.getRequestDispatcher("/WEB-INF/views/login/login.jsp").forward(request, response);
 	}
@@ -55,7 +62,6 @@ public class LoginServlet extends HttpServlet {
 		account.setStatus(true);
 		if(account.getUsername().equalsIgnoreCase(username) && account.getSecurityCode().equalsIgnoreCase(securityCode)) {
 			if(accountModel.update(account)) {
-				
 				response.sendRedirect("login");
 			} 
 			
@@ -89,10 +95,12 @@ public class LoginServlet extends HttpServlet {
 		Account account = accountModel.findAccountByUsername(username);
 		if(accountModel.checkLogin(username, password)) {
 			if(account.getRole().equalsIgnoreCase("0") || account.getRole().equalsIgnoreCase("1")) {
-				request.getSession().setAttribute("account", accountModel.findAccountByUsername(username));
-				response.sendRedirect("admin");
+				request.getSession().setAttribute("accountAdmin", accountModel.findAccountByUsername(username));
+				if(request.getSession().getAttribute("account")!= null) request.getSession().removeAttribute("account");
+				response.sendRedirect("admin/home");
 			} else if(account.getRole().equalsIgnoreCase("2")) {
 				request.getSession().setAttribute("account", accountModel.findAccountByUsername(username));
+				if(request.getSession().getAttribute("accountAdmin")!= null) request.getSession().removeAttribute("accountAdmin");
 				response.sendRedirect("home");
 			}
 			

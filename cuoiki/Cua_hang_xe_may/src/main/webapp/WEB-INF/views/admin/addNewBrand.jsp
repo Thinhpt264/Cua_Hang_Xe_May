@@ -32,30 +32,13 @@
                             </div>
                             <!-- /.card-header -->
                             <!-- form start -->
-                            <form class="">
-                                <div class="card-body p-4" >
+                            <form action="${pageContext.request.contextPath}/admin/addNewBrand?action=newBrand" method="post" enctype="multipart/form-data">
+                             <div class="card-body p-4" >
                                     <div class="row">
                                         <div class="col-md-6 ml-5">
                                             <div class="form-group">
                                                 <label for="exampleNamePrd">Tên Thương Hiệu</label>
-                                                <input type="text" class="form-control" id="exampleNamePrd" placeholder="">
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6 ml-5">
-                                            <span>Hãng này gồm những dòng xe nào</span>
-                                            <div class="form-group">
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox">
-                                                    <label class="form-check-label">Xe Số</label>
-                                                </div>
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" >
-                                                    <label class="form-check-label">Xe tay ga</label>
-                                                </div>
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" >
-                                                    <label class="form-check-label">Xe điện</label>
-                                                </div>
+                                                <input type="text" class="form-control" id="exampleNamePrd" name="nameBrand" placeholder="" required="required">
                                             </div>
                                         </div>
                                     </div>
@@ -64,12 +47,12 @@
                                         <div class="col-md-6 ml-5">
                                             <div class="form-group">
                                                 <label for="inputDescription">Thêm mô tả</label>
-                                                <textarea id="inputDescription" class="form-control" rows="4" style="height: 122px;"></textarea>
+                                                <textarea name="description" id="inputDescription" class="form-control" rows="4" style="height: 122px;"></textarea>
                                             </div>
                                         </div>
                                         <div class="col-md-8 ml-5">
                                             <label for="">Nhập ảnh hãng xe</label> <br>
-                                            <input type="file" name="" id="input" multiple>
+                                            <input type="file" name="photo" id="input">
                                             <div id="div"></div>
                                         </div>
                                     </div>
@@ -80,7 +63,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </form>
+                                </form>
                         </div>
                     </div>
                 </div>

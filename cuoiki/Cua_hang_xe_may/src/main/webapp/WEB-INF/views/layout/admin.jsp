@@ -250,6 +250,18 @@
                     <p>Danh Sách Hãng Xe</p>
                   </a>
                 </li>
+                 <li class="nav-item">
+                                <a href="${pageContext.request.contextPath }/admin/productversion" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Danh Sách Phiên Bản </p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="${pageContext.request.contextPath }/admin/productcolor" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Danh Sách Màu Xe </p>
+                                </a>
+                            </li>
               </ul>
             </li>
             <li class="nav-header">Dịch Vụ Khách Hàng</li>

@@ -40,14 +40,15 @@
             <div class="field">
               <input type="text" name="username" placeholder="Tên đăng nhập " required>
             </div>
-            <div class="field">
-              <input type="password" name="password" placeholder="Mật khẩu"  required>
+            <div class="field ">
+              <input id="input" class="form-control p-4 rounded" type="password" name="password" placeholder="Mật khẩu"  required >
             </div>
-            <div class="pass-link"><a href="../forgot_pass.html">Quên mật khẩu?</a></div>
+           
             <div class="field btn">
               <div class="btn-layer"></div>
               <input type="submit" value="Bắt đầu">
             </div>
+             <div class="pass-link ml-5"><a href="${pageContext.request.contextPath}/login?action=forgotpassword">Quên mật khẩu?</a></div>
             <div class="signup-link">Chưa có tài khoản <a href="">Đăng kí ngay!</a></div>
           </form>
           <form action="${pageContext.request.contextPath}/login?action=register" method="post" class="signup" >
@@ -61,6 +62,7 @@
               <input type="text" placeholder="Số điện thoại" name="phone" pattern="[0-9]{10,}" title="Vui lòng nhập số điện thoại trên 10 số" required>
             </div>
             <div class="field">
+            
               <input type="password" placeholder="Mật khẩu" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Mật khẩu gồm 8 kí tự 1 chữ in hoa và 1 kí tự đặc biệt" required >
             </div>
             <div class="field">
@@ -76,6 +78,22 @@
       </div>
     </div>
   <script  src="${pageContext.request.contextPath}/assets/login/script.js"></script>
+<script>
+    function showPass() {
+        var input = document.getElementById("input");
+        var show = document.getElementById("show");
+        var hide = document.getElementById("hide");
+        if (input.type === "password"   ){
+            input.type = "text";
+            show.style.display = "none";
+            hide.style.display = "inline";
+        }else{
+            input.type = "password";
+            show.style.display = "inline";
+            hide.style.display = "none";
+        }
+    }
 
+</script>
 </body>
 </html>

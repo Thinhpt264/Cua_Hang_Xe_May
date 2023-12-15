@@ -1,6 +1,15 @@
+<%@page import="com.demo.models.ProductModel"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.demo.entities.Product"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" isELIgnored ="false"%>
-   
+   		<%
+   		List<Product> products = (List<Product>) request.getAttribute("products");
+   		if(products == null) {
+   			products = new ArrayList<>();
+   		}
+   		%>
       <!-- Content Header (Page header) -->
       <div class="content-header">
         <div class="container-fluid">
@@ -31,7 +40,7 @@
                     <div class="row">
                       <div class="col-sm-12">
                         <div class="col-3 p-3">
-                          <a class="btn btn-block bg-gradient-success" href="${pageContext.request.contextPath }/admin/addNewProducts"> <i class="fa-solid fa-plus"></i> Thêm Sản Phẩm</a>
+                          <a class="btn btn-block bg-gradient-success" href="${pageContext.request.contextPath }/admin/addnewproduct"> <i class="fa-solid fa-plus"></i> Thêm Sản Phẩm</a>
                         </div>
                         <table id="example2" class="table table-bordered table-hover dataTable dtr-inline"
                           aria-describedby="example2_info">
@@ -58,173 +67,29 @@
                             </tr>
                           </thead>
                           <tbody>
+                          <%for(Product p: products)  {%>
                             <tr class="odd">
-                                <td class="dtr-control sorting_1" tabindex="0">01</td>
-                                 <td><img src="${pageContext.request.contextPath}/assets/user/Image/Honda/tayga/AB_125_den.png" alt="" style="width: 50px;"></td>
-                                  <td>AIRBLADE 125</td>
-                                  <td>42.000.000</td>
-                                  <td>HONDA</td>
-                                  <td>Xe tay ga</td>
+                                <td class="dtr-control sorting_1" tabindex="0"><%=p.getId() %></td>
+                                 <td><img src="${pageContext.request.contextPath}/assets/user/Image/<%=p.getAvatar() %>" style="width: 50px;"></td>
+                                  <td><%=p.getName() %></td>
+                                  <td><%=p.getPrice() %></td>
+                                  <%ProductModel productModel = new ProductModel();
+                                  	String nameBrand = productModel.viewNameBrand(p.getBrandID());
+                                  	String nameMotoline = productModel.viewNameMotoline(p.getMotolineID());
+                                  	%>
+                                  <td><%=nameBrand%></td>
+                                  <td><%=nameMotoline %></td>
                                   <td class="text-center">
                                     <a href="../detailAB_125.html"><i class="fa-solid fa-plus"></i></a>
                                  </td>
                                  
                                  <td class="text-center"><a href="" class="btn btn-info"><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a>
                                  </td>
-                                 <td class="text-center"><a href="" class="btn btn-danger"><i class="fas fa-trash" style="color: #000000;"></i></a></td>
+                                 <td class="text-center"><a href="${pageContext.request.contextPath}/admin/listproduct?action=delete&id=<%=p.getId()%>" class="btn btn-danger"><i class="fas fa-trash" style="color: #000000;"></i></a></td>
                             </tr>
-                            <tr class="even">
-                              <td class="dtr-control sorting_1" tabindex="0">02</td>
-                              <td><img src="${pageContext.request.contextPath}/assets/user/Image/Honda/tayga/AB_160_den.png" alt="" style="width: 50px;"></td>
-                                  <td>AIRBLADE 160</td>
-                                  <td>56.000.000</td>
-                                  <td>Honda</td>
-                                  <td>Xe tay ga</td>
-                                  <td class="text-center">
-                                    <a href="../detailAB_160.html"><i class="fa-solid fa-plus"></i></a>
-                                 </td>
-                                
-                                 <td class="text-center"><a href="" class="btn btn-info"><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a>
-                                 </td>
-                                 <td class="text-center"><a href="" class="btn btn-danger"><i class="fas fa-trash" style="color: #000000;"></i></a></td>
-                            </tr>
-                            <tr class="even">
-                              <td class="dtr-control sorting_1" tabindex="0">03</td>
-                              <td><img src="${pageContext.request.contextPath}/assets/user/Image/BMW/bmw Red.png" alt="" style="width: 50px;"></td>
-                                  <td>BMW</td>
-                                  <td>90.000.000</td>
-                                  <td>Yamaha</td>
-                                  <td>Xe tay ga</td>
-                                  <td class="text-center">
-                                    <a href="../detailAB_125.html"><i class="fa-solid fa-plus"></i></a>
-                                 </td>
-                                 
-                                 <td class="text-center"><a href="" class="btn btn-info"><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a>
-                                 </td>
-                                 <td class="text-center"><a href="" class="btn btn-danger"><i class="fas fa-trash" style="color: #000000;"></i></a></td>
-                            </tr>
-                            <tr class="odd">
-                              <td class="dtr-control sorting_1" tabindex="0">04</td>
-                              <td><img src="${pageContext.request.contextPath}/assets/user/Image/Piaggio(Vespa)/automotosport-xam.png" alt="" style="width: 50px;"></td>
-                                  <td>VESPA </td>
-                                  <td>50.000.000</td>
-                                  <td>Yamaha</td>
-                                  <td>Xe tay ga</td>
-                                  <td class="text-center">
-                                    <a href="../detailAB_125.html"><i class="fa-solid fa-plus"></i></a>
-                                 </td>
-                                 
-                                 <td class="text-center"><a href="" class="btn btn-info"><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a>
-                                 </td>
-                                 <td class="text-center"><a href="" class="btn btn-danger"><i class="fas fa-trash" style="color: #000000;"></i></a></td>
-                            </tr>
-                            <tr class="even">
-                                <td class="dtr-control sorting_1" tabindex="0">05</td>
-                                <td><img src="${pageContext.request.contextPath}/assets/user/Image/BMW/BMW S1000RR den.png" alt="" style="width: 50px;"></td>
-                                  <td>BMW </td>
-                                  <td>80.000.000</td>
-                                  <td>Yamaha</td>
-                                  <td>Xe tay ga</td>
-                                  <td class="text-center">
-                                    <a href="../detailAB_125.html"><i class="fa-solid fa-plus"></i></a>
-                                 </td>
-                                 
-                                 <td class="text-center"><a href="" class="btn btn-info"><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a>
-                                 </td>
-                                 <td class="text-center"><a href="" class="btn btn-danger"><i class="fas fa-trash" style="color: #000000;"></i></a></td>
-                            </tr>
-                            <tr class="odd">
-                              <td class="dtr-control sorting_1" tabindex="0">06</td>
-                              <td><img src="${pageContext.request.contextPath}/assets/user/Image/Ducati/ducati-do800.png" alt="" style="width: 50px;"></td>
-                                  <td>DUCATI 800</td>
-                                  <td>70.000.000</td>
-                                  <td>Yamaha</td>
-                                  <td>Xe tay ga</td>
-                                  <td class="text-center">
-                                    <a href="../detailAB_125.html"><i class="fa-solid fa-plus"></i></a>
-                                 </td>
-                                 
-                                 <td class="text-center"><a href="" class="btn btn-info"><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a>
-                                 </td>
-                                 <td class="text-center"><a href="" class="btn btn-danger"><i class="fas fa-trash" style="color: #000000;"></i></a></td>
-                            </tr>
-                            <tr class="even">
-                              <td class="dtr-control sorting_1" tabindex="0">07</td>
-                              <td><img src="${pageContext.request.contextPath}/assets/user/Image/Honda/tayga/AB_160_do.png" alt="" style="width: 50px;"></td>
-                                  <td>AIRBLADE 160</td>
-                                  <td>30.000.000</td>
-                                  <td>HONDA</td>
-                                  <td>Xe tay ga</td>
-                                  <td class="text-center">
-                                    <a href="../detailAB_125.html"><i class="fa-solid fa-plus"></i></a>
-                                 </td>
-                                
-                                 <td class="text-center"><a href="" class="btn btn-info"><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a>
-                                 </td>
-                                 <td class="text-center"><a href="" class="btn btn-danger"><i class="fas fa-trash" style="color: #000000;"></i></a></td>
-                            </tr>
-                            <tr class="odd">
-                              <td class="dtr-control sorting_1" tabindex="0">08</td>
-                              <td><img src="${pageContext.request.contextPath}/assets/user/Image/Honda/xeSo/CBR_1000.png" alt="" style="width: 50px;"></td>
-                                  <td>CBR_1000</td>
-                                  <td>20.000.000</td>
-                                  <td>HONDA</td>
-                                  <td>Xe số</td>
-                                  <td class="text-center">
-                                    <a href="../detailAB_125.html"><i class="fa-solid fa-plus"></i></a>
-                                 </td>
-                                 
-                                 <td class="text-center"><a href="" class="btn btn-info"><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a>
-                                 </td>
-                                 <td class="text-center"><a href="" class="btn btn-danger"><i class="fas fa-trash" style="color: #000000;"></i></a></td>
-                            </tr>
-                            <tr class="even">
-                              <td class="dtr-control sorting_1" tabindex="0">09</td>
-                              <td><img src="${pageContext.request.contextPath}/assets/user/Image/Suzuki/suzuki2019-vangden.png" alt="" style="width: 50px;"></td>
-                                  <td>SUZUKI</td>
-                                  <td>80.000.000</td>
-                                  <td>Yamaha</td>
-                                  <td>Xe tay ga</td>
-                                  <td class="text-center">
-                                    <a href="../detailAB_125.html"><i class="fa-solid fa-plus"></i></a>
-                                 </td>
-                                
-                                 <td class="text-center"><a href="" class="btn btn-info"><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a>
-                                 </td>
-                                 <td class="text-center"><a href="" class="btn btn-danger"><i class="fas fa-trash" style="color: #000000;"></i></a></td>
-                            </tr>
-                            <tr class="even">
-                              <td class="dtr-control sorting_1" tabindex="0">10</td>
-                              <td><img src="${pageContext.request.contextPath}/assets/user/Image/Piaggio(Vespa)/vespatrang.png" alt="" style="width: 50px;"></td>
-                                  <td>VESPA</td>
-                                  <td>90.000.000</td>
-                                  <td>Yamaha</td>
-                                  <td>Xe tay ga</td>
-                                  <td class="text-center">
-                                    <a href="../detailAB_125.html"><i class="fa-solid fa-plus"></i></a>
-                                 </td>
-                                
-                                 <td class="text-center"><a href="" class="btn btn-info"><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a>
-                                 </td>
-                                 <td class="text-center"><a href="" class="btn btn-danger"><i class="fas fa-trash" style="color: #000000;"></i></a></td>
-                            </tr>
-                            <tr class="even">
-                              <td class="dtr-control sorting_1" tabindex="0">11</td>
-                              <td><img src="${pageContext.request.contextPath}/assets/user/Image/Honda/xeSo/Blade_red.png" alt="" style="width: 50px;"></td>
-                              <td>BLADE</td>
-                              <td>10.000.000</td>
-                              <td>HONDA</td>
-                              <td>Xe số</td>
-                              <td class="text-center">
-                                <a href="../detailAB_125.html"><i class="fa-solid fa-plus"></i></a>
-                             </td>
-                            
-                             <td class="text-center"><a href="" class="btn btn-info"><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a>
-                             </td>
-                             <td class="text-center"><a href="" class="btn btn-danger"><i class="fas fa-trash" style="color: #000000;"></i></a></td>
-                            </tr>
+                            <% } %>
                           </tbody>
-                
+                			
                         </table>
                       </div>
                       <!-- /.card-body -->
