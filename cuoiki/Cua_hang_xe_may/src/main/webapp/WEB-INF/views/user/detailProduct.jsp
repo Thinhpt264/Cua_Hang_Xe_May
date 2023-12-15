@@ -1,3 +1,9 @@
+<%@page import="com.demo.helpers.ColorHelper"%>
+<%@page import="com.demo.entities.ProductColor"%>
+<%@page import="org.apache.jasper.tagplugins.jstl.core.ForEach"%>
+<%@page import="com.demo.entities.ProductVersion"%>
+<%@page import="com.demo.models.ProductModel"%>
+<%@page import="com.demo.entities.Product"%>
 <%@page import="com.demo.models.CommentModel"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.demo.entities.Comment"%>
@@ -5,81 +11,81 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" isELIgnored = "false"%>
      <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+     <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
    <% List<Comment> comments =(List<Comment>) request.getAttribute("comments");
    if(comments == null) comments = new ArrayList<>();
    String id= request.getParameter("id");
+   int idproduct = Integer.parseInt(id);
+   Product product = (Product) request.getAttribute("product");
+	
+
    %>
-   
-    <div class="container-fluid pt-5 mt-3">
+     <%ProductModel productModel = new ProductModel(); 
+                    List<ProductVersion> productVersions = productModel.findAllVersionByProduct(idproduct);
+                    int productVersionID = productVersions.get(0).getId();
+                    List<ProductColor> productColorsFirst = productModel.findAllColorByProductVersion(productVersionID);
+                    ProductColor productColor = productColorsFirst.get(0);
+                    if(productVersions == null) productVersions = new ArrayList<>();
+                 
+             %>
+   <style>
+    .color-cell{
+        height: 25px;
+        margin-top: 10px;
+        border: 1px solid #d2d2d6;
+        transform: skewX(-30deg);
+        padding: 5px 9px;
+    }
+    .color-value{
+        justify-content: flex-start;
+    }
+
+</style>
+ <script>
+        	
+				$(document).ready(function() {
+					
+					$('.color span').click(function() {
+						var colorID = $('#con', this).val();
+						$.ajax({
+							type: 'GET',
+							dataType: 'json',
+							contentType: 'application/json; charset=utf-8',
+							url: '${pageContext.request.contextPath}/details',
+							data: {
+								action: 'changeVersion',
+								colorID : colorID
+							},
+							success: function (version) {
+								var options = { style: 'decimal', useGrouping: true };
+								var price = version.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+								$('#img').attr('src', '${pageContext.request.contextPath}/assets/user/Image/' + version.photo);
+								$('#price').html('Giá ' + price);
+								$('#versionName').html('Phiên bản ' + version.color);
+								
+							}
+						});
+					});
+				});
+		
+        </script>
+        
+        
+    <div class="container-fluid ">
         <div class="container">
-            <div class="row">
+            <h1>Bảng giá và màu sắc </h1>
+            <div class="row mt-3" style="font-size: 20px;border-top: 5px solid orange;">
                 <div class="col-lg-6 ">
-                    <div class="container-fluid p-0">
-                   <div class="large" style="width: 100%; height: 100%" id="largeDiv">
-                       <img src="${pageContext.request.contextPath}assets/user/Image/Honda/tayga/AB_125_den.png" alt="" id="largeImage" style="width: 100%; height: 100%">
-                   </div>
-                        <div class="sub d-flex">
-                            <div class="small" >
-                                <img src="${pageContext.request.contextPath}assets/user/Image/Honda/tayga/AB_125_den.png" alt="" style="width: 100px; height: 100px" onclick="showImage('${pageContext.request.contextPath}assets/user/Image/Honda/tayga/AB_125_den.png')">
-                            </div>
-                            <div class="small"  >
-                                <img src="${pageContext.request.contextPath}assets/user/Image/Honda/tayga/AB_125_xanhden.png" alt="" style="width: 100px; height: 100px"  onclick="showImage('${pageContext.request.contextPath}assets/user/Image/Honda/tayga/AB_125_xanhden.png')">
-                            </div>
-                            <div class="small" >
-                                <img src="${pageContext.request.contextPath}assets/user/Image/Honda/tayga/AB_125_doden.png" alt="" style="width: 100px; height: 100px"  onclick="showImage('${pageContext.request.contextPath}assets/user/Image/Honda/tayga/AB_125_doden.png')">
-                            </div>
-                        </div>
-                    </div>
+                    <div class="container-fluid p-0"  >
+                       <div class="large" style="width: 100%; height: 100% ;" id="result">
+                          <img id="img" src="${pageContext.request.contextPath}/assets/user/Image/<%=productColor.getPhoto() %>" alt="" id="largeImage" style="width: 100%; height: 100%">
+                         <div class="container d-flex">
+                <div class="header mr-5">
+                    <h1 id="versionName">Phiên bản <%=productColor.getColor() %></h1>
+                    <div id="price" style="font-size: 20px;">Giá <fmt:formatNumber type="number" value="<%= productColor.getPrice() %>" pattern="#,##0"/> </div>
                 </div>
-                
-                <div class="col-lg-6 ">
-                    <!-- <img src="${pageContext.request.contextPath}assets/user/Image/Honda/Capture.PNG" class="w-auto h-75" alt="Image"> -->
-                    <div class="bg-white p-3 ml-5 ">
-                        <h3 class="text-primary mb-4">Thông số cơ bản</h3>
-                        <div class="form-group" style="font-size: 20px;">
-                            <img src="${pageContext.request.contextPath}assets/user/Image/Honda/icon-hang-xe (1).svg" alt="">
-                            <span>Hãng xe</span>
-                            <span style="margin-left: 100px;"><b>Honda</b></span>
-                        </div>
-                        <div class="form-group" style="font-size: 20px;">
-                            <img src="${pageContext.request.contextPath}assets/user/Image/Honda/icon-so-km.svg" alt="">
-                            <span>Số km đã đi</span>
-                            <span style="margin-left: 70px;"><b>0</b></span>
-                        </div>
-                        <div class="form-group" style="font-size: 20px;">
-                            <img src="${pageContext.request.contextPath}assets/user/Image/Honda/icon-dungtich-xe.svg" alt="">
-                            <span>Dung tích</span>
-                            <span style="margin-left: 80px;"><b>Trên 175 cc</b></span>
-                        </div>
-                        <div class="form-group" style="font-size: 20px;">
-                            <img src="${pageContext.request.contextPath}assets/user/Image/Honda/icon-loai-xe.svg" alt="">
-                            <span>Loại xe</span>
-                            <span style="margin-left: 110px;"><b>Tay ga</b></span>
-                        </div>
-                        <div class="form-group" style="font-size: 20px;">
-                            <img src="${pageContext.request.contextPath}assets/user/Image/Honda/icon-nam-dang-ky.svg" alt="">
-                            <span>Năm đăng ký</span>
-                            <span style="margin-left: 60px;"><b>2022</b></span>
-                        </div>
-                        <div class="form-group" style="font-size: 20px;">
-                            <img src="${pageContext.request.contextPath}assets/user/Image/Honda/icon-tinhtrang-xe.svg" alt="">
-                            <span>Tình trạng xe</span>
-                            <span style="margin-left: 60px;"><b>Mới (0 km)</b></span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="container-fluid mb-2">
-        <div class="container d-flex">
-            <div class="header mr-5">
-                <h1>AIRBLADE 125</h1>
-                <span style="font-size: 20px;">Giá từ 42.000.000 VND</span>
-            </div>
            
             <div class="favoriteProduct ml-5 d-flex" >
-            	<a href="${pageContext.request.contextPath}/cart?action=buynow&id=<%=id %>">Thêm Vào Giỏ Hàng</a>
                 <h1>
                     <span onclick="favoriteProduct()">
                         <i class="fa-regular fa-heart" id="heart" ></i>
@@ -87,71 +93,115 @@
                     </span>
                 </h1>
             </div>
-        </div>    
+        </div> 
+       
+                       </div>
+                   </div >
+                </div >
+                
+       
+                <div class="col-lg-6 pt-5">
+                    <div class="bg-white">
+                   
+                    <%for(ProductVersion pv : productVersions) { %>
+                        <div class="color-value">
+                        	<div>
+                        		<b> <%= pv.getVersionName() %> </b>
+	                        	<div class="color-group" id="versionSpecial" style="display: flex; cursor: pointer;" >
+	                        
+	                        		<%
+	                        		   List<ProductColor> productColors = productModel.findAllColorByProductVersion(pv.getId()); 
+	                        			
+	                        		   if(productColors == null) productColors = new ArrayList<>();
+	                        			ColorHelper colorHelper = new ColorHelper();
+	                        			
+	                        		%>
+	                        		
+	                        		<% for(ProductColor pc: productColors)  {%>
+	                        			<div style="display: flex; margin-right: 15px;" class="color">
+	                        				<div class="color-item" style="display: flex; margin-right: 15px;">
+		                        		<div class="color-cell" style="background-color: <%= colorHelper.colorHelper(pc.getValue())[0] %>; width: 20px;"></div>
+		                                <div class="color-cell" style="background-color: <%= colorHelper.colorHelper(pc.getValue())[1] %>; width: 20px;"> </div>
+		                          	</div>
+		                          		   <span style="padding-top: 10px"><%= pc.getColor()%> <input id="con" type="hidden" value="<%= pc.getId()%>"></span>
+	                        			</div>
+		                        	
+		                            <% } %>
+	                        	</div>	
+                        	</div>
+                   		 </div>
+                   		 <br>
+                   		 <% } %>
+               		 </div>
+           		 </div>
+        	</div>
     </div>
+
     <div class="container-fluid mb-2 ">
         <div class="container">
            <a href="checkout.html" style="text-decoration: none;"><button class="btn btn-primary btn-lg btn-block" name="btnDatHang" style="width: 150px;height: 50px;">Đặt hàng</button></a> 
+           <a href="${pageContext.request.contextPath}/cart?action=buynow&id=<%=id %>" style="text-decoration: none;"><button class="btn btn-primary btn-lg btn-block" name="btnDatHang" style="width: 150px;height: 50px;">Thêm Vào Giỏ Hàng</button></a> 
         </div>
+        
     </div> 
     <div class="container-fluid mb-5">
         <div class="container pb-5" >
             <h1>Thông số kĩ thuật</h1>
             <div class="row mt-5" style="font-size: 20px;border-top: 5px solid orange;">
                 <div class="col-6 mb-5 mt-5">Khối lượng bản thân</div>
-                <div class="col-lg-6 mt-5">113 kg</div>
+                <div class="col-lg-6 mt-5"><%=product.getWeight() %></div>
             </div>
             <div class="row " style="font-size: 20px;">
                 <div class="col-6 mb-5">Dài x Rộng x Cao</div>
-                <div class="col-lg-6">1.887 x 687 x 1.092 mm</div>
+                <div class="col-lg-6"><%=product.getSize() %> mm</div>
             </div>
             <div class="row " style="font-size: 20px;">
                 <div class="col-6 mb-5">Độ cao yên</div>
-                <div class="col-lg-6">775 mm</div>
+                <div class="col-lg-6"><%=product.getSaddleHeight() %> mm</div>
             </div>
             <div class="row " style="font-size: 20px;">
                 <div class="col-6 mb-5">Dung tích bình xăng</div>
-                <div class="col-lg-6">4,4 lít</div>
+                <div class="col-lg-6"><%=product.getPetrolCapacity() %> lít</div>
             </div>
             <div class="row " style="font-size: 20px;">
                 <div class="col-6 mb-5">Kích cỡ lốp trước/sau</div>
-                <div class="col-lg-6">Lốp trước 80/90-Lốp sau 90/90</div>
+                <div class="col-lg-6">Lốp trước <%=product.getWheelSize() %>-Lốp sau <%=product.getWheelSize() %></div>
             </div>
             <div class="row " style="font-size: 20px;">
                 <div class="col-6 mb-5">Phuộc trước</div>
-                <div class="col-lg-6">Ống lồng , giảm chấn thủy lực </div>
+                <div class="col-lg-6"><%=product.getBeforeFork()%> </div>
             </div>
             <div class="row " style="font-size: 20px;">
                 <div class="col-6 mb-5">Phuộc sau</div>
-                <div class="col-lg-6">Lò xo trụ , giảm chấn thủy lực</div>
+                <div class="col-lg-6"><%=product.getAfterFork()%></div>
             </div>
             <div class="row " style="font-size: 20px;">
                 <div class="col-6 mb-5">Công suất tối đa</div>
-                <div class="col-lg-6">8,75kW/8.500 vòng/phút</div>
+                <div class="col-lg-6"><%=product.getMaxiumCapacity()%> vòng/phút</div>
             </div>
             <div class="row " style="font-size: 20px;">
                 <div class="col-6 mb-5">Dung tích nhớt máy</div>
-                <div class="col-lg-6">0,8 lít khi thay nhớt</div>
+                <div class="col-lg-6"><%=product.getOilCapacity()%> lít khi thay nhớt</div>
             </div>
             <div class="row " style="font-size: 20px;">
                 <div class="col-6 mb-5">Mức thụ nhiên liệu</div>
-                <div class="col-lg-6">2,26l/100km</div>
+                <div class="col-lg-6"><%=product.getFuelConsumption()%>km</div>
             </div>
             <div class="row " style="font-size: 20px;">
                 <div class="col-6 mb-5">Dung tích xi lanh</div>
-                <div class="col-lg-6">124,8 cc</div>
+                <div class="col-lg-6"><%=product.getCylinderCapacity()%>cc</div>
             </div>
             <div class="row " style="font-size: 20px;">
                 <div class="col-6 mb-5">Moment cực đại</div>
-                <div class="col-lg-6">11,3Nm/6.500 vòng/phút</div>
+                <div class="col-lg-6"><%=product.getMaxiumMoment()%> vòng/phút</div>
             </div>
             <div class="row " style="font-size: 20px;">
                 <div class="col-6 mb-5">Tỷ số nén</div>
-                <div class="col-lg-6">11,5:1</div>
+                <div class="col-lg-6"><%=product.getCompressionRatio()%></div>
             </div>
             <div class="row " style="font-size: 20px;">
                 <div class="col-6 mb-5">Loại động cơ</div>
-                <div class="col-lg-6">Xăng, 4 kỳ, 1 xy-lanh, làm mát bằng dung dịch </div>
+                <div class="col-lg-6"><%=product.getEngieType()%> làm mát bằng dung dịch </div>
             </div>
             
         </div>
@@ -391,20 +441,5 @@
 
         }
     </script>
-    <script>
-        function changeImageMoto(ImageSrc){
-            var motoImage = document.getElementById('motoImage');
-            motoImage.src = ImageSrc ;
 
-        }
-    </script>
-    <script>
-        $( function() {
-            $( "#datepicker" ).datepicker({
-                dateFormat: "dd/mm/yy"
-            });
-            $("#date").datepicker({
-                dateFormat: "dd/mm/yy"
-            })
-        } );
-    </script>
+    

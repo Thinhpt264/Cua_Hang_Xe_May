@@ -1,6 +1,7 @@
 package com.demo.servlets.user;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -13,6 +14,7 @@ import com.demo.entities.Comment;
 import com.demo.entities.Product;
 import com.demo.models.CommentModel;
 import com.demo.models.ProductModel;
+import com.google.gson.Gson;
 @WebServlet("/details")
 /**
  * Servlet implementation class DetailServlet
@@ -31,7 +33,15 @@ public class DetailServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String action = request.getParameter("action");
+		if(action == null) {
+			doGet_Index(request, response);
+		} else if(action.equalsIgnoreCase("changeVersion")) {
+			doGet_ChangeVersion(request, response);
+		}
+	}
+	protected void doGet_Index(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		ProductModel productModel = new ProductModel();
 		CommentModel commentModel = new CommentModel();
 		String idProdut = request.getParameter("id") ;
@@ -49,6 +59,15 @@ public class DetailServlet extends HttpServlet {
 		request.setAttribute("p", "../user/detailProduct.jsp");
 		request.getRequestDispatcher("/WEB-INF/views/layout/user.jsp").forward(request, response);
 	}
+	protected void doGet_ChangeVersion(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		response.setContentType("application/json; charset=utf-8");
+		request.setCharacterEncoding("utf-8");
+		PrintWriter writer = response.getWriter();
+		int colorID = Integer.parseInt(request.getParameter("colorID"));
+		ProductModel productModel = new ProductModel();
+		Gson gson = new Gson();
+		writer.print(gson.toJson(productModel.findProductColorById(colorID)));
+	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
@@ -63,7 +82,6 @@ public class DetailServlet extends HttpServlet {
 	protected void doPost_Comment(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String idProduct = request.getParameter("productId");
 		String idAccount = request.getParameter("accountId");
-		System.out.println(idAccount);
 		if(idAccount.equalsIgnoreCase("notAccount")){
 			response.sendRedirect("login");
 		}

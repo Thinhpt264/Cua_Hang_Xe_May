@@ -5,16 +5,19 @@ public class ProductColor {
 	private int versionID;
 	private String color;
 	private String photo;
-	
+	private double price;
+	private String value;
 	public ProductColor() {
 		
 	}
-	public ProductColor(int id, int versionID, String color, String photo) {
+	public ProductColor(int id, int versionID, String color, String photo, double price, String value) {
 		super();
 		this.id = id;
 		this.versionID = versionID;
 		this.color = color;
 		this.photo = photo;
+		this.price = price;
+		this.value = value;
 	}
 	public int getId() {
 		return id;
@@ -39,6 +42,19 @@ public class ProductColor {
 	}
 	public void setPhoto(String photo) {
 		this.photo = photo;
+	}
+	public double getPrice() {
+		return price;
+	}
+	public void setPrice(double price) {
+		this.price = price;
+	}
+	
+	public String getValue() {
+		return value;
+	}
+	public void setValue(String value) {
+		this.value = value;
 	}
 	@Override
 	public String toString() {

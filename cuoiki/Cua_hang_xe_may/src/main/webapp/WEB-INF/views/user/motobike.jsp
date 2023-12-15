@@ -1,3 +1,4 @@
+<%@page import="com.demo.entities.Motoline"%>
 <%@page import="com.demo.entities.Brand"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.demo.entities.Product"%>
@@ -12,12 +13,16 @@
     
     List<Brand> brands = (List<Brand>) request.getAttribute("brands");
    	if(brands == null) brands = new ArrayList<>(); 
+   	
+    List<Motoline> motolines = (List<Motoline>) request.getAttribute("motolines");
+   	if(motolines == null) motolines = new ArrayList<>(); 
+   	
     %>
  <!-- Page Header Start -->
     <div class="container-fluid page-header">
         <h1 class="display-3 text-uppercase text-white mb-3">Xe mới 2023</h1>
         <div class="d-inline-flex text-white">
-            <h6 class="text-uppercase m-0"><a class="text-white" href="index.html">Trang chủ</a></h6>
+            <h6 class="text-uppercase m-0"><a class="text-white" href="${pageContext.request.contextPath }/home">Trang chủ</a></h6>
             <h6 class="text-body m-0 px-3">/</h6>
             <h6 class="text-uppercase text-body m-0">Xe mới 2023</h6>
         </div>
@@ -32,29 +37,29 @@
             <h5 class="display-6 text-uppercase text-center mb-5">*Giá trên đã bao gồm 10% thuế giá trị gia tăng (VAT)*</h5>
             <!-- Search Start -->
             <div  class="container bg-white pt-3 px-lg-4 ">
-                <div class="row mx-n2">
-                    <div class="col-xl-3 col-lg-4 col-md-6 px-3">
-                        <select class="custom-select px-4 mb-3" style="height: 50px;">
-                            <option selected>Nhãn Hiệu</option>
-                            <%for(Brand b: brands)  {%>
-                            <option value="<%=b.getId() %>"><%=b.getName() %></option>
-                            <% } %>
-                        </select>
-                    </div>
-                    <div class="col-xl-3 col-lg-4 col-md-6 px-3">
-                        <select class="custom-select px-4 mb-3" style="height: 50px;">
-                            <option selected>Loại xe</option>
-                            <option value="">Xe tay ga</option>
-                            <option value="">Xe số</option>
-                            <option value="">Xe thể thao</option>
-                            <option value="">Phân Khối Lớn</option>
-                        </select>
-                    </div>
-                    <div class="col-xl-6 col-lg-4 col-md-6 px-3">
-                        <button class="btn btn-primary btn-block mb-3" type="submit" style="height: 50px;">Tìm kiếm</button>
-                    </div>
-
-                </div>
+            	<form action="${pageContext.request.contextPath}/motobike" method="get">
+            		 <div class="row mx-n2">
+	                    <div class="col-xl-3 col-lg-4 col-md-6 px-3">
+	                        <select class="custom-select px-4 mb-3" style="height: 50px;" name="brandFilter">
+	                            <option selected value="0">Nhãn Hiệu</option>
+	                            <%for(Brand b: brands)  {%>
+	                            <option value="<%=b.getId() %>"><%=b.getName() %></option>
+	                            <% } %>
+	                        </select>
+	                    </div>
+	                    <div class="col-xl-3 col-lg-4 col-md-6 px-3">
+	                        <select class="custom-select px-4 mb-3" style="height: 50px;" name="motolineFilter">
+	                            <option selected  value="0">Loại xe</option>
+	                            <%for(Motoline m: motolines) {%>
+	                            <option value="<%=m.getId() %>"><%=m.getName() %></option>
+	                            <% } %>
+	                        </select>
+	                    </div>
+	                    <div class="col-xl-6 col-lg-4 col-md-6 px-3">
+	                        <button class="btn btn-primary btn-block mb-3" type="submit" style="height: 50px;">Tìm kiếm</button>
+	                    </div>
+                	</div>
+            	</form>
             </div>
             <!-- Search End -->
             <div class="row list" style="display: none;">

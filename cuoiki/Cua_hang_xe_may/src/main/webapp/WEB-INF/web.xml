@@ -160,6 +160,18 @@
    	<description></description>
    	<servlet-class>com.demo.servlets.user.CartServlet</servlet-class>
    </servlet>
+   <servlet>
+   	<servlet-name>ProductColorServlet</servlet-name>
+   	<display-name>ProductColorServlet</display-name>
+   	<description></description>
+   	<servlet-class>com.demo.servlets.admin.ProductColorServlet</servlet-class>
+   </servlet>
+   <servlet>
+   	<servlet-name>ProductVersionServlet</servlet-name>
+   	<display-name>ProductVersionServlet</display-name>
+   	<description></description>
+   	<servlet-class>com.demo.servlets.admin.ProductVersionServlet</servlet-class>
+   </servlet>
   <servlet-mapping>
   	<servlet-name>HomeServlet</servlet-name>
   	<url-pattern>/HomeServlet</url-pattern>
@@ -263,5 +275,13 @@
   <servlet-mapping>
   	<servlet-name>CartServlet</servlet-name>
   	<url-pattern>/CartServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ProductColorServlet</servlet-name>
+  	<url-pattern>/ProductColorServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ProductVersionServlet</servlet-name>
+  	<url-pattern>/ProductVersionServlet</url-pattern>
   </servlet-mapping>
 </web-app>

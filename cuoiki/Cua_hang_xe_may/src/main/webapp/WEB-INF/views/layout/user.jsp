@@ -1,9 +1,15 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.demo.entities.Item"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" isELIgnored="false"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    <% 
+    List<Item> cart = (List<Item>) request.getSession().getAttribute("cart");
+    if(cart == null) cart = new ArrayList<>();
+    %>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     <title>T-Motoshop</title>
@@ -16,7 +22,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Rubik&display=swap"
         rel="stylesheet">
-
+   <script src="${pageContext.request.contextPath}/assets/user/js/jquery-3.7.1.min.js"></script>
     <!-- Font Awesome -->
 	    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
@@ -96,7 +102,7 @@
                         	        <a href="#" class="dropdown-item ">Xin chao ${sessionScope.account.username }</a>
                         	        <a href="${pageContext.request.contextPath }/information" class="dropdown-item">Thông tin tài khoàn</a>
                                     <a href="${pageContext.request.contextPath }/changePassword" class="dropdown-item">Đổi mật khẩu</a>
-                                    <a href="${pageContext.request.contextPath }/cart" class="dropdown-item">Giỏ Hàng</a>  
+                                    <a href="${pageContext.request.contextPath }/cart" class="dropdown-item">Giỏ Hàng( <%=cart.size() %>)</a>  
                                     <a href="${pageContext.request.contextPath }/login?action=login" class="dropdown-item">Đơn Hàng Của Bạn</a>
                                   	<a href="${pageContext.request.contextPath }/login?action=logout" class="dropdown-item"> Đăng Xuất <i class="fa-solid fa-arrow-right-from-bracket" style="margin-left: 5px"></i></a>
                         	    </c:if>
@@ -199,9 +205,10 @@
     <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="fa fa-angle-double-up"></i></a>
 
     <!-- JavaScript Libraries -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-    <script src="${pageContext.request.contextPath}/assets/user/lib/easing/easing.min.js"></script>
+
+        <script src="${pageContext.request.contextPath}/assets/user/lib/easing/easing.min.js"></script>
     <script src="${pageContext.request.contextPath}/assets/user/lib/waypoints/waypoints.min.js"></script>
     <script src="${pageContext.request.contextPath}/assets/user/lib/owlcarousel/owl.carousel.min.js"></script>
     <script src="${pageContext.request.contextPath}/assets/user/lib/tempusdominus/js/moment.min.js"></script>
@@ -238,6 +245,7 @@
 	   	}
    	   
     </script>
+    
 </body>
 
 </html>
