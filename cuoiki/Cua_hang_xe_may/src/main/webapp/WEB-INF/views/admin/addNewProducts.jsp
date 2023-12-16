@@ -61,7 +61,7 @@
                                                     <option data-select2-id="131" value="1">Suzuki</option>
                                                     <option data-select2-id="132" value="2">Vinfast</option>
                                                     <option data-select2-id="133" value="3">Ducati</option>
-                                                    <option data-select2-id="134"value="4">BMW</option>
+                                                    <option data-select2-id="134" value="4">BMW</option>
                                                     <option data-select2-id="135" value="5">Texas</option>
                                                     <option data-select2-id="136" value="6">Yamaha</option>
                                                 </select>
@@ -81,6 +81,12 @@
                                                            type="radio" id="customRadio5"  value="2" name="motolineId">
                                                     <label for="customRadio5" class="custom-control-label">
                                                         Tay Ga</label>
+                                                </div>
+                                                <div class="custom-control custom-radio ml-5">
+                                                    <input class="custom-control-input custom-control-input-danger custom-control-input-outline"
+                                                           type="radio" id="customRadio6"  value="2" name="motolineId">
+                                                    <label for="customRadio6" class="custom-control-label">
+                                                        Phân Khối Lớn</label>
                                                 </div>
                                             </div>
                                         </div>
