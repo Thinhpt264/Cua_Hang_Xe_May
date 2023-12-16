@@ -35,21 +35,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 </head>
-<script>
-    $( function() {
-      $( "#datepicker" ).datepicker({
-          dateFormat: "dd/mm/yy"
-      });
-      $("#date").datepicker({
-          dateFormat: "dd/mm/yy"
-      })
-    } );
-    </script>
-  <style>
-      label{
-          font-weight: bold;
-      }
-  </style>
+
 
 <body>
     <div id="preloader"></div>
@@ -640,7 +626,21 @@
 
         }
     </script>
+    <script>
+        $( function() {
+            $( "#datepicker" ).datepicker({
+                dateFormat: "dd/mm/yy"
+            });
+            $("#date").datepicker({
+                dateFormat: "dd/mm/yy"
+            })
+        } );
+    </script>
 
 </body>
-
+<style>
+    label{
+        font-weight: bold;
+    }
+</style>
 </html>

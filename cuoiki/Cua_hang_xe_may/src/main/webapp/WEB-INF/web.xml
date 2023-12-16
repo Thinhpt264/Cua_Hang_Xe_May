@@ -172,6 +172,18 @@
    	<description></description>
    	<servlet-class>com.demo.servlets.admin.ProductVersionServlet</servlet-class>
    </servlet>
+   <servlet>
+   	<servlet-name>addNewVersion</servlet-name>
+   	<display-name>addNewVersion</display-name>
+   	<description></description>
+   	<servlet-class>com.demo.servlets.admin.addNewVersion</servlet-class>
+   </servlet>
+   <servlet>
+   	<servlet-name>addNewProductColor</servlet-name>
+   	<display-name>addNewProductColor</display-name>
+   	<description></description>
+   	<servlet-class>com.demo.servlets.admin.addNewProductColor</servlet-class>
+   </servlet>
   <servlet-mapping>
   	<servlet-name>HomeServlet</servlet-name>
   	<url-pattern>/HomeServlet</url-pattern>
@@ -283,5 +295,13 @@
   <servlet-mapping>
   	<servlet-name>ProductVersionServlet</servlet-name>
   	<url-pattern>/ProductVersionServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>addNewVersion</servlet-name>
+  	<url-pattern>/addNewVersion</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>addNewProductColor</servlet-name>
+  	<url-pattern>/addNewProductColor</url-pattern>
   </servlet-mapping>
 </web-app>
