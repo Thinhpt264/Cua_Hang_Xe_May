@@ -1,6 +1,13 @@
+<%@page import="com.demo.models.ProductModel"%>
+<%@page import="org.apache.jasper.tagplugins.jstl.core.ForEach"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.demo.entities.ProductVersion"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" isELIgnored = "false"%>
-
+<% List<ProductVersion> productVersions  =( List<ProductVersion>) request.getAttribute("productVersions");
+if (productVersions == null) productVersions = new ArrayList<>();
+%>
 <div class="content-header">
         <div class="container-fluid">
           <div class="row mb-2">
@@ -50,24 +57,22 @@
                             </tr>
                           </thead>
                         <tbody>
+                        <% for(ProductVersion prV : productVersions){	
+                        			
+                        %>
                                     <tr>
-                                        <td>1.</td>
-                                        <td>Phiên Bản Đặc Biệt</td>
-                                        <td>Xe ab2020 </td>
-                                        <td class="text-center">42.000.000</td>
+                                        <td><%=prV.getId() %>.</td>
+                                        <td><%=prV.getVersionName() %></td>
+                                        <%ProductModel productModel = new ProductModel();
+                                       
+                                        %>
+                                        <td><%=productModel.findProductById(prV.getProductID()).getName() %></td>
+                                        <td class="text-center"><%=prV.getPrice() %></td>
                                         <td class="text-center"><a href="" class="btn btn-info"><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a>
                                         </td>
                                         <td class="text-center"><a href="" class="btn btn-danger"><i class="fas fa-trash" style="color: #000000;"></i></a></td>
                                     </tr>
-                                    <tr>
-                                        <td>2.</td>
-                                        <td>Phiên Bản Tiêu Chuẩn</td>
-                                        <td>Xe ab2020 </td>
-                                        <td class="text-center">40.000.000 </td>
-                                        <td class="text-center"><a href="" class="btn btn-info"><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a>
-                                        </td>
-                                        <td class="text-center"><a href="" class="btn btn-danger"><i class="fas fa-trash" style="color: #000000;"></i></a></td>
-                                    </tr>
+                                   <%} %>
                                     </tbody>
                         </table>
                       </div>

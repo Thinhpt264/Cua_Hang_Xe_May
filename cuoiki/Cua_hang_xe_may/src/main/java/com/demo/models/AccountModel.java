@@ -76,6 +76,39 @@ public class AccountModel {
 		}
 		return account;
 	}
+	public Account findAccountById(int id) {
+		Account account = null;
+		try {
+			PreparedStatement preparedStatement = ConnectDB.connection().prepareStatement("select * from accounts where id = ? ");
+			preparedStatement.setInt(1, id);
+			ResultSet resultSet = preparedStatement.executeQuery();
+			while(resultSet.next()) {
+			 account = new Account();
+			 account.setId(resultSet.getInt("id"));
+				account.setUsername(resultSet.getString("username"));
+				account.setName(resultSet.getString("name"));
+				account.setPassword(resultSet.getString("password"));
+				account.setPhone(resultSet.getString("phone"));
+				account.setAddress(resultSet.getString("address"));
+				account.setAvartar(resultSet.getString("avatar"));
+				account.setDOB(resultSet.getString("DOB"));
+				account.setCreated(resultSet.getString("created"));
+				account.setEmail(resultSet.getString("email"));
+				account.setRole(resultSet.getString("role"));
+				account.setStatus(resultSet.getBoolean("status"));
+				account.setSecurityCode(resultSet.getString("securityCode"));
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			account = null;
+			
+		} finally {
+			ConnectDB.disconnect();
+		}
+		return account;
+	}
+	
 	public Account findAccountByEmail(String email) {
 		Account account = null;
 		try {
@@ -149,7 +182,8 @@ public class AccountModel {
 	try {
 		PreparedStatement preparedStatement = ConnectDB.connection()
 				.prepareStatement("update accounts set username = ?, password = ?, "
-						+ "phone = ?, email = ?, role = ?, status = ?, securityCode = ? where id = ?");
+						+ "phone = ?, email = ?, role = ?, status = ?, securityCode = ? ,avatar = ?, address=?, name=?"
+						+ " where id = ? ");
 		preparedStatement.setString(1, account.getUsername());
 		preparedStatement.setString(2, account.getPassword());
 		preparedStatement.setString(3, account.getPhone());
@@ -157,10 +191,11 @@ public class AccountModel {
 		preparedStatement.setString(5, account.getRole());
 		preparedStatement.setBoolean(6, account.isStatus());
 		preparedStatement.setString(7, account.getSecurityCode());
-		preparedStatement.setInt(8, account.getId());
+		preparedStatement.setString(8, account.getAvartar());
+		preparedStatement.setString(9, account.getAddress());
+		preparedStatement.setString(10, account.getName());
+		preparedStatement.setInt(11, account.getId());
 			result = preparedStatement.executeUpdate() > 0 ;
-			
-		
 	} catch (Exception e) {
 		// TODO: handle exception
 		e.printStackTrace();

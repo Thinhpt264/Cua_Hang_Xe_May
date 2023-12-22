@@ -1,11 +1,16 @@
 package com.demo.servlets.admin;
 
 import java.io.IOException;
+import java.util.List;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.demo.entities.ProductVersion;
+import com.demo.models.VersionModel;
 @WebServlet("/admin/productversion")
 /**
  * Servlet implementation class ProductVersionServlet
@@ -26,6 +31,9 @@ public class ProductVersionServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		VersionModel versionModel = new VersionModel();
+		List<ProductVersion> productVersions = versionModel.findAll();
+		request.setAttribute("productVersions", productVersions);
 		request.setAttribute("admin", "../admin/productVersion.jsp");
 		request.getRequestDispatcher("/WEB-INF/views/layout/admin.jsp").forward(request, response);
 	}

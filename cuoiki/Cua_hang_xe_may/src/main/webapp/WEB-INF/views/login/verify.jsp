@@ -157,7 +157,48 @@
                             <div class="register ml-3 col-10">
                                *Lưu ý không chia sẽ mã này cho người khác <a href="#"></a>
                             </div>
+							<script type="text/javascript">
+							var input1 = document.getElementById("input1");
 
+							// Lấy đối tượng input2 bằng ID
+							var input2 = document.getElementById("input2");
+							var input3 = document.getElementById("input3");
+							var input4 = document.getElementById("input4");
+							var input5 = document.getElementById("input5");
+							var input6 = document.getElementById("input6");
+
+							// Bắt sự kiện khi người dùng nhấn phím trong input1
+							input1.addEventListener("keyup", function(event) {
+							  var value = parseInt(input1.value); // Lấy giá trị số từ input1
+							  if (!isNaN(value)) {
+							    input2.focus(); // Di chuyển trỏ chuột đến input2 nếu giá trị là số
+							  } 
+							});
+							input2.addEventListener("keyup", function(event) {
+								var value1 = parseInt(input2.value);
+								if (!isNaN(value1)) {
+								    input3.focus(); // Di chuyển trỏ chuột đến input2 nếu giá trị là số
+								  } 
+							});
+							input3.addEventListener("keyup", function(event) {
+								 var value2 = parseInt(input3.value);
+								 if (!isNaN(value2)) {
+									    input4.focus(); // Di chuyển trỏ chuột đến input2 nếu giá trị là số
+									  } 
+							});
+							input4.addEventListener("keyup", function(event) {
+								  var value3 = parseInt(input4.value);
+								 if (!isNaN(value3)) {
+									    input5.focus(); // Di chuyển trỏ chuột đến input2 nếu giá trị là số
+									  } 
+							});
+							input5.addEventListener("keyup", function(event) {
+								  var value4 = parseInt(input5.value);
+								  if (!isNaN(value4)) {
+									    input6.focus(); // Di chuyển trỏ chuột đến input2 nếu giá trị là số
+									  } 
+							});
+							</script>
                         </div>
                         <div class="button-register" >
                             <button class="btn btn-primary py-3 my-5 mx-4 px-lg-5 rounded-pill" id="submitButton" type="submit">Gửi</button>

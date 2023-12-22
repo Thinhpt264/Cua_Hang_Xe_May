@@ -1,5 +1,8 @@
+<%@page import="com.demo.entities.Employee"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" isELIgnored = "false"%>
+    <% Employee employee = (Employee) request.getAttribute("employee");     %>
+    
     <!-- Content Header (Page header) -->
       <div class="content-header">
         <div class="container-fluid">
@@ -27,26 +30,25 @@
                 <div class="card card-primary">
                     <!-- /.card-header -->
                     <!-- form start -->
-                    <form>
+                    <form id="myForm" action="${pageContext.request.contextPath }/admin/myProfile?action=update" method="post" enctype="multipart/form-data">
                       <div class="card-body">
                         <div class="form-group">
                             <label for="exampleInputName1">Họ Và Tên</label>
-                            <input type="text" class="form-control" id="exampleInputName1" placeholder="Họ và Tên" value="Phan Thế Thịnh">
+                            <input type="text" name="name" class="form-control" id="exampleInputName1" placeholder="Họ và Tên"  value="${sessionScope.accountAdmin.name }">
                         </div>
                         <div class="form-group">
                           <label for="exampleInputEmail1">Địa Chỉ Email</label>
-                          <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Nhập email" value="21130548@st.hcmuaf.edu.vn">
-                        </div>
-                        <div class="form-group">
-                          <label for="exampleInputGender">Giới Tính</label>
-                          <select class="form-control">
-                            <option>Nam</option>
-                            <option>Nữ</option>
-                            </select>
+                          <input type="email" name="email" class="form-control" id="exampleInputEmail1" placeholder="Nhập email" value="${sessionScope.accountAdmin.email }">
                         </div>
                         <div class="form-group">
                             <label for="exampleInputPhoneNumber1">Số Điện Thoại</label>
-                            <input type="number" class="form-control" id="exampleInputPhoneNumber1" placeholder="Nhập email" value="0123456678">
+                            <input type="text" class="form-control" name="phone" id="exampleInputPhoneNumber1" placeholder="Nhập số điện thoại" value="${sessionScope.accountAdmin.phone }">
+                          </div>
+                          <div class="form-group">
+                            <label for="exampleInputPhoneNumber1">Mức Lương</label>
+                            <input type="text" class="form-control" id="exampleInputPhoneNumber1" placeholder="" value="<%=employee.getSalary() %>" disabled>
+                             <label for="exampleInputPhoneNumber1">Số căn cước công dân</label>
+                            <input type="text" class="form-control" name="card" id="exampleInputPhoneNumber1" placeholder="Nhập số CCCD" value="<%=employee.getCardID()%>">
                           </div>
                         <div class="form-group">
                           <label for="exampleInputPassword1">Nhập Mật Khẩu</label>
@@ -56,7 +58,7 @@
                           <label for="exampleInputFile">Avatar</label>
                           <div class="input-group">
                             <div class="custom-file">
-                              <input type="file" class="custom-file-input" id="exampleInputFile" onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])">
+                              <input type="file" name="avatar" class="custom-file-input" id="exampleInputFile" onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])">
                               <label class="custom-file-label" for="exampleInputFile">Chọn Ảnh</label>
                             </div>
                             <div class="input-group-append">
@@ -64,7 +66,7 @@
                             </div>
                           </div>
                           <div class="upload__img-wrap">
-                            <img id="blah" src="${pageContext.request.contextPath}/assets/admin/dist/img/user2-160x160.jpg" alt="" width="100" height="100" />
+                            <img id="blah" src="${pageContext.request.contextPath}/assets/user/Image/${sessionScope.accountAdmin.avartar}"  width="100" height="100" />
                         </div>
                         </div>
                         <div class="form-check">
@@ -74,8 +76,9 @@
                       </div>
                       <!-- /.card-body -->
       
-                      <div class="card-footer">
+                      <div class="card">
                         <button type="submit" class="btn btn-primary">Sửa</button>
+                         
                       </div>
                     </form>
                   </div>
@@ -86,4 +89,6 @@
           </div>
         </section>
         </div>
-      <!-- /.content -->
++
+
+'Ư      <!-- /.content -->

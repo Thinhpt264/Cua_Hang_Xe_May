@@ -67,7 +67,7 @@ public class CommentModel {
 			preparedStatement.setInt(1, comment.getProductId());
 			preparedStatement.setInt(2, comment.getAccountId());
 			preparedStatement.setString(3, comment.getContent());
-			preparedStatement.setString(4, comment.getCreated());
+			preparedStatement.setString(4,  comment.getCreated());
 			result = preparedStatement.executeUpdate() > 0;
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -82,5 +82,29 @@ public class CommentModel {
 		CommentModel commentModel = new CommentModel();
 		System.out.println(commentModel.findCommentByProduct(5));
 				
+	}
+	public List<Comment> viewNewComment() {
+		List<Comment> comments = new ArrayList<Comment>();
+		try {
+			PreparedStatement preparedStatement = ConnectDB.connection()
+					.prepareStatement("SELECT * FROM comments ORDER BY created DESC LIMIT 4");
+			ResultSet resultSet = preparedStatement.executeQuery();
+			while(resultSet.next()){
+				Comment comment = new Comment();
+				comment.setId(resultSet.getInt("id"));
+				comment.setAccountId(resultSet.getInt("accountId"));
+				comment.setProductId(resultSet.getInt("productId"));
+				comment.setContent(resultSet.getString("content"));
+				comment.setCreated(resultSet.getString("created"));
+				comments.add(comment);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			comments = null;
+		}finally {
+			ConnectDB.disconnect();
+		}
+		return comments	;
 	}
 }

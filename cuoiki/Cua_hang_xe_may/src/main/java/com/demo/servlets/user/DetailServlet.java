@@ -88,6 +88,7 @@ public class DetailServlet extends HttpServlet {
 		int idProducts = Integer.parseInt(idProduct);
 		int idAccounts = Integer.parseInt(idAccount);
 		String content = request.getParameter("content");
+		System.out.println(content);
 		CommentModel commentModel = new CommentModel();
 		Comment comment = new Comment();
 		comment.setProductId(idProducts);

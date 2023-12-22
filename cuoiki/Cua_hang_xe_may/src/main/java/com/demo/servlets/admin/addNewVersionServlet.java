@@ -6,6 +6,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.demo.entities.ProductVersion;
+import com.demo.models.VersionModel;
 @WebServlet("/admin/addNewVersion")
 /**
  * Servlet implementation class addNewVersion
@@ -34,7 +37,24 @@ public class addNewVersionServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		String action = (String) request.getParameter("action");
+		if(action.equalsIgnoreCase("addnewVersion")) {
+			doPost_Addversion(request, response);
+		}
 	}
-
+	protected void doPost_Addversion(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		VersionModel versionModel = new VersionModel();
+		String versionName = request.getParameter("name");
+		int productID = Integer.parseInt(request.getParameter("proID"));
+		double price = Double.parseDouble(request.getParameter("price"));
+		ProductVersion productVersion = new ProductVersion();
+		productVersion.setVersionName(versionName);
+		productVersion.setProductID(productID);
+		productVersion.setPrice(price);
+		if(versionModel.create(productVersion)) {
+			response.sendRedirect("productversion");
+		}else {
+			response.sendRedirect("messageError");
+			}
+		}
 }

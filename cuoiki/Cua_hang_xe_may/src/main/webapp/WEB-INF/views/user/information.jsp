@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" isELIgnored= "false"%>
+ <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 </div>
 <div class="container-fluid py-5">
     <div class="container pb-3">
@@ -12,22 +13,47 @@
                     <img src="${pageContext.request.contextPath}/assets/user/Image/information1.png" alt="">
                 </div>
                 <div class="contact-form bg-light mb-6 col-lg-5" style="padding-top: 70px">
-                    <form id="forgot_form" action="index.html">
+                    <form  action="${pageContext.request.contextPath}/information?action=update" method="post" enctype="multipart/form-data">
                         <div class="row">
                             <div class="register ml-4">
                                Cập nhật thông tin cá nhân của bạn <a href="#"></a>
                             </div>
-                            <div class="col-10 form-group">
-                                <span class="text-dark font-weight-lighter " >*Tên của bạn</span>
-                                <input id="input" type="text" class="form-control p-4 rounded " placeholder="Tên của bạn" >
+                            <div class="form-group">
+                          <label for="exampleInputFile">Avatar</label>
+                          <div class="input-group">
+                            <div class="custom-file">
+                              <input type="file" class="custom-file-input" id="exampleInputFile" name="avatar" onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])">
+                              <label class="custom-file-label" for="exampleInputFile">Chọn Ảnh</label>
                             </div>
+                            <div class="input-group-append">
+                              <span class="input-group-text">Tải Lên</span>
+                            </div>
+                          </div>
+                        
+                          <c:if test="${sessionScope.account.avartar == 'avtUnknow.png'}">
+                          	  <div class="upload__img-wrap">
+                          	 	 <img id="blah" src="${pageContext.request.contextPath}/assets/user/Image/avtUnknow.png" alt="" width="100" height="100" />
+                       		 </div>
+                          </c:if>
+                          <c:if test="${sessionScope.account.avartar != 'avtUnknow.png' }">
+                          	  <div class="upload__img-wrap">
+                          	 	 <img id="blah" src="${pageContext.request.contextPath}/assets/user/Image/${sessionScope.account.avartar }" alt="" width="100" height="100" />
+                       		 </div>
+                          </c:if>
+                            
+                        </div>
+	                        <div class="col-10 form-group">
+	                                <span class="text-dark font-weight-lighter " >*Tên của bạn</span>
+	                                <input id="input" type="text" name="name" class="form-control p-4 rounded" value="${sessionScope.account.name == null ?  null : sessionScope.account.name}" placeholder="Tên của bạn" >
+	                        </div>
+                      
                             <div class="col-10 form-group">
                                 <span class="text-dark font-weight-lighter " >*Địa chỉ</span>
-                                <input id="input1" type="text" class="form-control p-4 rounded " placeholder="Địa chỉ">
+                                <input id="input1" type="text" name="address" class="form-control p-4 rounded" value="${sessionScope.account.address == null ?  null : sessionScope.account.address}" placeholder="Địa chỉ">
                             </div>
                             <div class="col-10 form-group">
                                 <span class="text-dark font-weight-lighter " >*Số điện thoại liên hệ</span>
-                                <input id="input2" type="text" class="form-control p-4 rounded " placeholder="Số điện thoại liên hệ">
+                                <input id="input2" type="text" name="phone" class="form-control p-4 rounded" value="${sessionScope.account.phone == null ?  null : sessionScope.account.phone}" placeholder="Số điện thoại liên hệ">
                             </div>
                         </div>
                         <div class="button-register ">

@@ -1,7 +1,11 @@
+<%@page import="com.google.api.Http"%>
+<%@page import="com.demo.entities.ProductVersion"%>
+<%@page import="com.demo.models.ProductModel"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" isELIgnored = "false"%>
    <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
    <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %> 
+   
  <div class="container-fluid py-3">
         <div class="container pb-3">
             <div class="row">
@@ -14,12 +18,13 @@
             </div>
             <c:set var="total" value="0"></c:set>
             <c:forEach var="item" items="${sessionScope.cart}" varStatus="i">
-            	<c:set var="total" value="${total + item.product.price * item.quantity }"></c:set>
+            	<c:set var="total" value="${total + item.productcolor.price * item.quantity }"></c:set>
 	            <div class="row rent-item m-2">
 	                <div class="col-lg-4">
-	                    <a href="${pageContext.request.contextPath}/details?id=${item.product.id}">
-	                        <img class="img-fluid w-50" src="${pageContext.request.contextPath}/assets/user/Image/${item.product.avatar }" alt="">
-	                        <h4 class="text-uppercase">${item.product.name }</h4>
+	                    <a href="${pageContext.request.contextPath}/details?id=${item.productcolor.id}">
+	                        <img class="img-fluid w-50" src="${pageContext.request.contextPath}/assets/user/Image/${item.productcolor.photo }" alt="">
+	                       	
+	                        <h4 class="text-uppercase"> ${item.viewNameProduct((item.ProductVersion(item.productcolor.versionID)).productID)} ${item.viewNameProductVersion(item.productcolor.versionID)} Màu ${item.productcolor.color }</h4>
 	                    </a>
 	                </div>
 	                <div class="col-lg-3 d-flex justify-content-left align-items-center">
@@ -31,14 +36,15 @@
 	                        <p class="m-0">Đơn Giá</p>
 	                         <fmt:setLocale value = "vi_Vn"/>
 	                        <span style="color: black;"> <fmt:formatNumber type="currency" 
-          value ="${item.product.price }" currencySymbol="VNĐ"/></span>
+          value ="${item.productcolor.price }" currencySymbol="VNĐ"/></span>
 	                    </div>
 	                </div>
 	                <div class="col-lg-3 d-flex justify-content-between align-items-center">
 	                    <div class="mr-1">
 	                        <p class="m-0">Tổng Cộng</p>
+	                      
 	                        <span style="color: black;"> <fmt:formatNumber type="currency" 
-          value ="${item.product.price * item.quantity }"  currencySymbol="VNĐ"/>
+          value ="${item.productcolor.price * item.quantity }"  currencySymbol="VNĐ"/>
           	
            </span>
 	                    </div>
