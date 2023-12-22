@@ -11,23 +11,23 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" isELIgnored = "false"%>
      <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-     <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
    <% List<Comment> comments =(List<Comment>) request.getAttribute("comments");
    if(comments == null) comments = new ArrayList<>();
    String id= request.getParameter("id");
    int idproduct = Integer.parseInt(id);
    Product product = (Product) request.getAttribute("product");
-	
 
    %>
      <%ProductModel productModel = new ProductModel(); 
                     List<ProductVersion> productVersions = productModel.findAllVersionByProduct(idproduct);
-                    int productVersionID = productVersions.get(0).getId();
-                    List<ProductColor> productColorsFirst = productModel.findAllColorByProductVersion(productVersionID);
-                    ProductColor productColor = productColorsFirst.get(0);
                     if(productVersions == null) productVersions = new ArrayList<>();
-                 
-             %>
+                    	int productVersionID = productVersions.get(0).getId();
+                        List<ProductColor> productColorsFirst = productModel.findAllColorByProductVersion(productVersionID);
+                        ProductColor productColor = productColorsFirst.get(0);
+                        if(productVersions == null) productVersions = new ArrayList<>();
+                   
+    %>
    <style>
     .color-cell{
         height: 25px;
@@ -62,6 +62,7 @@
 								$('#img').attr('src', '${pageContext.request.contextPath}/assets/user/Image/' + version.photo);
 								$('#price').html('Giá ' + price);
 								$('#versionName').html('Phiên bản ' + version.color);
+								$('#cartId').attr('href' , '${pageContext.request.contextPath}/cart?action=buynow&id='+version.id) 
 								
 							}
 						});
@@ -76,7 +77,8 @@
             <h1>Bảng giá và màu sắc </h1>
             <div class="row mt-3" style="font-size: 20px;border-top: 5px solid orange;">
                 <div class="col-lg-6 ">
-                    <div class="container-fluid p-0"  >
+                    <div class="container-fluid p-0"  > 
+                  
                        <div class="large" style="width: 100%; height: 100% ;" id="result">
                           <img id="img" src="${pageContext.request.contextPath}/assets/user/Image/<%=productColor.getPhoto() %>" alt="" id="largeImage" style="width: 100%; height: 100%">
                          <div class="container d-flex">
@@ -96,7 +98,7 @@
         </div> 
        
                        </div>
-                   </div >
+                   </div aaa>
                 </div >
                 
        
@@ -140,7 +142,7 @@
     <div class="container-fluid mb-2 ">
         <div class="container">
            <a href="checkout.html" style="text-decoration: none;"><button class="btn btn-primary btn-lg btn-block" name="btnDatHang" style="width: 150px;height: 50px;">Đặt hàng</button></a> 
-           <a href="${pageContext.request.contextPath}/cart?action=buynow&id=<%=id %>" style="text-decoration: none;"><button class="btn btn-primary btn-lg btn-block" name="btnDatHang" style="width: 150px;height: 50px;">Thêm Vào Giỏ Hàng</button></a> 
+           <a href="${pageContext.request.contextPath}/cart?action=buynow&id=<%=productColor.getId()%>" id="cartId" style="text-decoration: none;"><button class="btn btn-primary btn-lg btn-block" name="btnDatHang" style="width: 150px;height: 50px;">Thêm Vào Giỏ Hàng</button></a> 
         </div>
         
     </div> 

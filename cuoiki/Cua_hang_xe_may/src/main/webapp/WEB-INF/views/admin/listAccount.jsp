@@ -104,7 +104,9 @@
                                   </td>
                                  <td class="text-center"><a href="" class="btn btn-info"><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a>
                                  </td>
-                                 <td class="text-center"><button class="btn btn-danger" onclick="deleteFt()"><i class="fas fa-trash" style="color: #000000;"></i></button></td>
+                                 <td class="text-center"><button class="btn btn-danger delete" onclick="deleteFt()"><i class="fas fa-trash" style="color: #000000;"></i></button></td>
+                            	
+
                             </tr>
                         	<% }  %>
                     

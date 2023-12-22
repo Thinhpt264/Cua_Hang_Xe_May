@@ -1,5 +1,18 @@
+<%@page import="com.demo.entities.Account"%>
+<%@page import="com.demo.models.AccountModel"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.demo.entities.Comment"%>
+<%@page import="java.util.List"%>
+<%@page import="com.demo.models.CommentModel"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" isELIgnored = "false"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
+    <%
+    	CommentModel commentModel = new CommentModel();
+    	List<Comment> comments = commentModel.viewNewComment();
+    	if(comments == null) comments = new ArrayList<>();
+    	 AccountModel accoutModel = new AccountModel();
+    %>
     
 <html lang="en" style="height: auto;"><head>
     <meta charset="utf-8">
@@ -52,7 +65,7 @@
           <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-          <a href="admin3.html" class="nav-link">Trang Chủ</a>
+          <a href="${pageContext.request.contextPath}/home" class="nav-link">Giao Diện Người Dùng</a>
         </li>
        
       </ul>
@@ -85,57 +98,28 @@
         <li class="nav-item dropdown">
           <a class="nav-link" data-toggle="dropdown" href="#">
             <i class="far fa-comments"></i>
-            <span class="badge badge-danger navbar-badge">3</span>
+            <span class="badge badge-danger navbar-badge"><%=comments.size() %></span>
           </a>
           <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-            <a href="#" class="dropdown-item">
+            <%for(Comment c: comments) { %>
+            <a href="${pageContext.request.contextPath}/details?id=<%=c.getProductId() %>" class="dropdown-item">
               <!-- Message Start -->
               <div class="media">
                 <img src="${pageContext.request.contextPath}/assets/admin/dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
                 <div class="media-body">
                   <h3 class="dropdown-item-title">
-                    Thịnh Thế
+                   <% Account account = accoutModel.findAccountById(c.getAccountId()); %>
+                   <%= account.getUsername() %>
                     <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
                   </h3>
-                  <p class="text-sm">Cảm Nhận phiên bản trước đẹp hơn</p>
-                  <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 giờ trước</p>
+                  <p class="text-sm"><%=c.getContent() %></p>
+                  <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i><%c.getCreated(); %> </p>
                 </div>
               </div>
               <!-- Message End -->
             </a>
             <div class="dropdown-divider"></div>
-            <a href="#" class="dropdown-item">
-              <!-- Message Start -->
-              <div class="media">
-                <img src="${pageContext.request.contextPath}/assets/admin/dist/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
-                <div class="media-body">
-                  <h3 class="dropdown-item-title">
-                    Phúc Thành
-                    <span class="float-right text-sm text-muted"><i class="fas fa-star"></i></span>
-                  </h3>
-                  <p class="text-sm">Tôi đã lái thử và thấy tuyệt lắm</p>
-                  <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 giờ trước</p>
-                </div>
-              </div>
-              <!-- Message End -->
-            </a>
-            <div class="dropdown-divider"></div>
-            <a href="#" class="dropdown-item">
-              <!-- Message Start -->
-              <div class="media">
-                <img src="${pageContext.request.contextPath}/assets/admin/dist/img/user3-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
-                <div class="media-body">
-                  <h3 class="dropdown-item-title">
-                    Trần Trung
-                    <span class="float-right text-sm text-warning"><i class="fas fa-star"></i></span>
-                  </h3>
-                  <p class="text-sm">Xe ab này tuyệt quá</p>
-                  <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Giờ Trước</p>
-                </div>
-              </div>
-              <!-- Message End -->
-            </a>
-            <div class="dropdown-divider"></div>
+            <% } %>
             <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
           </div>
         </li>        
@@ -149,6 +133,9 @@
             <i class="fas fa-th-large"></i>
           </a>
         </li>
+        <li>
+        	<a href="${pageContext.request.contextPath }/login?action=logout"  class="dropdown-item text-danger bold"> Đăng Xuất <i class="fa-solid fa-arrow-right-from-bracket" style="margin-left: 5px"></i></a>
+        </li>
       </ul>
     </nav>
     <!-- /.navbar -->
@@ -158,7 +145,9 @@
       <!-- Brand Logo -->
       <a href="admin3.html" class="brand-link">
         <img src="${pageContext.request.contextPath}/assets/admin/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-        <span class="brand-text font-weight-light">${sessionScope.account.role == 0 ? "admin" : "Nhan Vien"}</span>
+        <span class="brand-text font-weight-light">
+			${sessionScope.accountAdmin.role == 0 ? "Admin" : "Nhan Vien"}     
+         </span>
       </a>
   
       <!-- Sidebar -->
@@ -166,10 +155,10 @@
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
           <div class="image">
-            <img src="${pageContext.request.contextPath}/assets/admin/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+            <img src="${pageContext.request.contextPath}/assets/user/Image/${sessionScope.accountAdmin.avartar}" class="img-circle elevation-2" alt="User Image">
           </div>
           <div class="info">
-            <a href="myProfile.html" class="d-block">${sessionScope.account.username}</a>
+            <a href="${pageContext.request.contextPath }/admin/myProfile" class="d-block">${sessionScope.accountAdmin.name}</a>
           </div>
         </div>
   
@@ -293,8 +282,10 @@
     <aside class="control-sidebar control-sidebar-dark" style="display: none;">
       <!-- Control sidebar content goes here -->
     <div class="p-3 control-sidebar-content" ><h5>Customize AdminLTE</h5><hr class="mb-2"><div class="mb-4"><input type="checkbox" value="1" class="mr-1"><span>Dark Mode</span></div><h6>Header Options</h6><div class="mb-1"><input type="checkbox" value="1" class="mr-1"><span>Fixed</span></div><div class="mb-1"><input type="checkbox" value="1" class="mr-1"><span>Dropdown Legacy Offset</span></div><div class="mb-4"><input type="checkbox" value="1" class="mr-1"><span>No border</span></div><h6>Sidebar Options</h6><div class="mb-1"><input type="checkbox" value="1" class="mr-1"><span>Collapsed</span></div><div class="mb-1"><input type="checkbox" value="1" class="mr-1"><span>Fixed</span></div><div class="mb-1"><input type="checkbox" value="1" checked="checked" class="mr-1"><span>Sidebar Mini</span></div><div class="mb-1"><input type="checkbox" value="1" class="mr-1"><span>Sidebar Mini MD</span></div><div class="mb-1"><input type="checkbox" value="1" class="mr-1"><span>Sidebar Mini XS</span></div><div class="mb-1"><input type="checkbox" value="1" class="mr-1"><span>Nav Flat Style</span></div><div class="mb-1"><input type="checkbox" value="1" class="mr-1"><span>Nav Legacy Style</span></div><div class="mb-1"><input type="checkbox" value="1" class="mr-1"><span>Nav Compact</span></div><div class="mb-1"><input type="checkbox" value="1" class="mr-1"><span>Nav Child Indent</span></div><div class="mb-1"><input type="checkbox" value="1" class="mr-1"><span>Nav Child Hide on Collapse</span></div><div class="mb-4"><input type="checkbox" value="1" class="mr-1"><span>Disable Hover/Focus Auto-Expand</span></div><h6>Footer Options</h6><div class="mb-4"><input type="checkbox" value="1" class="mr-1"><span>Fixed</span></div><h6>Small Text Options</h6><div class="mb-1"><input type="checkbox" value="1" class="mr-1"><span>Body</span></div><div class="mb-1"><input type="checkbox" value="1" class="mr-1"><span>Navbar</span></div><div class="mb-1"><input type="checkbox" value="1" class="mr-1"><span>Brand</span></div><div class="mb-1"><input type="checkbox" value="1" class="mr-1"><span>Sidebar Nav</span></div><div class="mb-4"><input type="checkbox" value="1" class="mr-1"><span>Footer</span></div><h6>Navbar Variants</h6><div class="d-flex"><select class="custom-select mb-3 text-light border-0 bg-white"><option class="bg-primary">Primary</option><option class="bg-secondary">Secondary</option><option class="bg-info">Info</option><option class="bg-success">Success</option><option class="bg-danger">Danger</option><option class="bg-indigo">Indigo</option><option class="bg-purple">Purple</option><option class="bg-pink">Pink</option><option class="bg-navy">Navy</option><option class="bg-lightblue">Lightblue</option><option class="bg-teal">Teal</option><option class="bg-cyan">Cyan</option><option class="bg-dark">Dark</option><option class="bg-gray-dark">Gray dark</option><option class="bg-gray">Gray</option><option class="bg-light">Light</option><option class="bg-warning">Warning</option><option class="bg-white">White</option><option class="bg-orange">Orange</option></select></div><h6>Accent Color Variants</h6><div class="d-flex"></div><select class="custom-select mb-3 border-0"><option>None Selected</option><option class="bg-primary">Primary</option><option class="bg-warning">Warning</option><option class="bg-info">Info</option><option class="bg-danger">Danger</option><option class="bg-success">Success</option><option class="bg-indigo">Indigo</option><option class="bg-lightblue">Lightblue</option><option class="bg-navy">Navy</option><option class="bg-purple">Purple</option><option class="bg-fuchsia">Fuchsia</option><option class="bg-pink">Pink</option><option class="bg-maroon">Maroon</option><option class="bg-orange">Orange</option><option class="bg-lime">Lime</option><option class="bg-teal">Teal</option><option class="bg-olive">Olive</option></select><h6>Dark Sidebar Variants</h6><div class="d-flex"></div><select class="custom-select mb-3 text-light border-0 bg-primary"><option>None Selected</option><option class="bg-primary">Primary</option><option class="bg-warning">Warning</option><option class="bg-info">Info</option><option class="bg-danger">Danger</option><option class="bg-success">Success</option><option class="bg-indigo">Indigo</option><option class="bg-lightblue">Lightblue</option><option class="bg-navy">Navy</option><option class="bg-purple">Purple</option><option class="bg-fuchsia">Fuchsia</option><option class="bg-pink">Pink</option><option class="bg-maroon">Maroon</option><option class="bg-orange">Orange</option><option class="bg-lime">Lime</option><option class="bg-teal">Teal</option><option class="bg-olive">Olive</option></select><h6>Light Sidebar Variants</h6><div class="d-flex"></div><select class="custom-select mb-3 border-0"><option>None Selected</option><option class="bg-primary">Primary</option><option class="bg-warning">Warning</option><option class="bg-info">Info</option><option class="bg-danger">Danger</option><option class="bg-success">Success</option><option class="bg-indigo">Indigo</option><option class="bg-lightblue">Lightblue</option><option class="bg-navy">Navy</option><option class="bg-purple">Purple</option><option class="bg-fuchsia">Fuchsia</option><option class="bg-pink">Pink</option><option class="bg-maroon">Maroon</option><option class="bg-orange">Orange</option><option class="bg-lime">Lime</option><option class="bg-teal">Teal</option><option class="bg-olive">Olive</option></select><h6>Brand Logo Variants</h6><div class="d-flex"></div><select class="custom-select mb-3 border-0"><option>None Selected</option><option class="bg-primary">Primary</option><option class="bg-secondary">Secondary</option><option class="bg-info">Info</option><option class="bg-success">Success</option><option class="bg-danger">Danger</option><option class="bg-indigo">Indigo</option><option class="bg-purple">Purple</option><option class="bg-pink">Pink</option><option class="bg-navy">Navy</option><option class="bg-lightblue">Lightblue</option><option class="bg-teal">Teal</option><option class="bg-cyan">Cyan</option><option class="bg-dark">Dark</option><option class="bg-gray-dark">Gray dark</option><option class="bg-gray">Gray</option><option class="bg-light">Light</option><option class="bg-warning">Warning</option><option class="bg-white">White</option><option class="bg-orange">Orange</option><a href="#">clear</a></select></div></aside>
+   
     <!-- /.content-wrapper -->
   <div id="sidebar-overlay"></div>
+  	
   </div>
 
   </div>

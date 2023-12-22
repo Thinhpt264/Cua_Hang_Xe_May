@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.demo.entities.Item;
 import com.demo.entities.Product;
+import com.demo.entities.ProductColor;
 import com.demo.helpers.CartHelper;
 import com.demo.models.ProductModel;
 @WebServlet("/cart")
@@ -54,16 +55,16 @@ public class CartServlet extends HttpServlet {
 	protected void doGet_Buy(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int id = Integer.parseInt(request.getParameter("id"));
 		ProductModel productModel = new ProductModel();
-		Product product = productModel.findProductById(id);
+		ProductColor productcolor = productModel.findProductColorById(id);
 		if(request.getSession().getAttribute("cart")== null) {
 			List<Item> cart = new ArrayList<Item>();
-			cart.add(new Item(product, 1));
+			cart.add(new Item(productcolor, 1));
 			request.getSession().setAttribute("cart", cart);
 		}else {
 			List<Item> cart = 	(List<Item>) request.getSession().getAttribute("cart");
 			int index = CartHelper.exist(cart, id);
 			if(index == -1) {
-				cart.add(new Item(product, 1));
+				cart.add(new Item(productcolor, 1));
 			} else {
 				int quantity = cart.get(index).getQuantity()+1;
 				cart.get(index).setQuantity(quantity);

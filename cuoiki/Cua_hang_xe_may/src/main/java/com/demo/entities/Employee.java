@@ -3,12 +3,12 @@ package com.demo.entities;
 public class Employee {
 	private int id;
 	private int accountID;
-	private int cardID;
+	private String cardID;
 	private double salary;
 	public Employee() {
 	
 	}
-	public Employee(int id, int accountID, int cardID, double salary) {
+	public Employee(int id, int accountID, String cardID, double salary) {
 		super();
 		this.id = id;
 		this.accountID = accountID;
@@ -27,10 +27,11 @@ public class Employee {
 	public void setAccountID(int accountID) {
 		this.accountID = accountID;
 	}
-	public int getCardID() {
+	
+	public String getCardID() {
 		return cardID;
 	}
-	public void setCardID(int cardID) {
+	public void setCardID(String cardID) {
 		this.cardID = cardID;
 	}
 	public double getSalary() {

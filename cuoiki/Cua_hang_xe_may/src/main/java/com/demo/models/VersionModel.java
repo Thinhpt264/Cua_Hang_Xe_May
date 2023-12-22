@@ -1,0 +1,81 @@
+package com.demo.models;
+
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.demo.entities.ConnectDB;
+import com.demo.entities.ProductVersion;
+
+public class VersionModel {
+	public List<ProductVersion> findAll(){
+		List<ProductVersion> productVersions = new ArrayList<ProductVersion>();
+		try {
+			PreparedStatement preparedStatement = ConnectDB.connection().prepareStatement("select * from productversions");
+			ResultSet resultSet = preparedStatement.executeQuery();
+			while (resultSet.next()) {
+				ProductVersion productVersion = new ProductVersion();
+				productVersion.setId(resultSet.getInt("id"));
+				productVersion.setProductID(resultSet.getInt("productID"));
+				productVersion.setVersionName(resultSet.getString("versionname"));
+				productVersion.setPrice(resultSet.getDouble("price"));
+				productVersions.add(productVersion);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			productVersions = null;
+		}
+		finally {
+			ConnectDB.disconnect();
+		}
+		return productVersions;
+		
+	}
+	public boolean create(ProductVersion version) {
+		boolean result = true;
+		try {
+			PreparedStatement preparedStatement = ConnectDB.connection().prepareStatement("insert into productversions(productID,versionname,price)" + "value(?,?,?)");
+			preparedStatement.setInt(1, version.getProductID());
+			preparedStatement.setString(2, version.getVersionName());
+			preparedStatement.setDouble(3, version.getPrice());
+			result = preparedStatement.executeUpdate() > 0;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			result = false;
+		}finally {
+			ConnectDB.disconnect();
+		}
+		return result;
+		
+	}
+	public boolean delete(int id) {
+		boolean result = true;
+		try {
+			PreparedStatement preparedStatement = ConnectDB.connection().prepareStatement("delete from productversions where id = ?");
+			preparedStatement.setInt(1, id);
+			result = preparedStatement.executeUpdate() >0;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			result = false;
+		}finally {
+			ConnectDB.disconnect();
+		}
+		return result;
+		
+	}
+	
+	public static void main(String[] args) {
+		VersionModel model = new VersionModel();
+		ProductVersion version = new ProductVersion();
+		version.setProductID(16);
+		version.setVersionName("Phiên Bản Cao Cấp");
+		version.setPrice(45000000);
+		System.out.println(model.create(version));
+		
+	}
+}

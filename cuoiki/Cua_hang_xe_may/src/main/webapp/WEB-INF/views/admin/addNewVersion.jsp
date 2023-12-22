@@ -1,3 +1,7 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.demo.entities.Product"%>
+<%@page import="java.util.List"%>
+<%@page import="com.demo.models.ProductModel"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" isELIgnored = "false" %>
 
@@ -30,7 +34,7 @@
                             </div>
                             <!-- /.card-header -->
                             <!-- form start -->
-                            <form action="${pageContext.request.contextPath}/admin/" method="post" enctype="multipart/form-data">
+                            <form action="${pageContext.request.contextPath}/admin/addNewVersion?action=addnewVersion" method="post">
                             
                                 <div class="card-body p-4">
                                     <div class="row">
@@ -46,18 +50,17 @@
                                                 <label>Tên Xe</label>
                                                 <select class="form-control select2 select2-danger select2-hidden-accessible"
                                                         data-dropdown-css-class="select2-danger" style="width: 100%;"
-                                                        data-select2-id="999" tabindex="-1" aria-hidden="true" name="ProID">
+                                                        data-select2-id="999" tabindex="-1" aria-hidden="true" name="proID">
                                                     <option selected="selected" data-select2-id="14">Chọn Tên Xe
                                                     </option>
-                                                    <option data-select2-id="199" value="a">AirBlade 125</option>
-                                                    <option data-select2-id="198" value="b">AirBlade 160</option>
-                                                    <option data-select2-id="197" value="c">Ducati Street</option>
-                                                    <option data-select2-id="196" value="d">Yamaha Exciter 150</option>
-                                                    <option data-select2-id="195" value="e">Yamaha Grande</option>
-                                                    <option data-select2-id="194" value="f">Honda SH 160</option>
-                                                   	<option data-select2-id="194" value="f">Honda SH 125</option>
-                                                    <option data-select2-id="194" value="f">Honda SH 350</option>
-                                                    <option data-select2-id="194" value="f">Honda SH mode</option>
+                                                    <%
+                                                    ProductModel productModel = new ProductModel();
+                                                    List<Product> products = productModel.findAll();
+                                                    if(products == null) products = new ArrayList<>();
+                                                    %>
+                                                    <% for(Product p : products)  {%>
+                                                    <option data-select2-id="199" value="<%=p.getId()%>"><%=p.getName() %></option>
+                                                    <% } %>
                                                            
                                                 </select>
                                             </div>
