@@ -52,7 +52,7 @@ public class addNewVersionServlet extends HttpServlet {
 		productVersion.setProductID(productID);
 		productVersion.setPrice(price);
 		if(versionModel.create(productVersion)) {
-			response.sendRedirect("productversion");
+			response.sendRedirect("addNewProductColor");
 		}else {
 			response.sendRedirect("messageError");
 			}

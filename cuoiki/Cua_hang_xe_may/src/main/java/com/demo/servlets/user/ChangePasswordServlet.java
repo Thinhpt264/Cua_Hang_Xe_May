@@ -58,7 +58,18 @@ public class ChangePasswordServlet extends HttpServlet {
 			session.removeAttribute("accountforgot");
 			response.sendRedirect("login");
 		} else {
-			System.out.println("co pass");
+			Account account = (Account) session.getAttribute("account");
+			if(BCrypt.checkpw(oldpass, account.getPassword())) {
+				String password = request.getParameter("password");
+				account.setPassword(BCrypt.hashpw(password, BCrypt.gensalt()));
+				accontModel.update(account);
+				session.setAttribute("account", account);
+				session.setAttribute("message", "Bạn Đã Đổi Mật Khẩu Thành Công");
+				response.sendRedirect("changePassword");
+			} else {
+				session.setAttribute("message", "Mật Khẩu Không Đúng");
+				response.sendRedirect("changePassword");
+			}
 		}
 		
 	}

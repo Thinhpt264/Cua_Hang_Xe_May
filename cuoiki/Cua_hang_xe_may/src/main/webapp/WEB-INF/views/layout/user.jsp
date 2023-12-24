@@ -102,8 +102,7 @@
                         	        <a href="#" class="dropdown-item ">Xin chao ${sessionScope.account.username }</a>
                         	        <a href="${pageContext.request.contextPath }/information" class="dropdown-item">Thông tin tài khoàn</a>
                                     <a href="${pageContext.request.contextPath }/changePassword" class="dropdown-item">Đổi mật khẩu</a>
-                                    <a href="${pageContext.request.contextPath }/cart" class="dropdown-item">Giỏ Hàng( <%=cart.size() %>)</a>  
-                                    <a href="${pageContext.request.contextPath }/login?action=login" class="dropdown-item">Đơn Hàng Của Bạn</a>
+                                    <a href="${pageContext.request.contextPath }/cart" class="dropdown-item">Xe Yêu Thích( <%=cart.size() %>)</a>  
                                   	<a href="${pageContext.request.contextPath }/login?action=logout" class="dropdown-item"> Đăng Xuất <i class="fa-solid fa-arrow-right-from-bracket" style="margin-left: 5px"></i></a>
                         	    </c:if>
                                 </div>

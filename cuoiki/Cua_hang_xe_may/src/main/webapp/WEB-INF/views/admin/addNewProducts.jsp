@@ -1,3 +1,6 @@
+<%@page import="com.demo.entities.Brand"%>
+<%@page import="java.util.List"%>
+<%@page import="com.demo.models.BrandModel"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" isELIgnored = "false" %>
 
@@ -58,12 +61,13 @@
                                                         data-select2-id="12" tabindex="-1" aria-hidden="true" name="brandId">
                                                     <option selected="selected" data-select2-id="14">Chọn Hãng Xe
                                                     </option>
-                                                    <option data-select2-id="131" value="1">Suzuki</option>
-                                                    <option data-select2-id="132" value="2">Vinfast</option>
-                                                    <option data-select2-id="133" value="3">Ducati</option>
-                                                    <option data-select2-id="134" value="4">BMW</option>
-                                                    <option data-select2-id="135" value="5">Texas</option>
-                                                    <option data-select2-id="136" value="6">Yamaha</option>
+                                                    <%BrandModel brandModel = new BrandModel();
+													List<Brand> brands = brandModel.findAll();
+                                                    %>
+                                                    <% for(Brand b: brands) { %>
+                                                    <option data-select2-id="131" value="<%=b.getId() %>"><%=b.getName() %></option>
+                                              		 <% } %>
+                                                    
                                                 </select>
                                             </div>
                                         </div>
