@@ -13,9 +13,26 @@
                 </div>
                 <div class="contact-form bg-light mb-6 col-lg-6" style="padding-top: 150px;">
                     <form id="forgot_form" method="post" action="${pageContext.request.contextPath}/changePassword?action=changePass">
+                     
                         <div class="row">
                             <div class="register ml-4">
-                               Hãy nhập mật khẩu của bạn <a href="#"></a>
+                            <%
+				        		HttpSession session2 = request.getSession();
+				        		String msg = (String)session2.getAttribute("message");
+				        		String msg1 = msg;
+				        		session2.removeAttribute("message");
+				        	%>
+				        	<span >
+				        		<%if(msg1 == null) { %>
+				        			<span > Hãy Nhập Mật Khẩu Của Bạn</span>
+				        		<% }else if(msg1.equalsIgnoreCase("Mật Khẩu Không Đúng")) { %>
+				        			<span style='color:red;'> <%=msg1 %></span>
+				        		
+				        		<% }else { %>
+									<span style='color:green;'> <%=msg1 %></span>
+									
+								 <% } %>
+				        	</span>	
                             </div>
                             <c:if test="${sessionScope.accountforgot == null }">
                              <div class="col-10 form-group">

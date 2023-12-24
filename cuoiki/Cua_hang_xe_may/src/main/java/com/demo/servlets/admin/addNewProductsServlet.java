@@ -107,7 +107,7 @@ public class addNewProductsServlet extends HttpServlet {
 		  product.setCompressionRatio(compressionRatio);
 		  product.setEngieType(engieType);
 		  if(productModel.create(product)) {
-			 response.sendRedirect("listproduct");
+			 response.sendRedirect("addNewVersion");
 		  } else {
 			  System.out.println("false");
 		  }

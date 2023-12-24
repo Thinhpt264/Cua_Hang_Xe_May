@@ -22,22 +22,22 @@
                           <label for="exampleInputFile">Avatar</label>
                           <div class="input-group">
                             <div class="custom-file">
-                              <input type="file" class="custom-file-input" id="exampleInputFile" name="avatar" onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])">
+                              <input type="file" class="custom-file-input" id="exampleInputFile" name="avatar" value="${sessionScope.account.avartar }" onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])">
                               <label class="custom-file-label" for="exampleInputFile">Chọn Ảnh</label>
                             </div>
                             <div class="input-group-append">
                               <span class="input-group-text">Tải Lên</span>
                             </div>
                           </div>
-                        
-                          <c:if test="${sessionScope.account.avartar == 'avtUnknow.png'}">
+                        	
+                          <c:if test="${sessionScope.account.avartar eq 'avtUnknow.png'}">
                           	  <div class="upload__img-wrap">
-                          	 	 <img id="blah" src="${pageContext.request.contextPath}/assets/user/Image/avtUnknow.png" alt="" width="100" height="100" />
+                          	 	 <img id="blah" src="${pageContext.request.contextPath}/assets/user/Image/avtUnknow.png" width="100" height="100" />
                        		 </div>
                           </c:if>
-                          <c:if test="${sessionScope.account.avartar != 'avtUnknow.png' }">
+                          <c:if test="${sessionScope.account.avartar ne 'avtUnknow.png' }">
                           	  <div class="upload__img-wrap">
-                          	 	 <img id="blah" src="${pageContext.request.contextPath}/assets/user/Image/${sessionScope.account.avartar }" alt="" width="100" height="100" />
+                          	 	 <img id="blah" src="${pageContext.request.contextPath}/assets/user/Image/${sessionScope.account.avartar}"width="100" height="100" />
                        		 </div>
                           </c:if>
                             

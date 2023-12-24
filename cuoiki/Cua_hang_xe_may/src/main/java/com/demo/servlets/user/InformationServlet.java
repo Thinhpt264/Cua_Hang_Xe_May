@@ -14,9 +14,11 @@ import com.demo.helpers.UploadFileHelper;
 import com.demo.models.AccountModel;
 @WebServlet("/information")
 @MultipartConfig(
+		
 		maxFileSize = 1024 * 1024 * 5 ,
 		maxRequestSize = 1024 * 1024 * 10,
 		fileSizeThreshold = 1024 * 1024 * 10
+
 )
 /**
  * Servlet implementation class InformationServlet
@@ -70,6 +72,7 @@ public class InformationServlet extends HttpServlet {
 			response.sendRedirect("information");
 		} else {
 			System.out.println("aaa");
+			response.sendRedirect("information");
 		}
 		
 	}

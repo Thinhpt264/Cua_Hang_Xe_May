@@ -69,7 +69,7 @@
                          		<% for(Account a: accounts) {%>
                           		 <tr id="test" class="odd">
                                 <td class="dtr-control sorting_1" tabindex="0"><%=a.getId() %></td>
-                                 <td><img src="../../dist/img/avatar3.png" alt="" style="width: 50px;"></td>
+                                 <td><img src="${pageContext.request.contextPath}/assets/user/Image/<%=a.getAvartar() %>" alt="" style="width: 50px;"></td>
                                   <td><%= a.getUsername()%></td>
                                   <% if ( a.getRole().equals("0")) { %>
                                   <td>Admin</td>
