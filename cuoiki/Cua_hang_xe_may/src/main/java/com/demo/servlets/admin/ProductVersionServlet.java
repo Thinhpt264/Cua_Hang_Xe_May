@@ -31,11 +31,15 @@ public class ProductVersionServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		
 		VersionModel versionModel = new VersionModel();
 		List<ProductVersion> productVersions = versionModel.findAll();
 		request.setAttribute("productVersions", productVersions);
 		request.setAttribute("admin", "../admin/productVersion.jsp");
 		request.getRequestDispatcher("/WEB-INF/views/layout/admin.jsp").forward(request, response);
+	}
+	protected void doGet_Delete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 	}
 
 	/**

@@ -30,7 +30,7 @@
                             </div>
                             <!-- /.card-header -->
                             <!-- form start -->
-                            <form action="${pageContext.request.contextPath}/admin/addnewproduct?action=addnew" method="post" enctype="multipart/form-data">
+                            <form action="${pageContext.request.contextPath}/admin/addNewProductColor?action=addnewcolor" method="post" enctype="multipart/form-data">
                             
                                 <div class="card-body p-4">
                        
@@ -38,14 +38,14 @@
                                         <div class="col-md-4 ml-5">
                                             <div class="form-group">
                                                 <label for="examplePro">Tên xe</label>
-                                                <input type="text" name="examplePro" class="form-control" id="examplePro"
+                                                <input type="text" name="idProduct" class="form-control" id="examplePro"
                                                        placeholder="vd: Ab2020">
                                             </div>
                                         </div>
                                         <div class="col-md-4 ml-4">
                                             <div class="form-group">
                                                 <label for="exampleversion">Tên phiên bản</label>
-                                                <input type="text" name="exampleversion" class="form-control" id="exampleversion"
+                                                <input type="text" name="idVersion" class="form-control" id="exampleversion"
                                                        placeholder="vd: Phiên Bản Đặc Biệt">
                                             </div>
                                         </div>

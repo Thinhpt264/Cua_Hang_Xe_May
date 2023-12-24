@@ -1,6 +1,14 @@
+<%@page import="com.demo.models.ProductModel"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.demo.entities.ProductColor"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" isELIgnored = "false"%>
-
+<% List<ProductColor> colors = (List<ProductColor>)request.getAttribute("productColors");
+ 	if(colors==null){
+ 		colors = new ArrayList<>();
+ 	}
+%>
 <div class="content-header">
         <div class="container-fluid">
           <div class="row mb-2">
@@ -56,138 +64,29 @@
                             </tr>
                           </thead>
                         <tbody>
+                        <%
+                        for(ProductColor color : colors){
+                        	  %>
+                       
                                     <tr>
-                                        <td>1.</td>
-                                        <td>AB 125</td>
-                                        <td>Phiên Bản Đặc Biệt </td>
-                                        <td>Vàng Đen</td>
-                                        <td class="text-center"><img src="${pageContext.request.contextPath}/assets/user/Image/Honda/tayga/AB_125_den.png" alt="" style="width: 50px"></td>
-                                        <td class="text-center">42.000.000</td>
-                                        <td>Vàng-Đen</td>
+                                        <td ><%= color.getId() %></td>
+                                         <%ProductModel productModel = new ProductModel();
+                                        
+                                        %>
+                                        <td><%= productModel.findProductById(productModel.findProductVersionById(color.getVersionID()).getProductID()).getName() %></td>
+                                       
+                                        <td><%= productModel.findProductVersionById(color.getVersionID()).getVersionName() %> </td>
+                                        <td><%= color.getColor() %></td>
+                                        <td class="text-center"><img src="${pageContext.request.contextPath}/assets/user/Image/<%=color.getPhoto() %>" style="width: 50px"></td>
+                                        <td class="text-center"><%= color.getPrice() %></td>
+                                        <td><%= color.getValue() %></td>
                                         <td class="text-center"><a href="" class="btn btn-info"><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a>
                                         </td>
-                                        <td class="text-center"><a href="" class="btn btn-danger"><i class="fas fa-trash" style="color: #000000;"></i></a></td>
+                                        <td class="text-center"><a onclick="return handleLinkClick(event)" href="${pageContext.request.contextPath }/admin/productcolor?action=delete&id=<%=color.getId()%>" class="btn btn-danger"><i class="fas fa-trash" style="color: #000000;"></i></a></td>
                                     </tr>
-                                     <tr>
-                                        <td>1.</td>
-                                        <td>AB 125</td>
-                                        <td>Phiên Bản Đặc Biệt </td>
-                                        <td>Vàng Đen</td>
-                                        <td class="text-center"><img src="${pageContext.request.contextPath}/assets/user/Image/Honda/tayga/AB_125_den.png" alt="" style="width: 50px"></td>
-                                        <td class="text-center">42.000.000</td>
-                                        <td>Vàng-Đen</td>
-                                        <td class="text-center"><a href="" class="btn btn-info"><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a>
-                                        </td>
-                                        <td class="text-center"><a href="" class="btn btn-danger"><i class="fas fa-trash" style="color: #000000;"></i></a></td>
-                                    </tr>
-                                     <tr>
-                                        <td>1.</td>
-                                        <td>AB 125</td>
-                                        <td>Phiên Bản Đặc Biệt </td>
-                                        <td>Vàng Đen</td>
-                                        <td class="text-center"><img src="${pageContext.request.contextPath}/assets/user/Image/Honda/tayga/AB_125_den.png" alt="" style="width: 50px"></td>
-                                        <td class="text-center">42.000.000</td>
-                                        <td>Vàng-Đen</td>
-                                        <td class="text-center"><a href="" class="btn btn-info"><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a>
-                                        </td>
-                                        <td class="text-center"><a href="" class="btn btn-danger"><i class="fas fa-trash" style="color: #000000;"></i></a></td>
-                                    </tr>
-                                     <tr>
-                                        <td>1.</td>
-                                        <td>AB 125</td>
-                                        <td>Phiên Bản Đặc Biệt </td>
-                                        <td>Vàng Đen</td>
-                                        <td class="text-center"><img src="${pageContext.request.contextPath}/assets/user/Image/Honda/tayga/AB_125_den.png" alt="" style="width: 50px"></td>
-                                        <td class="text-center">42.000.000</td>
-                                        <td>Vàng-Đen</td>
-                                        <td class="text-center"><a href="" class="btn btn-info"><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a>
-                                        </td>
-                                        <td class="text-center"><a href="" class="btn btn-danger"><i class="fas fa-trash" style="color: #000000;"></i></a></td>
-                                    </tr>
-                                     <tr>
-                                        <td>1.</td>
-                                        <td>AB 125</td>
-                                        <td>Phiên Bản Đặc Biệt </td>
-                                        <td>Vàng Đen</td>
-                                        <td class="text-center"><img src="${pageContext.request.contextPath}/assets/user/Image/Honda/tayga/AB_125_den.png" alt="" style="width: 50px"></td>
-                                        <td class="text-center">42.000.000</td>
-                                        <td>Vàng-Đen</td>
-                                        <td class="text-center"><a href="" class="btn btn-info"><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a>
-                                        </td>
-                                        <td class="text-center"><a href="" class="btn btn-danger"><i class="fas fa-trash" style="color: #000000;"></i></a></td>
-                                    </tr>
-                                     <tr>
-                                        <td>1.</td>
-                                        <td>AB 125</td>
-                                        <td>Phiên Bản Đặc Biệt </td>
-                                        <td>Vàng Đen</td>
-                                        <td class="text-center"><img src="${pageContext.request.contextPath}/assets/user/Image/Honda/tayga/AB_125_den.png" alt="" style="width: 50px"></td>
-                                        <td class="text-center">42.000.000</td>
-                                        <td>Vàng-Đen</td>
-                                        <td class="text-center"><a href="" class="btn btn-info"><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a>
-                                        </td>
-                                        <td class="text-center"><a href="" class="btn btn-danger"><i class="fas fa-trash" style="color: #000000;"></i></a></td>
-                                    </tr>
-                                     <tr>
-                                        <td>1.</td>
-                                        <td>AB 125</td>
-                                        <td>Phiên Bản Đặc Biệt </td>
-                                        <td>Vàng Đen</td>
-                                        <td class="text-center"><img src="${pageContext.request.contextPath}/assets/user/Image/Honda/tayga/AB_125_den.png" alt="" style="width: 50px"></td>
-                                        <td class="text-center">42.000.000</td>
-                                        <td>Vàng-Đen</td>
-                                        <td class="text-center"><a href="" class="btn btn-info"><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a>
-                                        </td>
-                                        <td class="text-center"><a href="" class="btn btn-danger"><i class="fas fa-trash" style="color: #000000;"></i></a></td>
-                                    </tr>
-                                     <tr>
-                                        <td>1.</td>
-                                        <td>AB 125</td>
-                                        <td>Phiên Bản Đặc Biệt </td>
-                                        <td>Vàng Đen</td>
-                                        <td class="text-center"><img src="${pageContext.request.contextPath}/assets/user/Image/Honda/tayga/AB_125_den.png" alt="" style="width: 50px"></td>
-                                        <td class="text-center">42.000.000</td>
-                                        <td>Vàng-Đen</td>
-                                        <td class="text-center"><a href="" class="btn btn-info"><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a>
-                                        </td>
-                                        <td class="text-center"><a href="" class="btn btn-danger"><i class="fas fa-trash" style="color: #000000;"></i></a></td>
-                                    </tr>
-                                     <tr>
-                                        <td>1.</td>
-                                        <td>AB 125</td>
-                                        <td>Phiên Bản Đặc Biệt </td>
-                                        <td>Vàng Đen</td>
-                                        <td class="text-center"><img src="${pageContext.request.contextPath}/assets/user/Image/Honda/tayga/AB_125_den.png" alt="" style="width: 50px"></td>
-                                        <td class="text-center">42.000.000</td>
-                                        <td>Vàng-Đen</td>
-                                        <td class="text-center"><a href="" class="btn btn-info"><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a>
-                                        </td>
-                                        <td class="text-center"><a href="" class="btn btn-danger"><i class="fas fa-trash" style="color: #000000;"></i></a></td>
-                                    </tr>
-                                     <tr>
-                                        <td>1.</td>
-                                        <td>AB 125</td>
-                                        <td>Phiên Bản Đặc Biệt </td>
-                                        <td>Vàng Đen</td>
-                                        <td class="text-center"><img src="${pageContext.request.contextPath}/assets/user/Image/Honda/tayga/AB_125_den.png" alt="" style="width: 50px"></td>
-                                        <td class="text-center">42.000.000</td>
-                                        <td>Vàng-Đen</td>
-                                        <td class="text-center"><a href="" class="btn btn-info"><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a>
-                                        </td>
-                                        <td class="text-center"><a href="" class="btn btn-danger"><i class="fas fa-trash" style="color: #000000;"></i></a></td>
-                                    </tr>
-                                     <tr>
-                                        <td>1.</td>
-                                        <td>AB 125</td>
-                                        <td>Phiên Bản Đặc Biệt </td>
-                                        <td>Vàng Đen</td>
-                                        <td class="text-center"><img src="${pageContext.request.contextPath}/assets/user/Image/Honda/tayga/AB_125_den.png" alt="" style="width: 50px"></td>
-                                        <td class="text-center">42.000.000</td>
-                                        <td>Vàng-Đen</td>
-                                        <td class="text-center"><a href="" class="btn btn-info"><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a>
-                                        </td>
-                                        <td class="text-center"><a href="" class="btn btn-danger"><i class="fas fa-trash" style="color: #000000;"></i></a></td>
-                                    </tr>
+                                    <%} %>
+                    
+                    
                                     </tbody>
                         </table>
                       </div>

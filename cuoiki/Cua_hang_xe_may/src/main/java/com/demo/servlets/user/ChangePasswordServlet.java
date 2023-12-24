@@ -49,12 +49,18 @@ public class ChangePasswordServlet extends HttpServlet {
 	protected void doGet_Change(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		AccountModel accontModel = new AccountModel();
-		String password = request.getParameter("password");
-		Account account = (Account) session.getAttribute("accountforgot");
-		account.setPassword(BCrypt.hashpw(password, BCrypt.gensalt()));
-		accontModel.update(account);
-		session.removeAttribute("accountforgot");
-		response.sendRedirect("login");
+		String oldpass = request.getParameter("oldpass");
+		if(oldpass == null) {
+			String password = request.getParameter("password");
+			Account account = (Account) session.getAttribute("accountforgot");
+			account.setPassword(BCrypt.hashpw(password, BCrypt.gensalt()));
+			accontModel.update(account);
+			session.removeAttribute("accountforgot");
+			response.sendRedirect("login");
+		} else {
+			System.out.println("co pass");
+		}
+		
 	}
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
