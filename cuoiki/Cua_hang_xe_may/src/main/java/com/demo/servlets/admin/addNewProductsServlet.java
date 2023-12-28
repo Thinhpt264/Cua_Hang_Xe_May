@@ -11,8 +11,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 
 import com.demo.entities.Product;
+import com.demo.entities.ProductVersion;
 import com.demo.helpers.UploadFileHelper;
 import com.demo.models.ProductModel;
+import com.demo.models.VersionModel;
 @WebServlet("/admin/addnewproduct")
 @MultipartConfig(
 		
@@ -107,6 +109,12 @@ public class addNewProductsServlet extends HttpServlet {
 		  product.setCompressionRatio(compressionRatio);
 		  product.setEngieType(engieType);
 		  if(productModel.create(product)) {
+			 VersionModel versionModel = new VersionModel();
+			 ProductVersion productversion = new ProductVersion();
+			productversion.setVersionName(new String("Tiêu Chuẩn".getBytes("ISO-8859-1"), "UTF-8"));
+			productversion.setPrice(Double.parseDouble(price));
+			productversion.setProductID(productModel.findLast().getId());
+			versionModel.create(productversion);
 			 response.sendRedirect("addNewVersion");
 		  } else {
 			  System.out.println("false");

@@ -485,6 +485,44 @@ public class ProductModel {
 		return Productversion;
 		
 	}
-
+	public Product findLast() {
+		Product product = null;
+		try {
+			PreparedStatement preparedStatement = ConnectDB.connection().prepareStatement("select * from products order by id desc limit 1");
+			ResultSet resultSet = preparedStatement.executeQuery();
+			while(resultSet.next()) {
+				product = new Product();
+				product.setId(resultSet.getInt("id"));
+				product.setBrandID(resultSet.getInt("brandId"));
+				product.setAvatar(resultSet.getString("avatar"));
+				product.setPrice(resultSet.getDouble("price"));
+				product.setMotolineID(resultSet.getInt("motolineId"));
+				product.setAfterFork(resultSet.getString("afterFork"));
+				product.setBeforeFork(resultSet.getString("beforeFork"));
+				product.setCompressionRatio(resultSet.getString("compressionRatio"));
+				product.setName(resultSet.getString("name"));
+				product.setDescription(resultSet.getString("description"));
+				product.setCylinderCapacity(resultSet.getString("cylinderCapacity"));
+				product.setEngieType(resultSet.getString("engieType"));
+				product.setFuelConsumption(resultSet.getString("fuelConsumption"));
+				product.setMaxiumCapacity(resultSet.getString("maxiumCapacity"));
+				product.setMaxiumMoment(resultSet.getString("maxiumMoment"));
+				product.setOilCapacity(resultSet.getString("oilCapacity"));
+				product.setSize(resultSet.getString("size"));
+				product.setWeight(resultSet.getString("weight"));
+				product.setWheelSize(resultSet.getString("wheelSize"));
+				product.setSaddleHeight(resultSet.getString("saddleHeight"));
+				product.setPetrolCapacity(resultSet.getString("petrolCapacity"));	
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			product = null;
+		} finally {
+			ConnectDB.disconnect();
+		}
+		return product;
+	}
+	
 	
 }
