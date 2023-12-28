@@ -15,7 +15,7 @@ public class EmployeeModel {
 		List<Employee> employees = new ArrayList<>();
 		try {
 				PreparedStatement preparedStatement = ConnectDB.connection()
-						.prepareStatement("select * from employee");
+						.prepareStatement("select * from employees");
 				ResultSet resultSet = preparedStatement.executeQuery();
 				while(resultSet.next()) {
 					Employee employee = new Employee();
@@ -75,8 +75,48 @@ public class EmployeeModel {
 		}		
 		return result;	
 	}
+	public boolean delete(int id) {
+		boolean result = true;
+		try {
+			PreparedStatement preparedStatement = ConnectDB.connection()
+					.prepareStatement("Delete from employees where id=?");
+			preparedStatement.setInt(1, id);
+			result = preparedStatement.executeUpdate() > 0;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			result = false;
+		}finally {
+			ConnectDB.disconnect();
+		}
+		return result;
+	
+	}
+	
+	public boolean create(Employee employee) {
+		boolean result = true;
+		try {
+			PreparedStatement preparedStatement = ConnectDB.connection().prepareStatement("insert into employees(salary, card, accountID)"
+					+ "value(?, ?, ?)");
+			preparedStatement.setInt(3, employee.getAccountID());
+			preparedStatement.setString(2, employee.getCardID());
+			preparedStatement.setDouble(1, employee.getSalary());
+			result = preparedStatement.executeUpdate() > 0;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			result = false;
+		}finally {
+			ConnectDB.disconnect();
+		}		
+		return result;
+	}
 	public static void main(String[] args) {
 		EmployeeModel employeeModel = new EmployeeModel();
-		System.out.println(employeeModel.findEmployeeByAccountId(5));
+		Employee employee = new Employee();
+		employee.setAccountID(6);
+		employee.setCardID("215597097");
+		employee.setSalary(400000.0);
+		System.out.println(employeeModel.create(employee));
 	}
 }

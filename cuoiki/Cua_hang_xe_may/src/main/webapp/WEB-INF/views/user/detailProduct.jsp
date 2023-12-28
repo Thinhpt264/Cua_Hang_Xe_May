@@ -21,11 +21,17 @@
    %>
      <%ProductModel productModel = new ProductModel(); 
                     List<ProductVersion> productVersions = productModel.findAllVersionByProduct(idproduct);
-                    if(productVersions == null) productVersions = new ArrayList<>();
+                    if(productVersions == null) {
+                    	productVersions = new ArrayList<>()  ;
+                    	ProductVersion productVersion = new ProductVersion();
+                    	productVersions.add(productVersion);
+                    }else {
                     	int productVersionID = productVersions.get(0).getId();
                         List<ProductColor> productColorsFirst = productModel.findAllColorByProductVersion(productVersionID);
                         ProductColor productColor = productColorsFirst.get(0);
                         if(productVersions == null) productVersions = new ArrayList<>();
+                    }
+                    
                    
     %>
    <style>

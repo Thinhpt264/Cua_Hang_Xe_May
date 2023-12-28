@@ -74,7 +74,7 @@ public class VerifyProcessServlet extends HttpServlet {
 		Account account = (Account) session.getAttribute("accountforgot");
 		System.out.println(account.toString());
 		String email = account.getEmail();
-		MailHelper.MailHelper(email,"Lấy Lại Mật Khẩu Của Bạn" , "Đây là mã xác thực để lấy lại mật khẩu của bạn /n" + otp +"/n Vui Lòng không cung cấp cho bất kì ai" );
+		MailHelper.MailHelper(email,"Lấy Lại Mật Khẩu Của Bạn" , "Đây là mã xác thực để lấy lại mật khẩu của bạn " + otp +" Vui Lòng không cung cấp cho bất kì ai" );
 		System.out.println(account.toString());
 		session.setAttribute("otp1", otp);
 		response.sendRedirect("verifyuser?action=verify");

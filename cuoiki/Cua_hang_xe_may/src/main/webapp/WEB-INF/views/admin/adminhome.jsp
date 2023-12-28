@@ -1,5 +1,11 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.demo.entities.Account"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" isELIgnored = "false"%>
+    <% List<Account> accounts = (List<Account>) request.getAttribute("accounts");
+   	if(accounts == null) accounts = new ArrayList<>();
+   %>
 <div class="content-header">
         <div class="container-fluid">
           <div class="row mb-2">
@@ -93,46 +99,19 @@
                 </div>
                 <div class="card-body p-0">
                 <ul class="users-list clearfix">
+                 <% int count = 0; 
+            	for(int i=accounts.size()-1; i>= 0; i--) { %> 
                 <li>
-                <img src="${pageContext.request.contextPath}/assets/admin/dist/img/user1-128x128.jpg" alt="User Image">
-                <a class="users-list-name" href="#">Phan Thế Thịnh</a>
-                <span class="users-list-date">hôm nay</span>
+                <% Account a = accounts.get(i); %>
+                <img src="${pageContext.request.contextPath}/assets/user/Image/<%=a.getAvartar() %>" style="width: 128px; height: 128px" alt="User Image">
+                <a class="users-list-name" href="#"><%=a.getName() %></a>
+                <span class="users-list-date"> <%=a.getCreated() %></span>
                 </li>
-                <li>
-                <img src="${pageContext.request.contextPath}/assets/admin/dist/img/user8-128x128.jpg" alt="User Image">
-                <a class="users-list-name" href="#">Trần Quốc Trung</a>
-                <span class="users-list-date">Hôm qua</span>
-                </li>
-                <li>
-                <img src="${pageContext.request.contextPath}/assets/admin/dist/img/user7-128x128.jpg" alt="User Image">
-                <a class="users-list-name" href="#">Nguyễn Trần Phúc Thành</a>
-                <span class="users-list-date">12 tháng 12</span>
-                </li>
-                <li>
-                <img src="${pageContext.request.contextPath}/assets/admin/dist/img/user6-128x128.jpg" alt="User Image">
-                <a class="users-list-name" href="#">Lê Đình Văn</a>
-                <span class="users-list-date">12 tháng 11</span>
-                </li>
-                <li>
-                <img src="${pageContext.request.contextPath}/assets/admin/dist/img/user2-160x160.jpg" alt="User Image">
-                <a class="users-list-name" href="#">NGuyễn Như Toàn</a>
-                <span class="users-list-date">13 Tháng 10</span>
-                </li>
-                <li>
-                <img src="${pageContext.request.contextPath}/assets/admin/dist/img/user5-128x128.jpg" alt="User Image">
-                <a class="users-list-name" href="#">Trần Thanh Vũ</a>
-                <span class="users-list-date">14 tháng 3</span>
-                </li>
-                <li>
-                <img src="${pageContext.request.contextPath}/assets/admin/dist/img/user4-128x128.jpg" alt="User Image">
-                <a class="users-list-name" href="#">Lê Thanh Tú</a>
-                <span class="users-list-date">15 tháng 2</span>
-                </li>
-                <li>
-                <img src="${pageContext.request.contextPath}/assets/admin/dist/img/user3-128x128.jpg" alt="User Image">
-                <a class="users-list-name" href="#">Nguyễn Minh Thịnh</a>
-                <span class="users-list-date">15 tháng 1</span>
-                </li>
+                	<% if (++count == 8) {
+                    break;
+                }  
+                %>   
+               	<% } %>
                 </ul>
                 </div>
                 <div class="card-footer text-center">

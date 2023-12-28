@@ -6,6 +6,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.demo.entities.Account;
+import com.demo.entities.Employee;
+import com.demo.models.AccountModel;
+import com.demo.models.EmployeeModel;
 @WebServlet("/admin/addNewEmployeeByAdmin")
 /**
  * Servlet implementation class addNewEmployeeByAdminServlet
@@ -34,7 +39,33 @@ public class addNewEmployeeByAdminServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		String action = request.getParameter("action");
+		if(action.equalsIgnoreCase("newEmployee")) {
+				doPost_Create(request, response);
+			}
+		
+	}
+	protected void doPost_Create(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		int id = Integer.parseInt(request.getParameter("accountId")) ;
+		String card = request.getParameter("card");
+		double salary = Double.parseDouble(request.getParameter("salary"));
+		AccountModel accountModel = new AccountModel();
+		Account account = accountModel.findAccountById(id);
+		EmployeeModel employeeModel = new EmployeeModel();
+		Employee employee = new Employee();
+		employee.setAccountID(id);
+		employee.setCardID(card);
+		employee.setSalary(salary);
+		if(employeeModel.create(employee)) {
+			if(account.getRole().equalsIgnoreCase("2")) {
+				account.setRole("1");
+				accountModel.update(account);
+			}
+			response.sendRedirect("employee");
+	
+		}else {
+			response.sendRedirect("addNewEmployeeByAdmin");
+		}
 	}
 
 }

@@ -59,7 +59,7 @@
                                                     if(products == null) products = new ArrayList<>();
                                                     %>
                                                     <% for(Product p : products)  {%>
-                                                    <option data-select2-id="199" value="<%=p.getId()%>"><%=p.getName() %></option>
+                                                    <option data-select2-id="<%=198+ p.getId() %>" value="<%=p.getId()%>"><%=p.getName() %></option>
                                                     <% } %>
                                                            
                                                 </select>
