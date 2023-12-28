@@ -4,6 +4,16 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
+  <filter>
+  	<filter-name>RoleFilterAdmin</filter-name>
+  	<display-name>RoleFilterAdmin</display-name>
+  	<description></description>
+  	<filter-class>com.demo.entities.RoleFilterAdmin</filter-class>
+  </filter>
+  <filter-mapping>
+  	<filter-name>RoleFilterAdmin</filter-name>
+  	<url-pattern>/RoleFilterAdmin</url-pattern>
+  </filter-mapping>
   <servlet>
   	<servlet-name>HomeServlet</servlet-name>
   	<display-name>HomeServlet</display-name>

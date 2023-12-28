@@ -68,7 +68,7 @@
                 <div class="col-lg-3 col-md-6 mb-2 item">
                     <div class="rent-item mb-4">
                    
-                        <img class="img-fluid mb-4" src="${pageContext.request.contextPath}/assets/user/Image/<%=p.getAvatar() %>" alt="">
+                        <img class="img-fluid mb-4" src="${pageContext.request.contextPath}/assets/user/Image/<%=p.getAvatar() %>">
                         <h4 class="text-uppercase mb-4"><%=p.getName() %></h4>
                         <div class="d-flex justify-content-center mb-4">
                             <div class="px-2">

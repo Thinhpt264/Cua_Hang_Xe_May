@@ -11,15 +11,16 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 
 import com.demo.entities.Product;
+import com.demo.entities.ProductVersion;
 import com.demo.helpers.UploadFileHelper;
 import com.demo.models.ProductModel;
+import com.demo.models.VersionModel;
 @WebServlet("/admin/addnewproduct")
 @MultipartConfig(
 		
 				maxFileSize = 1024 * 1024 * 5 ,
 				maxRequestSize = 1024 * 1024 * 10,
 				fileSizeThreshold = 1024 * 1024 * 10
-
 )
 /**
  * Servlet implementation class addNewProductsServlet
@@ -61,6 +62,8 @@ public class addNewProductsServlet extends HttpServlet {
 		}
 	}
 	protected void doPost_upLoad(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
 		ProductModel productModel = new ProductModel();
 		  String brandID = request.getParameter("brandId");
 		  String motolineID =  request.getParameter("motolineId"); // dong xe (tay ga, xe so, phan khoi lon)
@@ -85,11 +88,10 @@ public class addNewProductsServlet extends HttpServlet {
 		  String newAvatarName = UploadFileHelper.uploadFile("assets/user/Image", request, avatar);
 		  System.out.println(newAvatarName);
 		  Product product = new Product();
-		  
 		  product.setBrandID(Integer.parseInt(brandID));
 		  product.setAvatar(newAvatarName);
 		  product.setMotolineID(Integer.parseInt(motolineID));
-		  product.setName(name);
+		  product.setName(new String(name.getBytes("ISO-8859-1"), "UTF-8"));
 		  product.setDescription(description);
 		  product.setPrice(Double.parseDouble(price));
 		  product.setWeight(weight);
@@ -107,6 +109,12 @@ public class addNewProductsServlet extends HttpServlet {
 		  product.setCompressionRatio(compressionRatio);
 		  product.setEngieType(engieType);
 		  if(productModel.create(product)) {
+			 VersionModel versionModel = new VersionModel();
+			 ProductVersion productversion = new ProductVersion();
+			productversion.setVersionName(new String("Tiêu Chuẩn".getBytes("ISO-8859-1"), "UTF-8"));
+			productversion.setPrice(Double.parseDouble(price));
+			productversion.setProductID(productModel.findLast().getId());
+			versionModel.create(productversion);
 			 response.sendRedirect("addNewVersion");
 		  } else {
 			  System.out.println("false");

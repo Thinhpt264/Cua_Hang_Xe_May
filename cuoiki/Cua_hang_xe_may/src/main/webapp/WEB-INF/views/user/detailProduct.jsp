@@ -21,12 +21,10 @@
    %>
      <%ProductModel productModel = new ProductModel(); 
                     List<ProductVersion> productVersions = productModel.findAllVersionByProduct(idproduct);
-                    if(productVersions == null) productVersions = new ArrayList<>();
                     	int productVersionID = productVersions.get(0).getId();
                         List<ProductColor> productColorsFirst = productModel.findAllColorByProductVersion(productVersionID);
                         ProductColor productColor = productColorsFirst.get(0);
                         if(productVersions == null) productVersions = new ArrayList<>();
-                   
     %>
    <style>
     .color-cell{
@@ -79,14 +77,16 @@
                 <div class="col-lg-6 ">
                     <div class="container-fluid p-0"  > 
                   
-                       <div class="large" style="width: 100%; height: 100% ;" id="result">
+                       <div class="large" style="width: 100%; height: 100% ;" id="result"> 
+                      
                           <img id="img" src="${pageContext.request.contextPath}/assets/user/Image/<%=productColor.getPhoto() %>" alt="" id="largeImage" style="width: 100%; height: 100%">
+                        
                          <div class="container d-flex">
                 <div class="header mr-5">
                     <h1 id="versionName">Phiên bản <%=productColor.getColor() %></h1>
                     <div id="price" style="font-size: 20px;">Giá <fmt:formatNumber type="number" value="<%= productColor.getPrice()%>" pattern="#,##0"/> </div>
                 </div>
-           
+           	
             <div class="favoriteProduct ml-5 d-flex" >
                 <h1>
                     <span onclick="favoriteProduct()">
@@ -104,7 +104,7 @@
        
                 <div class="col-lg-6 pt-5">
                     <div class="bg-white">
-                   
+                   	<%if(productVersions != null) { %>
                     <%for(ProductVersion pv : productVersions) { %>
                         <div class="color-value">
                         	<div>
@@ -133,7 +133,10 @@
                         	</div>
                    		 </div>
                    		 <br>
-                   		 <% } %>
+                   		 <% } 
+                   	}
+                   	%>
+                   		 
                		 </div>
            		 </div>
         	</div>

@@ -65,7 +65,7 @@
 													List<Brand> brands = brandModel.findAll();
                                                     %>
                                                     <% for(Brand b: brands) { %>
-                                                    <option data-select2-id="131" value="<%=b.getId() %>"><%=b.getName() %></option>
+                                                    <option data-select2-id="<%=130 + b.getId() %>" value="<%=b.getId() %>"><%=b.getName() %></option>
                                               		 <% } %>
                                                     
                                                 </select>
