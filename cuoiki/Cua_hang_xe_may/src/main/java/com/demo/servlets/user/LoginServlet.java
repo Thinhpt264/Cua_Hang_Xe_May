@@ -1,6 +1,7 @@
 package com.demo.servlets.user;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -14,6 +15,7 @@ import com.demo.entities.Account;
 import com.demo.helpers.MailHelper;
 import com.demo.helpers.RandomStringHelper;
 import com.demo.models.AccountModel;
+import com.google.gson.Gson;
 @WebServlet("/login")
 /**
  * Servlet implementation class LoginServlet
@@ -44,11 +46,51 @@ public class LoginServlet extends HttpServlet {
 			doGet_Verify(request, response);
 		}else if(action.equalsIgnoreCase("forgotpassword")){
 			doGet_Forgot(request, response);
+		}else if(action.equalsIgnoreCase("checkExitsEmail")) {
+			doGet_CheckExitsEmail(request, response);
+		}else if(action.equalsIgnoreCase("checkExitsUserName")) {
+			doGet_CheckExitsUsername(request, response);
 		}
 	}
 	private void doGet_Forgot(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.getRequestDispatcher("/WEB-INF/views/login/forgotpassword.jsp").forward(request, response);
 
+	}
+	private void doGet_CheckExitsEmail(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		response.setContentType("application/json; charset=utf-8");
+		request.setCharacterEncoding("utf-8");
+		PrintWriter writer = response.getWriter();
+		String email = request.getParameter("email");
+		System.out.println(email);
+		Gson gson = new Gson();
+		AccountModel accountModel = new AccountModel();
+		Account account = accountModel.findAccountByEmail(email);
+		if(account != null) {
+			String msg =  "Email Đã Tồn Tại";
+			writer.print(gson.toJson(msg));
+		}else {
+			String msg =  "";
+			writer.print(gson.toJson(msg));
+		}
+	
+	}
+	private void doGet_CheckExitsUsername(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		response.setContentType("application/json; charset=utf-8");
+		request.setCharacterEncoding("utf-8");
+		PrintWriter writer = response.getWriter();
+		String username = request.getParameter("username");
+		System.out.println(username);
+		Gson gson = new Gson();
+		AccountModel accountModel = new AccountModel();
+		Account account = accountModel.findAccountByUsername(username);
+		if(account != null) {
+			String msg =  "UserName Đã Tồn Tại";
+			writer.print(gson.toJson(msg));
+		}else {
+			String msg =  "";
+			writer.print(gson.toJson(msg));
+		}
+	
 	}
 
 	protected void doGet_Login(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

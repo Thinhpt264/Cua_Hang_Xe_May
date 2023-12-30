@@ -11,8 +11,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 
 import com.demo.entities.Product;
+import com.demo.entities.ProductColor;
 import com.demo.entities.ProductVersion;
 import com.demo.helpers.UploadFileHelper;
+import com.demo.models.ColorModel;
 import com.demo.models.ProductModel;
 import com.demo.models.VersionModel;
 @WebServlet("/admin/addnewproduct")
@@ -91,6 +93,7 @@ public class addNewProductsServlet extends HttpServlet {
 		  product.setBrandID(Integer.parseInt(brandID));
 		  product.setAvatar(newAvatarName);
 		  product.setMotolineID(Integer.parseInt(motolineID));
+		  
 		  product.setName(new String(name.getBytes("ISO-8859-1"), "UTF-8"));
 		  product.setDescription(description);
 		  product.setPrice(Double.parseDouble(price));
@@ -111,10 +114,22 @@ public class addNewProductsServlet extends HttpServlet {
 		  if(productModel.create(product)) {
 			 VersionModel versionModel = new VersionModel();
 			 ProductVersion productversion = new ProductVersion();
-			productversion.setVersionName(new String("Tiêu Chuẩn".getBytes("ISO-8859-1"), "UTF-8"));
+			 
+			 String name2 = "tiêu chuẩn" ;
+			productversion.setVersionName(name2);
 			productversion.setPrice(Double.parseDouble(price));
 			productversion.setProductID(productModel.findLast().getId());
-			versionModel.create(productversion);
+			 if(versionModel.create(productversion)) {
+				 ColorModel colorModel = new ColorModel();
+				 ProductColor color = new ProductColor();
+				 String name3 = "Màu Tiêu Chuẩn" ;
+				 color.setColor(name3);
+				 color.setPhoto(newAvatarName);
+				 color.setPrice(Double.parseDouble(price));
+				 color.setValue("black-black");
+				 color.setVersionID(versionModel.findLast().getId());
+				 colorModel.create(color);
+			 }
 			 response.sendRedirect("addNewVersion");
 		  } else {
 			  System.out.println("false");

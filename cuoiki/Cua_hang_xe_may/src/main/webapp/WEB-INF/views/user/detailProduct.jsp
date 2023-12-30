@@ -87,14 +87,7 @@
                     <div id="price" style="font-size: 20px;">Giá <fmt:formatNumber type="number" value="<%= productColor.getPrice()%>" pattern="#,##0"/> </div>
                 </div>
            	
-            <div class="favoriteProduct ml-5 d-flex" >
-                <h1>
-                    <span onclick="favoriteProduct()">
-                        <i class="fa-regular fa-heart" id="heart" ></i>
-                        <i class="fa-solid fa-heart" id="heart-nofill" style="display: none"></i>
-                    </span>
-                </h1>
-            </div>
+            
         </div> 
        
                        </div>
@@ -144,8 +137,7 @@
 
     <div class="container-fluid mb-2 ">
         <div class="container">
-           <a href="checkout.html" style="text-decoration: none;"><button class="btn btn-primary btn-lg btn-block" name="btnDatHang" style="width: 150px;height: 50px;">Đặt hàng</button></a> 
-           <a href="${pageContext.request.contextPath}/cart?action=buynow&id=<%=productColor.getId()%>" id="cartId" style="text-decoration: none;"><button class="btn btn-primary btn-lg btn-block" name="btnDatHang" style="width: 150px;height: 50px;">Thêm Vào Giỏ Hàng</button></a> 
+           <a href="${pageContext.request.contextPath}/cart?action=buynow&id=<%=productColor.getId()%>" id="cartId" style="text-decoration: none;"><button class="btn btn-primary btn-lg btn-block" name="btnDatHang" style="width: 200px;height: 70px;">Thêm Vào Giỏ Hàng</button></a> 
         </div>
         
     </div> 

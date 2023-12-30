@@ -80,6 +80,8 @@ public class DetailServlet extends HttpServlet {
 		}
 	}
 	protected void doPost_Comment(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
 		String idProduct = request.getParameter("productId");
 		String idAccount = request.getParameter("accountId");
 		if(idAccount.equalsIgnoreCase("notAccount")){
@@ -93,7 +95,7 @@ public class DetailServlet extends HttpServlet {
 		Comment comment = new Comment();
 		comment.setProductId(idProducts);
 		comment.setAccountId(idAccounts);
-		comment.setContent(content);
+		comment.setContent(new String(content.getBytes("ISO-8859-1"), "UTF-8"));
 		if(commentModel.create(comment)) {
 			response.sendRedirect("details?id="+idProducts);
 		} else {
