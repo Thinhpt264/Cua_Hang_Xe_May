@@ -56,6 +56,28 @@ public class EmployeeModel {
 		}
 		return employee	;
 	}
+	public Employee findEmployeebyId(int id) {
+		Employee employee = null;
+		try {
+			PreparedStatement preparedStatement = ConnectDB.connection().prepareStatement("select * from employees where id= ?");
+					preparedStatement.setInt(1, id);
+					ResultSet resultSet = preparedStatement.executeQuery();
+			while(resultSet.next()){
+				employee = new Employee();
+				employee.setId(resultSet.getInt("id"));
+				employee.setAccountID(resultSet.getInt("accountID"));
+				employee.setCardID(resultSet.getString("card"));
+				employee.setSalary(resultSet.getDouble("salary"));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			employee = null;
+		}finally {
+			ConnectDB.disconnect();
+		}
+		return employee	;
+	}
 	public boolean update(Employee employee) {
 		boolean result = true;
 		try {

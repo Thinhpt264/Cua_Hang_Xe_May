@@ -255,24 +255,18 @@
                 <div class="col-lg-4 col-md-6 mb-2">
                     <div class="rent-item mb-4">
                     	<% Product p = products.get(i); %>
-                        <img class="img-fluid mb-4" src="${pageContext.request.contextPath}/assets/user/Image/<%= p.getAvatar()%>" alt="">
+                        <img class="img-fluid mb-4" style="width:230px ; height : 170px" src="${pageContext.request.contextPath}/assets/user/Image/<%= p.getAvatar()%>" alt="">
                         <h4 class="text-uppercase mb-4"><%=p.getName()%></h4>
-                        <div class="d-flex justify-content-center mb-4">
-                            <div class="px-2">
-                                <i class= "fa-solid fa-motorcycle text-primary mr-1"></i>
-                                <span>2023</span>
-                            </div>
-                            <div class="px-2 border-left border-right">
-                                <i class="fa fa-cogs text-primary mr-1"></i>
-                                <span>125cc</span>
-                            </div>
-                            <div class="px-2">
+                        <div class="d-flex justify-content-center mb-4">                       
+                            <div class="px-6">
                                 <i class="fa fa-road text-primary mr-1"></i>
-                                <span>New</span>
+                                <span> <fmt:setLocale value = "vi_Vn"/>
+                                <fmt:formatNumber type="currency" 
+          value ="<%=p.getPrice() %>" currencySymbol="VNĐ"/></span></span>
                             </div>
                         </div>
                      
-                        <a class="btn btn-primary px-3" href="detailAB_125.html"><%= p.getPrice() %></a>
+                        <a class="btn btn-primary px-3" href="${pageContext.request.contextPath}/details?id=<%=p.getId()%>">Xem Chi Tiết</a>
                     </div>
                 </div>
                 <% if (++count == 6) {

@@ -194,6 +194,12 @@
    	<description></description>
    	<servlet-class>com.demo.servlets.admin.addNewProductColor</servlet-class>
    </servlet>
+   <servlet>
+   	<servlet-name>UpdateEmployeeServlet</servlet-name>
+   	<display-name>UpdateEmployeeServlet</display-name>
+   	<description></description>
+   	<servlet-class>com.demo.servlets.admin.UpdateEmployeeServlet</servlet-class>
+   </servlet>
   <servlet-mapping>
   	<servlet-name>HomeServlet</servlet-name>
   	<url-pattern>/HomeServlet</url-pattern>
@@ -313,5 +319,9 @@
   <servlet-mapping>
   	<servlet-name>addNewProductColor</servlet-name>
   	<url-pattern>/addNewProductColor</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>UpdateEmployeeServlet</servlet-name>
+  	<url-pattern>/UpdateEmployeeServlet</url-pattern>
   </servlet-mapping>
 </web-app>

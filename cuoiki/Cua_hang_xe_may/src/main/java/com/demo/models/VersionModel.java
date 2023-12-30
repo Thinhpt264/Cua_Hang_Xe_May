@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.demo.entities.ConnectDB;
+import com.demo.entities.Product;
 import com.demo.entities.ProductVersion;
 
 public class VersionModel {
@@ -67,6 +68,27 @@ public class VersionModel {
 		}
 		return result;
 		
+	}
+	public ProductVersion findLast() {
+		ProductVersion productVersion = null;
+		try {
+			PreparedStatement preparedStatement = ConnectDB.connection().prepareStatement("select * from productversions order by id desc limit 1");
+			ResultSet resultSet = preparedStatement.executeQuery();
+			while(resultSet.next()) {
+				productVersion = new ProductVersion();
+				productVersion.setId(resultSet.getInt("id"));
+				productVersion.setPrice(resultSet.getDouble("price"));;
+				productVersion.setVersionName(resultSet.getString("versionname"));
+				productVersion.setProductID(resultSet.getInt("productID"));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			productVersion = null;
+		} finally {
+			ConnectDB.disconnect();
+		}
+		return productVersion;
 	}
 	
 	public static void main(String[] args) {

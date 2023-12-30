@@ -114,15 +114,20 @@ input[type="radio"]{
 }
 .form-inner form .field input{
   height: 100%;
-  width: 100%;
+  width: 90%;
   outline: none;
-  padding-left: 15px;
+  padding-left: 20px;
   border-radius: 15px;
   border: 1px solid lightgrey;
   border-bottom-width: 2px;
   font-size: 17px;
   transition: all 0.3s ease;
+  margin-left: 8px;
 }
+
+
+
+
 .form-inner form .field input:focus{
   border-color: #1a75ff;
   /* box-shadow: inset 0 0 3px #fb6aae; */
