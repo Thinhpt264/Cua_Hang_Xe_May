@@ -43,12 +43,14 @@ public class addNewVersionServlet extends HttpServlet {
 		}
 	}
 	protected void doPost_Addversion(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
 		VersionModel versionModel = new VersionModel();
 		String versionName = request.getParameter("name");
 		int productID = Integer.parseInt(request.getParameter("proID"));
 		double price = Double.parseDouble(request.getParameter("price"));
 		ProductVersion productVersion = new ProductVersion();
-		productVersion.setVersionName(versionName);
+		productVersion.setVersionName(new String(versionName.getBytes("ISO-8859-1"), "UTF-8"));
 		productVersion.setProductID(productID);
 		productVersion.setPrice(price);
 		if(versionModel.create(productVersion)) {

@@ -22,7 +22,7 @@
                     <div class="carousel-caption d-flex flex-column align-items-center justify-content-end">
                         <div class="p-3" style="max-width: 900px;">
 
-                            <a href="motobike.html" class="btn btn-primary py-md-3 px-md-5 mt-2">Mua ngay!</a>
+                            <a href="${pageContext.request.contextPath}/motobike" class="btn btn-primary py-md-3 px-md-5 mt-2">Mua ngay!</a>
                         </div>
                     </div>
                 </div>
@@ -32,7 +32,7 @@
                     <div class="carousel-caption d-flex flex-column align-items-center justify-content-end">
                         <div class="p-3" style="max-width: 900px;">
                             
-                            <a href="" class="btn btn-primary py-md-3 px-md-5 mt-2">Mua ngay!</a>
+                            <a href="${pageContext.request.contextPath}/motobike" class="btn btn-primary py-md-3 px-md-5 mt-2">Mua ngay!</a>
                         </div>
                     </div>
                 </div>
@@ -41,7 +41,7 @@
                     <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                         <div class="carousel-caption d-flex flex-column align-items-center justify-content-end">
                             <div class="p-3" style="max-width: 900px;">
-                                <a href="" class="btn btn-primary py-md-3 px-md-5 mt-2">Mua ngay!</a>
+                                <a href="${pageContext.request.contextPath}/motobike" class="btn btn-primary py-md-3 px-md-5 mt-2">Mua ngay!</a>
                             </div>
                         </div>
                     </div>
@@ -51,7 +51,7 @@
                     <div class="carousel-caption d-flex flex-column align-items-center justify-content-end">
                         <div class="p-3" style="max-width: 900px;">
                             
-                            <a href="" class="btn btn-primary py-md-3 px-md-5 mt-2">Mua ngay!</a>
+                            <a href="${pageContext.request.contextPath}/motobike" class="btn btn-primary py-md-3 px-md-5 mt-2">Mua ngay!</a>
                         </div>
                     </div>
                 </div>
@@ -60,7 +60,7 @@
                     <div class="carousel-caption d-flex flex-column align-items-center justify-content-end">
                         <div class="p-3" style="max-width: 900px;">
                            
-                            <a href="" class="btn btn-primary py-md-3 px-md-5 mt-2">Mua ngay!</a>
+                            <a href="${pageContext.request.contextPath}/motobike" class="btn btn-primary py-md-3 px-md-5 mt-2">Mua ngay!</a>
                         </div>
                     </div>
                 </div>
@@ -236,7 +236,7 @@
                     <h1 class="display-1 text-uppercase text-primary mb-4">GIẢM 50% </h1>
                     <h1 class="text-uppercase text-light mb-4">ƯU ĐÃI ĐẶC BIỆT CHO THÀNH VIÊN MỚI</h1>
                     <p class="mb-4">Chỉ dành cho tháng đầu tiên khi bạn đến mua hàng</p>
-                    <a class="btn btn-primary mt-2 py-3 px-5" href="">MUA NGAY</a>
+                    <a class="btn btn-primary mt-2 py-3 px-5" href="${pageContext.request.contextPath}/motobike">MUA NGAY</a>
                 </div>
             </div>
         </div>
@@ -463,32 +463,32 @@
 
     <!-- Vendor Start -->
     <div class="container-fluid py-5">
-        <div class="container py-5">
-            <div class="owl-carousel vendor-carousel">
-                <div class="bg-light p-4">
-                    <img src="${pageContext.request.contextPath}/assets/user/Image/Honda/logo-vinfast.png" alt="">
+                <div class="container py-5">
+                    <div class="owl-carousel vendor-carousel">
+                        <div class="bg-light p-4">
+                            <img src="${pageContext.request.contextPath}/assets/user/Image/Honda/logo-vinfast.png" alt="">
+                        </div>
+                        <div class="bg-light p-4">
+                            <img src="${pageContext.request.contextPath}/assets/user/Image/Honda/suzuki.png" alt="">
+                        </div>
+                        <div class="bg-light p-4">
+                            <img src="${pageContext.request.contextPath}/assets/user/Image/Honda/logo_ducati.png" alt="">
+                        </div>
+                        <div class="bg-light p-4">
+                            <img src="${pageContext.request.contextPath}/assets/user/Image/Honda/yamaha.png" alt="">
+                        </div>
+                        <div class="bg-light p-4">
+                            <img src="${pageContext.request.contextPath}/assets/user/Image/Honda/piago.png" alt="">
+                        </div>
+                        <div class="bg-light p-4">
+                            <img style="width:114px;height:114px" src="${pageContext.request.contextPath}/assets/user/Image/Honda/logohonda2.png" alt="">
+                        </div>
+                        <div class="bg-light p-4">
+                             <img src="${pageContext.request.contextPath}/assets/user/img/vendor-7.png" alt="">
+                        </div>
+                    </div>
                 </div>
-                <div class="bg-light p-4">
-                    <img src="${pageContext.request.contextPath}/assets/user/Image/Honda/suzuki.png" alt="">
-                </div>
-                <div class="bg-light p-4">
-                    <img src="${pageContext.request.contextPath}/assets/user/Image/Honda/logo_ducati.png" alt="">
-                </div>
-                <div class="bg-light p-4">
-                    <img src="${pageContext.request.contextPath}/assets/user/Image/Honda/yamaha.png" alt="">
-                </div>
-                <div class="bg-light p-4">
-                    <img src="${pageContext.request.contextPath}/assets/user/Image/Honda/piago.png" alt="">
-                </div>
-                <div class="bg-light p-4">
-                    <img src="../img/vendor-7.png" alt="">
-                </div>
-                <div class="bg-light p-4">
-                    <img src="../img/vendor-8.png" alt="">
-                </div>
-            </div>
-        </div>
-    </div>
+            </div> 
     <!-- Vendor End -->
     <div class="containers">
         <div class="menu-toggle">

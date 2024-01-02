@@ -80,16 +80,15 @@
                                   <td><%=nameBrand%></td>
                                   <td><%=nameMotoline %></td>
                                   <td class="text-center">
-                                    <a href="../detailAB_125.html"><i class="fa-solid fa-plus"></i></a>
+                                    <a href="${pageContext.request.contextPath}/details?id=<%=p.getId()%>"><i class="fa-solid fa-plus"></i></a>
                                  </td>
                                  
                                  <td class="text-center"><a href="" class="btn btn-info"><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a>
                                  </td>
-                                 <td class="text-center"><a onclick="return handleLinkClick(event)" href="${pageContext.request.contextPath}/admin/listproduct?action=delete&id=<%=p.getId()%>" class="btn btn-danger"><i class="fas fa-trash" style="color: #000000;"></i></a></td>
-                            <script type="text/javascript">
+                                 <td class="text-center"><a onclick="handleLinkClick(event)" href="${pageContext.request.contextPath}/admin/listproduct?action=delete&id=<%=p.getId()%>" class="btn btn-danger"><i class="fas fa-trash" style="color: #000000;"></i></a></td>
+                           		 <script type="text/javascript">
                             function handleLinkClick(event) {
                                 var confirmation = confirm("Bạn có chắc chắn muốn xóa sản phẩm này?");
-
                                 if (confirmation) {
                                   var linkHref = event.target.href;
                                   window.location.href = linkHref;

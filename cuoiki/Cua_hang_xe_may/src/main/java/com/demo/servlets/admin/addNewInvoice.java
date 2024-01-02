@@ -1,29 +1,25 @@
 package com.demo.servlets.admin;
 
 import java.io.IOException;
-import java.util.List;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.demo.entities.Account;
 import com.demo.entities.Invoice;
-import com.demo.models.AccountModel;
 import com.demo.models.InvoiceModel;
-@WebServlet("/admin/home")
+@WebServlet("/admin/addNewInvoice")
 /**
- * Servlet implementation class DashboardServlet
+ * Servlet implementation class addNewInvoice
  */
-public class DashboardServlet extends HttpServlet {
+public class addNewInvoice extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public DashboardServlet() {
+    public addNewInvoice() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,21 +28,8 @@ public class DashboardServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String action = request.getParameter("action");
-		if(action == null) {
-			doGet_Index(request, response);
-		}
-		
-	}
-	protected void doGet_Index(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		AccountModel accountModel = new AccountModel();
-		List<Account> accounts = accountModel.findAll();
-		InvoiceModel invoiceModel = new InvoiceModel();
-		List<Invoice> invoices = invoiceModel.findAll();
-		request.setAttribute("invoices", invoices);
-		request.setAttribute("accounts", accounts);
-		request.setAttribute("admin", "../admin/adminhome.jsp");
-		request.getRequestDispatcher("/WEB-INF/views/layout/admin.jsp").forward(request, response);
+		// TODO Auto-generated method stub
+		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**
@@ -54,7 +37,22 @@ public class DashboardServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		InvoiceModel invoiceModel = new InvoiceModel();
+		Invoice invoice = new Invoice();
+		int colorId = Integer.parseInt( request.getParameter("colorId"));
+		int employeeId = Integer.parseInt( request.getParameter("employeeId"));
+		int customerId = Integer.parseInt( request.getParameter("customerId"));
+		double price = Double.parseDouble(request.getParameter("price"));
+		String tradeDate = request.getParameter("tradeDate");
+		invoice.setColorId(colorId);
+		invoice.setCustomerId(customerId);
+		invoice.setEmployeeId(employeeId);
+		invoice.setTradeDate(tradeDate);
+		invoice.setPrice(price);
+		if(invoiceModel.create(invoice)) {
+			response.sendRedirect("home");
+		}
+		
 	}
 
 }

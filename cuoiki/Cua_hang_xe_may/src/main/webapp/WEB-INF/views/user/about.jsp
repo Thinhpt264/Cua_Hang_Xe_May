@@ -88,30 +88,30 @@
 
     <!-- Vendor Start -->
     <div class="container-fluid py-5">
-        <div class="container py-5">
-            <div class="owl-carousel vendor-carousel">
-                <div class="bg-light p-4">
-                    <img src="${pageContext.request.contextPath}/assets/user/Image/Honda/logo-vinfast.png" alt="">
+                <div class="container py-5">
+                    <div class="owl-carousel vendor-carousel">
+                        <div class="bg-light p-4">
+                            <img src="${pageContext.request.contextPath}/assets/user/Image/Honda/logo-vinfast.png" alt="">
+                        </div>
+                        <div class="bg-light p-4">
+                            <img src="${pageContext.request.contextPath}/assets/user/Image/Honda/suzuki.png" alt="">
+                        </div>
+                        <div class="bg-light p-4">
+                            <img src="${pageContext.request.contextPath}/assets/user/Image/Honda/logo_ducati.png" alt="">
+                        </div>
+                        <div class="bg-light p-4">
+                            <img src="${pageContext.request.contextPath}/assets/user/Image/Honda/yamaha.png" alt="">
+                        </div>
+                        <div class="bg-light p-4">
+                            <img src="${pageContext.request.contextPath}/assets/user/Image/Honda/piago.png" alt="">
+                        </div>
+                        <div class="bg-light p-4">
+                            <img style="width:114px;height:114px" src="${pageContext.request.contextPath}/assets/user/Image/Honda/logohonda2.png" alt="">
+                        </div>
+                        <div class="bg-light p-4">
+                             <img src="${pageContext.request.contextPath}/assets/user/img/vendor-7.png" alt="">
+                        </div>
+                    </div>
                 </div>
-                <div class="bg-light p-4">
-                    <img src="${pageContext.request.contextPath}/assets/user/Image/Honda/suzuki.png" alt="">
-                </div>
-                <div class="bg-light p-4">
-                    <img src="${pageContext.request.contextPath}/assets/user/Image/Honda/logo_ducati.png" alt="">
-                </div>
-                <div class="bg-light p-4">
-                    <img src="${pageContext.request.contextPath}/assets/user/Image/Honda/yamaha.png" alt="">
-                </div>
-                <div class="bg-light p-4">
-                    <img src="${pageContext.request.contextPath}/assets/user/Image/Honda/piago.png" alt="">
-                </div>
-                <div class="bg-light p-4">
-                    <img src="${pageContext.request.contextPath}/assets/user/img/vendor-7.png" alt="">
-                </div>
-                <div class="bg-light p-4">
-                    <img src="${pageContext.request.contextPath}/assets/user/img/vendor-8.png" alt="">
-                </div>
-            </div>
-        </div>
-    </div>
+            </div> 
     <!-- Vendor End -->
