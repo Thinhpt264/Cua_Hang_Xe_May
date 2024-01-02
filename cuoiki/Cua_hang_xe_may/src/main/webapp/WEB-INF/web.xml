@@ -200,6 +200,18 @@
    	<description></description>
    	<servlet-class>com.demo.servlets.admin.UpdateEmployeeServlet</servlet-class>
    </servlet>
+   <servlet>
+   	<servlet-name>addNewCustomer</servlet-name>
+   	<display-name>addNewCustomer</display-name>
+   	<description></description>
+   	<servlet-class>com.demo.servlets.admin.addNewCustomer</servlet-class>
+   </servlet>
+   <servlet>
+   	<servlet-name>addNewInvoice</servlet-name>
+   	<display-name>addNewInvoice</display-name>
+   	<description></description>
+   	<servlet-class>com.demo.servlets.admin.addNewInvoice</servlet-class>
+   </servlet>
   <servlet-mapping>
   	<servlet-name>HomeServlet</servlet-name>
   	<url-pattern>/HomeServlet</url-pattern>
@@ -323,5 +335,13 @@
   <servlet-mapping>
   	<servlet-name>UpdateEmployeeServlet</servlet-name>
   	<url-pattern>/UpdateEmployeeServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>addNewCustomer</servlet-name>
+  	<url-pattern>/addNewCustomer</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>addNewInvoice</servlet-name>
+  	<url-pattern>/addNewInvoice</url-pattern>
   </servlet-mapping>
 </web-app>

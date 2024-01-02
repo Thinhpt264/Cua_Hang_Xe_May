@@ -46,7 +46,7 @@
                           </div>
                           <div class="form-group">
                             <label for="exampleInputPhoneNumber1">Mức Lương</label>
-                            <input type="text" class="form-control" id="exampleInputPhoneNumber1" placeholder="" value="<%=employee.getSalary() %>" disabled>
+                            <input type="text" class="form-control" id="exampleInputPhoneNumber1" value="<%=employee.getSalary() %>" disabled>
                              <label for="exampleInputPhoneNumber1">Số căn cước công dân</label>
                             <input type="text" class="form-control" name="card" id="exampleInputPhoneNumber1" placeholder="Nhập số CCCD" value="<%=employee.getCardID()%>">
                           </div>

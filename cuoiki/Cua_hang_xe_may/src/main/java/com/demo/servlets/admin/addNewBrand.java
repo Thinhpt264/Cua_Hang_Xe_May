@@ -55,6 +55,8 @@ public class addNewBrand extends HttpServlet {
 		
 	}
 	protected void doPost_NewBrand(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
 		BrandModel brandModel = new BrandModel();
 		Brand brand = new Brand();
 		String name = request.getParameter("nameBrand");
@@ -62,7 +64,7 @@ public class addNewBrand extends HttpServlet {
 		String description = request.getParameter("description");
 		String newAvatar = UploadFileHelper.uploadFile("assets/user/Image", request, photo2);
 		brand.setName(name);
-		brand.setDescription(description);
+		brand.setDescription(new String (description.getBytes("ISO-8859-1"),"UTF-8"));
 		brand.setPhoto(newAvatar);
 		if(brandModel.create(brand)) {
 			response.sendRedirect("listbrand");

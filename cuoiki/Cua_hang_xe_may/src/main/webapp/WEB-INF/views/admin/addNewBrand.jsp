@@ -42,7 +42,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    </div>
+                              </div>
                                     <div class="row">
                                         <div class="col-md-6 ml-5">
                                             <div class="form-group">
@@ -62,7 +62,6 @@
                                             <button type="submit" class="btn btn-primary">Thêm </button>
                                         </div>
                                     </div>
-                                </div>
                                 </form>
                         </div>
                     </div>

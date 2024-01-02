@@ -146,10 +146,10 @@
                             <img src="${pageContext.request.contextPath}/assets/user/Image/Honda/piago.png" alt="">
                         </div>
                         <div class="bg-light p-4">
-                            <img src="../img/vendor-7.png" alt="">
+                            <img style="width:114px;height:114px" src="${pageContext.request.contextPath}/assets/user/Image/Honda/logohonda2.png" alt="">
                         </div>
                         <div class="bg-light p-4">
-                            <img src="../img/vendor-8.png" alt="">
+                             <img src="${pageContext.request.contextPath}/assets/user/img/vendor-7.png" alt="">
                         </div>
                     </div>
                 </div>
