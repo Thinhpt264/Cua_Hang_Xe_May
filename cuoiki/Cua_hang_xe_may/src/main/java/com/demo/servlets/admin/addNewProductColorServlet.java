@@ -55,6 +55,8 @@ public class addNewProductColorServlet extends HttpServlet {
 		}
 	}
 	protected void doPost_newColor(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
 		int idProduct = Integer.parseInt(request.getParameter("idProduct"));
 		int idVersion =  Integer.parseInt(request.getParameter("idVersion"));
 		String color1 = request.getParameter("color");
@@ -64,7 +66,7 @@ public class addNewProductColorServlet extends HttpServlet {
 		String avatar = UploadFileHelper.uploadFile("assets/user/Image", request, photo);
 		ProductColor color = new ProductColor();
 		color.setVersionID(idVersion);
-		color.setColor(color1);
+		color.setColor(new String(color1.getBytes("ISO-8859-1"), "UTF-8"));
 		color.setPrice(price);
 		color.setPhoto(avatar);
 		color.setValue(valueColor);

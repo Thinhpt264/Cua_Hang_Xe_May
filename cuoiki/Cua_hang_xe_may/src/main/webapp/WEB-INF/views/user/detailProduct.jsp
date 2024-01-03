@@ -6,18 +6,18 @@
 <%@page import="com.demo.entities.Product"%>
 <%@page import="com.demo.models.CommentModel"%>
 <%@page import="java.util.ArrayList"%>
-<%@page import="com.demo.entities.Comment"%>
+<%@page import="com.demo.entities.CommentCustom"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" isELIgnored = "false"%>
      <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 	<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-   <% List<Comment> comments =(List<Comment>) request.getAttribute("comments");
-   if(comments == null) comments = new ArrayList<>();
-   String id= request.getParameter("id");
-   int idproduct = Integer.parseInt(id);
-   Product product = (Product) request.getAttribute("product");
-
+   <%
+   List<CommentCustom> comments =(List<CommentCustom>) request.getAttribute("comments");
+      if(comments == null) comments = new ArrayList<>();
+      String id= request.getParameter("id");
+      int idproduct = Integer.parseInt(id);
+      Product product = (Product) request.getAttribute("product");
    %>
      <%ProductModel productModel = new ProductModel(); 
                     List<ProductVersion> productVersions = productModel.findAllVersionByProduct(idproduct);
@@ -25,6 +25,8 @@
                         List<ProductColor> productColorsFirst = productModel.findAllColorByProductVersion(productVersionID);
                         ProductColor productColor = productColorsFirst.get(0);
                         if(productVersions == null) productVersions = new ArrayList<>();
+                        
+        CommentModel commentModel = new CommentModel();
     %>
    <style>
     .color-cell{
@@ -248,28 +250,55 @@
             </div>
         </div>
     </div>
+    <script>
+    	$(document).ready(function() {
+    		var productID = $('#productID').val();
+    		
+    		console.log(productID);
+    		function loadComment(){
+    			var s = '';
+        		$.ajax({
+        			type: 'GET',
+        			url: '${pageContext.request.contextPath}/details',
+        			data: {
+        				action : 'loadComment',
+        				productID : productID
+        			},
+        			success: function(comments) {
+						for (var i = 0; i < comments.length; i++) {
+							s+= '<div class="d-flex align-items-top bg-light mb-4">';
+							s+= '<div class="d-flex align-items-center justify-content-center flex-shrink-0 bg-white ml-n4 mr-4" style="width: 100px;">';
+							s+= '<img src="${pageContext.request.contextPath}/assets/admin/dist/img/avatar2.png" class="rounded-circle w-50" alt="">';
+							s+= '</div>';
+							s+= '<div>';
+							s+= '<p style="margin: 0; color: black;">' + comments[i].accountId + '</p>';
+							s+= '<p class="p-1 m-0" style="font-size: 15px;">' + comments[i].created +'</p>';
+							s+= '<p class="m-0 p-1" style=" color: black; font-family: Arial, Helvetica, sans-serif;">' + comments[i].content + '</p>';
+							s+= ' </div></div>';
+						}
+						$('#resultLoadComment').html(s);
+						$('#feedbackNumber').html('Co ' + comments.length + ' danh gia');
+					}
+        			
+        		});
+        	}
+    		
+    		setInterval(loadComment, 50);
+		});
+    	
+    </script>
+    <input id="productID" type="hidden" value="<%= idproduct %>">
+    <span id="test"></span>
     <div class="container-fluid ">
-        <div class="container">
-            <h1 class="mb-6" style="border-top: 5px solid orange;">Đánh Giá Sản Phẩm</h1>
-            <p style="color: black;">(Có <%=comments.size() %> Đánh Giá)</p>
-            <%for(Comment c: comments) {%>
-            <div class="">
-                <div class="d-flex align-items-top bg-light mb-4" >
-                    <div class="d-flex align-items-center justify-content-center flex-shrink-0 bg-white ml-n4 mr-4" style="width: 100px;">
-                        <img src="${pageContext.request.contextPath}/assets/admin/dist/img/avatar2.png" class="rounded-circle w-50" alt="">
-                    </div>
-                    <%
-                    CommentModel commentModel = new CommentModel();
-                    String username = commentModel.NameAccountById(c.getAccountId());
-                    %>
-                    <div>
-                        <p style="margin: 0; color: black;"><%=username %></p>
-                        <p class="p-1 m-0" style="font-size: 15px;"><%= c.getCreated() %></p>
-                        <p class="m-0 p-1" style=" color: black; font-family: Arial, Helvetica, sans-serif;"><%=c.getContent() %></p>
-                    </div>
-                </div>
+    <h1 class="mb-6" style="border-top: 5px solid orange;">Đánh Giá Sản Phẩm</h1>
+            <p style="color: black;" id="feedbackNumber"></p>
+        <div class="container" >
+            
+            
+            <div id="resultLoadComment">
+               
             </div>
-            <% } %>
+         
             <form action="${pageContext.request.contextPath}/details?action=comment" method="post">
                 <div class="form-group">
                 	<input type="hidden" name="productId" value="<%= id%>">
@@ -353,33 +382,33 @@
         </div>
     </div>
     <!-- Vendor Start -->
-    <div class="container-fluid py-5">
-        <div class="container py-5">
-            <div class="owl-carousel vendor-carousel">
-                <div class="bg-light p-4">
-                    <img src="${pageContext.request.contextPath}assets/user/Image/Honda/logo-vinfast.png" alt="">
+     <div class="container-fluid py-5">
+                <div class="container py-5">
+                    <div class="owl-carousel vendor-carousel">
+                        <div class="bg-light p-4">
+                            <img src="${pageContext.request.contextPath}/assets/user/Image/Honda/logo-vinfast.png" alt="">
+                        </div>
+                        <div class="bg-light p-4">
+                            <img src="${pageContext.request.contextPath}/assets/user/Image/Honda/suzuki.png" alt="">
+                        </div>
+                        <div class="bg-light p-4">
+                            <img src="${pageContext.request.contextPath}/assets/user/Image/Honda/logo_ducati.png" alt="">
+                        </div>
+                        <div class="bg-light p-4">
+                            <img src="${pageContext.request.contextPath}/assets/user/Image/Honda/yamaha.png" alt="">
+                        </div>
+                        <div class="bg-light p-4">
+                            <img src="${pageContext.request.contextPath}/assets/user/Image/Honda/piago.png" alt="">
+                        </div>
+                        <div class="bg-light p-4">
+                            <img style="width:114px;height:114px" src="${pageContext.request.contextPath}/assets/user/Image/Honda/logohonda2.png" alt="">
+                        </div>
+                        <div class="bg-light p-4">
+                             <img src="${pageContext.request.contextPath}/assets/user/img/vendor-7.png" alt="">
+                        </div>
+                    </div>
                 </div>
-                <div class="bg-light p-4">
-                    <img src="${pageContext.request.contextPath}assets/user/Image/Honda/suzuki.png" alt="">
-                </div>
-                <div class="bg-light p-4">
-                    <img src="${pageContext.request.contextPath}assets/user/Image/Honda/logo_ducati.png" alt="">
-                </div>
-                <div class="bg-light p-4">
-                    <img src="${pageContext.request.contextPath}assets/user/Image/Honda/yamaha.png" alt="">
-                </div>
-                <div class="bg-light p-4">
-                    <img src="${pageContext.request.contextPath}assets/user/Image/Honda/piago.png" alt="">
-                </div>
-                <div class="bg-light p-4">
-                    <img src="${pageContext.request.contextPath}/assets/user/img/vendor-7.png" alt="">
-                </div>
-                <div class="bg-light p-4">
-                    <img src="${pageContext.request.contextPath}/assets/user/img/vendor-8.png" alt="">
-                </div>
-            </div>
-        </div>
-    </div>
+            </div> 
     <!-- Vendor End -->
      <script>
         function validateForm(){

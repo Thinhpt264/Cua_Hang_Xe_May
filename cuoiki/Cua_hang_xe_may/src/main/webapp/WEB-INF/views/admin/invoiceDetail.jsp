@@ -1,3 +1,14 @@
+<%@page import="com.demo.models.CustomerModel"%>
+<%@page import="com.demo.entities.Customer"%>
+<%@page import="com.demo.models.AccountModel"%>
+<%@page import="com.demo.entities.Employee"%>
+<%@page import="com.demo.models.EmployeeModel"%>
+<%@page import="com.demo.models.ColorModel"%>
+<%@page import="com.demo.entities.ProductColor"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.demo.models.ProductModel"%>
+<%@page import="com.demo.entities.Product"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" isELIgnored = "false"%>
       
@@ -30,58 +41,73 @@
                     </div>
                     <!-- /.card-header -->
                     <!-- form start -->
-                    <form class="">
+                    <form action="${pageContext.request.contextPath }/admin/addNewInvoice" method="post">
                       <div class="card-body p-4" >
                         <div class="row">
                           <div class="col-md-4 ml-5">
                             <div class="form-group" data-select2-id="129">
                                 <label>Đã Mua Xe</label>
-                                <select class="form-control select2 select2-danger select2-hidden-accessible" data-dropdown-css-class="select2-danger" style="width: 100%;" data-select2-id="12" tabindex="-1" aria-hidden="true">
-                                <option selected="selected" data-select2-id="12">Chọn Xe</option>
-                                <option data-select2-id="121">Honda AirBlade 160 ABS</option>
-                                <option data-select2-id="122">Sh 2020</option>
-                                <option data-select2-id="123">SuperCup</option>
-                                <option data-select2-id="124">Sirius</option>
-                                <option data-select2-id="125">Exciter-155-VVA-Black-Gold-ABS4</option>
-                                <option data-select2-id="126">Vision</option>
-                                </select>
+                                <select class="form-control select2 select2-danger select2-hidden-accessible"
+                                                        data-dropdown-css-class="select2-danger" style="width: 100%;"
+                                                        data-select2-id="999" tabindex="-1" aria-hidden="true" name="colorId">
+                                                    <option selected="selected"  data-select2-id="14">Chọn Xe
+                                                    </option>
+                                                    <%
+                                                   
+                                                    ColorModel colorModel = new ColorModel();
+                                                    List<ProductColor> colors =  colorModel.findAll();
+                                                    if(colors == null) colors = new ArrayList<>();
+                                                    %>
+                                                    <% for(ProductColor c : colors)  {%>
+                                                    <%  ProductModel productModel = new ProductModel(); %>
+                                                    
+                                                    <option data-select2-id="<%=198+ c.getId() %>" value="<%=c.getId()%>">
+                                                    <%= productModel.findProductById(productModel.findProductVersionById(c.getVersionID()).getProductID()).getName() %> -                                                  
+                                                     <%=productModel.findProductVersionById(c.getVersionID()).getVersionName() %> - 
+                                                  	<%=c.getColor()%> 
+                                                    </option>
+                                                    <% } %>
+                                                           
+                                                </select>
                                 </div>
                           </div>
                           <div class="col-md-4 ml-5">
                             <div class="form-group">
                                 <label for="examplePrice">Giá Tiền(VNĐ)</label>
-                                <input type="number" class="form-control" id="examplePrice" placeholder="3.000.000">
+                                <input type="number" name="price" class="form-control" id="examplePrice" placeholder="3.000.000">
                             </div>
                           </div>
                         </div>
                         <div class="row">
                             <div class="col-sm-4 ml-5">
                                 <div class="form-group" data-select2-id="138">
+                                <% EmployeeModel employeeModel = new EmployeeModel();
+                                	List<Employee> employees = employeeModel.findAll();
+                                	if(employees == null) employees = new ArrayList<>();
+                                	%>
+                                	
                                     <label>Nhân Viên Bán</label>
-                                    <select class="form-control select2 select2-danger select2-hidden-accessible" data-dropdown-css-class="select2-bootstrap4" style="width: 100%;" data-select2-id="13" tabindex="-1" aria-hidden="true">
-                                    <option selected="selected" data-select2-id="13">Nhân Viên</option>
-                                    <option data-select2-id="131">Phan Thế Thịnh(Chi Nhánh Quận Gò Vấp)</option>
-                                    <option data-select2-id="132">Nguyễn Trần Phúc Thành(Chi Nhánh Quận 9)</option>
-                                    <option data-select2-id="133">Trần Quốc Trung(Chi Nhánh Quận Thủ Đức)</option>
-                                    <option data-select2-id="133">Nguyễn Văn A(Chi Nhánh Quận Tân Phú)</option>
-                                    <option data-select2-id="134">Nguyễn Văn B(Chi Nhánh Quận 12)</option>
-                                    <option data-select2-id="135">Nguyễn Văn C(Chi Nhánh Quận Thủ Đức)</option>
-                                    <option data-select2-id="136">Trần Quốc Trung(Chi Nhánh Quận 10)</option>
+                                    <select name="employeeId" class="form-control select2 select2-danger select2-hidden-accessible" data-dropdown-css-class="select2-bootstrap4" style="width: 100%;" data-select2-id="13" tabindex="-1" aria-hidden="true">  
+                                    <option selected="selected" data-select2-id="100">Chọn Nhân Viên</option>
+                                     <%for(Employee e: employees){ %>
+                                     <%AccountModel accountModel  = new AccountModel(); %>
+                                    <option value="<%=e.getId() %>"  data-select2-id="<%=10000+ e.getId()%>"><%=accountModel.findAccountById(e.getAccountID()).getName() %> - MNV: <%=e.getId() %> </option>
+                                    <% } %>
                                     </select>
                                 </div>
                             </div>
-                           <div class="col-sm-5 ml-5 ">
+                           <div class="col-sm-4 ml-5 ">
                             <div class="form-group" data-select2-id="128">
-                                <label>Chi Nhánh Bán</label>
-                                <select class="form-control select2 select2-danger select2-hidden-accessible" data-dropdown-css-class="select2-danger" style="width: 100%;" data-select2-id="14" tabindex="-1" aria-hidden="true">
-                                <option selected="selected" data-select2-id="14">Chi Nhánh Bán</option>
-                                <option data-select2-id="151">Chi Nhánh Quận Gò Vấp</option>
-                                <option data-select2-id="152">Chi Nhánh Quận 9</option>
-                                <option data-select2-id="153">Chi Nhánh Quận Thủ Đức</option>
-                                <option data-select2-id="153">Chi Nhánh Quận Tân Phú</option>
-                                <option data-select2-id="154">Chi Nhánh Quận 12</option>
-                                <option data-select2-id="155">Chi Nhánh Quận Thủ Đức</option>
-                                <option data-select2-id="156">Chi Nhánh Quận 10</option>
+                            <%CustomerModel customerModel = new CustomerModel(); 
+                            List<Customer> customers = customerModel.findAll();
+                            if(customers == null) customers = new ArrayList<>();
+                        	%>
+                                <label>Khách Hàng</label>
+                                <select name="customerId" class="form-control select2 select2-danger select2-hidden-accessible" data-dropdown-css-class="select2-danger" style="width: 100%;" data-select2-id="14" tabindex="-1" aria-hidden="true">
+                                <option selected="selected" data-select2-id="1000">Chọn Khách Hàng</option>
+                                <% for(Customer c: customers) { %>
+                                 <option value="<%=c.getId() %>" data-select2-id="<%=1000 + c.getId() %>"><%=c.getName() %> - <%=c.getPhone() %></option>                               	
+                                <% } %>
                                 </select>
                             </div>
                         </div>
@@ -94,7 +120,7 @@
                                     <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
                                     </div>
-                                    <input id="date" class="form-control" data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" data-mask="" inputmode="numeric">
+                                    <input id="date" name="tradeDate" class="form-control" data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" data-mask="" inputmode="numeric">
                                     </div>
                                 </div>
                             </div>
