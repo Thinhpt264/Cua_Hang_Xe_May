@@ -6,7 +6,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.demo.entities.Comment;
+import com.demo.entities.CommentCustom;
 import com.demo.entities.ConnectDB;
 import com.demo.entities.Employee;
 

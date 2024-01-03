@@ -1,8 +1,8 @@
 package com.demo.entities;
 
-public class Comment {
+public class CommentCustom {
 	private int id;
-	private int accountId;
+	private String accountId;
 	private int productId;
 	private String content;
 	private String created;
@@ -12,10 +12,10 @@ public class Comment {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public int getAccountId() {
+	public String getAccountId() {
 		return accountId;
 	}
-	public void setAccountId(int accountId) {
+	public void setAccountId(String accountId) {
 		this.accountId = accountId;
 	}
 	public int getProductId() {
@@ -36,7 +36,7 @@ public class Comment {
 	public void setCreated(String created) {
 		this.created = created;
 	}
-	public Comment(int id, int accountId, int productId, String content, String created) {
+	public CommentCustom(int id, String accountId, int productId, String content, String created) {
 		super();
 		this.id = id;
 		this.accountId = accountId;
@@ -44,7 +44,7 @@ public class Comment {
 		this.content = content;
 		this.created = created;
 	}
-	public Comment() {
+	public CommentCustom() {
 		super();
 	}
 	@Override
@@ -52,7 +52,6 @@ public class Comment {
 		return "Comment [id=" + id + ", accountId=" + accountId + ", productId=" + productId + ", content=" + content
 				+ ", created=" + created + "]";
 	}
-	
 	
 	
 }

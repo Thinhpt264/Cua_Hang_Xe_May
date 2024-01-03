@@ -1,18 +1,18 @@
 <%@page import="com.demo.entities.Account"%>
 <%@page import="com.demo.models.AccountModel"%>
 <%@page import="java.util.ArrayList"%>
-<%@page import="com.demo.entities.Comment"%>
+<%@page import="com.demo.entities.CommentCustom"%>
 <%@page import="java.util.List"%>
 <%@page import="com.demo.models.CommentModel"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" isELIgnored = "false"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
     <%
-    	CommentModel commentModel = new CommentModel();
-    	List<Comment> comments = commentModel.viewNewComment();
-    	if(comments == null) comments = new ArrayList<>();
-    	 AccountModel accoutModel = new AccountModel();
-    %>
+     CommentModel commentModel = new CommentModel();
+         	List<CommentCustom> comments = commentModel.viewNewComment();
+         	if(comments == null) comments = new ArrayList<>();
+         	 AccountModel accoutModel = new AccountModel();
+     %>
     
 <html lang="en" style="height: auto;"><head>
     <meta charset="utf-8">
@@ -102,10 +102,12 @@
         <li class="nav-item dropdown">
           <a class="nav-link" data-toggle="dropdown" href="#">
             <i class="far fa-comments"></i>
-            <span class="badge badge-danger navbar-badge"><%=comments.size() %></span>
+            <span class="badge badge-danger navbar-badge"><%=comments.size()%></span>
           </a>
           <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-            <%for(Comment c: comments) { %>
+            <%
+            for(CommentCustom c: comments) {
+            %>
             <a href="${pageContext.request.contextPath}/details?id=<%=c.getProductId() %>" class="dropdown-item">
               <!-- Message Start -->
               <div class="media">

@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.demo.entities.Comment;
+import com.demo.entities.CommentCustom;
 import com.demo.entities.Product;
 import com.demo.models.CommentModel;
 import com.demo.models.ProductModel;
@@ -39,6 +40,8 @@ public class DetailServlet extends HttpServlet {
 			doGet_Index(request, response);
 		} else if(action.equalsIgnoreCase("changeVersion")) {
 			doGet_ChangeVersion(request, response);
+		} else if(action.equalsIgnoreCase("loadComment")) {
+			doGet_LoadComment(request, response);
 		}
 	}
 	protected void doGet_Index(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -46,18 +49,28 @@ public class DetailServlet extends HttpServlet {
 		CommentModel commentModel = new CommentModel();
 		String idProdut = request.getParameter("id") ;
 		int id = Integer.parseInt(idProdut);
-		List<Comment> comments = commentModel.findCommentByProduct(id);
+		
 		System.out.println(idProdut);
 		Product product = productModel.findProductById(id);
 		System.out.println(product.toString());
 		if(product != null) {
 			request.setAttribute("product", product);
-			request.setAttribute("comments", comments);
+			
 		} else {
 			response.sendRedirect("motobike");
 		}
 		request.setAttribute("p", "../user/detailProduct.jsp");
 		request.getRequestDispatcher("/WEB-INF/views/layout/user.jsp").forward(request, response);
+	}
+	protected void doGet_LoadComment(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		response.setContentType("application/json; charset=utf-8");
+		request.setCharacterEncoding("utf-8");
+		String productID = request.getParameter("productID");
+		int id = Integer.parseInt(productID);
+		PrintWriter writer = response.getWriter();
+		CommentModel commentModel = new CommentModel();
+		Gson gson = new Gson();
+		writer.print(gson.toJson(commentModel.newComment(id)));
 	}
 	protected void doGet_ChangeVersion(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("application/json; charset=utf-8");
