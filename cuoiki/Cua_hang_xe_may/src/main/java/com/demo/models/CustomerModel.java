@@ -2,12 +2,14 @@ package com.demo.models;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
 import com.demo.entities.Account;
 import com.demo.entities.ConnectDB;
 import com.demo.entities.Customer;
+import com.demo.entities.Employee;
 
 public class CustomerModel {
 	public List<Customer> findAll(){
@@ -99,5 +101,25 @@ public class CustomerModel {
 			ConnectDB.disconnect();
 		}
 		return result;
+	}
+	public boolean update(Customer customer) {
+		boolean result = true;
+		try {
+			PreparedStatement preparedStatement = ConnectDB.connection().prepareStatement("update customers set name=?,"
+					+ "phone=?, address=? , card=? where id=? ");
+			preparedStatement.setString(1, customer.getName());
+			preparedStatement.setString(2, customer.getPhone());
+			preparedStatement.setString(3, customer.getAddress());
+			preparedStatement.setString(4, customer.getCard());
+			preparedStatement.setInt(5, customer.getId());
+			result = preparedStatement.executeUpdate() > 0;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			result = false;
+		}finally {
+			ConnectDB.disconnect();
+		}		
+		return result;	
 	}
 }

@@ -44,7 +44,7 @@
                             	</div>
                             </c:if>
                             <div class="col-10 form-group">
-                                <input  id="input1" name="password" type="password" class="form-control p-4 rounded " placeholder="Mật khẩu mới" required="required" title="Mật khẩu gồm 8 kí tự 1 chữ in hoa và 1 kí tự đặc biệt ">
+                                <input  id="input1" name="password" type="password" class="form-control p-4 rounded " placeholder="Mật khẩu mới" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Mật khẩu gồm 8 kí tự 1 chữ in hoa và 1 kí tự đặc biệt" required>
                                 <span class="showOrHide" onclick="showPass1()">
                                         <i class ="fa-solid fa-eye-slash" id="hide1" style="display: none"></i>
                                         <i class ="fa-solid fa-eye" id="show1"></i>

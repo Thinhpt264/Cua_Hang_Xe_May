@@ -117,6 +117,7 @@ public class LoginServlet extends HttpServlet {
 	}
 	protected void doGet_Logout(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.getSession().removeAttribute("account");
+		request.getSession().removeAttribute("accountAdmin");
 		response.sendRedirect("login");
 	}
 	/**

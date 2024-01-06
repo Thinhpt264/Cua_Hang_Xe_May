@@ -46,7 +46,7 @@ public class AdminFilter extends HttpFilter implements Filter {
 			chain.doFilter(request, response);
 		
 		} else {
-			httpResponse.sendRedirect(httpRequest.getContextPath() + "/login");
+			httpResponse.sendRedirect(httpRequest.getContextPath() + "/home");
 		}
 	}
 

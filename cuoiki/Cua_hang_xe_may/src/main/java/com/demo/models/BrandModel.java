@@ -52,6 +52,24 @@ public class BrandModel {
 		}
 		return result;
 	}
+	public boolean delete(int id) {
+		boolean result = true;
+		try {
+			PreparedStatement preparedStatement = ConnectDB.connection()
+					.prepareStatement("Delete from brands where id=?");
+			preparedStatement.setInt(1, id);
+			result = preparedStatement.executeUpdate() > 0;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			result = false;
+		}finally {
+			ConnectDB.disconnect();
+		}
+		return result;
+	
+	}
+	
 	public static void main(String[] args) {
 		BrandModel brandModel = new BrandModel();
 		Brand brand = new Brand();
