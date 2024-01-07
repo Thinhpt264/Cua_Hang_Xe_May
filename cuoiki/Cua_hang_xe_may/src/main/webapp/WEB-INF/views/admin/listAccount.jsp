@@ -104,10 +104,22 @@
                                   </td>
                                  <td class="text-center"><a href="" class="btn btn-info"><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a>
                                  </td>
-                                 <td class="text-center"><button class="btn btn-danger delete" onclick="deleteFt()"><i class="fas fa-trash" style="color: #000000;"></i></button></td>
-                            	
-
+                                 <td class="text-center"><a onclick="return handleLinkClick(event)" href="${pageContext.request.contextPath}/admin/accountList?action=delete&id=<%=a.getId() %>" class="btn btn-danger" ><i class="fas fa-trash" style="color: #000000;"></i></a></td>
+                      
                             </tr>
+                             <script type="text/javascript">
+                            function handleLinkClick(event) {
+                                var confirmation = confirm("Bạn có chắc chắn muốn xóa sản phẩm này?");
+                                if (confirmation) {
+                                  var linkHref = event.target.href;
+                                  window.location.href = linkHref;
+                                } else {
+                                  
+                                }
+
+                                return false; // Ngăn chặn hành vi mặc định của thẻ <a>
+                              }
+						</script>
                         	<% }  %>
                     
                           </tbody>

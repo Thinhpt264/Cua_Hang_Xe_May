@@ -35,6 +35,8 @@ public class DashboardServlet extends HttpServlet {
 		String action = request.getParameter("action");
 		if(action == null) {
 			doGet_Index(request, response);
+		}else if(action.equalsIgnoreCase("deleteInvoice")) {
+			doGet_DeleteInvoice(request, response);
 		}
 		
 	}
@@ -47,6 +49,13 @@ public class DashboardServlet extends HttpServlet {
 		request.setAttribute("accounts", accounts);
 		request.setAttribute("admin", "../admin/adminhome.jsp");
 		request.getRequestDispatcher("/WEB-INF/views/layout/admin.jsp").forward(request, response);
+	}
+	protected void doGet_DeleteInvoice(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		InvoiceModel invoiceModel = new InvoiceModel();
+		int id = Integer.parseInt(request.getParameter("id"));
+		if(invoiceModel.delete(id)) {
+			response.sendRedirect("home");
+		}
 	}
 
 	/**

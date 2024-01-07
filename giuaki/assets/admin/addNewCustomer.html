@@ -44,7 +44,18 @@
   <link rel="stylesheet" href="/resources/demos/style.css">
   <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
   <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+  <style>
+    input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
 
+input[type=number] {
+    -moz-appearance:textfield; /* Firefox */
+}
+  </style>
 <!-- datepeaker -->
 <script>
   $(function(){
@@ -347,26 +358,18 @@
                           </div>
                         </div>
                         <div class="row">
-                            <div class="col-sm-4 ml-5" data-select2-id="129">
-                                    <div class="form-group" data-select2-id="128">
-                                    <label>Đã Mua Xe</label>
-                                    <select class="form-control select2 select2-danger select2-hidden-accessible" data-dropdown-css-class="select2-danger" style="width: 100%;" data-select2-id="12" tabindex="-1" aria-hidden="true">
-                                    <option selected="selected" data-select2-id="14">Chọn Xe</option>
-                                    <option data-select2-id="131">Honda AirBlade 160 ABS</option>
-                                    <option data-select2-id="132">Sh 2020</option>
-                                    <option data-select2-id="133">SuperCup</option>
-                                    <option data-select2-id="134">Sirius</option>
-                                    <option data-select2-id="135">Exciter-155-VVA-Black-Gold-ABS4</option>
-                                    <option data-select2-id="136">Vision</option>
-                                    </select>
-                                    </div>
-                            </div>
                            <div class="col-sm-4 ml-5 ">
                             <div class="form-group">
                                 <label for="exampleAdress">Địa Chỉ</label>
                                 <input type="text" class="form-control" id="exampleAdress" placeholder="Địa chỉ người dùng">
-                              </div>
+                            </div>
                         </div>
+                        <div class="col-sm-4 ml-5 ">
+                          <div class="form-group">
+                              <label for="exampleAdress">Số Căn Cước Công Dân</label>
+                              <input type="text" class="form-control" id="exampleAdress" placeholder="Số Căn Cước Công Dân">
+                          </div>
+                      </div>
                         </div>
                       <!-- /.card-body -->
                       <div class="card-footer  ml-5">

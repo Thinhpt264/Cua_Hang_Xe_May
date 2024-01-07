@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 @WebFilter(urlPatterns = {"/admin/addNewEmployeeByAdmin", "/admin/addNewBrand", "/admin/addNewProductColor"
-		, "/admin/addnewproduct", "/admin/addNewVersion", "/admin/newaccount"})
+		, "/admin/addnewproduct", "/admin/addNewVersion", "/admin/newaccount" , "/admin/updateemployee"})
 
 /**
  * Servlet Filter implementation class RoleFilterAdmin

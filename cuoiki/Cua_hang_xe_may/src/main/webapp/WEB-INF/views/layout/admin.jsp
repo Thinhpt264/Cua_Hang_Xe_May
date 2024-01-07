@@ -1,3 +1,4 @@
+<%@page import="com.demo.entities.Comment"%>
 <%@page import="com.demo.entities.Account"%>
 <%@page import="com.demo.models.AccountModel"%>
 <%@page import="java.util.ArrayList"%>
@@ -9,7 +10,7 @@
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
     <%
      CommentModel commentModel = new CommentModel();
-         	List<CommentCustom> comments = commentModel.viewNewComment();
+         	List<Comment> comments = commentModel.viewNewComment();
          	if(comments == null) comments = new ArrayList<>();
          	 AccountModel accoutModel = new AccountModel();
      %>
@@ -106,7 +107,7 @@
           </a>
           <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
             <%
-            for(CommentCustom c: comments) {
+            for(Comment c: comments) {
             %>
             <a href="${pageContext.request.contextPath}/details?id=<%=c.getProductId() %>" class="dropdown-item">
               <!-- Message Start -->

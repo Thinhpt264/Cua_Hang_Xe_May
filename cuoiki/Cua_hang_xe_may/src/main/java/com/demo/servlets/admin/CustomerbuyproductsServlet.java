@@ -35,6 +35,8 @@ public class CustomerbuyproductsServlet extends HttpServlet {
 			doGet_index(request, response);
 		}else if(action.equalsIgnoreCase("delete")) {
 			doGet_delete(request, response);
+		}else if(action.equalsIgnoreCase("update")) {
+			doGet_update(request, response);
 		}
 		
 	}
@@ -53,6 +55,15 @@ public class CustomerbuyproductsServlet extends HttpServlet {
 			response.sendRedirect("customerbuyproducts");
 		}
 	}
+	protected void doGet_update(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		int id = Integer.parseInt(request.getParameter("id"));
+		CustomerModel customerModel = new CustomerModel();
+		Customer customer = customerModel.findCustomerById(id);
+		request.setAttribute("customer", customer);
+ 		request.setAttribute("admin", "../admin/updateCustomer.jsp");
+		request.getRequestDispatcher("/WEB-INF/views/layout/admin.jsp").forward(request, response);
+
+	}
 	
 	
 	
@@ -62,7 +73,28 @@ public class CustomerbuyproductsServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		String action = request.getParameter("action");
+		if(action.equalsIgnoreCase("processUpdate")) {
+			doPost_update(request, response);
+		}
+	}
+	protected void doPost_update(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
+		int  id = Integer.parseInt(request.getParameter("id")) ;
+		String name = request.getParameter("name");
+		String phone = request.getParameter("phone");
+		String address = request.getParameter("address");
+		String card = request.getParameter("card");
+		CustomerModel customerModel = new CustomerModel();
+		Customer customer = customerModel.findCustomerById(id);
+		customer.setName(new String (name.getBytes("ISO-8859-1"),"UTF-8"));
+		customer.setAddress(new String (address.getBytes("ISO-8859-1"),"UTF-8"));
+		customer.setCard(card);
+		customer.setPhone(phone);
+		if(customerModel.update(customer)) {
+			response.sendRedirect("customerbuyproducts");
+		}
 	}
 
 }

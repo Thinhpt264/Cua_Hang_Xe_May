@@ -36,7 +36,8 @@ import com.demo.models.AccountModel;
 				doGet_ViewList(request,response);
 			}else if( action.equalsIgnoreCase("setStatus")) {
 				doGet_SetStatus(request,response);
-			}
+			}else if(action.equalsIgnoreCase("delete")) {
+				doGet_Delete(request, response);			}
 			
 		}
 		protected void doGet_ViewList(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -62,6 +63,14 @@ import com.demo.models.AccountModel;
 				}
 			}
 
+		}
+		protected void doGet_Delete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+			AccountModel accountModel = new AccountModel();
+			int id = Integer.parseInt(request.getParameter("id"));
+			if(accountModel.delete(id)) {
+				response.sendRedirect("accountList");
+			}
+		
 		}
 		
 

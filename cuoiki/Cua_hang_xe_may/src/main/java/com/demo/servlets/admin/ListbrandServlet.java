@@ -31,11 +31,30 @@ public class ListbrandServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String action = request.getParameter("action");
+		if(action == null) {
+			doGet_Index(request, response);
+		}else if(action.equalsIgnoreCase("delete")) {
+			doGet_Delete(request, response);
+
+		}
+				
+	}
+	protected void doGet_Index(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		BrandModel brandModel = new BrandModel();
 		List<Brand> brands = brandModel.findAll();
 		request.setAttribute("brands", brands);
 		request.setAttribute("admin", "../admin/listbrand.jsp");
 		request.getRequestDispatcher("/WEB-INF/views/layout/admin.jsp").forward(request, response);
+	
+	}
+	protected void doGet_Delete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		BrandModel brandModel = new BrandModel();
+		int id = Integer.parseInt(request.getParameter("id"));
+		if(brandModel.delete(id)) {
+			response.sendRedirect("listbrand");
+		}
+	
 	}
 
 	/**
