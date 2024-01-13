@@ -37,7 +37,20 @@ import com.demo.models.AccountModel;
 			}else if( action.equalsIgnoreCase("setStatus")) {
 				doGet_SetStatus(request,response);
 			}else if(action.equalsIgnoreCase("delete")) {
-				doGet_Delete(request, response);			}
+				doGet_Delete(request, response);
+			}else if(action.equalsIgnoreCase("updateUser")) {
+				doGet_Update(request, response);
+			}
+			
+		}
+		protected void doGet_Update(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+			System.out.println("aaaaaaaaa");
+			AccountModel accountModel = new AccountModel();
+			int id =  Integer.parseInt(request.getParameter("id"));
+			Account account =  accountModel.findAccountById(id);
+			request.setAttribute("account", account);
+			request.setAttribute("admin", "../admin/updateAccount.jsp");
+			request.getRequestDispatcher("/WEB-INF/views/layout/admin.jsp").forward(request, response);
 			
 		}
 		protected void doGet_ViewList(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -67,10 +80,11 @@ import com.demo.models.AccountModel;
 		protected void doGet_Delete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 			AccountModel accountModel = new AccountModel();
 			int id = Integer.parseInt(request.getParameter("id"));
+			Account account = accountModel.findAccountById(id);
+					request.setAttribute("account", account);
 			if(accountModel.delete(id)) {
 				response.sendRedirect("accountList");
 			}
-		
 		}
 		
 
@@ -78,8 +92,32 @@ import com.demo.models.AccountModel;
 		 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 		 */
 		protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-			// TODO Auto-generated method stub
-			doGet(request, response);
+			String action = request.getParameter("action");
+			if(action.equalsIgnoreCase("processupdateUser")){
+				doPost_Update(request, response);
+			}
+		}
+		protected void doPost_Update(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+			System.out.println("thanh cong");
+			
+			request.setCharacterEncoding("UTF-8");
+			response.setCharacterEncoding("UTF-8");
+			int id = Integer.parseInt(request.getParameter("id"));
+			String name = request.getParameter("name");
+			String phone = request.getParameter("phone");
+			String email = request.getParameter("email");
+			String address = request.getParameter("address");
+			AccountModel accountModel = new AccountModel();
+			Account account = accountModel.findAccountById(id);
+			
+			account.setEmail(email);
+			account.setPhone(phone);
+			account.setName(new String (name.getBytes("ISO-8859-1"),"UTF-8"));
+			account.setAddress(new String (address.getBytes("ISO-8859-1"),"UTF-8"));
+			
+			if(accountModel.update(account)) {
+				response.sendRedirect("accountList");
+			}
 		}
 
 	}

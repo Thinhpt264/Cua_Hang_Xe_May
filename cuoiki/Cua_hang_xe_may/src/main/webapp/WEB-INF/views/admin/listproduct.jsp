@@ -1,3 +1,4 @@
+<%@page import="java.text.DecimalFormat"%>
 <%@page import="com.demo.models.ProductModel"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.demo.entities.Product"%>
@@ -9,6 +10,7 @@
    		if(products == null) {
    			products = new ArrayList<>();
    		}
+   	 DecimalFormat df = new DecimalFormat("#,###.##");
    		%>
       <!-- Content Header (Page header) -->
       <div class="content-header">
@@ -72,7 +74,7 @@
                                 <td class="dtr-control sorting_1" tabindex="0"><%=p.getId() %></td>
                                  <td><img src="${pageContext.request.contextPath}/assets/user/Image/<%=p.getAvatar() %>" style="width: 50px;"></td>
                                   <td><%=p.getName() %></td>
-                                  <td><%=p.getPrice() %></td>
+                                  <td><%= df.format(p.getPrice()) %></td>
                                   <%ProductModel productModel = new ProductModel();
                                   	String nameBrand = productModel.viewNameBrand(p.getBrandID());
                                   	String nameMotoline = productModel.viewNameMotoline(p.getMotolineID());
@@ -83,7 +85,7 @@
                                     <a href="${pageContext.request.contextPath}/details?id=<%=p.getId()%>"><i class="fa-solid fa-plus"></i></a>
                                  </td>
                                  
-                                 <td class="text-center"><a href="" class="btn btn-info"><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a>
+                                 <td class="text-center"><a href="${pageContext.request.contextPath}/admin/listproduct?action=updateProduct&id=<%=p.getId()%>" class="btn btn-info"><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a>
                                  </td>
                                  <td class="text-center"><a onclick="return handleLinkClick(event)" href="${pageContext.request.contextPath}/admin/listproduct?action=delete&id=<%=p.getId()%>" class="btn btn-danger"><i class="fas fa-trash" style="color: #000000;"></i></a></td>
                            		 <script type="text/javascript">
