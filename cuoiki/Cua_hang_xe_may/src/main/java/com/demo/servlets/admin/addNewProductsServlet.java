@@ -72,7 +72,7 @@ public class addNewProductsServlet extends HttpServlet {
 		  Part avatar = request.getPart("avatar") ; // anh dai dien cua san pham
 		  String name = request.getParameter("name"); // ten san pham
 		  String description = request.getParameter("description"); // mo ta san pham
-		  String price = request.getParameter("price"); // gia
+		  double price =Double.parseDouble(request.getParameter("price")) ; // gia
 		  String weight = request.getParameter("weight"); // khối lượng bản thân
 		  String size = request.getParameter("size"); // dài x rộng x cao
 		  String petrolCapacity = request.getParameter("petrolCapacity");// dung tích bình xăng
@@ -96,7 +96,7 @@ public class addNewProductsServlet extends HttpServlet {
 		  
 		  product.setName(new String(name.getBytes("ISO-8859-1"), "UTF-8"));
 		  product.setDescription(description);
-		  product.setPrice(Double.parseDouble(price));
+		  product.setPrice(price);
 		  product.setWeight(weight);
 		  product.setSize(size);
 		  product.setPetrolCapacity(petrolCapacity);
@@ -117,7 +117,7 @@ public class addNewProductsServlet extends HttpServlet {
 			 
 			 String name2 = "tiêu chuẩn" ;
 			productversion.setVersionName(name2);
-			productversion.setPrice(Double.parseDouble(price));
+			productversion.setPrice(price);
 			productversion.setProductID(productModel.findLast().getId());
 			 if(versionModel.create(productversion)) {
 				 ColorModel colorModel = new ColorModel();
@@ -125,7 +125,7 @@ public class addNewProductsServlet extends HttpServlet {
 				 String name3 = "Màu Tiêu Chuẩn" ;
 				 color.setColor(name3);
 				 color.setPhoto(newAvatarName);
-				 color.setPrice(Double.parseDouble(price));
+				 color.setPrice(price);
 				 color.setValue("black-black");
 				 color.setVersionID(versionModel.findLast().getId());
 				 colorModel.create(color);

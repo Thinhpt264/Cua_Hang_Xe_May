@@ -368,7 +368,7 @@ public class ProductModel {
 		boolean result = true;
 		try {
 			PreparedStatement preparedStatement = ConnectDB.connection()
-					.prepareStatement("Update from products set brandId= ? ,motolineId = ?,avatar= ?,name= ?,description= ?,"
+					.prepareStatement("Update products set brandId= ? ,motolineId = ?,avatar= ?,name= ?,description= ?,"
 							+"price= ?,weight= ?,size= ?,petrolCapacity= ?,saddleHeight= ?,wheelSize= ?,"
 							+"beforeFork= ?,afterFork= ?,maxiumCapacity= ?,oilCapacity= ?,fuelConsumption= ?,"
 							+ "cylinderCapacity= ?,maxiumMoment= ?,compressionRatio= ?,engieType=? "
@@ -394,6 +394,7 @@ public class ProductModel {
 			preparedStatement.setString(19, product.getCompressionRatio());
 			preparedStatement.setString(20, product.getEngieType());
 			preparedStatement.setInt(21, product.getId());
+			result = preparedStatement.executeUpdate() > 0;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -413,7 +414,7 @@ public class ProductModel {
 		  product.setMotolineID(1);
 		  product.setName("aaa");
 		  product.setDescription("aaa");
-		  product.setPrice(20);
+		  product.setPrice(0);
 		  product.setWeight("aaa");
 		  product.setSize("aaa");
 		  product.setPetrolCapacity("aaa");

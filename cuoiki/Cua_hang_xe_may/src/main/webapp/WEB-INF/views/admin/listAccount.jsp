@@ -70,7 +70,7 @@
                           		 <tr id="test" class="odd">
                                 <td class="dtr-control sorting_1" tabindex="0"><%=a.getId() %></td>
                                  <td><img src="${pageContext.request.contextPath}/assets/user/Image/<%=a.getAvartar() %>" alt="" style="width: 50px;"></td>
-                                  <td><%= a.getUsername()%></td>
+                                  <td><%= a.getName()%></td>
                                   <% if ( a.getRole().equals("0")) { %>
                                   <td>Admin</td>
                                   <% } else if(a.getRole().equals("1")) { %>
@@ -102,7 +102,8 @@
                                     </div>
                                  </a>
                                   </td>
-                                 <td class="text-center"><a href="" class="btn btn-info"><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a>
+                                  
+                                 <td class="text-center"><a href="${pageContext.request.contextPath}/admin/accountList?action=updateUser&id=<%=a.getId() %>" class="btn btn-info"><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a>
                                  </td>
                                  <td class="text-center"><a onclick="return handleLinkClick(event)" href="${pageContext.request.contextPath}/admin/accountList?action=delete&id=<%=a.getId() %>" class="btn btn-danger" ><i class="fas fa-trash" style="color: #000000;"></i></a></td>
                       

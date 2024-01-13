@@ -29,9 +29,7 @@ public class UpdateEmployeeServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		
-			
-		
+
 		int id =Integer.parseInt(request.getParameter("id"));
 		EmployeeModel employeeModel = new EmployeeModel();
 		Employee employee = employeeModel.findEmployeebyId(id);

@@ -212,6 +212,12 @@
    	<description></description>
    	<servlet-class>com.demo.servlets.admin.addNewInvoice</servlet-class>
    </servlet>
+   <servlet>
+   	<servlet-name>UpdateProductServlet</servlet-name>
+   	<display-name>UpdateProductServlet</display-name>
+   	<description></description>
+   	<servlet-class>com.demo.servlets.admin.UpdateProductServlet</servlet-class>
+   </servlet>
   <servlet-mapping>
   	<servlet-name>HomeServlet</servlet-name>
   	<url-pattern>/HomeServlet</url-pattern>
@@ -343,5 +349,9 @@
   <servlet-mapping>
   	<servlet-name>addNewInvoice</servlet-name>
   	<url-pattern>/addNewInvoice</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>UpdateProductServlet</servlet-name>
+  	<url-pattern>/UpdateProductServlet</url-pattern>
   </servlet-mapping>
 </web-app>
