@@ -36,9 +36,19 @@ public class ListbrandServlet extends HttpServlet {
 			doGet_Index(request, response);
 		}else if(action.equalsIgnoreCase("delete")) {
 			doGet_Delete(request, response);
-
+		}else if(action.equalsIgnoreCase("update")) {
+			doGet_Update(request, response);
 		}
 				
+	}
+	protected void doGet_Update(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		int id = Integer.parseInt(request.getParameter("id"));
+		BrandModel brandModel = new BrandModel();
+		Brand brand = brandModel.findBrandbyId(id);
+		request.setAttribute("brand", brand);
+		request.setAttribute("admin", "../admin/updateBrand.jsp");
+		request.getRequestDispatcher("/WEB-INF/views/layout/admin.jsp").forward(request, response);
+	
 	}
 	protected void doGet_Index(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		BrandModel brandModel = new BrandModel();

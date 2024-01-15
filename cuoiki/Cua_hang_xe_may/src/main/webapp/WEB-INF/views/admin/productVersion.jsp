@@ -1,3 +1,5 @@
+<%@page import="java.text.DecimalFormat"%>
+<%@page import="com.demo.models.VersionModel"%>
 <%@page import="com.demo.models.ProductModel"%>
 <%@page import="org.apache.jasper.tagplugins.jstl.core.ForEach"%>
 <%@page import="java.util.ArrayList"%>
@@ -7,6 +9,7 @@
     pageEncoding="UTF-8" isELIgnored = "false"%>
 <% List<ProductVersion> productVersions  =( List<ProductVersion>) request.getAttribute("productVersions");
 if (productVersions == null) productVersions = new ArrayList<>();
+DecimalFormat df = new DecimalFormat("#,###.##");
 %>
 <div class="content-header">
         <div class="container-fluid">
@@ -36,7 +39,7 @@ if (productVersions == null) productVersions = new ArrayList<>();
                     <div class="row">
                       <div class="col-sm-12">
                         <div class="col-3 p-3">
-                          <a class="btn btn-block bg-gradient-success" href="${pageContext.request.contextPath }/admin/addNewVersion"> <i class="fa-solid fa-plus"></i> Thêm Nhân Viên</a>
+                          <a class="btn btn-block bg-gradient-success" href="${pageContext.request.contextPath }/admin/addNewVersion"> <i class="fa-solid fa-plus"></i> Thêm Phiên Bản</a>
                         </div>
                         <table id="example2" class="table table-bordered table-hover dataTable dtr-inline"
                           aria-describedby="example2_info">
@@ -67,11 +70,24 @@ if (productVersions == null) productVersions = new ArrayList<>();
                                        
                                         %>
                                         <td><%=productModel.findProductById(prV.getProductID()).getName() %></td>
-                                        <td class="text-center"><%=prV.getPrice() %></td>
-                                        <td class="text-center"><a href="" class="btn btn-info"><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a>
+                                        <td class="text-center"><%=df.format(prV.getPrice()) %></td>
+                                        <td class="text-center"><a href="${pageContext.request.contextPath }/admin/productversion?action=update&id=<%=prV.getId() %>" class="btn btn-info"><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a>
                                         </td>
-                                        <td class="text-center"><a href="" class="btn btn-danger"><i class="fas fa-trash" style="color: #000000;"></i></a></td>
-                                    </tr>
+                                        <td class="text-center"><a onclick="return handleLinkClick(event)" href="${pageContext.request.contextPath }/admin/productversion?action=delete&id=<%=prV.getId()%>" class="btn btn-danger"><i class="fas fa-trash" style="color: #000000;"></i></a></td>
+                        			</tr>
+                        	<script type="text/javascript">
+                            function handleLinkClick(event) {
+                                var confirmation = confirm("Bạn có chắc chắn muốn xóa sản phẩm này?");
+                                if (confirmation) {
+                                  var linkHref = event.target.href;
+                                  window.location.href = linkHref;
+                                } else {
+                                  
+                                }
+
+                                return false; // Ngăn chặn hành vi mặc định của thẻ <a>
+                              }
+                            	</script>
                                    <%} %>
                                     </tbody>
                         </table>

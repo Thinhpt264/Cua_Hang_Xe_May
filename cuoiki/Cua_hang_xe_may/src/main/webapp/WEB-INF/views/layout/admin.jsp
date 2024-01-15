@@ -359,6 +359,8 @@
 <script src="${pageContext.request.contextPath}/assets/admin/plugins/dropzone/min/dropzone.min.js"></script>
 
 <script src="${pageContext.request.contextPath}/assets/admin/dist/js/adminlte.min.js?v=3.2.0"></script>
+<script
+	src="https://rawgit.com/evidenceprime/html-docx-js/master/dist/html-docx.js"></script>
 <!-- AdminLTE App -->
 <!-- Page specific script -->
 <script>

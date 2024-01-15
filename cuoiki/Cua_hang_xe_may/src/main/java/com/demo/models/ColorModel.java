@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.demo.entities.ConnectDB;
+import com.demo.entities.Employee;
 import com.demo.entities.ProductColor;
 import com.mysql.cj.protocol.Resultset;
 import com.mysql.cj.xdevapi.Result;
@@ -37,6 +38,7 @@ public class ColorModel {
 		return productColors;
 		
 	}
+	
 	public boolean create(ProductColor color) {
 		boolean result = true;
 		try {
@@ -58,6 +60,55 @@ public class ColorModel {
 		return result;
 		
 	}
+	public ProductColor findColorById(int id) {
+		ProductColor productColor = null;
+		try {
+			PreparedStatement preparedStatement = ConnectDB.connection().prepareStatement("select * from productcolor where id=?");
+			preparedStatement.setInt(1, id);
+			ResultSet resultSet = preparedStatement.executeQuery();
+			while (resultSet.next()) {
+				productColor = new ProductColor();
+				productColor.setId(resultSet.getInt("id"));
+				productColor.setVersionID(resultSet.getInt("versionID"));
+				productColor.setPhoto(resultSet.getString("photo"));
+				productColor.setColor(resultSet.getString("color"));
+				productColor.setPrice(resultSet.getDouble("price"));
+				productColor.setValue(resultSet.getString("value"));
+				
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			productColor = null;
+		}
+		finally {
+			ConnectDB.disconnect();
+		}
+		return productColor;
+		
+	}
+	public boolean update(ProductColor color) {
+		boolean result = true;
+		try {
+			PreparedStatement preparedStatement = ConnectDB.connection().prepareStatement("update productcolor set versionID=?,"
+					+ "color=?, photo=?,price=?,value=? where id=? ");
+			preparedStatement.setInt(1, color.getVersionID());
+			preparedStatement.setString(2, color.getColor());
+			preparedStatement.setString(3, color.getPhoto());
+			preparedStatement.setDouble(4, color.getPrice());
+			preparedStatement.setString(5, color.getValue());
+			preparedStatement.setInt(6, color.getId());
+			result = preparedStatement.executeUpdate() > 0;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			result = false;
+		}finally {
+			ConnectDB.disconnect();
+		}		
+		return result;	
+	}
+	
 	public boolean delete(int id) {
 		boolean result = true;
 		try {

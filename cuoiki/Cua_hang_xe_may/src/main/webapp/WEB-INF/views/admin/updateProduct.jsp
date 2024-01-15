@@ -59,12 +59,13 @@
                                     <div class="row">
                                         <div class="col-sm-4 ml-5" data-select2-id="129">
                                             <div class="form-group" data-select2-id="128">
-                                                <label>Hãng Xe</label>
+                                                <label>*Hãng Xe</label>
                                                 <select class="form-control select2 select2-danger select2-hidden-accessible"
                                                         data-dropdown-css-class="select2-danger" style="width: 100%;"
                                                         data-select2-id="12" tabindex="-1" aria-hidden="true" name="brandId">
-                                                    <option selected="selected" data-select2-id="14">Chọn Hãng Xe
-                                                    </option>
+                                                    <option  value="<%=product.getId()%>" selected="selected"  data-select2-id="<%=198 + product.getId() %>"><%= productModel.findProductById(productModel.findProductVersionById(product.getVersionID()).getProductID()).getName() %> -                                                  
+                                                     <%=productModel.findProductVersionById(product.getVersionID()).getVersionName() %>
+                                                  	</option>
                                                     <%BrandModel brandModel = new BrandModel();
 													List<Brand> brands = brandModel.findAll();
                                                     %>
