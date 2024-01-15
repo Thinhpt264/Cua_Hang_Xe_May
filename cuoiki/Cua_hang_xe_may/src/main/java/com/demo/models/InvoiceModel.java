@@ -37,6 +37,35 @@ public class InvoiceModel {
 		}
 		return invoices;
 	}
+	public Invoice findInvoiceByID(int ID) {
+		Invoice invoice = null;
+		try {
+			PreparedStatement preparedStatement = ConnectDB.connection().prepareStatement("select * from invoicedetails where id = ?");
+			preparedStatement.setInt(1, ID);
+			ResultSet rs = preparedStatement.executeQuery();
+			while(rs.next()) {
+				invoice = new Invoice();
+				invoice.setId(rs.getInt("id"));
+				invoice.setColorId(rs.getInt("colorId"));
+				invoice.setTradeDate(rs.getString("tradeDate"));
+				invoice.setCustomerId(rs.getInt("customerId"));
+				invoice.setEmployeeId(rs.getInt("employeeId"));
+				invoice.setPrice(rs.getDouble("price"));
+			
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			invoice = null;
+			
+		} finally {
+			ConnectDB.disconnect();
+		}
+		return invoice;
+	}
+	public static void main(String[] args) {
+		System.out.println(new InvoiceModel().findInvoiceByID(6));
+	}
 	public boolean create(Invoice invoice) {
 		boolean result = true;
 		
@@ -78,8 +107,5 @@ public class InvoiceModel {
 	}
 	
 	
-	public static void main(String[] args) {
-		System.out.println(new InvoiceModel().findAll());
-		
-	}
+
 }

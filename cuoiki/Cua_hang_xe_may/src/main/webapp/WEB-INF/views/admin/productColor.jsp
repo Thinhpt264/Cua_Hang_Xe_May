@@ -80,7 +80,7 @@
                                         <td class="text-center"><img src="${pageContext.request.contextPath}/assets/user/Image/<%=color.getPhoto() %>" style="width: 50px"></td>
                                         <td class="text-center"><%= color.getPrice() %></td>
                                         <td><%= color.getValue() %></td>
-                                        <td class="text-center"><a href="" class="btn btn-info"><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a>
+                                        <td class="text-center"><a href="${pageContext.request.contextPath }/admin/productcolor?action=update&id=<%=color.getId()%>" class="btn btn-info"><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a>
                                         </td>
                                         <td class="text-center"><a onclick="return handleLinkClick(event)" href="${pageContext.request.contextPath }/admin/productcolor?action=delete&id=<%=color.getId()%>" class="btn btn-danger"><i class="fas fa-trash" style="color: #000000;"></i></a></td>
                                     </tr>

@@ -37,9 +37,18 @@ public class ProductColorServlet extends HttpServlet {
 			doGet_Index(request, response);
 		}else if(action.equalsIgnoreCase("delete")) {
 			doGet_Delete(request, response);
+		}else if(action.equalsIgnoreCase("update")) {
+			doGet_UpdateColor(request, response);
 		}
-		
 	}
+	protected void doGet_UpdateColor(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+			int id = Integer.parseInt(request.getParameter("id"));
+			ColorModel colorModel = new ColorModel();
+			ProductColor color = colorModel.findColorById(id);
+			request.setAttribute("color", color);
+			request.setAttribute("admin", "../admin/updateColor.jsp");
+			request.getRequestDispatcher("/WEB-INF/views/layout/admin.jsp").forward(request, response);
+		}
 	protected void doGet_Delete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int id = Integer.parseInt(request.getParameter("id"));
 		ColorModel colorModel = new ColorModel();

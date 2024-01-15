@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.demo.entities.ConnectDB;
+import com.demo.entities.Customer;
 import com.demo.entities.Product;
 import com.demo.entities.ProductVersion;
 
@@ -89,6 +90,48 @@ public class VersionModel {
 			ConnectDB.disconnect();
 		}
 		return productVersion;
+	}
+	public ProductVersion findVersionById(int id) {
+		ProductVersion version = null;
+		try {
+			PreparedStatement preparedStatement = ConnectDB.connection().prepareStatement("select * from productversions where id = ? ");
+			preparedStatement.setInt(1, id);
+			ResultSet resultSet = preparedStatement.executeQuery();
+			while(resultSet.next()) {
+				version = new ProductVersion();
+			 	version.setId(resultSet.getInt("id"));
+				version.setProductID(resultSet.getInt("productID"));
+				version.setVersionName(resultSet.getString("versionname"));
+				version.setPrice(resultSet.getDouble("price"));
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			version = null;
+			
+		} finally {
+			ConnectDB.disconnect();
+		}
+		return version;
+	}
+	public boolean update(ProductVersion version) {
+		boolean result = true;
+		try {
+			PreparedStatement preparedStatement = ConnectDB.connection().prepareStatement("update productversions set versionname=?,"
+					+ "productID=?, price=? where id=? ");
+			preparedStatement.setString(1, version.getVersionName());
+			preparedStatement.setInt(2, version.getProductID());
+			preparedStatement.setDouble(3, version.getPrice());
+			preparedStatement.setInt(4, version.getId());
+			result = preparedStatement.executeUpdate() > 0;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			result = false;
+		}finally {
+			ConnectDB.disconnect();
+		}		
+		return result;	
 	}
 	
 	public static void main(String[] args) {
