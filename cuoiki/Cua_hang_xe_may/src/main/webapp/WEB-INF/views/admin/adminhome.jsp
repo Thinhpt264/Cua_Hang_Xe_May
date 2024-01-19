@@ -11,6 +11,7 @@
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8" isELIgnored="false"%>
+	<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <link rel="stylesheet"
 	href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
 <link rel="stylesheet" href="/resources/demos/style.css">
@@ -215,10 +216,10 @@ if (invoices == null)
 													Tiền</th>
 												<th class="sorting" tabindex="0" aria-controls="example1"
 													rowspan="1" colspan="1"
-													aria-label="Sua(s): activate to sort column ascending">Sửa</th>
+													aria-label="Sua(s): activate to sort column ascending">Hành Động</th>
 												<th class="sorting" tabindex="0" aria-controls="example1"
 													rowspan="1" colspan="1"
-													aria-label="Xoa(s): activate to sort column ascending">Xóa</th>
+													aria-label="Xoa(s): activate to sort column ascending">Xuất Hóa Đơn</th>
 											</tr>
 										</thead>
 
@@ -249,18 +250,21 @@ if (invoices == null)
 													%> <%=customerModel.findCustomerById(i.getCustomerId()).getName()%>
 												</td>
 												<td><%=i.getTradeDate()%></td>
-												<td><%=i.getPrice()%></td>
-												<td class="text-center"><a href="" class="btn btn-info"><i
+												<td><fmt:setLocale value = "vi_Vn"/>
+                                <fmt:formatNumber type="currency" 
+          value ="<%=i.getPrice() %>" currencySymbol="VNĐ"/></td>
+												<td class="text-center d-flex align-items-center"><a href="" class="btn btn-info"><i
 														class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a>
-												</td>
-												<td class="text-center"><a
+														
+													<a 
 													onclick="return handleLinkClick(event)"
 													href="${pageContext.request.contextPath }/admin/home?action=deleteInvoice&id=<%=i.getId() %>"
-													class="btn btn-danger"><i class="fas fa-trash"
-														style="color: #000000;"></i></a>|
+													class="btn btn-danger "><i class="fas fa-trash"
+														style="color: #000000;"></i></a>	
+												</td>
+												<td class="text-center">
 
-													<button data-id="<%=i.getId()%>" id="details">Xem
-														chi tiet</button></td>
+													<button data-id="<%=i.getId()%>" class="details btn btn-outline-primary btn-block"><i class="fa-solid fa-print"></i></button></td>
 														
 											</tr>
 											</tr>
@@ -301,7 +305,7 @@ if (invoices == null)
 			link.download = 'contract.docx';
 			document.body.appendChild(link);
 			link.click();
-			document.body.removeChild(link);
+			document.body.removeChild(link); 
 		}
 	
 		function printDiv(divName) {
@@ -315,15 +319,97 @@ if (invoices == null)
 			document.body.innerHTML = originalContents;
 
 		}
+		function convertNumberToCurrency(amount) {
+			  var units = [
+			    "", "nghìn", "triệu", "tỷ", "nghìn tỷ", "triệu tỷ", "tỷ tỷ"
+			  ];
+
+			  var words = [
+			    "", "một", "hai", "ba", "bốn", "năm", "sáu", "bảy", "tám", "chín", "mười",
+			    "mười một", "mười hai", "mười ba", "mười bốn", "mười lăm", "mười sáu",
+			    "mười bảy", "mười tám", "mười chín"
+			  ];
+
+			  var result = "";
+
+			  if (amount === 0) {
+			    result = "không đồng";
+			  } else {
+			    var groupIndex = 0;
+
+			    while (amount > 0) {
+			      var threeDigits = amount % 1000;
+			      amount = Math.floor(amount / 1000);
+
+			      if (threeDigits > 0) {
+			        var threeDigitsText = convertThreeDigitsToWords(threeDigits);
+			        var unit = units[groupIndex];
+
+			        if (result === "") {
+			          result = threeDigitsText + " " + unit;
+			        } else {
+			          result = threeDigitsText + " " + unit + " " + result;
+			        }
+			      }
+
+			      groupIndex++;
+			    }
+			  }
+
+			  return result.trim();
+			}
+
+			function convertThreeDigitsToWords(number) {
+			  var ones = [
+			    "", "một", "hai", "ba", "bốn", "năm", "sáu", "bảy", "tám", "chín"
+			  ];
+
+			  var tens = [
+			    "", "mười", "hai mươi", "ba mươi", "bốn mươi", "năm mươi", "sáu mươi",
+			    "bảy mươi", "tám mươi", "chín mươi"
+			  ];
+
+			  var hundreds = [
+			    "", "một trăm", "hai trăm", "ba trăm", "bốn trăm", "năm trăm", "sáu trăm",
+			    "bảy trăm", "tám trăm", "chín trăm"
+			  ];
+
+			  var result = "";
+
+			  var hundredsDigit = Math.floor(number / 100);
+			  var tensDigit = Math.floor((number % 100) / 10);
+			  var onesDigit = number % 10;
+
+			  if (hundredsDigit > 0) {
+			    result += hundreds[hundredsDigit] + " ";
+			  }
+
+			  if (tensDigit > 0) {
+			    result += tens[tensDigit] + " ";
+			  }
+
+			  if (onesDigit > 0) {
+			    if (tensDigit === 0 && hundredsDigit > 0) {
+			      result += "linh " + ones[onesDigit] + " ";
+			    } else if (tensDigit === 1) {
+			      result += "mười " + ones[onesDigit] + " ";
+			    } else {
+			      result += ones[onesDigit] + " ";
+			    }
+			  }
+
+			  return result.trim();
+			}
+
 			$(document).ready(function() {
 				$('#convertToWord').click(function () {
-					$('#test').html('Thanh Tú aaaaaa');
+					$('#test').html('');
 					convertToWord();
 				});
 				
 
-				$('#details').click(function() {
-					var invoiceID = $('#details').attr('data-id');
+				$('.details').click(function() {
+					var invoiceID = this.getAttribute('data-id');
 					console.log(invoiceID);
 					$.ajax({
 						type : 'GET',
@@ -333,11 +419,37 @@ if (invoices == null)
 							action : 'invoiceDetails'
 						},
 						success : function(data) {
+							var today = new Date(); // Tạo một đối tượng Date hiện tại
+
+							var day = today.getDate(); // Lấy ngày trong tháng (1-31)
+							var month = today.getMonth() + 1; // Lấy tháng (0-11). Cần cộng 1 vì tháng bắt đầu từ 0.
+							var year = today.getFullYear(); // Lấy năm (4 chữ số)
+
+							// Định dạng lại ngày tháng để hiển thị dưới dạng "dd/mm/yyyy"
+							var formattedDate = "Ngày " + day + " Tháng " + month + " Năm " + year  ;
+
+							console.log(formattedDate); // In ra ngày hôm nay
 							var productColor = data.productColor;
 							var customer = data.customer;
 							var invoice = data.invoice;
+							var productVersion = data.productVersion;
+							var product = data.product;
+							var price = productColor.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+							var price2 =  invoice.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+							var priceText = convertNumberToCurrency(invoice.price);
+							console.log(productColor.price);
+							console.log(priceText);
 							console.log(customer.name);
-							console.log(productColor.color);
+							$('#customerName').html(customer.name);
+							$('#customerAddress').html(customer.address);
+							$('#customerPhone').html(customer.phone);
+							$('#customerCard').html(customer.phone);
+							$('#productName').html(product.name + ' - ' + productVersion.versionName + ' - ' + productColor.color )
+							$('.productPrice').html(price + " VNĐ");
+							$('.productPrice2').html(price2 + " VNĐ");
+							$('#priceText').html(priceText + " đồng");
+							$('#dateprint').html(formattedDate);
+							
 						}
 					});
 					$("#dialog-message").dialog({
@@ -353,62 +465,82 @@ if (invoices == null)
 			});
 		</script>
 		<div id="dialog-message" style="display: none; font-family: 'Times New Roman', Times, serif;"
-			title="Download complete">
+			title="Hóa Đơn Bán Hàng">
 			<div class="row">
-				<div class="col-6">
-					
-				</div>
-				<div class="col-6">
+				
+				<div class="col-12">
 						<div id="content">
-							 Tên khách hàng: <span id="test">Thanh
-						Tú</span> <br>  Tên sản phẩm: <span>Thanh
-						Tú</span> 
-					<br>  Ngày mua: <span>Thanh
-						Tú</span> <br>
-						Tên khách hàng: <span id="test">Thanh
-						Tú</span> <br>  Tên sản phẩm: <span>Thanh
-						Tú</span> 
-					<br>  Ngày mua: <span>Thanh
-						Tú</span> <br>
-						Tên khách hàng: <span id="test">Thanh
-						Tú</span> <br>  Tên sản phẩm: <span>Thanh
-						Tú</span> 
-					<br>  Ngày mua: <span>Thanh
-						Tú</span> <br>
-						Tên khách hàng: <span id="test">Thanh
-						Tú</span> <br>  Tên sản phẩm: <span>Thanh
-						Tú</span> 
-					<br>  Ngày mua: <span>Thanh
-						Tú</span> <br>
-						Tên khách hàng: <span id="test">Thanh
-						Tú</span> <br>  Tên sản phẩm: <span>Thanh
-						Tú</span> 
-					<br>  Ngày mua: <span>Thanh
-						Tú</span> <br>
-						Tên khách hàng: <span id="test">Thanh
-						Tú</span> <br>  Tên sản phẩm: <span>Thanh
-						Tú</span> 
-					<br>  Ngày mua: <span>Thanh
-						Tú</span> <br>
-						Tên khách hàng: <span id="test">Thanh
-						Tú</span> <br>  Tên sản phẩm: <span>Thanh
-						Tú</span> 
-					<br>  Ngày mua: <span>Thanh
-						Tú</span> <br>
-						Tên khách hàng: <span id="test">Thanh
-						Tú</span> <br>  Tên sản phẩm: <span>Thanh
-						Tú</span> 
-					<br>  Ngày mua: <span>Thanh
-						Tú</span> <br>
-						Tên khách hàng: <span id="test">Thanh
-						Tú</span> <br>  Tên sản phẩm: <span>Thanh
-						Tú</span> 
-					<br>  Ngày mua: <span>Thanh
-						Tú</span> <br>
+						 <style>
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    
+    th, td {
+      padding: 8px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+  </style>
+							<div>
+    <h2>TÊN CỬA HÀNG: T-Motorbike </h2> 
+    <p>Địa chỉ: 1228 Quang Trung Phường 08 Gò Vấp </p>
+     <p> Thành phố Hồ Chí Minh 700000 Việt Nam</p>
+    <p>ĐT: 0326767031</p>
+  </div>
+
+  <h3>HÓA ĐƠN BÁN HÀNG</h3>
+
+  <div>
+    <p>Xe Máy</p>
+  </div>
+
+  <div>
+    <p>Tên khách hàng: <span id="customerName"> </span> </p> <p>Số Điện Thoại:<span id="customerPhone"> </span> -  Số căn cước công dân: <span id="customerCard"> </span></p> 
+    <p>Địa chỉ: <span id="customerAddress"></span>    </p>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>TT</th>
+        <th>TÊN HÀNG</th>
+        <th> SỐ LƯỢNG </th>
+        <th>ĐƠN GIÁ <br> (Của Xe)</th>
+        <th>THÀNH TIỀN <br> (Trên Hóa Đơn đã bao gồm giảm giá)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td><span id="productName"> </span> </td>
+        <td> 1 </td>
+        <td> <span class="productPrice"> </span>  </td>
+        <td> <span class="productPrice2"> </td>
+      </tr>
+      <!-- Thêm các hàng khác tương tự vào đây -->
+    </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="4" style="text-align: right;"><strong>TỔNG CỘNG</strong></td>
+        <td><span class="productPrice2"> </span></td>
+      </tr>
+    </tfoot>
+  </table>
+
+  <div>
+    <p>Thành tiền (viết bằng chữ): <span id="priceText"> </span></p>
+  </div>
+
+  <div>
+    <p><span id="dateprint"></span></p>
+    <p>KHÁCH HÀNG: ...........................................</p>
+    <p>NGƯỜI BÁN HÀNG: .....................................</p>
+  </div>
 						
 						</div>
-						<button id="print" onclick="return printDiv('dialog-message')">In</button> | 
-						<button id="convertToWord" >In ra word</button>
+						<button id="print" onclick="return printDiv('dialog-message')"><i class="fa-solid fa-file-pdf"></i></button> | 
+						<button id="convertToWord" ><i class="fa-solid fa-file-word"></i></button>
 						
 				</div>
 			</div>
