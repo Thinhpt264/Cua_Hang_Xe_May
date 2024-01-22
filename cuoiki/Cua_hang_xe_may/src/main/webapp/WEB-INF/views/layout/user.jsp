@@ -50,11 +50,12 @@
                     <div class="d-inline-flex align-items-center">
                         <a class="text-body pr-3" href=""><i class="fa fa-phone-alt mr-2"></i>+012 345 6789</a>
                         <span class="text-body">|</span>
-                        <a class="text-body px-3" href=""><i class="fa fa-envelope mr-2"></i>Hello ${sessionScope.account.username }</a>
+                        <a class="text-body px-3" href=""><i class="fa fa-envelope mr-2"></i>tmotoshop.service@gmail.com</a>
                     </div>
                 </div>
                 <div class="col-md-6 text-center text-lg-right">
                     <div class="d-inline-flex align-items-center">
+                    Hello ${sessionScope.account.username }
                         <a class="text-body px-3" href="https://www.facebook.com/">
                             <i class="fab fa-facebook-f"></i>
                         </a>

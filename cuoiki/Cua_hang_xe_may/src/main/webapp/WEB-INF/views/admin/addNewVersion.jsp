@@ -38,7 +38,7 @@
                             
                                 <div class="card-body p-4">
                                     <div class="row">
-                                        <div class="col-md-4 ml-5">
+                                        <div class="col-sm-4 ml-5">
                                             <div class="form-group">
                                                 <label for="exampleNameVer">Tên Phiên Bản </label>
                                                 <input type="text" name="name" class="form-control" id="exampleNameVer"
@@ -65,7 +65,7 @@
                                                 </select>
                                             </div>
                                         </div>
-                                        <div class="col-md-4 ml-4">
+                                        <div class="col-md-4 ml-5">
                                             <div class="form-group">
                                                 <label for="examplePrice1">Giá Tiền(VNĐ)</label>
                                                 <input type="text" name="price" class="form-control" id="examplePrice1"

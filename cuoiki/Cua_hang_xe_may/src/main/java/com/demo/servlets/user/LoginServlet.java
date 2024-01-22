@@ -161,6 +161,7 @@ public class LoginServlet extends HttpServlet {
 		String securityCode = RandomStringHelper.generateRandomString(6);
 		AccountModel accountModel = new AccountModel();
 		Account account = new Account();
+		account.setAvartar("avtUnknow.png");
 		account.setEmail(email);
 		account.setPassword(BCrypt.hashpw(password, BCrypt.gensalt()));
 		account.setPhone(phone);

@@ -1,3 +1,5 @@
+<%@page import="com.demo.entities.Motoline"%>
+<%@page import="com.demo.models.MotolineModel"%>
 <%@page import="com.demo.entities.Brand"%>
 <%@page import="java.util.List"%>
 <%@page import="com.demo.models.BrandModel"%>
@@ -73,25 +75,19 @@
                                         </div>
                                         <div class="col-sm-5 ml-5 ">
                                             <label>Dòng Xe</label>
-                                            <div class="form-group d-flex">
-                                                <div class="custom-control custom-radio">
+                                            <%MotolineModel motolineModel = new MotolineModel();
+                                            List<Motoline> motolines = motolineModel.findAll();
+                                            %>
+                                            <div class="form-group d-flex ">
+                                            <%for(int i=0 ; i < motolines.size() ; i++  ) { %>
+                                           	<% Motoline m = motolines.get(i); %>
+                                                <div class="custom-control custom-radio mr-1">
                                                     <input class="custom-control-input custom-control-input-danger custom-control-input-outline"
-                                                           type="radio" id="customRadio4" value="1" name="motolineId"
-                                                           checked="">
-                                                    <label for="customRadio4" class="custom-control-label">Xe số</label>
+                                                           type="radio" id="customRadio4" value="<%=m.getId() %>" name="motolineId"
+                                                         <%if(i==0) { %> checked <% } %>  >
+                                                    <label for="customRadio4" class="custom-control-label"><%=m.getName() %></label>
                                                 </div>
-                                                <div class="custom-control custom-radio ml-5">
-                                                    <input class="custom-control-input custom-control-input-danger custom-control-input-outline"
-                                                           type="radio" id="customRadio5"  value="2" name="motolineId">
-                                                    <label for="customRadio5" class="custom-control-label">
-                                                        Tay Ga</label>
-                                                </div>
-                                                <div class="custom-control custom-radio ml-5">
-                                                    <input class="custom-control-input custom-control-input-danger custom-control-input-outline"
-                                                           type="radio" id="customRadio6"  value="2" name="motolineId">
-                                                    <label for="customRadio6" class="custom-control-label">
-                                                        Phân Khối Lớn</label>
-                                                </div>
+                                                <% } %>
                                             </div>
                                         </div>
                                     </div>
@@ -234,15 +230,6 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="row">
-                                        <div class="col-md-8 ml-5">
-                                            <label for="input">Nhập nhiều ảnh xe</label> <br>
-                                            <input type="file" name="multipFile" id="input" multiple>
-                                            <div id="div"></div>
-                                        </div>
-                                      </div>
-                                        <!-- /.card-body -->
-
                                         <div class="ml-5">
                                             <button type="submit" class="btn btn-primary">Thêm</button>
                                         </div>

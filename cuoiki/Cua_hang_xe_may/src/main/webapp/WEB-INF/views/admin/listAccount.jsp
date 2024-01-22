@@ -35,9 +35,7 @@
                     <!-- /.card-header -->
                     <div class="row">
                       <div class="col-sm-12">
-                        <div class="col-3 p-3">
-                          <a class="btn btn-block bg-gradient-success" href="newAccount.html"> <i class="fa-solid fa-plus"></i> Thêm Tài Khoản</a>
-                        </div>
+                      
                         <table id="example2" class="table table-bordered table-hover dataTable dtr-inline"
                           aria-describedby="example2_info">
                           <thead>
@@ -83,7 +81,7 @@
                                   <%if(a.isStatus()) { %>
                                    <td class="text-center">
                                     <div class="icheck-success d-inline">
-                                        <input type="checkbox" checked="" id="checkboxSuccess2">
+                                        <input type="checkbox" checked="" disabled="disabled" >
                                         <label for="checkboxSuccess2"></label>
                                     </div>
                                  </td>
@@ -91,7 +89,7 @@
                                  <% } else { %>
                                    <td class="text-center">
                                     <div class="icheck-success d-inline">
-                                        <input type="checkbox" id="checkboxSuccess5">
+                                        <input type="checkbox" disabled="disabled">
                                         <label for="checkboxSuccess5"></label>
                                     </div>
                                  </td>
@@ -105,24 +103,21 @@
                                   
                                  <td class="text-center"><a href="${pageContext.request.contextPath}/admin/accountList?action=updateUser&id=<%=a.getId() %>" class="btn btn-info"><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a>
                                  </td>
-                                 <td class="text-center"><a onclick="return handleLinkClick(event)" href="${pageContext.request.contextPath}/admin/accountList?action=delete&id=<%=a.getId() %>" class="btn btn-danger" ><i class="fas fa-trash" style="color: #000000;"></i></a></td>
-                      
-                            </tr>
-                             <script type="text/javascript">
-                            function handleLinkClick(event) {
-                                var confirmation = confirm("Bạn có chắc chắn muốn xóa sản phẩm này?");
-                                if (confirmation) {
-                                  var linkHref = event.target.href;
-                                  window.location.href = linkHref;
-                                } else {
-                                  
-                                }
-
-                                return false; // Ngăn chặn hành vi mặc định của thẻ <a>
-                              }
-						</script>
-                        	<% }  %>
-                    
+                            <td class="text-center"><a onclick=" return handleLinkClick(event , <%= a.getId() %>)" href="${pageContext.request.contextPath }/admin/accountList?action=delete&id=<%=a.getId() %>" class="btn btn-danger"><i class="fas fa-trash" style="color: #000000;"></i></a></td>  	
+                                    </tr>
+                                    
+                    				<script type="text/javascript">
+				                            function handleLinkClick(event, id) {
+				                                var confirmation = confirm("Bạn có chắc chắn muốn xóa sản phẩm này?");
+				                                if (confirmation) {
+				                                  var linkHref = "${pageContext.request.contextPath }/admin/accountList?action=delete&id=" + id;
+				                                  
+				                                  window.location.href = linkHref;
+				                                } 
+				                                return false; // Ngăn chặn hành vi mặc định của thẻ <a>
+				                              }
+										</script>
+                         <% } %>
                           </tbody>
 
                         </table>

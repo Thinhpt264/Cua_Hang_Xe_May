@@ -1,6 +1,14 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.demo.models.VersionModel"%>
+<%@page import="java.util.List"%>
+<%@page import="com.demo.models.ProductModel"%>
+<%@page import="com.demo.entities.ProductVersion"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" isELIgnored = "false" %>
-
+<%VersionModel versionModel = new VersionModel();
+	ProductModel productModel = new ProductModel();
+	
+%>
         <!-- Content Header (Page header) -->
         <div class="content-header">
             <div class="container-fluid">
@@ -35,19 +43,34 @@
                                 <div class="card-body p-4">
                        
                                     <div class="row">
-                                        <div class="col-md-4 ml-5">
-                                            <div class="form-group">
-                                                <label for="examplePro">Tên xe</label>
-                                                <input type="text" name="idProduct" class="form-control" id="examplePro"
-                                                       placeholder="vd: Ab2020">
+                                       <div class="col-sm-4 ml-5" data-select2-id="129">
+                                            <div class="form-group" data-select2-id="128">
+                                                <label>Tên Xe</label>
+                                                <select class="form-control select2 select2-danger select2-hidden-accessible"
+                                                        data-dropdown-css-class="select2-danger" style="width: 100%;"
+                                                        data-select2-id="999" tabindex="-1" aria-hidden="true" name="idVersion">
+                                                    <option selected="selected" data-select2-id="14">Chọn Phiên Bản
+                                                    </option>
+                                                    <%
+                                                 
+                                                    List<ProductVersion> productVersions = versionModel.findAll();
+                                                    if(productVersions == null) productVersions = new ArrayList<>();
+                                                    %>
+                                                    <% for(ProductVersion v : productVersions)  {%>
+                                                    <option data-select2-id="<%=198+ v.getId() %>" value="<%=v.getId()%>">   <%= productModel.findProductById(v.getProductID()).getName() %> -                                                  
+                                                     <%=v.getVersionName() %> </option>
+                                                    <% } %>
+                                                           
+                                                </select>
                                             </div>
                                         </div>
                                         <div class="col-md-4 ml-4">
                                             <div class="form-group">
-                                                <label for="exampleversion">Tên phiên bản</label>
-                                                <input type="text" name="idVersion" class="form-control" id="exampleversion"
-                                                       placeholder="vd: Phiên Bản Đặc Biệt">
+                                                <label for="valueColor">Dữ liệu màu sắc</label>
+                                                <input type="text" style="position: relative; z-index: 999" name="valueColor" class="form-control" id="valueColor" 
+                                                       placeholder="Đen-Vàng">
                                             </div>
+                                         
                                         </div>
                                     </div>
                                     <div class="row">
@@ -58,12 +81,12 @@
                                                        placeholder="vd: Đỏ Đen">
                                             </div>
                                         </div>
-                                        <div class="col-md-4 ml-4">
+                                        
+                                        <div class="col-md-4" style="position: absolute; top: 150px; right: 10px;" >
                                             <div class="form-group">
-                                                <label for="valueColor">Dữ liệu màu sắc</label>
-                                                <input type="text" name="valueColor" class="form-control" id="valueColor"
-                                                       placeholder="Đen-Vàng">
+                                              <img alt="" src="${pageContext.request.contextPath}/assets/user/Image/bangmau.png" style="width: 280px">
                                             </div>
+                         
                                         </div>
                                     </div>
                                   

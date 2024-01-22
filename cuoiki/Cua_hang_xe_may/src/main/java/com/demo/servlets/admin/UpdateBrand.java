@@ -48,16 +48,23 @@ public class UpdateBrand extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
 		BrandModel brandModel = new BrandModel();
+		
 		int id = Integer.parseInt(request.getParameter("id"));
+		Brand brand = brandModel.findBrandbyId(id); 
 		String name = request.getParameter("nameBrand");
 		Part photo2 =  request.getPart("photo");
+		String avatar = brand.getPhoto();
+		if(photo2 != null &&photo2.getSize() > 0) {
+			avatar = UploadFileHelper.uploadFile("assets/user/Image", request, photo2);
+		}
 		String description = request.getParameter("description");
-		String newAvatar = UploadFileHelper.uploadFile("assets/user/Image", request, photo2);
-		Brand brand = brandModel.findBrandbyId(id); 
+		
+		
 		brand.setName(name);
-		brand.setDescription(new String (description.getBytes("ISO-8859-1"),"UTF-8"));
-		brand.setPhoto(newAvatar);
+		brand.setDescription(description);
+		brand.setPhoto(avatar);
 		if(brandModel.update(brand)) {
+			request.getSession().setAttribute("message", " Thành Công");
 			response.sendRedirect("listbrand");
 		} else {
 			HttpSession session = request.getSession();

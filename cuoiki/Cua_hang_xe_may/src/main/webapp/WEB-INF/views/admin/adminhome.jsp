@@ -1,3 +1,4 @@
+<%@page import="com.demo.entities.Contact"%>
 <%@page import="com.demo.models.CustomerModel"%>
 <%@page import="com.demo.models.AccountModel"%>
 <%@page import="com.demo.models.EmployeeModel"%>
@@ -20,14 +21,17 @@
 
 <script src="https://rawgit.com/evidenceprime/html-docx-js/master/dist/html-docx.js"></script>
 
-<%	
-List<Account> accounts = (List<Account>) request.getAttribute("accounts");
-if (accounts == null)
-	accounts = new ArrayList<>();
-List<Invoice> invoices = (List<Invoice>) request.getAttribute("invoices");
-if (invoices == null)
-	invoices = new ArrayList<>();
-%>
+	<%	
+	List<Account> accounts = (List<Account>) request.getAttribute("accounts");
+	if (accounts == null)
+		accounts = new ArrayList<>();
+	List<Invoice> invoices = (List<Invoice>) request.getAttribute("invoices");
+	if (invoices == null)
+		invoices = new ArrayList<>();
+	List<Contact> contacts = (List<Contact>) request.getAttribute("contacts");
+	if (contacts == null)
+		contacts = new ArrayList<>();
+	%>
 <div class="content-header">
 	<div class="container-fluid">
 		<div class="row mb-2">
@@ -175,8 +179,7 @@ if (invoices == null)
 					<div class="card-body">
 						<div id="example1_wrapper"
 							class="dataTables_wrapper dt-bootstrap4">
-
-
+							
 							<div class="row">
 								<div class="col-sm-12">
 									<div class="col-3 p-3">
@@ -184,6 +187,22 @@ if (invoices == null)
 											href="${pageContext.request.contextPath}/admin/invoiceDetail">
 											<i class="fa-solid fa-plus"></i> Thêm Hóa Đơn Mua Hàng
 										</a>
+										<%
+        									HttpSession session2 = request.getSession();
+							        		String msg = (String)session2.getAttribute("messageUpdate");
+							        		String msg1 = msg;
+							        		
+							        		session2.removeAttribute("messageUpdate");
+							        	%>
+							        <%if(msg1 == null) { %>
+				        			<span ></span>
+				        		<% }else if(msg1.equalsIgnoreCase("Chỉnh Sửa Không Thành Công")) { %>
+				        			<span style='color:red;'> <%=msg1 %></span>
+				        		
+				        		<% }else { %>
+									<span style='color:green;'> <%=msg1 %></span>
+									
+								 <% } %>
 									</div>
 									<table id="example1"
 										class="table table-bordered table-striped dataTable dtr-inline"
@@ -253,12 +272,9 @@ if (invoices == null)
 												<td><fmt:setLocale value = "vi_Vn"/>
                                 <fmt:formatNumber type="currency" 
           value ="<%=i.getPrice() %>" currencySymbol="VNĐ"/></td>
-												<td class="text-center d-flex align-items-center"><a href="" class="btn btn-info"><i
-														class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a>
-														
-													<a 
-													onclick="return handleLinkClick(event)"
-													href="${pageContext.request.contextPath }/admin/home?action=deleteInvoice&id=<%=i.getId() %>"
+												<td class="text-center d-flex align-items-center">
+												<a href="${pageContext.request.contextPath }/admin/home?action=update&id=<%=i.getId() %>" class="btn btn-info"><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a>
+												<a onclick="return handleLinkClick(event)" href="${pageContext.request.contextPath }/admin/home?action=deleteInvoice&id=<%=i.getId() %>"
 													class="btn btn-danger "><i class="fas fa-trash"
 														style="color: #000000;"></i></a>	
 												</td>
@@ -294,6 +310,50 @@ if (invoices == null)
 					</div>
 			</section>
 		</div>
+		 <div class="row">
+            <section class="col-lg-12 connectedSortable ">
+              <div class="col-12">
+                <div class="card">
+                  <div class="card-header">
+                    <h3 class="card-title">Yêu Cầu Liên Hệ</h3>
+                    </div>
+                  </div>
+                  <!-- /.card-header -->
+                  <div class="card-body table-responsive p-0" style="height: 300px;">
+                    <table class="table table-head-fixed text-nowrap">
+                      <thead>
+                        <tr>
+                          <th>ID</th>
+                          <th>Tên Người Dùng</th>
+                          <th>Email</th>
+                          <th>Phone</th>
+                          <th>Nội Dung Yêu Cầu</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                     <% 
+						for (int i = contacts.size() - 1; i >= 0; i--) {
+						    Contact c = contacts.get(i);
+						%>
+						    <tr>
+						        <td><%= c.getId() %></td>
+						        <td><%= c.getName() %></td>
+						        <td><%= c.getEmail() %></td>
+						        <td><span class="tag tag-success"><%= c.getPhone() %></span></td>
+						        <td><%= c.getContent() %></td>
+						    </tr>
+						<% 
+						}
+						%>
+                      </tbody>
+                    </table>
+                  </div>
+                  <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+              </div>
+            </section>
+          </div>
 		<script>
 		
 		function convertToWord() {
@@ -498,6 +558,7 @@ if (invoices == null)
   <div>
     <p>Tên khách hàng: <span id="customerName"> </span> </p> <p>Số Điện Thoại:<span id="customerPhone"> </span> -  Số căn cước công dân: <span id="customerCard"> </span></p> 
     <p>Địa chỉ: <span id="customerAddress"></span>    </p>
+    
   </div>
 
   <table>
@@ -534,8 +595,11 @@ if (invoices == null)
 
   <div>
     <p><span id="dateprint"></span></p>
-    <p>KHÁCH HÀNG: ...........................................</p>
-    <p>NGƯỜI BÁN HÀNG: .....................................</p>
+    <p> Số Khung(Số Sườn):                </p>
+    <p>Số Máy:                            </p>
+    <p>Chi Phí Cấp Biển:                   </p>
+    <p>KHÁCH HÀNG: ...........................................                          NGƯỜI BÁN HÀNG: .....................................</p>
+    
   </div>
 						
 						</div>

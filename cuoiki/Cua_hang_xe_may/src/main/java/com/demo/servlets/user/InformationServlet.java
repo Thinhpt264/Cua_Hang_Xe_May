@@ -56,16 +56,22 @@ public class InformationServlet extends HttpServlet {
 		}
 	}
 	protected void doPost_Update(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
 		AccountModel accountModel = new AccountModel();
-		Part avatar = request.getPart("avatar");
-		String newavtar = UploadFileHelper.uploadFile("assets/user/Image", request, avatar);
+		Account account = (Account) request.getSession().getAttribute("account");
+		Part photo2 = request.getPart("avatar");
 		String address = request.getParameter("address");
 		String name = request.getParameter("name");
 		String phone = request.getParameter("phone");
-		Account account = (Account) request.getSession().getAttribute("account");
-		account.setAvartar(newavtar);
-		account.setName(name);
-		account.setAddress(address);
+		String avatar = account.getAvartar() ;
+				
+				if(photo2 != null && photo2.getSize() > 0) {
+					avatar = UploadFileHelper.uploadFile("assets/user/Image", request, photo2);
+				} 
+		account.setAvartar(avatar);
+		account.setName(new String(name.getBytes("ISO-8859-1"), "UTF-8"));
+		account.setAddress(new String(address.getBytes("ISO-8859-1"), "UTF-8"));
 		account.setPhone(phone);
 		if(accountModel.update(account)) {
 			request.getSession().setAttribute("account", account);

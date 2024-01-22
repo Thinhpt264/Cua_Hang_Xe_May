@@ -1,3 +1,4 @@
+<%@page import="com.demo.models.ProductModel"%>
 <%@page import="java.text.DecimalFormat"%>
 <%@page import="com.demo.entities.Product"%>
 <%@page import="com.demo.entities.Brand"%>
@@ -6,6 +7,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" isELIgnored = "false" %>
 	<% Product product = (Product) request.getAttribute("product1");
+	ProductModel productModel = new ProductModel();
 	 DecimalFormat df = new DecimalFormat("########");
 	%>
         <!-- Content Header (Page header) -->
@@ -13,7 +15,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="ml-2">Thêm Sản Phẩm</h1>
+                        <h1 class="ml-2">Sửa Sản Phẩm</h1>
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
@@ -37,7 +39,7 @@
                             </div>
                             <!-- /.card-header -->
                             <!-- form start -->
-                            <form action="${pageContext.request.contextPath}/admin/updateproduct" method="post" enctype="multipart/form-data">
+                            <form action="${pageContext.request.contextPath}/admin/updateproduct" method="post" enctype="multipart/form-data"  accept-charset="UTF-8">
                             
                                 <div class="card-body p-4">
                                     <div class="row">
@@ -60,15 +62,16 @@
                                         <div class="col-sm-4 ml-5" data-select2-id="129">
                                             <div class="form-group" data-select2-id="128">
                                                 <label>*Hãng Xe</label>
+                                                <%BrandModel brandModel = new BrandModel();
+													List<Brand> brands = brandModel.findAll();
+                                                    %>
                                                 <select class="form-control select2 select2-danger select2-hidden-accessible"
                                                         data-dropdown-css-class="select2-danger" style="width: 100%;"
                                                         data-select2-id="12" tabindex="-1" aria-hidden="true" name="brandId">
-                                                    <option  value="<%=product.getId()%>" selected="selected"  data-select2-id="<%=198 + product.getId() %>"><%= productModel.findProductById(productModel.findProductVersionById(product.getVersionID()).getProductID()).getName() %> -                                                  
-                                                     <%=productModel.findProductVersionById(product.getVersionID()).getVersionName() %>
+                                                        <% %>
+                                                    <option  value="<%=product.getBrandID()%>" selected="selected"  data-select2-id="<%=198 + product.getBrandID() %>"> <%=brandModel.findBrandbyId(product.getBrandID()).getName() %>
                                                   	</option>
-                                                    <%BrandModel brandModel = new BrandModel();
-													List<Brand> brands = brandModel.findAll();
-                                                    %>
+                                                    
                                                     <% for(Brand b: brands) { %>
                                                     <option data-select2-id="<%=130 + b.getId() %>" value="<%=b.getId() %>"><%=b.getName() %></option>
                                               		 <% } %>
@@ -113,7 +116,7 @@
                                             <label for="exampleInputFile">Thêm Ảnh Đại Diện Của Sản Phẩm</label>
                                             <div class="input-group">
                                               <div class="custom-file">
-                                                <input type="file" name="avatar" value="<%=product.getAvatar()%>" class="custom-file-input" id="exampleInputFile1" onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])">
+                                                <input type="file" name="avatar"  class="custom-file-input" id="exampleInputFile1" onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])">
                                                 <label class="custom-file-label" for="exampleInputFile">Chọn Ảnh</label>
                                               </div>
                                               <div class="input-group-append">
@@ -121,7 +124,7 @@
                                               </div>
                                             </div>
                                             <div class="upload__img-wrap">
-                                              <img id="blah" src="${pageContext.request.contextPath}/assets/admin/dist/img/photo1.png" alt="" width="100" height="100" />
+                                              <img id="blah" src="${pageContext.request.contextPath}/assets/user/Image/<%=product.getAvatar() %>" alt="" width="100" height="100" />
                                           </div>
                                           </div>
                                         </div>
@@ -138,7 +141,7 @@
                                         <div class="col-md-4 ml-4">
                                             <div class="form-group">
                                                 <label for="dodai">Dài x Rộng x Cao</label>
-                                                <input type="number" name="size" class="form-control" id="dodai"
+                                                <input type="text" name="size" class="form-control" id="dodai"
                                                        placeholder="1.887 x 687 x 1.092 mm" value="<%=product.getSize()%>">
                                             </div>
                                         </div>
@@ -239,17 +242,9 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="row">
-                                        <div class="col-md-8 ml-5">
-                                            <label for="input">Nhập nhiều ảnh xe</label> <br>
-                                            <input type="file" name="multipFile" id="input" multiple>
-                                            <div id="div"></div>
-                                        </div>
-                                      </div>
-                                        <!-- /.card-body -->
-
+                                   
                                         <div class="ml-5">
-                                            <button type="submit" class="btn btn-primary">Thêm</button>
+                                            <button type="submit" class="btn btn-primary">Sửa</button>
                                         </div>
                                    
                                 </div>

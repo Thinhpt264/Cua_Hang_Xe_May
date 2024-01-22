@@ -13,12 +13,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.demo.entities.Account;
+import com.demo.entities.Contact;
 import com.demo.entities.Customer;
 import com.demo.entities.Invoice;
 import com.demo.entities.Product;
 import com.demo.entities.ProductColor;
 import com.demo.entities.ProductVersion;
 import com.demo.models.AccountModel;
+import com.demo.models.ContactModel;
 import com.demo.models.CustomerModel;
 import com.demo.models.InvoiceModel;
 import com.demo.models.ProductModel;
@@ -49,6 +51,8 @@ public class DashboardServlet extends HttpServlet {
 			doGet_DeleteInvoice(request, response);
 		} else if(action.equalsIgnoreCase("invoiceDetails")) {
 			doGet_InvoiceDetails(request, response);
+		} else if(action.equalsIgnoreCase("update")) {
+			doGet_UpdateInvoice(request, response);
 		}
 		
 	}
@@ -77,6 +81,9 @@ public class DashboardServlet extends HttpServlet {
 		printWriter.print(gson.toJson(data));
 	}
 	protected void doGet_Index(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		ContactModel contactModel = new ContactModel();
+		List<Contact> contacts = contactModel.findAll();
+		request.setAttribute("contacts", contacts);
 		AccountModel accountModel = new AccountModel();
 		List<Account> accounts = accountModel.findAll();
 		InvoiceModel invoiceModel = new InvoiceModel();
@@ -93,13 +100,53 @@ public class DashboardServlet extends HttpServlet {
 			response.sendRedirect("home");
 		}
 	}
+	protected void doGet_UpdateInvoice(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		InvoiceModel invoiceModel = new InvoiceModel();
+		int id = Integer.parseInt(request.getParameter("id"));
+		Invoice invoice = invoiceModel.findInvoiceByID(id);
+		if (invoice != null) {
+			request.setAttribute("invoice", invoice);
+			request.setAttribute("admin", "../admin/updateInvoice.jsp");
+			request.getRequestDispatcher("/WEB-INF/views/layout/admin.jsp").forward(request, response);
+		}else {
+			response.sendRedirect("home");
+		}
+	
+	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		String action = request.getParameter("action");
+		if(action.equalsIgnoreCase("processupdateInvoice")) {
+			doPost_ProcessUpdate(request, response);
+		}
+	}
+	protected void doPost_ProcessUpdate(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		int id = Integer.parseInt(request.getParameter("id"));
+		int colorId = Integer.parseInt( request.getParameter("colorId"));
+		int employeeId = Integer.parseInt( request.getParameter("employeeId"));
+		int customerId = Integer.parseInt( request.getParameter("customerId"));
+		double price = Double.parseDouble(request.getParameter("price"));
+		String tradeDate = request.getParameter("tradeDate");
+		InvoiceModel invoiceModel = new InvoiceModel();
+		Invoice invoice = invoiceModel.findInvoiceByID(id);
+		invoice.setColorId(colorId);
+		invoice.setCustomerId(customerId);
+		invoice.setEmployeeId(employeeId);
+		invoice.setPrice(price);
+		invoice.setTradeDate(tradeDate);
+		if(invoiceModel.update(invoice)) {
+			request.getSession().setAttribute("messageUpdate", "*Chỉnh Sửa Thành Công");
+			response.sendRedirect("home");
+		} else {
+			
+			request.getSession().setAttribute("messageUpdate", "*Chỉnh Sửa Không Thành Công");
+			response.sendRedirect("home");
+		}
+		System.out.println(id);
 	}
 
 }

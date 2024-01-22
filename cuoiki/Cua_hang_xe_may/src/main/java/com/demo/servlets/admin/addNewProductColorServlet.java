@@ -57,7 +57,6 @@ public class addNewProductColorServlet extends HttpServlet {
 	protected void doPost_newColor(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
-		int idProduct = Integer.parseInt(request.getParameter("idProduct"));
 		int idVersion =  Integer.parseInt(request.getParameter("idVersion"));
 		String color1 = request.getParameter("color");
 		String valueColor = request.getParameter("valueColor");

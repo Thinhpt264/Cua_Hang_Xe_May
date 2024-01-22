@@ -56,13 +56,16 @@
 								action: 'changeVersion',
 								colorID : colorID
 							},
-							success: function (version) {
+							success: function (data) {
+								var color = data.color;
+								var version = data.version;
 								var options = { style: 'decimal', useGrouping: true };
-								var price = version.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-								$('#img').attr('src', '${pageContext.request.contextPath}/assets/user/Image/' + version.photo);
-								$('#price').html('Giá ' + price);
-								$('#versionName').html('Phiên bản ' + version.color);
-								$('#cartId').attr('href' , '${pageContext.request.contextPath}/cart?action=buynow&id='+version.id) 
+								var price = color.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+								$('#img').attr('src', '${pageContext.request.contextPath}/assets/user/Image/' + color.photo);
+								$('#price').html('Giá ' + price +' VNĐ');
+								$('#versionName').html( version.versionName);
+								$('#ColornName').html(color.color);
+								$('#cartId').attr('href' , '${pageContext.request.contextPath}/cart?action=buynow&id='+color.id) 
 								
 							}
 						});
@@ -85,8 +88,8 @@
                         
                          <div class="container d-flex">
                 <div class="header mr-5">
-                    <h1 id="versionName">Phiên bản <%=productColor.getColor() %></h1>
-                    <div id="price" style="font-size: 20px;">Giá <fmt:formatNumber type="number" value="<%= productColor.getPrice()%>" pattern="#,##0"/> </div>
+                    <h1><%=product.getName() %>  </h1>  <h1  id="versionName"> Phiên bản <%=productVersions.get(0).getVersionName() %></h1>	<h1  id="ColornName"> <%=productColor.getColor() %></h1>
+                    <div id="price" style="font-size: 30px;">Giá <fmt:formatNumber type="number" value="<%= productColor.getPrice()%>" pattern="#,##0"/> VNĐ </div>
                 </div>
            	
             
@@ -160,11 +163,11 @@
             </div>
             <div class="row " style="font-size: 20px;">
                 <div class="col-6 mb-5">Dung tích bình xăng</div>
-                <div class="col-lg-6"><%=product.getPetrolCapacity() %> lít</div>
+                <div class="col-lg-6"><%=product.getPetrolCapacity() %> </div>
             </div>
             <div class="row " style="font-size: 20px;">
                 <div class="col-6 mb-5">Kích cỡ lốp trước/sau</div>
-                <div class="col-lg-6">Lốp trước <%=product.getWheelSize() %>-Lốp sau <%=product.getWheelSize() %></div>
+                <div class="col-lg-6"> <%=product.getWheelSize() %></div>
             </div>
             <div class="row " style="font-size: 20px;">
                 <div class="col-6 mb-5">Phuộc trước</div>
@@ -176,15 +179,15 @@
             </div>
             <div class="row " style="font-size: 20px;">
                 <div class="col-6 mb-5">Công suất tối đa</div>
-                <div class="col-lg-6"><%=product.getMaxiumCapacity()%> vòng/phút</div>
+                <div class="col-lg-6"><%=product.getMaxiumCapacity()%></div>
             </div>
             <div class="row " style="font-size: 20px;">
                 <div class="col-6 mb-5">Dung tích nhớt máy</div>
-                <div class="col-lg-6"><%=product.getOilCapacity()%> lít khi thay nhớt</div>
+                <div class="col-lg-6"><%=product.getOilCapacity()%> khi thay nhớt</div>
             </div>
             <div class="row " style="font-size: 20px;">
                 <div class="col-6 mb-5">Mức thụ nhiên liệu</div>
-                <div class="col-lg-6"><%=product.getFuelConsumption()%>km</div>
+                <div class="col-lg-6"><%=product.getFuelConsumption()%></div>
             </div>
             <div class="row " style="font-size: 20px;">
                 <div class="col-6 mb-5">Dung tích xi lanh</div>
@@ -192,7 +195,7 @@
             </div>
             <div class="row " style="font-size: 20px;">
                 <div class="col-6 mb-5">Moment cực đại</div>
-                <div class="col-lg-6"><%=product.getMaxiumMoment()%> vòng/phút</div>
+                <div class="col-lg-6"><%=product.getMaxiumMoment()%> </div>
             </div>
             <div class="row " style="font-size: 20px;">
                 <div class="col-6 mb-5">Tỷ số nén</div>

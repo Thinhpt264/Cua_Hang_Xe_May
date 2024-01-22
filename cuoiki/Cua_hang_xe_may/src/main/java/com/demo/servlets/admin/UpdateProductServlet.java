@@ -47,6 +47,9 @@ public class UpdateProductServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
 		int id = Integer.parseInt(request.getParameter("id"));
+
+		ProductModel productModel = new ProductModel();
+		Product product = productModel.findProductById(id);
 //		String price1 = request.getParameter("price2");
 	
 		double price1 = Double.parseDouble(request.getParameter("price1"));
@@ -74,35 +77,55 @@ public class UpdateProductServlet extends HttpServlet {
 		String maxiumMoment = request.getParameter("maxiumMoment");
 		String compressionRatio = request.getParameter("compressionRatio");
 		String engieType = request.getParameter("engieType");
+		String avatar2 = product.getAvatar() ;
+		System.out.println(avatar2);
+		if(avatar != null && avatar.getSize() > 0) {
+			avatar2 = UploadFileHelper.uploadFile("assets/user/Image", request, avatar);
+		} 
 		
-		
-		ProductModel productModel = new ProductModel();
-		Product product = productModel.findProductById(id);
 		
 		product.setName(new String (name.getBytes("ISO-8859-1"),"UTF-8"));
 		product.setPrice(price1);
 		product.setBrandID(brandId);
 		product.setMotolineID(motolineId);
-		product.setDescription(new String (description.getBytes("ISO-8859-1"),"UTF-8"));
+		product.setDescription(description);
 		
-		product.setAvatar(newAvatarName);
-		product.setWeight(new String (weight.getBytes("ISO-8859-1"),"UTF-8"));
-		product.setSize(new String (size.getBytes("ISO-8859-1"),"UTF-8"));
-		product.setSaddleHeight(new String (saddleHeight.getBytes("ISO-8859-1"),"UTF-8"));
-		product.setPetrolCapacity(new String (petrolCapacity.getBytes("ISO-8859-1"),"UTF-8"));
+		product.setAvatar(avatar2);
+//		product.setWeight(new String (weight.getBytes("ISO-8859-1"),"UTF-8"));
+//		product.setSize(new String (size.getBytes("ISO-8859-1"),"UTF-8"));
+//		product.setSaddleHeight(new String (saddleHeight.getBytes("ISO-8859-1"),"UTF-8"));
+//		product.setPetrolCapacity(new String (petrolCapacity.getBytes("ISO-8859-1"),"UTF-8"));
+//		
+//		product.setWheelSize(new String (wheelSize.getBytes("ISO-8859-1"),"UTF-8"));
+//		product.setBeforeFork(new String (beforeFork.getBytes("ISO-8859-1"),"UTF-8"));
+//		product.setAfterFork( new String (afterFork.getBytes("ISO-8859-1"),"UTF-8"));
+//		product.setMaxiumCapacity( new String (maxiumCapacity.getBytes("ISO-8859-1"),"UTF-8"));
+//		product.setOilCapacity(new String (oilCapacity.getBytes("ISO-8859-1"),"UTF-8"));
+//		
+//		product.setFuelConsumption(new String (fuelConsumption.getBytes("ISO-8859-1"),"UTF-8"));
+//		product.setCylinderCapacity(new String (cylinderCapacity.getBytes("ISO-8859-1"),"UTF-8"));
+//		product.setMaxiumMoment(new String (maxiumCapacity.getBytes("ISO-8859-1"),"UTF-8"));
+//		product.setCompressionRatio(new String (compressionRatio.getBytes("ISO-8859-1"),"UTF-8"));
+//		product.setEngieType(new String (engieType.getBytes("ISO-8859-1"),"UTF-8"));
 		
-		product.setWheelSize(new String (wheelSize.getBytes("ISO-8859-1"),"UTF-8"));
-		product.setBeforeFork(new String (beforeFork.getBytes("ISO-8859-1"),"UTF-8"));
-		product.setAfterFork( new String (afterFork.getBytes("ISO-8859-1"),"UTF-8"));
-		product.setMaxiumCapacity( new String (maxiumCapacity.getBytes("ISO-8859-1"),"UTF-8"));
-		product.setOilCapacity(new String (oilCapacity.getBytes("ISO-8859-1"),"UTF-8"));
-		
-		product.setFuelConsumption(new String (fuelConsumption.getBytes("ISO-8859-1"),"UTF-8"));
-		product.setCylinderCapacity(new String (cylinderCapacity.getBytes("ISO-8859-1"),"UTF-8"));
-		product.setMaxiumMoment(new String (maxiumCapacity.getBytes("ISO-8859-1"),"UTF-8"));
-		product.setCompressionRatio(new String (compressionRatio.getBytes("ISO-8859-1"),"UTF-8"));
-		product.setEngieType(new String (engieType.getBytes("ISO-8859-1"),"UTF-8"));
-		
+//		 product.setPrice(price);
+		  product.setWeight(weight);
+		  product.setSize(size);
+		  product.setPetrolCapacity(petrolCapacity);
+		  product.setSaddleHeight(saddleHeight);
+		  
+		  product.setWheelSize(wheelSize);
+		  product.setBeforeFork(beforeFork);
+		  product.setAfterFork(afterFork);
+		  product.setMaxiumCapacity(maxiumCapacity);
+		  product.setOilCapacity(oilCapacity);
+		  
+		  product.setFuelConsumption(fuelConsumption);
+		  product.setCylinderCapacity(cylinderCapacity);
+		  product.setMaxiumMoment(maxiumMoment);
+		  product.setCompressionRatio(compressionRatio);
+		  product.setEngieType(engieType);
+	
 		if(productModel.update(product)) {
 			response.sendRedirect("listproduct");
 			System.out.println("cap nhat thanh cong");

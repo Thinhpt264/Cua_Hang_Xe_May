@@ -8,9 +8,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.Part;
 
 import com.demo.entities.Account;
 import com.demo.entities.Product;
+import com.demo.helpers.UploadFileHelper;
 import com.demo.models.AccountModel;
 import com.demo.models.ProductModel;
 @WebServlet("/admin/listproduct")
@@ -81,10 +83,11 @@ public class ListproductServlet extends HttpServlet {
 	}
 	protected void doPost_Update(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("dopostUpdate");
-		
+		ProductModel productModel = new ProductModel();
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
 		int id = Integer.parseInt(request.getParameter("id"));
+		Product product = productModel.findProductById(id);
 		double price = Double.parseDouble(request.getParameter("price1"));
 		System.out.println(request.getParameter("price1") + "bbbb");
 		String name = request.getParameter("name");
@@ -93,7 +96,8 @@ public class ListproductServlet extends HttpServlet {
 		int motolineId = Integer.parseInt(request.getParameter("motolineId"));
 		String description = request.getParameter("description");
 		
-		String avatar = request.getParameter("avatar");
+		Part avatar = request.getPart("avatar") ;
+		
 		String weight = request.getParameter("weight");
 		String size = request.getParameter("size");
 		String saddleHeight = request.getParameter("saddleHeight");
@@ -110,18 +114,19 @@ public class ListproductServlet extends HttpServlet {
 		String maxiumMoment = request.getParameter("maxiumMoment");
 		String compressionRatio = request.getParameter("compressionRatio");
 		String engieType = request.getParameter("engieType");
-		
-		
-		ProductModel productModel = new ProductModel();
-		Product product = productModel.findProductById(id);
-		
+		String avatar2 = product.getAvatar() ;
+		System.out.println(avatar2);
+		if(avatar != null && avatar.getSize() > 0) {
+			avatar2 = UploadFileHelper.uploadFile("assets/user/Image", request, avatar);
+		} 
+		System.out.println(avatar2);
 		product.setName(new String (name.getBytes("ISO-8859-1"),"UTF-8"));
 		product.setPrice(price);
 		product.setBrandID(brandId);
 		product.setMotolineID(motolineId);
 		product.setDescription(new String (description.getBytes("ISO-8859-1"),"UTF-8"));
+		product.setAvatar(avatar2);
 		
-		product.setAvatar(new String (avatar.getBytes("ISO-8859-1"),"UTF-8"));
 		product.setWeight(new String (weight.getBytes("ISO-8859-1"),"UTF-8"));
 		product.setSize(new String (size.getBytes("ISO-8859-1"),"UTF-8"));
 		product.setSaddleHeight(new String (saddleHeight.getBytes("ISO-8859-1"),"UTF-8"));
@@ -135,13 +140,16 @@ public class ListproductServlet extends HttpServlet {
 		
 		product.setFuelConsumption(new String (fuelConsumption.getBytes("ISO-8859-1"),"UTF-8"));
 		product.setCylinderCapacity(new String (cylinderCapacity.getBytes("ISO-8859-1"),"UTF-8"));
-		product.setMaxiumMoment(new String (maxiumCapacity.getBytes("ISO-8859-1"),"UTF-8"));
+		product.setMaxiumMoment(new String (maxiumMoment.getBytes("ISO-8859-1"),"UTF-8"));
 		product.setCompressionRatio(new String (compressionRatio.getBytes("ISO-8859-1"),"UTF-8"));
 		product.setEngieType(new String (engieType.getBytes("ISO-8859-1"),"UTF-8"));
 		
 		if(productModel.update(product)) {
 			response.sendRedirect("listproduct");
 			System.out.println("cap nhat thanh cong");
+		}else {
+			response.sendRedirect("listproduct");
+			System.out.println("Khong thanh cong");
 		}
 	}
 

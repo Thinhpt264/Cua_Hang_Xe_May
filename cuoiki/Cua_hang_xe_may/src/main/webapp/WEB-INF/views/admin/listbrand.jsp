@@ -37,7 +37,22 @@
                         <div class="card-header">
                         <h3 class="card-title">Danh sách các hãng xe đã có</h3>
                         </div>
-
+							<%
+        									HttpSession session2 = request.getSession();
+							        		String msg = (String)session2.getAttribute("message");
+							        		String msg1 = msg;
+							        		
+							        		session2.removeAttribute("message");
+							        	%>
+							        <%if(msg1 == null) { %>
+				        			<span ></span>
+				        		<% }else if(msg1.equalsIgnoreCase("Chỉnh Sửa Không Thành Công")) { %>
+				        			<span style='color:red;'> <%=msg1 %></span>
+				        		
+				        		<% }else { %>
+									<span style='color:green;'> <%=msg1 %></span>
+									
+								 <% } %>
                         <div class="card-body">
                         <table class="table table-bordered">
                         <thead>
@@ -59,22 +74,25 @@
                         <td><%=b.getDescription() %></td>
                         <td class="text-center"><a href="${pageContext.request.contextPath }/admin/listbrand?action=update&id=<%=b.getId()%>" class="btn btn-info"><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a>
                         </td>
-                        <td class="text-center"><a onclick="return handleLinkClick(event)" href="${pageContext.request.contextPath }/admin/listbrand?action=delete&id=<%=b.getId()%>" class="btn btn-danger"><i class="fas fa-trash" style="color: #000000;"></i></a></td>
-                        </tr>
-                        <script type="text/javascript">
-                            function handleLinkClick(event) {
-                                var confirmation = confirm("Bạn có chắc chắn muốn xóa sản phẩm này?");
-                                if (confirmation) {
-                                  var linkHref = event.target.href;
-                                  window.location.href = linkHref;
-                                } else {
-                                  
-                                }
-
-                                return false; // Ngăn chặn hành vi mặc định của thẻ <a>
-                              }
-                            </script>
-                        <% } %>
+                        <td class="text-center"><a onclick="return handleLinkClick(event , <%= b.getId() %>)" href="${pageContext.request.contextPath }/admin/listbrand?action=delete&id=<%=b.getId()%>" class="btn btn-danger"><i class="fas fa-trash" style="color: #000000;"></i></a></td>
+                                    	
+                                    </tr>
+                                    <%} %>
+                    				<script type="text/javascript">
+				                            function handleLinkClick(event, id) {
+				                                var confirmation = confirm("Bạn có chắc chắn muốn xóa thương hiệu này?");
+				                                if (confirmation) {
+				                                  var linkHref = "${pageContext.request.contextPath }/admin/listbrand?action=delete&id=" + id;
+				                                  
+				                                  window.location.href = linkHref;
+				                                } else {
+				                                  
+				                                }
+				
+				                                return false; // Ngăn chặn hành vi mặc định của thẻ <a>
+				                              }
+										</script>
+                       
                         
                         </tbody>
                         </table>

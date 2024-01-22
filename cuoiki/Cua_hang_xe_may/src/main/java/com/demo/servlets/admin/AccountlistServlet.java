@@ -117,6 +117,8 @@ import com.demo.models.AccountModel;
 			
 			if(accountModel.update(account)) {
 				response.sendRedirect("accountList");
+			}else {
+				
 			}
 		}
 
