@@ -95,38 +95,61 @@ public class addNewProductsServlet extends HttpServlet {
 		  product.setMotolineID(Integer.parseInt(motolineID));
 		  
 		  product.setName(new String(name.getBytes("ISO-8859-1"), "UTF-8"));
-		  product.setDescription(description);
-		  product.setPrice(price);
-		  product.setWeight(weight);
-		  product.setSize(size);
-		  product.setPetrolCapacity(petrolCapacity);
-		  product.setSaddleHeight(saddleHeight);
-		  product.setWheelSize(wheelSize);
-		  product.setBeforeFork(beforeFork);
-		  product.setAfterFork(afterFork);
-		  product.setMaxiumCapacity(maxiumCapacity);
-		  product.setOilCapacity(oilCapacity);
-		  product.setFuelConsumption(fuelConsumption);
-		  product.setCylinderCapacity(cylinderCapacity);
-		  product.setMaxiumMoment(maxiumMoment);
-		  product.setCompressionRatio(compressionRatio);
-		  product.setEngieType(engieType);
+		  product.setDescription(new String(description.getBytes("ISO-8859-1"), "UTF-8"));
+//		  product.setPrice(price);
+//		  product.setWeight(weight);
+//		  product.setSize(size);
+//		  product.setPetrolCapacity(petrolCapacity);
+//		  product.setSaddleHeight(saddleHeight);
+//		  product.setWheelSize(wheelSize);
+//		  product.setBeforeFork(beforeFork);
+//		  product.setAfterFork(afterFork);
+//		  product.setMaxiumCapacity(maxiumCapacity);
+//		  product.setOilCapacity(oilCapacity);
+//		  product.setFuelConsumption(fuelConsumption);
+//		  product.setCylinderCapacity(cylinderCapacity);
+//		  product.setMaxiumMoment(maxiumMoment);
+//		  product.setCompressionRatio(compressionRatio);
+//		  product.setEngieType(engieType);
+//		  product.setName(new String (name.getBytes("ISO-8859-1"),"UTF-8"));
+			product.setPrice(price);
+//			product.setBrandID(brandId);
+//			product.setMotolineID(motolineId);
+//			product.setDescription(new String(description.getBytes("ISO-8859-1"),"UTF-8"));
+			
+			product.setAvatar(newAvatarName);
+			product.setWeight(new String (weight.getBytes("ISO-8859-1"),"UTF-8"));
+			product.setSize(new String (size.getBytes("ISO-8859-1"),"UTF-8"));
+			product.setSaddleHeight(new String (saddleHeight.getBytes("ISO-8859-1"),"UTF-8"));
+			product.setPetrolCapacity(new String (petrolCapacity.getBytes("ISO-8859-1"),"UTF-8"));
+			
+			product.setWheelSize(new String (wheelSize.getBytes("ISO-8859-1"),"UTF-8"));
+			product.setBeforeFork(new String (beforeFork.getBytes("ISO-8859-1"),"UTF-8"));
+			product.setAfterFork( new String (afterFork.getBytes("ISO-8859-1"),"UTF-8"));
+			product.setMaxiumCapacity( new String (maxiumCapacity.getBytes("ISO-8859-1"),"UTF-8"));
+			product.setOilCapacity(new String (oilCapacity.getBytes("ISO-8859-1"),"UTF-8"));
+			
+			product.setFuelConsumption(new String (fuelConsumption.getBytes("ISO-8859-1"),"UTF-8"));
+			product.setCylinderCapacity(new String (cylinderCapacity.getBytes("ISO-8859-1"),"UTF-8"));
+			product.setMaxiumMoment(new String (maxiumCapacity.getBytes("ISO-8859-1"),"UTF-8"));
+			product.setCompressionRatio(new String (compressionRatio.getBytes("ISO-8859-1"),"UTF-8"));
+			product.setEngieType(new String (engieType.getBytes("ISO-8859-1"),"UTF-8"));
 		  if(productModel.create(product)) {
 			 VersionModel versionModel = new VersionModel();
 			 ProductVersion productversion = new ProductVersion();
 			 
-			 String name2 = "tiêu chuẩn" ;
+			 String name2 = "Phiên Bản Tiêu Chuẩn" ;
 			productversion.setVersionName(name2);
 			productversion.setPrice(price);
 			productversion.setProductID(productModel.findLast().getId());
 			 if(versionModel.create(productversion)) {
 				 ColorModel colorModel = new ColorModel();
 				 ProductColor color = new ProductColor();
-				 String name3 = "Màu Tiêu Chuẩn" ;
+				 String name3 = " Tiêu Chuẩn" ;
 				 color.setColor(name3);
 				 color.setPhoto(newAvatarName);
 				 color.setPrice(price);
-				 color.setValue("black-black");
+				 color.setValue("black-white");
 				 color.setVersionID(versionModel.findLast().getId());
 				 colorModel.create(color);
 			 }

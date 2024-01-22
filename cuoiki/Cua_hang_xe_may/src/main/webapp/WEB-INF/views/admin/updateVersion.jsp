@@ -8,6 +8,7 @@
     pageEncoding="UTF-8" isELIgnored = "false" %>
 	<%
 		ProductVersion version =(ProductVersion) request.getAttribute("version");
+		ProductModel productModel = new ProductModel();
 		DecimalFormat df = new DecimalFormat("#.##");
 	%>
         <!-- Content Header (Page header) -->
@@ -54,12 +55,13 @@
                                             <div class="form-group" data-select2-id="128">
                                                 <div class="form-group">
                                                 <label for="exampleName">Tên Xe</label>
-                                                <input type="text" name="productId" value="<%= version.getProductID() %>" class="form-control" id="examplePrice1"
+                                                <input type="hidden" name="productId" value= "<%=version.getProductID() %>">
+                                                <input disabled="disabled" type="text" name="productId1" value="<%= productModel.findProductById(version.getProductID()).getName() %>" class="form-control" id="examplePr"
                                                        placeholder="AB125">
                                             </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-4 ml-4">
+                                        <div class="col-md-4 ml-5">
                                             <div class="form-group">
                                                 <label for="examplePrice1">Giá Tiền(VNĐ)</label>
                                                 <input type="text" name="price" value="<%=df.format(version.getPrice())%>" class="form-control" id="examplePrice1"

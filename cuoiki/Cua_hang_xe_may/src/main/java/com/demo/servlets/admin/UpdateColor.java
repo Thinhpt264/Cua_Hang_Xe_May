@@ -49,22 +49,37 @@ public class UpdateColor extends HttpServlet {
 		System.out.println("alooo");
 				request.setCharacterEncoding("UTF-8");
 				response.setCharacterEncoding("UTF-8");
+				
+
 				int id = Integer.parseInt(request.getParameter("idColor"));
+				ColorModel colorModel = new ColorModel();
+				ProductColor color = colorModel.findColorById(id);
 				System.out.println(id);
 				int version = Integer.parseInt(request.getParameter("nameversion"));
 				String colors = request.getParameter("color");
 				Part photo = request.getPart("avatar");
-				String avatar = UploadFileHelper.uploadFile("assets/user/Image", request, photo);
+				
 				String value = request.getParameter("valueColor");
+				
+				String avatar = color.getPhoto() ;
+					
+					if(photo != null && photo.getSize() > 0) {
+						avatar = UploadFileHelper.uploadFile("assets/user/Image", request, photo);
+					} 
+					
+				
 				double price = Double.parseDouble(request.getParameter("priceColor"));
-				ColorModel colorModel = new ColorModel();
-				ProductColor color = colorModel.findColorById(id);
-				color.setColor(new String (colors.getBytes("ISO-8859-1"),"UTF-8"));
+				
+				color.setColor(colors);
 				color.setVersionID(version);
 				color.setPhoto(avatar);
 				color.setPrice(price);
 				color.setValue(value);
 				if(colorModel.update(color)) {
+					request.getSession().setAttribute("message", " Thành Công");
+					response.sendRedirect("productcolor");
+				}else {
+					request.getSession().setAttribute("message", "Chỉnh Sửa Không Thành Công");
 					response.sendRedirect("productcolor");
 				}
 	}

@@ -57,10 +57,10 @@ public class addNewEmployeeByAdminServlet extends HttpServlet {
 		employee.setCardID(card);
 		employee.setSalary(salary);
 		if(employeeModel.create(employee)) {
-			if(account.getRole().equalsIgnoreCase("2")) {
+			
 				account.setRole("1");
 				accountModel.update(account);
-			}
+			
 			response.sendRedirect("employee");
 	
 		}else {

@@ -41,7 +41,7 @@
                 <div class="d-inline-flex align-items-center">
                     <a class="text-body pr-3" href=""><i class="fa fa-phone-alt mr-2"></i>+012 345 6789</a>
                     <span class="text-body">|</span>
-                    <a class="text-body px-3" href=""><i class="fa fa-envelope mr-2"></i>t-motoshop@gmail.com</a>
+                    <a class="text-body px-3" href=""><i class="fa fa-envelope mr-2"></i>tmotoshop.service@gmail.com</a>
                 </div>
             </div>
             <div class="col-md-6 text-center text-lg-right">
@@ -125,10 +125,10 @@
                     
                         <div class="row">
                             <div class="register ml-4">
-                                Nhập Email hoặc số điện thoại mà bạn đã tạo tài khoản <a href="#"></a>
+                                Nhập Email mà bạn đã tạo tài khoản <a href="#"></a>
                             </div>
                             <div class="col-10 form-group">
-                                <input id="mailOrPhone" type="text" class="form-control p-4 rounded" placeholder="Email hoặc số điện thoại" required="required" name="email">
+                                <input id="mailOrPhone" type="text" class="form-control p-4 rounded" placeholder="Email của bạn" required="required" name="email">
                             </div>
 <!--                            <div class="col-10 form-group">-->
 <!--                                <input  id="input" type="password" class="form-control p-4 rounded " placeholder="Mật khẩu" required="required">-->

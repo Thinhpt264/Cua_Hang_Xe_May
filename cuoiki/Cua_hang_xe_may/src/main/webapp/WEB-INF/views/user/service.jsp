@@ -116,7 +116,7 @@
                     <h1 class="display-1 text-uppercase text-primary mb-4">Quà tặng đặc biệt</h1>
                     <h1 class="text-uppercase text-light mb-4">tặng ngay 1 áo mưa màu hồng</h1>
                     <p class="mb-4">*Áp dụng duy nhất cho thành viên đăng ký mới vào tháng 10*</p>
-                    <a class="btn btn-primary mt-2 py-3 px-5" href="login/index.html">Đăng Ký Ngay</a>
+                    <a class="btn btn-primary mt-2 py-3 px-5" href="#">Đăng Ký Ngay</a>
                 </div>
             </div>
         </div>

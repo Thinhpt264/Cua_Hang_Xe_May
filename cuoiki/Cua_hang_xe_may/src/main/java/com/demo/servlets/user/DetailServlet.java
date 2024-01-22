@@ -2,7 +2,9 @@ package com.demo.servlets.user;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,6 +15,8 @@ import javax.servlet.http.HttpServletResponse;
 import com.demo.entities.Comment;
 import com.demo.entities.CommentCustom;
 import com.demo.entities.Product;
+import com.demo.entities.ProductColor;
+import com.demo.entities.ProductVersion;
 import com.demo.models.CommentModel;
 import com.demo.models.ProductModel;
 import com.google.gson.Gson;
@@ -79,7 +83,12 @@ public class DetailServlet extends HttpServlet {
 		int colorID = Integer.parseInt(request.getParameter("colorID"));
 		ProductModel productModel = new ProductModel();
 		Gson gson = new Gson();
-		writer.print(gson.toJson(productModel.findProductColorById(colorID)));
+		Map<String, Object> data = new HashMap<String, Object>();
+		ProductColor color = productModel.findProductColorById(colorID);
+		data.put("color", color);
+		ProductVersion version = productModel.findProductVersionById(color.getVersionID());
+		data.put("version", version);
+		writer.print(gson.toJson(data));
 	}
 
 	/**

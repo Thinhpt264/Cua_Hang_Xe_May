@@ -7,28 +7,99 @@
             <h1 class="display-4 text-uppercase text-center mb-5">Liên Hệ với chúng tôi</h1>
             <div class="row">
                 <div class="col-lg-7 mb-2">
-                    <div class="contact-form bg-light mb-4" style="padding: 30px;">
-                        <form action="${pageContext.request.contextPath}/contact?action=addNewContact" method="post">
+                    <div class="contact-form bg-light mb-4" id="before" style="padding: 30px;">
+                        <form id="formContact" onsubmit="return false;" method="get">
                             <div class="d-flex justify-content-center"><h3>Để Lại Thông Tin Để Được Tư Vấn</h3></div>
                             <div class="row">
                                 <div class="col-6 form-group">
-                                    <input type="text" name="name" class="form-control p-4" placeholder="Tên Của Bạn" required="required">
+                                    <input type="text" id="name" name="name" class="form-control p-4" placeholder="Tên Của Bạn" required="required">
                                 </div>
                                 <div class="col-6 form-group">
-                                    <input type="email" name="email" class="form-control p-4" placeholder="Email" required="required">
+                                    <input type="email" id="email" name="email" class="form-control p-4" placeholder="Email" required="required">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <input type="text" name="phone"class="form-control p-4" placeholder="Số điện thoại liên hệ" required="required">
+                                <input type="text" id="phone" name="phone"class="form-control p-4" placeholder="Số điện thoại liên hệ" required="required">
                             </div>
                             <div class="form-group">
-                                <textarea class="form-control py-3 px-4" name="content" rows="5" placeholder="Yêu Cầu Để Tư Vấn" required="required"></textarea>
+                                <textarea class="form-control py-3 px-4" id="content" name="content" rows="5" placeholder="Yêu Cầu Để Tư Vấn" required="required"></textarea>
                             </div>
                             <div>
-                                <button class="btn btn-primary py-3 px-5" type="submit">Gửi Yêu Cầu</button>
+                                <button class="btn btn-primary py-3 px-5" id="button" type="submit">Gửi Yêu Cầu</button>
                             </div>
                         </form>
                     </div>
+                    <script type="text/javascript">
+                    	$(document).ready(function() {
+                    		$('#button').click(function() {
+                    			var name1 =  document.getElementById("name").value;
+                    			var email = document.getElementById("email").value;
+                    			var phone =   document.getElementById("phone").value;
+                    			var content =  document.getElementById("content").value;
+                    			console.log(name);
+                    			console.log(email);
+                    			console.log(phone);
+                    			console.log(content);
+                    			$.ajax({
+                    				method: 'GET',
+                    				url: '${pageContext.request.contextPath}/contact',
+                    				dataType: 'json',
+                    				contentType: 'application/json; charset=utf-8',
+                    				data: {
+                    					action: 'addNewContact',
+                    					name: name1,
+                    					email: email,
+                    					phone: phone,
+                    					content: content
+                    				},
+        							success: function(contact) {
+        								document.getElementById("before").style.display = "none";
+        								document.getElementById("after").style.display = "block";
+										var name = contact.name;
+										var email = contact.email;
+										var phone = contact.phone;
+										var content = contact.content;
+										$('#nameContact').html(name);
+										$('#emailContact').html(email);
+										$('#phoneContact').html(phone);
+										$('#contentContact').html(content);
+
+										
+									}
+                    			})
+                    		})
+                    	})
+                    </script>
+                    <div class="contact-form bg-light mb-4" id="after" style="padding: 30px; display: none">
+                       <div class="d-flex justify-content-center"><h3>Cảm Ơn Bạn Đã Liên Hệ </h3></div>
+                       <div class="row">
+                                <div class="col-6 form-group">
+                                   Tên Của Bạn: <span id="nameContact"> </span>
+                                </div>
+                                <div class="col-6 form-group">
+                                   Email Liên Hệ: <span id="emailContact"> </span>
+                                </div>
+                                <div class="col-6 form-group">
+									Số Điện Thoại Của Bạn: <span id="phoneContact"></span>
+                            	</div>
+	                            <div class="col-6 form-group">
+	                                Nội Dung Liên Hệ: <span id="contentContact"></span>
+	                            </div>
+	                           <button onclick="toggleDivs()" class="btn btn-primary py-3 px-5" id="button2">OK</button>
+	                           
+                            </div>
+                    </div>
+                    <script>
+							    function toggleDivs() {
+							      var div1 = document.getElementById("before");
+							      var div2 = document.getElementById("after");
+							
+							      if (div1.style.display === "none") {
+							        div1.style.display = "block";
+							        div2.style.display = "none";
+							    }
+							    }
+					</script>
                 </div>
                 <div class="col-lg-5 mb-2">
                     <div class="bg-secondary d-flex flex-column justify-content-center px-5 mb-4" style="height: 435px;">
@@ -50,7 +121,7 @@
                             <i class="fa fa-2x fa-envelope-open text-primary flex-shrink-0 mr-3"></i>
                             <div class="mt-n1">
                                 <h5 class="text-light">Chăm sóc khách hàng 24/7</h5>
-                                <p>t-motoshop_cskh@gmail.com</p>
+                                <p>tmotoshop.service@gmail.com</p>
                             </div>
                         </div>
                         <div class="d-flex">

@@ -80,6 +80,7 @@ public class ProductVersionServlet extends HttpServlet {
 		response.setCharacterEncoding("UTF-8");
 		int  id = Integer.parseInt(request.getParameter("id")) ;
 		int productId = Integer.parseInt(request.getParameter("productId"));
+//		String name = request.getParameter("productId");
 		String versionname = request.getParameter("nameVersion");
 		double price = Double.parseDouble(request.getParameter("price"));
 		VersionModel versionModel = new VersionModel();

@@ -88,6 +88,27 @@ public class InvoiceModel {
 		}
 		return result;
 	}
+	public boolean update(Invoice invoice) {
+		boolean result = true;
+		try {
+			PreparedStatement preparedStatement = ConnectDB.connection()
+					.prepareStatement("Update invoicedetails set colorId = ?, tradeDate=?,"
+							+ " customerId=?, employeeId=?, price=?  where id =?");
+			preparedStatement.setInt(1, invoice.getColorId());
+			preparedStatement.setString(2, invoice.getTradeDate());
+			preparedStatement.setInt(3, invoice.getCustomerId());
+			preparedStatement.setInt(4, invoice.getEmployeeId());
+			preparedStatement.setDouble(5, invoice.getPrice());
+			preparedStatement.setInt(6, invoice.getId());
+			result = preparedStatement.executeUpdate() > 0;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			result = false;
+		}
+		return result;
+	}
+	
 	public boolean delete(int id) {
 		boolean result = true;
 		try {

@@ -15,6 +15,7 @@
   <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/login/style.css">
 </head>
 <body>
+<a href="${pageContext.request.contextPath}/home" style="text-decoration: none"> <i class="fa-solid fa-backward"></i> Trang Chủ</a>
 <div class="wrapper">
       <div class="title-text">
         <div class="title login">Đăng nhập</div>

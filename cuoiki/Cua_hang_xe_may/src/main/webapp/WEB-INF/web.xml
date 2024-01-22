@@ -10,10 +10,12 @@
   	<description></description>
   	<filter-class>com.demo.entities.RoleFilterAdmin</filter-class>
   </filter>
+  
   <filter-mapping>
   	<filter-name>RoleFilterAdmin</filter-name>
   	<url-pattern>/RoleFilterAdmin</url-pattern>
   </filter-mapping>
+  
   <servlet>
   	<servlet-name>HomeServlet</servlet-name>
   	<display-name>HomeServlet</display-name>

@@ -11,12 +11,12 @@
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1 class="m-0">Danh Sách Tài Khoản Trên Hệ Thống</h1>
+              <h1 class="m-0">Danh Sách Khách Hàng Trên Hệ Thống</h1>
             </div><!-- /.col -->
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
                 <li class="breadcrumb-item"><a href="#">Trang Chủ</a></li>
-                <li class="breadcrumb-item active">Danh Sách Tài Khoản</li>
+                <li class="breadcrumb-item active">Danh Sách Khách Hàng</li>
               </ol>
             </div><!-- /.col -->
           </div><!-- /.row -->
@@ -66,25 +66,25 @@
                                   <td><%=c.getAddress() %></td>
                                   <td><%=c.getCard() %></td>
                                   
-                                 <td class="text-center"><a href="${pageContext.request.contextPath }/admin/customerbuyproducts?action=update&id=<%=c.getId() %>" class="btn btn-info"><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a>
-                                 </td>
-                                 <td class="text-center"><a onclick="handleLinkClick(event)" href="${pageContext.request.contextPath }/admin/customerbuyproducts?action=delete&id=<%=c.getId() %>"  class="btn btn-danger"><i class="fas fa-trash" style="color: #000000;"></i></a></td>
-                            	 <script type="text/javascript">
-                            function handleLinkClick(event) {
-                                var confirmation = confirm("Bạn có chắc chắn muốn xóa người này?");
-
-                                if (confirmation) {
-                                  var linkHref = event.target.href;
-                                  window.location.href = linkHref;
-                                } else {
-                                  
-                                }
-
-                                return false; // Ngăn chặn hành vi mặc định của thẻ <a>
-                              }
-						</script>
-                            </tr>
-                            <% } %>
+                                 <td class="text-center"><a href="${pageContext.request.contextPath }/admin/customerbuyproducts?action=update&id=<%=c.getId() %>" class="btn btn-info"><i class="fa-solid fa-pen-to-square" style="color: #00040a;"></i></a></td>
+                                 <td class="text-center"><a onclick=" return handleLinkClick(event , <%= c.getId() %>)" href="${pageContext.request.contextPath }/admin/customerbuyproducts?action=delete&id=<%=c.getId() %>" class="btn btn-danger"><i class="fas fa-trash" style="color: #000000;"></i></a></td>
+                                    	
+                                    </tr>
+                                    <%} %>
+                    				<script type="text/javascript">
+				                            function handleLinkClick(event, id) {
+				                                var confirmation = confirm("Bạn có chắc chắn muốn xóa người này?");
+				                                if (confirmation) {
+				                                  var linkHref = "${pageContext.request.contextPath }/admin/customerbuyproducts?action=delete&id=" + id;
+				                                  
+				                                  window.location.href = linkHref;
+				                                } else {
+				                                  
+				                                }
+				
+				                                return false; // Ngăn chặn hành vi mặc định của thẻ <a>
+				                              }
+										</script>
                           </tbody>
 
                         </table>

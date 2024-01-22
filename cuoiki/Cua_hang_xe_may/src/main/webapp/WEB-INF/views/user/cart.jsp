@@ -48,7 +48,7 @@
           	
            </span>
 	                    </div>
-	                    <a class="btn btn-primary px-3" href="">Mua Ngay</a>
+	                    <a class="btn btn-primary px-3" href="${pageContext.request.contextPath}/contact">Nhận Báo Giá</a>
 	                </div>
 	                <div class="col-lg-2 d-flex justify-content-end align-items-center">
 	                    <a href="${pageContext.request.contextPath}/cart?action=remove&index=${i.index}" class="btn btn-danger">Xóa</a>

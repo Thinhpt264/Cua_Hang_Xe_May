@@ -58,8 +58,18 @@
                                         </div>
                                         <div class="col-md-8 ml-5">
                                             <label for="">Nhập ảnh hãng xe</label> <br>
-                                            <input type="file" name="photo" value = "<%= brand.getPhoto() %>" id="input">
-                                            <div id="div"></div>
+                                            <div class="input-group">
+                                              <div class="custom-file">
+                                                <input type="file" name="photo" value= "<%= brand.getPhoto() %>" class="custom-file-input" id="exampleInputFile" onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])">
+                                                <label class="custom-file-label" for="exampleInputFile">Chọn Ảnh</label>
+                                              </div>
+                                              <div class="input-group-append">
+                                                <span class="input-group-text">Tải Lên</span>
+                                              </div>
+                                            </div>
+                                            <div class="upload__img-wrap">
+                                              <img id="blah" src="${pageContext.request.contextPath}/assets/user/Image/<%=brand.getPhoto() %>" alt="" width="100" height="100" />
+                                          </div>
                                         </div>
                                     </div>
                                     <div class="row">

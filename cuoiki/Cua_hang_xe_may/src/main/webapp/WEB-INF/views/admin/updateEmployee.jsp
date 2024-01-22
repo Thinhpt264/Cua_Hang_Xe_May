@@ -1,3 +1,4 @@
+<%@page import="java.text.DecimalFormat"%>
 <%@page import="com.demo.entities.Employee"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.demo.entities.Account"%>
@@ -9,7 +10,7 @@
     
 
     <%Employee employee = (Employee) request.getAttribute("employee"); 
-    	 
+    DecimalFormat df = new DecimalFormat("########");
     %>
     <!-- Content Header (Page header) -->
       <div class="content-header">
@@ -56,13 +57,13 @@
                             <div class="col-md-3 ml-5">
                               <div class="form-group">
                                 <label for="exampleInputName1">Số Căn Cước Định Danh</label>
-                                <input type="text" name="card" class="form-control" id="exampleInputName1" value="<%=employee.getCardID() %>" placeholder="Số Căn Cước Công Dân Nhân Viên">
+                                <input type="number" name="card" class="form-control" id="exampleInputName1" value="<%=employee.getCardID() %>" placeholder="Số Căn Cước Công Dân Nhân Viên" >
                             </div>
                             </div>
                            <div class="col-md-3 ml-5">
                             <div class="form-group">
                                 <label for="exampleInputPhoneNumber1">Mức Lương</label>
-                                <input type="number" name="salary" class="form-control" value="<%= employee.getSalary() %>" id="exampleInputPhoneNumber1" placeholder="Mức Lương Nhân Viên">
+                                <input type="number" name="salary" class="form-control" value="<%= df.format(employee.getSalary()) %>" id="exampleInputPhoneNumber1" placeholder="Mức Lương Nhân Viên">
                               </div>
                            </div>
                         </div>
